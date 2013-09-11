@@ -21,4 +21,5 @@
 "Papilio SOC Soft Processors"
 {
 "ZPUino"
+"zpuino_papilio_pro"
 }

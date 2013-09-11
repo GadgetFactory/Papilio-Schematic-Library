@@ -84,6 +84,48 @@ end entity papilio_pro_top;
 
 architecture behave of papilio_pro_top is
 
+  component zpuino_empty_device_pps is
+  port (
+    wb_clk_i: in std_logic;
+	wb_rst_i: in std_logic;
+    wb_dat_o: out std_logic_vector(wordSize-1 downto 0);
+    wb_dat_i: in std_logic_vector(wordSize-1 downto 0);
+    wb_adr_i: in std_logic_vector(maxIOBit downto minIOBit);
+    wb_we_i:  in std_logic;
+    wb_cyc_i: in std_logic;
+    wb_stb_i: in std_logic;
+    wb_ack_o: out std_logic;
+    wb_inta_o:out std_logic;
+	pps_i: in std_logic_vector(10 downto 0);
+	pps_o: out std_logic_vector(10 downto 0)
+  );
+  end component;  
+  
+  component zpuino_sigmadelta_pps is
+  	port (
+      wb_clk_i: in std_logic;
+  	 	wb_rst_i: in std_logic;
+      wb_dat_o: out std_logic_vector(wordSize-1 downto 0);
+      wb_dat_i: in std_logic_vector(wordSize-1 downto 0);
+      wb_adr_i: in std_logic_vector(maxIObit downto minIObit);
+      wb_we_i:  in std_logic;
+      wb_cyc_i: in std_logic;
+      wb_stb_i: in std_logic;
+      wb_ack_o: out std_logic;
+      wb_inta_o:out std_logic;
+  	
+  	pps_i: in std_logic_vector(10 downto 0);
+  	pps_o: out std_logic_vector(10 downto 0)	
+  
+      -- sync_in:  in std_logic;
+  
+      --Connection to GPIO pin
+  	 -- raw_out: out std_logic_vector(17 downto 0);
+      -- spp_data: out std_logic_vector(1 downto 0);
+      -- spp_en:   out std_logic_vector(1 downto 0)
+    );
+  end component;
+
   component zpuino_debug_jtag_spartan6 is
   port (
     jtag_data_chain_in: in std_logic_vector(98 downto 0);
@@ -149,6 +191,8 @@ architecture behave of papilio_pro_top is
     "1111111111111111" &  -- Wing B
     "1111111111111111";   -- Wing A
 
+  
+  type slot_pps_type is array(0 to num_devices-1) of std_logic_vector(10 downto 0);
   -- I/O Signals
   signal slot_cyc:    slot_std_logic_type;
   signal slot_we:     slot_std_logic_type;
@@ -158,6 +202,8 @@ architecture behave of papilio_pro_top is
   signal slot_address:slot_address_type;
   signal slot_ack:    slot_std_logic_type;
   signal slot_interrupt: slot_std_logic_type;
+  signal slot_pps_o: slot_pps_type; 
+  signal slot_pps_i: slot_pps_type;  
 
   -- 2nd SPI signals
   signal spi2_mosi:   std_logic;
@@ -181,8 +227,8 @@ architecture behave of papilio_pro_top is
   signal spi_pf_sck:  std_logic;
 
   -- UART signals
-  signal rx: std_logic;
-  signal tx: std_logic;
+  signal rx,rx2: std_logic;
+  signal tx,tx2: std_logic;
   signal sysclk_sram_we, sysclk_sram_wen: std_ulogic;
 
   signal ram_wb_ack_o:       std_logic;
@@ -729,7 +775,7 @@ begin
   -- IO SLOT 5
   --
 
-  sigmadelta_inst: zpuino_sigmadelta
+  slot5: zpuino_empty_device_pps
   port map (
     wb_clk_i      => wb_clk_i,
 	 	wb_rst_i      => wb_rst_i,
@@ -741,10 +787,8 @@ begin
     wb_stb_i      => slot_stb(5),
     wb_ack_o      => slot_ack(5),
     wb_inta_o     => slot_interrupt(5),
-
-    spp_data      => sigmadelta_spp_data,
-    spp_en        => open,
-    sync_in       => '1'
+    pps_i         => slot_pps_i(5),
+    pps_o         => slot_pps_o(5)
   );
 
   --
@@ -829,7 +873,7 @@ begin
   -- IO SLOT 8
   --
 
-  slot8: zpuino_empty_device
+  slot8: zpuino_empty_device_pps
   port map (
     wb_clk_i      => wb_clk_i,
 	 	wb_rst_i      => wb_rst_i,
@@ -840,14 +884,16 @@ begin
     wb_cyc_i      => slot_cyc(8),
     wb_stb_i      => slot_stb(8),
     wb_ack_o      => slot_ack(8),
-    wb_inta_o     => slot_interrupt(8)
+    wb_inta_o     => slot_interrupt(8),
+    pps_i         => slot_pps_i(8),
+    pps_o         => slot_pps_o(8)
   );
 
   --
   -- IO SLOT 9
   --
 
-slot9: zpuino_empty_device
+slot9: zpuino_empty_device_pps
   port map (
     wb_clk_i      => wb_clk_i,
 	 	wb_rst_i      => wb_rst_i,
@@ -858,7 +904,9 @@ slot9: zpuino_empty_device
     wb_cyc_i      => slot_cyc(9),
     wb_stb_i      => slot_stb(9),
     wb_ack_o      => slot_ack(9),
-    wb_inta_o     => slot_interrupt(9)
+    wb_inta_o     => slot_interrupt(9),
+    pps_i         => slot_pps_i(9),
+    pps_o         => slot_pps_o(9)
   );
 
 
@@ -866,7 +914,7 @@ slot9: zpuino_empty_device
   -- IO SLOT 10
   --
 
-  slot10: zpuino_empty_device
+  slot10: zpuino_empty_device_pps
   port map (
     wb_clk_i      => wb_clk_i,
 	 	wb_rst_i      => wb_rst_i,
@@ -877,14 +925,16 @@ slot9: zpuino_empty_device
     wb_cyc_i      => slot_cyc(10),
     wb_stb_i      => slot_stb(10),
     wb_ack_o      => slot_ack(10),
-    wb_inta_o     => slot_interrupt(10)
+    wb_inta_o     => slot_interrupt(10),
+    pps_i         => slot_pps_i(10),
+    pps_o         => slot_pps_o(10)    
   );
 
   --
   -- IO SLOT 11
   --
 
-  slot11: zpuino_empty_device
+  slot11: zpuino_empty_device_pps
   port map (
     wb_clk_i      => wb_clk_i,
 	 	wb_rst_i      => wb_rst_i,
@@ -895,14 +945,16 @@ slot9: zpuino_empty_device
     wb_cyc_i      => slot_cyc(11),
     wb_stb_i      => slot_stb(11),
     wb_ack_o      => slot_ack(11),
-    wb_inta_o     => slot_interrupt(11)
+    wb_inta_o     => slot_interrupt(11),
+    pps_i         => slot_pps_i(11),
+    pps_o         => slot_pps_o(11)    
   );
 
   --
   -- IO SLOT 12
   --
 
-  slot12: zpuino_empty_device
+  slot12: zpuino_empty_device_pps
   port map (
     wb_clk_i      => wb_clk_i,
 	 	wb_rst_i      => wb_rst_i,
@@ -913,14 +965,16 @@ slot9: zpuino_empty_device
     wb_cyc_i      => slot_cyc(12),
     wb_stb_i      => slot_stb(12),
     wb_ack_o      => slot_ack(12),
-    wb_inta_o     => slot_interrupt(12)
+    wb_inta_o     => slot_interrupt(12),
+    pps_i         => slot_pps_i(12),
+    pps_o         => slot_pps_o(12)    
   );
 
   --
   -- IO SLOT 13
   --
 
-  slot13: zpuino_empty_device
+  slot13: zpuino_empty_device_pps
   port map (
     wb_clk_i       => wb_clk_i,
 	 	wb_rst_i       => wb_rst_i,
@@ -931,14 +985,16 @@ slot9: zpuino_empty_device
     wb_cyc_i        => slot_cyc(13),
     wb_stb_i        => slot_stb(13),
     wb_ack_o      => slot_ack(13),
-    wb_inta_o => slot_interrupt(13)
+    wb_inta_o => slot_interrupt(13),
+    pps_i         => slot_pps_i(13),
+    pps_o         => slot_pps_o(13)
   );
 
   --
   -- IO SLOT 14
   --
   
-    slot14: zpuino_empty_device
+    slot14: zpuino_empty_device_pps
   port map (
     wb_clk_i      => wb_clk_i,
 	 	wb_rst_i      => wb_rst_i,
@@ -949,7 +1005,9 @@ slot9: zpuino_empty_device
     wb_cyc_i      => slot_cyc(14),
     wb_stb_i      => slot_stb(14),
     wb_ack_o      => slot_ack(14),
-    wb_inta_o     => slot_interrupt(14)
+    wb_inta_o     => slot_interrupt(14),
+    pps_i         => slot_pps_i(14),
+    pps_o         => slot_pps_o(14)
   );
 
   --
