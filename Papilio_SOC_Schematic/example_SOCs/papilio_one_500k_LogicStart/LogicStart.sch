@@ -89,16 +89,6 @@
         <signal name="XLXN_128" />
         <signal name="XLXN_129" />
         <signal name="XLXN_130" />
-        <signal name="XLXN_356(48:0)" />
-        <signal name="XLXN_355(48:0)" />
-        <signal name="XLXN_354(48:0)" />
-        <signal name="XLXN_353(48:0)" />
-        <signal name="XLXN_352(48:0)" />
-        <signal name="XLXN_351" />
-        <signal name="SPI_SCK" />
-        <signal name="SPI_CS" />
-        <signal name="txd" />
-        <signal name="SPI_MOSI" />
         <signal name="XLXN_421(27:0)" />
         <signal name="XLXN_422" />
         <signal name="XLXN_423" />
@@ -114,7 +104,6 @@
         <signal name="XLXN_433" />
         <signal name="XLXN_434" />
         <signal name="XLXN_435" />
-        <signal name="XLXN_436" />
         <signal name="XLXN_437" />
         <signal name="XLXN_438" />
         <signal name="WING_AH(7:0)" />
@@ -129,26 +118,36 @@
         <signal name="XLXN_442(1:0)" />
         <signal name="XLXN_447" />
         <signal name="XLXN_448" />
-        <signal name="XLXN_450(1:0)" />
-        <signal name="XLXN_451(2:0)" />
-        <signal name="XLXN_452(2:0)" />
         <signal name="XLXN_450(1)" />
         <signal name="XLXN_451(2)" />
         <signal name="XLXN_452(2)" />
         <signal name="XLXN_442(0)" />
+        <signal name="SPI_SCK" />
+        <signal name="SPI_MOSI" />
+        <signal name="TXD" />
+        <signal name="SPI_CS" />
+        <signal name="XLXN_457" />
+        <signal name="XLXN_458(48:0)" />
+        <signal name="XLXN_459(48:0)" />
+        <signal name="XLXN_460(48:0)" />
+        <signal name="XLXN_461(48:0)" />
+        <signal name="XLXN_462(48:0)" />
+        <signal name="XLXN_450(1:0)" />
+        <signal name="XLXN_451(2:0)" />
+        <signal name="XLXN_452(2:0)" />
         <port polarity="Input" name="clk" />
         <port polarity="Input" name="SPI_MISO" />
         <port polarity="Input" name="rxd" />
-        <port polarity="Output" name="SPI_SCK" />
-        <port polarity="BiDirectional" name="SPI_CS" />
-        <port polarity="Output" name="txd" />
-        <port polarity="Output" name="SPI_MOSI" />
         <port polarity="BiDirectional" name="WING_AH(7:0)" />
         <port polarity="BiDirectional" name="WING_AL(7:0)" />
         <port polarity="BiDirectional" name="WING_BH(7:0)" />
         <port polarity="BiDirectional" name="WING_BL(7:0)" />
         <port polarity="BiDirectional" name="WING_CH(7:0)" />
         <port polarity="BiDirectional" name="WING_CL(7:0)" />
+        <port polarity="Output" name="SPI_SCK" />
+        <port polarity="Output" name="SPI_MOSI" />
+        <port polarity="Output" name="TXD" />
+        <port polarity="BiDirectional" name="SPI_CS" />
         <blockdef name="zpuino_empty_device">
             <timestamp>2013-2-8T22:57:48</timestamp>
             <rect width="152" x="12" y="-32" height="20" />
@@ -572,17 +571,17 @@
             <blockpin signalname="XLXN_433" name="wb_cyc_i15" />
             <blockpin signalname="XLXN_434" name="wb_stb_i15" />
             <blockpin signalname="XLXN_435" name="wb_ack_o15" />
-            <blockpin signalname="XLXN_436" name="wb_inta_o15" />
+            <blockpin name="wb_inta_o15" />
             <blockpin signalname="SPI_SCK" name="SPI_SCK" />
             <blockpin signalname="SPI_MOSI" name="SPI_MOSI" />
-            <blockpin signalname="txd" name="TXD" />
+            <blockpin signalname="TXD" name="TXD" />
             <blockpin signalname="SPI_CS" name="SPI_CS" />
-            <blockpin signalname="XLXN_351" name="gpio_clk" />
-            <blockpin signalname="XLXN_353(48:0)" name="gpio_t(48:0)" />
-            <blockpin signalname="XLXN_352(48:0)" name="gpio_o(48:0)" />
-            <blockpin signalname="XLXN_354(48:0)" name="gpio_i(48:0)" />
-            <blockpin signalname="XLXN_355(48:0)" name="gpio_spp_data(48:0)" />
-            <blockpin signalname="XLXN_356(48:0)" name="gpio_spp_read(48:0)" />
+            <blockpin signalname="XLXN_457" name="gpio_clk" />
+            <blockpin signalname="XLXN_459(48:0)" name="gpio_t(48:0)" />
+            <blockpin signalname="XLXN_458(48:0)" name="gpio_o(48:0)" />
+            <blockpin signalname="XLXN_460(48:0)" name="gpio_i(48:0)" />
+            <blockpin signalname="XLXN_461(48:0)" name="gpio_spp_data(48:0)" />
+            <blockpin signalname="XLXN_462(48:0)" name="gpio_spp_read(48:0)" />
             <blockpin signalname="XLXN_427(31:0)" name="v_wb_dat_o(31:0)" />
             <blockpin signalname="XLXN_428(31:0)" name="v_wb_dat_i(31:0)" />
             <blockpin signalname="XLXN_421(27:0)" name="v_wb_adr_i(27:0)" />
@@ -593,12 +592,12 @@
             <blockpin signalname="XLXN_426" name="vgaclkout" />
         </block>
         <block symbolname="LogicStart_MegaWing" name="XLXI_33">
-            <blockpin signalname="XLXN_351" name="gpio_clk" />
-            <blockpin signalname="XLXN_352(48:0)" name="gpio_o(48:0)" />
-            <blockpin signalname="XLXN_353(48:0)" name="gpio_t(48:0)" />
-            <blockpin signalname="XLXN_354(48:0)" name="gpio_i(48:0)" />
-            <blockpin signalname="XLXN_355(48:0)" name="gpio_spp_data(48:0)" />
-            <blockpin signalname="XLXN_356(48:0)" name="gpio_spp_read(48:0)" />
+            <blockpin signalname="XLXN_457" name="gpio_clk" />
+            <blockpin signalname="XLXN_458(48:0)" name="gpio_o(48:0)" />
+            <blockpin signalname="XLXN_459(48:0)" name="gpio_t(48:0)" />
+            <blockpin signalname="XLXN_460(48:0)" name="gpio_i(48:0)" />
+            <blockpin signalname="XLXN_461(48:0)" name="gpio_spp_data(48:0)" />
+            <blockpin signalname="XLXN_462(48:0)" name="gpio_spp_read(48:0)" />
             <blockpin signalname="WING_AH(7:0)" name="WING_AH(7:0)" />
             <blockpin signalname="WING_AL(7:0)" name="WING_AL(7:0)" />
             <blockpin signalname="WING_BH(7:0)" name="WING_BH(7:0)" />
@@ -926,50 +925,6 @@
         <iomarker fontsize="28" x="432" y="384" name="clk" orien="R180" />
         <iomarker fontsize="28" x="432" y="448" name="SPI_MISO" orien="R180" />
         <iomarker fontsize="28" x="432" y="512" name="rxd" orien="R180" />
-        <branch name="XLXN_356(48:0)">
-            <wire x2="2336" y1="752" y2="752" x1="2320" />
-            <wire x2="2592" y1="752" y2="752" x1="2336" />
-        </branch>
-        <branch name="XLXN_355(48:0)">
-            <wire x2="2336" y1="720" y2="720" x1="2320" />
-            <wire x2="2592" y1="720" y2="720" x1="2336" />
-        </branch>
-        <branch name="XLXN_354(48:0)">
-            <wire x2="2336" y1="688" y2="688" x1="2320" />
-            <wire x2="2592" y1="688" y2="688" x1="2336" />
-        </branch>
-        <branch name="XLXN_353(48:0)">
-            <wire x2="2336" y1="656" y2="656" x1="2320" />
-            <wire x2="2592" y1="656" y2="656" x1="2336" />
-        </branch>
-        <branch name="XLXN_352(48:0)">
-            <wire x2="2336" y1="624" y2="624" x1="2320" />
-            <wire x2="2592" y1="624" y2="624" x1="2336" />
-        </branch>
-        <branch name="XLXN_351">
-            <wire x2="2336" y1="592" y2="592" x1="2320" />
-            <wire x2="2592" y1="592" y2="592" x1="2336" />
-        </branch>
-        <branch name="SPI_SCK">
-            <wire x2="2336" y1="336" y2="336" x1="2320" />
-            <wire x2="2352" y1="336" y2="336" x1="2336" />
-        </branch>
-        <branch name="SPI_CS">
-            <wire x2="2336" y1="528" y2="528" x1="2320" />
-            <wire x2="2352" y1="528" y2="528" x1="2336" />
-        </branch>
-        <branch name="txd">
-            <wire x2="2336" y1="464" y2="464" x1="2320" />
-            <wire x2="2352" y1="464" y2="464" x1="2336" />
-        </branch>
-        <branch name="SPI_MOSI">
-            <wire x2="2336" y1="400" y2="400" x1="2320" />
-            <wire x2="2352" y1="400" y2="400" x1="2336" />
-        </branch>
-        <iomarker fontsize="28" x="2352" y="336" name="SPI_SCK" orien="R0" />
-        <iomarker fontsize="28" x="2352" y="528" name="SPI_CS" orien="R0" />
-        <iomarker fontsize="28" x="2352" y="464" name="txd" orien="R0" />
-        <iomarker fontsize="28" x="2352" y="400" name="SPI_MOSI" orien="R0" />
         <instance x="704" y="976" name="XLXI_15" orien="R0">
         </instance>
         <instance x="1056" y="976" name="XLXI_17" orien="R0">
@@ -1028,9 +983,6 @@
         </branch>
         <branch name="XLXN_435">
             <wire x2="2080" y1="896" y2="912" x1="2080" />
-        </branch>
-        <branch name="XLXN_436">
-            <wire x2="2096" y1="896" y2="928" x1="2096" />
         </branch>
         <branch name="XLXN_437">
             <wire x2="1968" y1="896" y2="912" x1="1968" />
@@ -1095,23 +1047,13 @@
         </instance>
         <branch name="XLXN_447">
             <wire x2="2416" y1="1200" y2="1200" x1="2400" />
-            <wire x2="2592" y1="1200" y2="1200" x1="2416" />
+            <wire x2="2576" y1="1200" y2="1200" x1="2416" />
+            <wire x2="2592" y1="1200" y2="1200" x1="2576" />
         </branch>
         <branch name="XLXN_448">
             <wire x2="2416" y1="1264" y2="1264" x1="2400" />
-            <wire x2="2592" y1="1264" y2="1264" x1="2416" />
-        </branch>
-        <branch name="XLXN_450(1:0)">
-            <wire x2="2592" y1="1008" y2="1008" x1="2560" />
-            <wire x2="2560" y1="1008" y2="1024" x1="2560" />
-        </branch>
-        <branch name="XLXN_451(2:0)">
-            <wire x2="2592" y1="1072" y2="1072" x1="2560" />
-            <wire x2="2560" y1="1072" y2="1088" x1="2560" />
-        </branch>
-        <branch name="XLXN_452(2:0)">
-            <wire x2="2592" y1="1136" y2="1136" x1="2560" />
-            <wire x2="2560" y1="1136" y2="1152" x1="2560" />
+            <wire x2="2576" y1="1264" y2="1264" x1="2416" />
+            <wire x2="2592" y1="1264" y2="1264" x1="2576" />
         </branch>
         <bustap x2="2464" y1="1008" y2="1008" x1="2560" />
         <branch name="XLXN_450(1)">
@@ -1133,9 +1075,55 @@
         </branch>
         <bustap x2="2384" y1="1760" y2="1760" x1="2288" />
         <branch name="XLXN_442(0)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="2488" y="1760" type="branch" />
-            <wire x2="2488" y1="1760" y2="1760" x1="2384" />
-            <wire x2="2592" y1="1760" y2="1760" x1="2488" />
+            <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="2488" y="1760" type="branch" />
+            <wire x2="2496" y1="1760" y2="1760" x1="2384" />
+            <wire x2="2592" y1="1760" y2="1760" x1="2496" />
+        </branch>
+        <branch name="SPI_SCK">
+            <wire x2="2368" y1="336" y2="336" x1="2336" />
+        </branch>
+        <iomarker fontsize="28" x="2368" y="336" name="SPI_SCK" orien="R0" />
+        <branch name="SPI_MOSI">
+            <wire x2="2368" y1="400" y2="400" x1="2336" />
+        </branch>
+        <iomarker fontsize="28" x="2368" y="400" name="SPI_MOSI" orien="R0" />
+        <branch name="TXD">
+            <wire x2="2368" y1="464" y2="464" x1="2336" />
+        </branch>
+        <iomarker fontsize="28" x="2368" y="464" name="TXD" orien="R0" />
+        <branch name="SPI_CS">
+            <wire x2="2368" y1="528" y2="528" x1="2336" />
+        </branch>
+        <iomarker fontsize="28" x="2368" y="528" name="SPI_CS" orien="R0" />
+        <branch name="XLXN_457">
+            <wire x2="2592" y1="592" y2="592" x1="2336" />
+        </branch>
+        <branch name="XLXN_458(48:0)">
+            <wire x2="2592" y1="624" y2="624" x1="2336" />
+        </branch>
+        <branch name="XLXN_459(48:0)">
+            <wire x2="2592" y1="656" y2="656" x1="2336" />
+        </branch>
+        <branch name="XLXN_460(48:0)">
+            <wire x2="2592" y1="688" y2="688" x1="2336" />
+        </branch>
+        <branch name="XLXN_461(48:0)">
+            <wire x2="2592" y1="720" y2="720" x1="2336" />
+        </branch>
+        <branch name="XLXN_462(48:0)">
+            <wire x2="2592" y1="752" y2="752" x1="2336" />
+        </branch>
+        <branch name="XLXN_450(1:0)">
+            <wire x2="2592" y1="1008" y2="1008" x1="2560" />
+            <wire x2="2560" y1="1008" y2="1024" x1="2560" />
+        </branch>
+        <branch name="XLXN_451(2:0)">
+            <wire x2="2592" y1="1072" y2="1072" x1="2560" />
+            <wire x2="2560" y1="1072" y2="1088" x1="2560" />
+        </branch>
+        <branch name="XLXN_452(2:0)">
+            <wire x2="2592" y1="1136" y2="1136" x1="2560" />
+            <wire x2="2560" y1="1136" y2="1152" x1="2560" />
         </branch>
     </sheet>
 </drawing>
