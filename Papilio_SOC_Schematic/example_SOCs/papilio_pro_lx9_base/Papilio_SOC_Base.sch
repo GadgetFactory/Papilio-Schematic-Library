@@ -142,17 +142,17 @@
         <port polarity="BiDirectional" name="DRAM_DQ(15:0)" />
         <blockdef name="zpuino_empty_device">
             <timestamp>2013-2-8T22:57:48</timestamp>
-            <rect width="152" x="12" y="-32" height="20" />
-            <line x2="16" y1="-48" y2="-32" x1="16" />
-            <line x2="32" y1="-48" y2="-32" x1="32" />
-            <line x2="48" y1="-48" y2="-32" x1="48" />
-            <line x2="64" y1="-48" y2="-32" x1="64" />
-            <line x2="80" y1="-48" y2="-32" x1="80" />
-            <line x2="96" y1="-48" y2="-32" x1="96" />
-            <line x2="112" y1="-48" y2="-32" x1="112" />
-            <line x2="128" y1="-48" y2="-32" x1="128" />
-            <line x2="144" y1="-48" y2="-32" x1="144" />
-            <line x2="160" y1="-48" y2="-32" x1="160" />
+            <rect width="152" x="-116" y="112" height="20" />
+            <line x2="-112" y1="96" y2="112" x1="-112" />
+            <line x2="-96" y1="96" y2="112" x1="-96" />
+            <line x2="-80" y1="96" y2="112" x1="-80" />
+            <line x2="-64" y1="96" y2="112" x1="-64" />
+            <line x2="-48" y1="96" y2="112" x1="-48" />
+            <line x2="-32" y1="96" y2="112" x1="-32" />
+            <line x2="-16" y1="96" y2="112" x1="-16" />
+            <line x2="0" y1="96" y2="112" x1="0" />
+            <line x2="16" y1="96" y2="112" x1="16" />
+            <line x2="32" y1="96" y2="112" x1="32" />
         </blockdef>
         <blockdef name="Papilio_Default">
             <timestamp>2013-2-9T1:43:9</timestamp>
@@ -313,102 +313,6 @@
             <line x2="1568" y1="0" y2="-28" x1="1568" />
             <line x2="1584" y1="0" y2="-28" x1="1584" />
         </blockdef>
-        <block symbolname="zpuino_empty_device" name="XLXI_15">
-            <blockpin signalname="XLXN_11" name="wb_clk_i" />
-            <blockpin signalname="XLXN_12" name="wb_rst_i" />
-            <blockpin signalname="XLXN_13(31:0)" name="wb_dat_o(31:0)" />
-            <blockpin signalname="XLXN_14(31:0)" name="wb_dat_i(31:0)" />
-            <blockpin signalname="XLXN_15(26:2)" name="wb_adr_i(26:2)" />
-            <blockpin signalname="XLXN_16" name="wb_we_i" />
-            <blockpin signalname="XLXN_17" name="wb_cyc_i" />
-            <blockpin signalname="XLXN_18" name="wb_stb_i" />
-            <blockpin signalname="XLXN_19" name="wb_ack_o" />
-            <blockpin signalname="XLXN_20" name="wb_inta_o" />
-        </block>
-        <block symbolname="zpuino_empty_device" name="XLXI_17">
-            <blockpin signalname="XLXN_49" name="wb_clk_i" />
-            <blockpin signalname="XLXN_50" name="wb_rst_i" />
-            <blockpin signalname="XLXN_51(31:0)" name="wb_dat_o(31:0)" />
-            <blockpin signalname="XLXN_52(31:0)" name="wb_dat_i(31:0)" />
-            <blockpin signalname="XLXN_53(26:2)" name="wb_adr_i(26:2)" />
-            <blockpin signalname="XLXN_54" name="wb_we_i" />
-            <blockpin signalname="XLXN_55" name="wb_cyc_i" />
-            <blockpin signalname="XLXN_56" name="wb_stb_i" />
-            <blockpin signalname="XLXN_57" name="wb_ack_o" />
-            <blockpin signalname="XLXN_58" name="wb_inta_o" />
-        </block>
-        <block symbolname="zpuino_empty_device" name="XLXI_18">
-            <blockpin signalname="XLXN_59" name="wb_clk_i" />
-            <blockpin signalname="XLXN_60" name="wb_rst_i" />
-            <blockpin signalname="XLXN_61(31:0)" name="wb_dat_o(31:0)" />
-            <blockpin signalname="XLXN_62(31:0)" name="wb_dat_i(31:0)" />
-            <blockpin signalname="XLXN_63(26:2)" name="wb_adr_i(26:2)" />
-            <blockpin signalname="XLXN_64" name="wb_we_i" />
-            <blockpin signalname="XLXN_65" name="wb_cyc_i" />
-            <blockpin signalname="XLXN_66" name="wb_stb_i" />
-            <blockpin signalname="XLXN_67" name="wb_ack_o" />
-            <blockpin signalname="XLXN_68" name="wb_inta_o" />
-        </block>
-        <block symbolname="zpuino_empty_device" name="XLXI_19">
-            <blockpin signalname="XLXN_69" name="wb_clk_i" />
-            <blockpin signalname="XLXN_70" name="wb_rst_i" />
-            <blockpin signalname="XLXN_71(31:0)" name="wb_dat_o(31:0)" />
-            <blockpin signalname="XLXN_72(31:0)" name="wb_dat_i(31:0)" />
-            <blockpin signalname="XLXN_73(26:2)" name="wb_adr_i(26:2)" />
-            <blockpin signalname="XLXN_74" name="wb_we_i" />
-            <blockpin signalname="XLXN_75" name="wb_cyc_i" />
-            <blockpin signalname="XLXN_76" name="wb_stb_i" />
-            <blockpin signalname="XLXN_77" name="wb_ack_o" />
-            <blockpin signalname="XLXN_78" name="wb_inta_o" />
-        </block>
-        <block symbolname="zpuino_empty_device" name="XLXI_20">
-            <blockpin signalname="XLXN_79" name="wb_clk_i" />
-            <blockpin signalname="XLXN_80" name="wb_rst_i" />
-            <blockpin signalname="XLXN_81(31:0)" name="wb_dat_o(31:0)" />
-            <blockpin signalname="XLXN_82(31:0)" name="wb_dat_i(31:0)" />
-            <blockpin signalname="XLXN_83(26:2)" name="wb_adr_i(26:2)" />
-            <blockpin signalname="XLXN_84" name="wb_we_i" />
-            <blockpin signalname="XLXN_85" name="wb_cyc_i" />
-            <blockpin signalname="XLXN_86" name="wb_stb_i" />
-            <blockpin signalname="XLXN_87" name="wb_ack_o" />
-            <blockpin signalname="XLXN_88" name="wb_inta_o" />
-        </block>
-        <block symbolname="zpuino_empty_device" name="XLXI_21">
-            <blockpin signalname="XLXN_89" name="wb_clk_i" />
-            <blockpin signalname="XLXN_90" name="wb_rst_i" />
-            <blockpin signalname="XLXN_91(31:0)" name="wb_dat_o(31:0)" />
-            <blockpin signalname="XLXN_92(31:0)" name="wb_dat_i(31:0)" />
-            <blockpin signalname="XLXN_93(26:2)" name="wb_adr_i(26:2)" />
-            <blockpin signalname="XLXN_94" name="wb_we_i" />
-            <blockpin signalname="XLXN_95" name="wb_cyc_i" />
-            <blockpin signalname="XLXN_96" name="wb_stb_i" />
-            <blockpin signalname="XLXN_97" name="wb_ack_o" />
-            <blockpin signalname="XLXN_98" name="wb_inta_o" />
-        </block>
-        <block symbolname="zpuino_empty_device" name="XLXI_31">
-            <blockpin signalname="XLXN_121" name="wb_clk_i" />
-            <blockpin signalname="XLXN_122" name="wb_rst_i" />
-            <blockpin signalname="XLXN_123(31:0)" name="wb_dat_o(31:0)" />
-            <blockpin signalname="XLXN_124(31:0)" name="wb_dat_i(31:0)" />
-            <blockpin signalname="XLXN_125(26:2)" name="wb_adr_i(26:2)" />
-            <blockpin signalname="XLXN_126" name="wb_we_i" />
-            <blockpin signalname="XLXN_127" name="wb_cyc_i" />
-            <blockpin signalname="XLXN_128" name="wb_stb_i" />
-            <blockpin signalname="XLXN_129" name="wb_ack_o" />
-            <blockpin signalname="XLXN_130" name="wb_inta_o" />
-        </block>
-        <block symbolname="zpuino_empty_device" name="XLXI_29">
-            <blockpin signalname="XLXN_39" name="wb_clk_i" />
-            <blockpin signalname="XLXN_40" name="wb_rst_i" />
-            <blockpin signalname="XLXN_41(31:0)" name="wb_dat_o(31:0)" />
-            <blockpin signalname="XLXN_42(31:0)" name="wb_dat_i(31:0)" />
-            <blockpin signalname="XLXN_43(26:2)" name="wb_adr_i(26:2)" />
-            <blockpin signalname="XLXN_44" name="wb_we_i" />
-            <blockpin signalname="XLXN_45" name="wb_cyc_i" />
-            <blockpin signalname="XLXN_46" name="wb_stb_i" />
-            <blockpin signalname="XLXN_47" name="wb_ack_o" />
-            <blockpin signalname="XLXN_48" name="wb_inta_o" />
-        </block>
         <block symbolname="Papilio_Default" name="XLXI_32">
             <blockpin signalname="XLXN_440" name="gpio_clk" />
             <blockpin signalname="XLXN_441(48:0)" name="gpio_o(48:0)" />
@@ -536,6 +440,102 @@
             <blockpin name="v_wb_stb_i" />
             <blockpin name="v_wb_ack_o" />
             <blockpin name="vgaclkout" />
+        </block>
+        <block symbolname="zpuino_empty_device" name="XLXI_15">
+            <blockpin signalname="XLXN_11" name="wb_clk_i" />
+            <blockpin signalname="XLXN_12" name="wb_rst_i" />
+            <blockpin signalname="XLXN_13(31:0)" name="wb_dat_o(31:0)" />
+            <blockpin signalname="XLXN_14(31:0)" name="wb_dat_i(31:0)" />
+            <blockpin signalname="XLXN_15(26:2)" name="wb_adr_i(26:2)" />
+            <blockpin signalname="XLXN_16" name="wb_we_i" />
+            <blockpin signalname="XLXN_17" name="wb_cyc_i" />
+            <blockpin signalname="XLXN_18" name="wb_stb_i" />
+            <blockpin signalname="XLXN_19" name="wb_ack_o" />
+            <blockpin signalname="XLXN_20" name="wb_inta_o" />
+        </block>
+        <block symbolname="zpuino_empty_device" name="XLXI_17">
+            <blockpin signalname="XLXN_49" name="wb_clk_i" />
+            <blockpin signalname="XLXN_50" name="wb_rst_i" />
+            <blockpin signalname="XLXN_51(31:0)" name="wb_dat_o(31:0)" />
+            <blockpin signalname="XLXN_52(31:0)" name="wb_dat_i(31:0)" />
+            <blockpin signalname="XLXN_53(26:2)" name="wb_adr_i(26:2)" />
+            <blockpin signalname="XLXN_54" name="wb_we_i" />
+            <blockpin signalname="XLXN_55" name="wb_cyc_i" />
+            <blockpin signalname="XLXN_56" name="wb_stb_i" />
+            <blockpin signalname="XLXN_57" name="wb_ack_o" />
+            <blockpin signalname="XLXN_58" name="wb_inta_o" />
+        </block>
+        <block symbolname="zpuino_empty_device" name="XLXI_18">
+            <blockpin signalname="XLXN_59" name="wb_clk_i" />
+            <blockpin signalname="XLXN_60" name="wb_rst_i" />
+            <blockpin signalname="XLXN_61(31:0)" name="wb_dat_o(31:0)" />
+            <blockpin signalname="XLXN_62(31:0)" name="wb_dat_i(31:0)" />
+            <blockpin signalname="XLXN_63(26:2)" name="wb_adr_i(26:2)" />
+            <blockpin signalname="XLXN_64" name="wb_we_i" />
+            <blockpin signalname="XLXN_65" name="wb_cyc_i" />
+            <blockpin signalname="XLXN_66" name="wb_stb_i" />
+            <blockpin signalname="XLXN_67" name="wb_ack_o" />
+            <blockpin signalname="XLXN_68" name="wb_inta_o" />
+        </block>
+        <block symbolname="zpuino_empty_device" name="XLXI_19">
+            <blockpin signalname="XLXN_69" name="wb_clk_i" />
+            <blockpin signalname="XLXN_70" name="wb_rst_i" />
+            <blockpin signalname="XLXN_71(31:0)" name="wb_dat_o(31:0)" />
+            <blockpin signalname="XLXN_72(31:0)" name="wb_dat_i(31:0)" />
+            <blockpin signalname="XLXN_73(26:2)" name="wb_adr_i(26:2)" />
+            <blockpin signalname="XLXN_74" name="wb_we_i" />
+            <blockpin signalname="XLXN_75" name="wb_cyc_i" />
+            <blockpin signalname="XLXN_76" name="wb_stb_i" />
+            <blockpin signalname="XLXN_77" name="wb_ack_o" />
+            <blockpin signalname="XLXN_78" name="wb_inta_o" />
+        </block>
+        <block symbolname="zpuino_empty_device" name="XLXI_20">
+            <blockpin signalname="XLXN_79" name="wb_clk_i" />
+            <blockpin signalname="XLXN_80" name="wb_rst_i" />
+            <blockpin signalname="XLXN_81(31:0)" name="wb_dat_o(31:0)" />
+            <blockpin signalname="XLXN_82(31:0)" name="wb_dat_i(31:0)" />
+            <blockpin signalname="XLXN_83(26:2)" name="wb_adr_i(26:2)" />
+            <blockpin signalname="XLXN_84" name="wb_we_i" />
+            <blockpin signalname="XLXN_85" name="wb_cyc_i" />
+            <blockpin signalname="XLXN_86" name="wb_stb_i" />
+            <blockpin signalname="XLXN_87" name="wb_ack_o" />
+            <blockpin signalname="XLXN_88" name="wb_inta_o" />
+        </block>
+        <block symbolname="zpuino_empty_device" name="XLXI_21">
+            <blockpin signalname="XLXN_89" name="wb_clk_i" />
+            <blockpin signalname="XLXN_90" name="wb_rst_i" />
+            <blockpin signalname="XLXN_91(31:0)" name="wb_dat_o(31:0)" />
+            <blockpin signalname="XLXN_92(31:0)" name="wb_dat_i(31:0)" />
+            <blockpin signalname="XLXN_93(26:2)" name="wb_adr_i(26:2)" />
+            <blockpin signalname="XLXN_94" name="wb_we_i" />
+            <blockpin signalname="XLXN_95" name="wb_cyc_i" />
+            <blockpin signalname="XLXN_96" name="wb_stb_i" />
+            <blockpin signalname="XLXN_97" name="wb_ack_o" />
+            <blockpin signalname="XLXN_98" name="wb_inta_o" />
+        </block>
+        <block symbolname="zpuino_empty_device" name="XLXI_31">
+            <blockpin signalname="XLXN_121" name="wb_clk_i" />
+            <blockpin signalname="XLXN_122" name="wb_rst_i" />
+            <blockpin signalname="XLXN_123(31:0)" name="wb_dat_o(31:0)" />
+            <blockpin signalname="XLXN_124(31:0)" name="wb_dat_i(31:0)" />
+            <blockpin signalname="XLXN_125(26:2)" name="wb_adr_i(26:2)" />
+            <blockpin signalname="XLXN_126" name="wb_we_i" />
+            <blockpin signalname="XLXN_127" name="wb_cyc_i" />
+            <blockpin signalname="XLXN_128" name="wb_stb_i" />
+            <blockpin signalname="XLXN_129" name="wb_ack_o" />
+            <blockpin signalname="XLXN_130" name="wb_inta_o" />
+        </block>
+        <block symbolname="zpuino_empty_device" name="XLXI_29">
+            <blockpin signalname="XLXN_39" name="wb_clk_i" />
+            <blockpin signalname="XLXN_40" name="wb_rst_i" />
+            <blockpin signalname="XLXN_41(31:0)" name="wb_dat_o(31:0)" />
+            <blockpin signalname="XLXN_42(31:0)" name="wb_dat_i(31:0)" />
+            <blockpin signalname="XLXN_43(26:2)" name="wb_adr_i(26:2)" />
+            <blockpin signalname="XLXN_44" name="wb_we_i" />
+            <blockpin signalname="XLXN_45" name="wb_cyc_i" />
+            <blockpin signalname="XLXN_46" name="wb_stb_i" />
+            <blockpin signalname="XLXN_47" name="wb_ack_o" />
+            <blockpin signalname="XLXN_48" name="wb_inta_o" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -843,18 +843,6 @@
             <wire x2="1680" y1="1136" y2="1152" x1="1680" />
             <wire x2="1680" y1="1152" y2="1168" x1="1680" />
         </branch>
-        <instance x="1696" y="1216" name="XLXI_15" orien="R0">
-        </instance>
-        <instance x="2048" y="1216" name="XLXI_17" orien="R0">
-        </instance>
-        <instance x="2224" y="1216" name="XLXI_18" orien="R0">
-        </instance>
-        <instance x="2400" y="1216" name="XLXI_19" orien="R0">
-        </instance>
-        <instance x="2576" y="1216" name="XLXI_20" orien="R0">
-        </instance>
-        <instance x="2752" y="1216" name="XLXI_21" orien="R0">
-        </instance>
         <branch name="WING_AH(7:0)">
             <wire x2="4176" y1="832" y2="832" x1="4144" />
         </branch>
@@ -873,10 +861,6 @@
         <branch name="WING_CL(7:0)">
             <wire x2="4176" y1="1152" y2="1152" x1="4144" />
         </branch>
-        <instance x="1520" y="1216" name="XLXI_31" orien="R0">
-        </instance>
-        <instance x="1872" y="1216" name="XLXI_29" orien="R0">
-        </instance>
         <instance x="3584" y="1184" name="XLXI_32" orien="R0">
         </instance>
         <branch name="XLXN_440">
@@ -1004,5 +988,21 @@
         <iomarker fontsize="28" x="1424" y="752" name="DRAM_CKE" orien="R180" />
         <iomarker fontsize="28" x="1424" y="720" name="DRAM_CAS_N" orien="R180" />
         <iomarker fontsize="28" x="1424" y="688" name="DRAM_DQ(15:0)" orien="R180" />
+        <instance x="1824" y="1072" name="XLXI_15" orien="R0">
+        </instance>
+        <instance x="2176" y="1072" name="XLXI_17" orien="R0">
+        </instance>
+        <instance x="2352" y="1072" name="XLXI_18" orien="R0">
+        </instance>
+        <instance x="2528" y="1072" name="XLXI_19" orien="R0">
+        </instance>
+        <instance x="2704" y="1072" name="XLXI_20" orien="R0">
+        </instance>
+        <instance x="2880" y="1072" name="XLXI_21" orien="R0">
+        </instance>
+        <instance x="1648" y="1072" name="XLXI_31" orien="R0">
+        </instance>
+        <instance x="2000" y="1072" name="XLXI_29" orien="R0">
+        </instance>
     </sheet>
 </drawing>
