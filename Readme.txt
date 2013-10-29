@@ -1,4 +1,4 @@
-Papilio SOC - Schematic System on Chip (Source Code) - Current Version 1.0
+Papilio Schematic Library - Schematic System on Chip (Source Code) - Current Version 1.0
 
 Papilio SOC Home Page
 http://papilio.cc
