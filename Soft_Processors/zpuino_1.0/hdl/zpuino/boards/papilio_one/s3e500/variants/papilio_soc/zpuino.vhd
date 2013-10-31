@@ -42,6 +42,7 @@ use work.zpuinopkg.all;
 use work.zpuino_config.all;
 use work.zpu_config.all;
 use work.pad.all;
+use work.papilio_pkg.all;
 
 library unisim;
 use unisim.vcomponents.all;
@@ -51,142 +52,54 @@ entity ZPUino is
     CLK:        in std_logic;
     --RST:        in std_logic; -- No reset on papilio
 
-    SPI_SCK:    out std_logic;
-    SPI_MISO:   in std_logic;
-    SPI_MOSI:   out std_logic;
-    SPI_CS:     inout std_logic;
-
-	 gpio_clk: out std_logic;
-    gpio_o:   out std_logic_vector(48 downto 0);
-    gpio_t:   out std_logic_vector(48 downto 0);
-    gpio_i:   in std_logic_vector(48 downto 0);
-
-    gpio_spp_data: in std_logic_vector(48 downto 0);
-    gpio_spp_read: out std_logic_vector(48 downto 0);
-
---    WING_A:     inout std_logic_vector(15 downto 0);
---    WING_B:     inout std_logic_vector(15 downto 0);
---    WING_C:     inout std_logic_vector(15 downto 0);
+    SPI_FLASH_SCK:    out std_logic;
+    SPI_FLASH_MISO:   in std_logic;
+    SPI_FLASH_MOSI:   out std_logic;
+    SPI_FLASH_CS:     inout std_logic;
+	 
+	 gpio_bus_in : in gpio_bus_in_type;
+	 gpio_bus_out : out gpio_bus_out_type;	 
 
     TXD:        out std_logic;
     RXD:        in std_logic;
+
+	 wishbone_slot_video_in : in wishbone_bus_in_type;
+	 wishbone_slot_video_out : out wishbone_bus_out_type;
+	 vgaclkout: out std_logic;	
+
+
+	 wishbone_slot_5_in : in wishbone_bus_out_type;
+	 wishbone_slot_5_out : out wishbone_bus_in_type;
 	 
-	 v_wb_dat_o: out std_logic_vector(wordSize-1 downto 0);
-	 v_wb_dat_i: in std_logic_vector(wordSize-1 downto 0);
-	 v_wb_adr_i: in std_logic_vector(maxAddrBitIncIO downto 0);
-	 v_wb_we_i:  in std_logic;
-	 v_wb_cyc_i: in std_logic;
-	 v_wb_stb_i: in std_logic;
-	 v_wb_ack_o: out std_logic;
-	 vgaclkout: out std_logic;	 
+	 wishbone_slot_6_in : in wishbone_bus_out_type;
+	 wishbone_slot_6_out : out wishbone_bus_in_type;
+
+	 wishbone_slot_7_in : in wishbone_bus_out_type;
+	 wishbone_slot_7_out : out wishbone_bus_in_type;	 
 	 
-	 --Wishbone Slot 5
-    wb_clk_i5: out std_logic;
-	 wb_rst_i5: out std_logic;
-    wb_dat_o5: in std_logic_vector(31 downto 0);
-    wb_dat_i5: out std_logic_vector(31 downto 0);
-    wb_adr_i5: out std_logic_vector(26 downto 2);
-    wb_we_i5:  out std_logic;
-    wb_cyc_i5: out std_logic;
-    wb_stb_i5: out std_logic;
-    wb_ack_o5: in std_logic;
-    wb_inta_o5:in std_logic;
+	 wishbone_slot_8_in : in wishbone_bus_out_type;
+	 wishbone_slot_8_out : out wishbone_bus_in_type;
+
+	 wishbone_slot_9_in : in wishbone_bus_out_type;
+	 wishbone_slot_9_out : out wishbone_bus_in_type;
+
+	 wishbone_slot_10_in : in wishbone_bus_out_type;
+	 wishbone_slot_10_out : out wishbone_bus_in_type;
+
+	 wishbone_slot_11_in : in wishbone_bus_out_type;
+	 wishbone_slot_11_out : out wishbone_bus_in_type;	
+
+	 wishbone_slot_12_in : in wishbone_bus_out_type;
+	 wishbone_slot_12_out : out wishbone_bus_in_type;	
+
+	 wishbone_slot_13_in : in wishbone_bus_out_type;
+	 wishbone_slot_13_out : out wishbone_bus_in_type;		 
 	 
-	 --Wishbone Slot 8
-    wb_clk_i8: out std_logic;
-	 wb_rst_i8: out std_logic;
-    wb_dat_o8: in std_logic_vector(31 downto 0);
-    wb_dat_i8: out std_logic_vector(31 downto 0);
-    wb_adr_i8: out std_logic_vector(26 downto 2);
-    wb_we_i8:  out std_logic;
-    wb_cyc_i8: out std_logic;
-    wb_stb_i8: out std_logic;
-    wb_ack_o8: in std_logic;
-    wb_inta_o8:in std_logic;
+	 wishbone_slot_14_in : in wishbone_bus_out_type;
+	 wishbone_slot_14_out : out wishbone_bus_in_type;	
 
-	 --Wishbone Slot 9
-    wb_clk_i9: out std_logic;
-	 wb_rst_i9: out std_logic;
-    wb_dat_o9: in std_logic_vector(31 downto 0);
-    wb_dat_i9: out std_logic_vector(31 downto 0);
-    wb_adr_i9: out std_logic_vector(26 downto 2);
-    wb_we_i9:  out std_logic;
-    wb_cyc_i9: out std_logic;
-    wb_stb_i9: out std_logic;
-    wb_ack_o9: in std_logic;
-    wb_inta_o9:in std_logic;
-
-	 --Wishbone Slot 10
-    wb_clk_i10: out std_logic;
-	 wb_rst_i10: out std_logic;
-    wb_dat_o10: in std_logic_vector(31 downto 0);
-    wb_dat_i10: out std_logic_vector(31 downto 0);
-    wb_adr_i10: out std_logic_vector(26 downto 2);
-    wb_we_i10:  out std_logic;
-    wb_cyc_i10: out std_logic;
-    wb_stb_i10: out std_logic;
-    wb_ack_o10: in std_logic;
-    wb_inta_o10:in std_logic;
-
-	 --Wishbone Slot 11
-    wb_clk_i11: out std_logic;
-	 wb_rst_i11: out std_logic;
-    wb_dat_o11: in std_logic_vector(31 downto 0);
-    wb_dat_i11: out std_logic_vector(31 downto 0);
-    wb_adr_i11: out std_logic_vector(26 downto 2);
-    wb_we_i11:  out std_logic;
-    wb_cyc_i11: out std_logic;
-    wb_stb_i11: out std_logic;
-    wb_ack_o11: in std_logic;
-    wb_inta_o11:in std_logic;
-
-	 --Wishbone Slot 12
-    wb_clk_i12: out std_logic;
-	 wb_rst_i12: out std_logic;
-    wb_dat_o12: in std_logic_vector(31 downto 0);
-    wb_dat_i12: out std_logic_vector(31 downto 0);
-    wb_adr_i12: out std_logic_vector(26 downto 2);
-    wb_we_i12:  out std_logic;
-    wb_cyc_i12: out std_logic;
-    wb_stb_i12: out std_logic;
-    wb_ack_o12: in std_logic;
-    wb_inta_o12:in std_logic;
-
-	 --Wishbone Slot 13
-    wb_clk_i13: out std_logic;
-	 wb_rst_i13: out std_logic;
-    wb_dat_o13: in std_logic_vector(31 downto 0);
-    wb_dat_i13: out std_logic_vector(31 downto 0);
-    wb_adr_i13: out std_logic_vector(26 downto 2);
-    wb_we_i13:  out std_logic;
-    wb_cyc_i13: out std_logic;
-    wb_stb_i13: out std_logic;
-    wb_ack_o13: in std_logic;
-    wb_inta_o13:in std_logic;
-
-	 --Wishbone Slot 14
-    wb_clk_i14: out std_logic;
-	 wb_rst_i14: out std_logic;
-    wb_dat_o14: in std_logic_vector(31 downto 0);
-    wb_dat_i14: out std_logic_vector(31 downto 0);
-    wb_adr_i14: out std_logic_vector(26 downto 2);
-    wb_we_i14:  out std_logic;
-    wb_cyc_i14: out std_logic;
-    wb_stb_i14: out std_logic;
-    wb_ack_o14: in std_logic;
-    wb_inta_o14:in std_logic;
-
-	 --Wishbone Slot 15
-    wb_clk_i15: out std_logic;
-	 wb_rst_i15: out std_logic;
-    wb_dat_o15: in std_logic_vector(31 downto 0);
-    wb_dat_i15: out std_logic_vector(31 downto 0);
-    wb_adr_i15: out std_logic_vector(26 downto 2);
-    wb_we_i15:  out std_logic;
-    wb_cyc_i15: out std_logic;
-    wb_stb_i15: out std_logic;
-    wb_ack_o15: in std_logic;
-    wb_inta_o15:in std_logic	 
+	 wishbone_slot_15_in : in wishbone_bus_out_type;
+	 wishbone_slot_15_out : out wishbone_bus_in_type		 
 
   );
 end entity ZPUino;
@@ -221,9 +134,7 @@ architecture behave of ZPUino is
   signal sysclk_1mhz: std_logic;
   signal dbg_reset:   std_logic;
   signal clkgen_rst:  std_logic;
---  signal gpio_o:      std_logic_vector(zpuino_gpio_count-1 downto 0);
---  signal gpio_t:      std_logic_vector(zpuino_gpio_count-1 downto 0);
---  signal gpio_i:      std_logic_vector(zpuino_gpio_count-1 downto 0);
+
   signal gpio_o_reg:      std_logic_vector(zpuino_gpio_count-1 downto 0);
 
   signal rx: std_logic;
@@ -252,18 +163,8 @@ architecture behave of ZPUino is
 
   signal spi_enabled:  std_logic;
 
-  signal spi2_enabled:  std_logic;
-  signal spi2_mosi:  std_logic;
-  signal spi2_miso:  std_logic;
-  signal spi2_sck:  std_logic;
 
   signal uart_enabled:  std_logic;
-
-  -- SPP signal is one more than GPIO count
---  signal gpio_spp_data: std_logic_vector(zpuino_gpio_count-1 downto 0);
---  signal gpio_spp_read: std_logic_vector(zpuino_gpio_count-1 downto 0);
-
-  --signal gpio_spp_en: std_logic_vector(zpuino_gpio_count-1 downto 1);
 
   signal timers_interrupt:  std_logic_vector(1 downto 0);
   signal timers_pwm: std_logic_vector(1 downto 0);
@@ -276,14 +177,6 @@ architecture behave of ZPUino is
   -- For busy-implementation
   signal addr_save_q: std_logic_vector(maxAddrBitIncIO downto 0);
   signal write_save_q: std_logic_vector(wordSize-1 downto 0);
-
---  signal io_address: std_logic_vector(maxAddrBitIncIO downto 0);
---  signal io_write: std_logic_vector(wordSize-1 downto 0);
---  signal io_cyc: std_logic;
---  signal io_stb: std_logic;
---  signal io_we: std_logic;
-
---  signal io_device_ack: std_logic;
 
   signal spi_pf_miso: std_logic;
   signal spi_pf_mosi: std_logic;
@@ -303,31 +196,6 @@ architecture behave of ZPUino is
   signal jtag_data_chain_out: std_logic_vector(98 downto 0);
   signal jtag_ctrl_chain_in:  std_logic_vector(11 downto 0);
 
---  signal TCK,TDI,CAPTUREIR,UPDATEIR,SHIFTIR,CAPTUREDR,UPDATEDR,SHIFTDR,TLR,TDO_IR,TDO_DR: std_logic;
-
-
---  component zpuino_debug_jtag is
---  port (
-    -- Connections to JTAG stuff
-
---    TCK: in std_logic;
---    TDI: in std_logic;
---    CAPTUREIR: in std_logic;
---    UPDATEIR:  in std_logic;
---    SHIFTIR:  in std_logic;
---    CAPTUREDR: in std_logic;
---    UPDATEDR:  in std_logic;
---    SHIFTDR:  in std_logic;
---    TLR:  in std_logic;
-
---    TDO_IR:   out std_logic;
---    TDO_DR:   out std_logic;
-
-
---    jtag_data_chain_in: in std_logic_vector(98 downto 0);
- --   jtag_ctrl_chain_out: out std_logic_vector(11 downto 0)
---  );
---  end component;
 
   component zpuino_debug_spartan3e is
   port (
@@ -345,214 +213,146 @@ architecture behave of ZPUino is
   );
   end component;
 
---  component wb_sid6581 is
---  port (
---    wb_clk_i: in std_logic;
---    wb_rst_i: in std_logic;
---    wb_dat_o: out std_logic_vector(wordSize-1 downto 0);
---    wb_dat_i: in std_logic_vector(wordSize-1 downto 0);
---    wb_adr_i: in std_logic_vector(maxIObit downto minIObit);
---    wb_we_i:  in std_logic;
---    wb_cyc_i: in std_logic;
---    wb_stb_i: in std_logic;
---    wb_ack_o: out std_logic;
---    wb_inta_o:out std_logic;
---
---    clk_1MHZ: in std_logic;
---    audio_data: out std_logic_vector(17 downto 0)
---
---  );
---  end component wb_sid6581;
---  
---	COMPONENT zpuino_io_YM2149
---	PORT(
---		wb_clk_i : IN std_logic;
---		wb_rst_i : IN std_logic;
---		wb_dat_i : IN std_logic_vector(31 downto 0);
---		wb_adr_i : IN std_logic_vector(26 downto 2);
---		wb_we_i : IN std_logic;
---		wb_cyc_i : IN std_logic;
---		wb_stb_i : IN std_logic;          
---		wb_dat_o : OUT std_logic_vector(31 downto 0);
---		wb_ack_o : OUT std_logic;
---		wb_inta_o : OUT std_logic;
---		data_out : OUT std_logic_vector(7 downto 0)
---		);
---	END COMPONENT;
---
---	COMPONENT zpuino_io_audiomixer
---	PORT(
---		clk : IN std_logic;
---		rst : IN std_logic;
---		ena : IN std_logic;
---		data_in1 : IN std_logic_vector(17 downto 0);
---		data_in2 : IN std_logic_vector(17 downto 0);
---		data_in3 : IN std_logic_vector(17 downto 0);          
---		audio_out : OUT std_logic
---		);
---	END COMPONENT;	
---
---  signal sid_audio_data, ym2149_audio_dac: std_logic_vector(17 downto 0);
---  signal sid_audio: std_logic;
---  
---  signal ym2149_audio_data, pokey_audio_data: std_logic_vector(7 downto 0);
---  signal platform_audio_sd: std_logic; 
---
---  component simple_sigmadelta is
---  generic (
---    BITS: integer := 8
---  );
---	port (
---    clk:      in std_logic;
---    rst:      in std_logic;
---    data_in:  in std_logic_vector(BITS-1 downto 0);
---    data_out: out std_logic
---    );
---  end component simple_sigmadelta;
-
-
 begin
 
-  gpio_o <= gpio_o_reg;
-  gpio_clk <= sysclk;
+  gpio_bus_out.gpio_o <= gpio_o_reg;
+  gpio_bus_out.gpio_clk <= sysclk;
 
   wb_clk_i <= sysclk;
   wb_rst_i <= sysrst;
   
   --Wishbone 5
-  wb_clk_i5 <= sysclk;
-  wb_rst_i5 <= sysrst;
-  slot_read(5) <= wb_dat_o5;
-  wb_dat_i5 <= slot_write(5);
-  wb_adr_i5 <= slot_address(5);
-  wb_we_i5 <= slot_we(5);
-  wb_cyc_i5 <= slot_cyc(5);
-  wb_stb_i5 <= slot_stb(5);
-  slot_ack(5) <= wb_ack_o5;
-  slot_interrupt(5) <= wb_inta_o5;
+  wishbone_slot_5_out.wb_clk_i <= sysclk;
+  wishbone_slot_5_out.wb_rst_i <= sysrst;
+  slot_read(5) <= wishbone_slot_5_in.wb_dat_o;
+  wishbone_slot_5_out.wb_dat_i <= slot_write(5);
+  wishbone_slot_5_out.wb_adr_i <= slot_address(5);
+  wishbone_slot_5_out.wb_we_i <= slot_we(5);
+  wishbone_slot_5_out.wb_cyc_i <= slot_cyc(5);
+  wishbone_slot_5_out.wb_stb_i <= slot_stb(5);
+  slot_ack(5) <= wishbone_slot_5_in.wb_ack_o;
+  slot_interrupt(5) <= wishbone_slot_5_in.wb_inta_o;
+  
+  --Wishbone 6
+  wishbone_slot_6_out.wb_clk_i <= sysclk;
+  wishbone_slot_6_out.wb_rst_i <= sysrst;
+  slot_read(6) <= wishbone_slot_6_in.wb_dat_o;
+  wishbone_slot_6_out.wb_dat_i <= slot_write(6);
+  wishbone_slot_6_out.wb_adr_i <= slot_address(6);
+  wishbone_slot_6_out.wb_we_i <= slot_we(6);
+  wishbone_slot_6_out.wb_cyc_i <= slot_cyc(6);
+  wishbone_slot_6_out.wb_stb_i <= slot_stb(6);
+  slot_ack(6) <= wishbone_slot_6_in.wb_ack_o;
+  slot_interrupt(6) <= wishbone_slot_6_in.wb_inta_o;
+
+  --Wishbone 7
+  wishbone_slot_7_out.wb_clk_i <= sysclk;
+  wishbone_slot_7_out.wb_rst_i <= sysrst;
+  slot_read(7) <= wishbone_slot_7_in.wb_dat_o;
+  wishbone_slot_7_out.wb_dat_i <= slot_write(7);
+  wishbone_slot_7_out.wb_adr_i <= slot_address(7);
+  wishbone_slot_7_out.wb_we_i <= slot_we(7);
+  wishbone_slot_7_out.wb_cyc_i <= slot_cyc(7);
+  wishbone_slot_7_out.wb_stb_i <= slot_stb(7);
+  slot_ack(7) <= wishbone_slot_7_in.wb_ack_o;
+  slot_interrupt(7) <= wishbone_slot_7_in.wb_inta_o;  
   
   --Wishbone 8
-  wb_clk_i8 <= sysclk;
-  wb_rst_i8 <= sysrst;
-  slot_read(8) <= wb_dat_o8;
-  wb_dat_i8 <= slot_write(8);
-  wb_adr_i8 <= slot_address(8);
-  wb_we_i8 <= slot_we(8);
-  wb_cyc_i8 <= slot_cyc(8);
-  wb_stb_i8 <= slot_stb(8);
-  slot_ack(8) <= wb_ack_o8;
-  slot_interrupt(8) <= wb_inta_o8;
-
+  wishbone_slot_8_out.wb_clk_i <= sysclk;
+  wishbone_slot_8_out.wb_rst_i <= sysrst;
+  slot_read(8) <= wishbone_slot_8_in.wb_dat_o;
+  wishbone_slot_8_out.wb_dat_i <= slot_write(8);
+  wishbone_slot_8_out.wb_adr_i <= slot_address(8);
+  wishbone_slot_8_out.wb_we_i <= slot_we(8);
+  wishbone_slot_8_out.wb_cyc_i <= slot_cyc(8);
+  wishbone_slot_8_out.wb_stb_i <= slot_stb(8);
+  slot_ack(8) <= wishbone_slot_8_in.wb_ack_o;
+  slot_interrupt(8) <= wishbone_slot_8_in.wb_inta_o;  
+  
   --Wishbone 9
-  wb_clk_i9 <= sysclk;
-  wb_rst_i9 <= sysrst;
-  slot_read(9) <= wb_dat_o9;
-  wb_dat_i9 <= slot_write(9);
-  wb_adr_i9 <= slot_address(9);
-  wb_we_i9 <= slot_we(9);
-  wb_cyc_i9 <= slot_cyc(9);
-  wb_stb_i9 <= slot_stb(9);
-  slot_ack(9) <= wb_ack_o9;
-  slot_interrupt(9) <= wb_inta_o9;
-
+  wishbone_slot_9_out.wb_clk_i <= sysclk;
+  wishbone_slot_9_out.wb_rst_i <= sysrst;
+  slot_read(9) <= wishbone_slot_9_in.wb_dat_o;
+  wishbone_slot_9_out.wb_dat_i <= slot_write(9);
+  wishbone_slot_9_out.wb_adr_i <= slot_address(9);
+  wishbone_slot_9_out.wb_we_i <= slot_we(9);
+  wishbone_slot_9_out.wb_cyc_i <= slot_cyc(9);
+  wishbone_slot_9_out.wb_stb_i <= slot_stb(9);
+  slot_ack(9) <= wishbone_slot_9_in.wb_ack_o;
+  slot_interrupt(9) <= wishbone_slot_9_in.wb_inta_o;  
+  
   --Wishbone 10
-  wb_clk_i10 <= sysclk;
-  wb_rst_i10 <= sysrst;
-  slot_read(10) <= wb_dat_o10;
-  wb_dat_i10 <= slot_write(10);
-  wb_adr_i10 <= slot_address(10);
-  wb_we_i10 <= slot_we(10);
-  wb_cyc_i10 <= slot_cyc(10);
-  wb_stb_i10 <= slot_stb(10);
-  slot_ack(10) <= wb_ack_o10;
-  slot_interrupt(10) <= wb_inta_o10;
+  wishbone_slot_10_out.wb_clk_i <= sysclk;
+  wishbone_slot_10_out.wb_rst_i <= sysrst;
+  slot_read(10) <= wishbone_slot_10_in.wb_dat_o;
+  wishbone_slot_10_out.wb_dat_i <= slot_write(10);
+  wishbone_slot_10_out.wb_adr_i <= slot_address(10);
+  wishbone_slot_10_out.wb_we_i <= slot_we(10);
+  wishbone_slot_10_out.wb_cyc_i <= slot_cyc(10);
+  wishbone_slot_10_out.wb_stb_i <= slot_stb(10);
+  slot_ack(10) <= wishbone_slot_10_in.wb_ack_o;
+  slot_interrupt(10) <= wishbone_slot_10_in.wb_inta_o;
 
   --Wishbone 11
-  wb_clk_i11 <= sysclk;
-  wb_rst_i11 <= sysrst;
-  slot_read(11) <= wb_dat_o11;
-  wb_dat_i11 <= slot_write(11);
-  wb_adr_i11 <= slot_address(11);
-  wb_we_i11 <= slot_we(11);
-  wb_cyc_i11 <= slot_cyc(11);
-  wb_stb_i11 <= slot_stb(11);
-  slot_ack(11) <= wb_ack_o11;
-  slot_interrupt(11) <= wb_inta_o11;
+  wishbone_slot_11_out.wb_clk_i <= sysclk;
+  wishbone_slot_11_out.wb_rst_i <= sysrst;
+  slot_read(11) <= wishbone_slot_11_in.wb_dat_o;
+  wishbone_slot_11_out.wb_dat_i <= slot_write(11);
+  wishbone_slot_11_out.wb_adr_i <= slot_address(11);
+  wishbone_slot_11_out.wb_we_i <= slot_we(11);
+  wishbone_slot_11_out.wb_cyc_i <= slot_cyc(11);
+  wishbone_slot_11_out.wb_stb_i <= slot_stb(11);
+  slot_ack(11) <= wishbone_slot_11_in.wb_ack_o;
+  slot_interrupt(11) <= wishbone_slot_11_in.wb_inta_o;
 
   --Wishbone 12
-  wb_clk_i12 <= sysclk;
-  wb_rst_i12 <= sysrst;
-  slot_read(12) <= wb_dat_o12;
-  wb_dat_i12 <= slot_write(12);
-  wb_adr_i12 <= slot_address(12);
-  wb_we_i12 <= slot_we(12);
-  wb_cyc_i12 <= slot_cyc(12);
-  wb_stb_i12 <= slot_stb(12);
-  slot_ack(12) <= wb_ack_o12;
-  slot_interrupt(12) <= wb_inta_o12;
+  wishbone_slot_12_out.wb_clk_i <= sysclk;
+  wishbone_slot_12_out.wb_rst_i <= sysrst;
+  slot_read(12) <= wishbone_slot_12_in.wb_dat_o;
+  wishbone_slot_12_out.wb_dat_i <= slot_write(12);
+  wishbone_slot_12_out.wb_adr_i <= slot_address(12);
+  wishbone_slot_12_out.wb_we_i <= slot_we(12);
+  wishbone_slot_12_out.wb_cyc_i <= slot_cyc(12);
+  wishbone_slot_12_out.wb_stb_i <= slot_stb(12);
+  slot_ack(12) <= wishbone_slot_12_in.wb_ack_o;
+  slot_interrupt(12) <= wishbone_slot_12_in.wb_inta_o;
 
   --Wishbone 13
-  wb_clk_i13 <= sysclk;
-  wb_rst_i13 <= sysrst;
-  slot_read(13) <= wb_dat_o13;
-  wb_dat_i13 <= slot_write(13);
-  wb_adr_i13 <= slot_address(13);
-  wb_we_i13 <= slot_we(13);
-  wb_cyc_i13 <= slot_cyc(13);
-  wb_stb_i13 <= slot_stb(13);
-  slot_ack(13) <= wb_ack_o13;
-  slot_interrupt(13) <= wb_inta_o13;
+  wishbone_slot_13_out.wb_clk_i <= sysclk;
+  wishbone_slot_13_out.wb_rst_i <= sysrst;
+  slot_read(13) <= wishbone_slot_13_in.wb_dat_o;
+  wishbone_slot_13_out.wb_dat_i <= slot_write(13);
+  wishbone_slot_13_out.wb_adr_i <= slot_address(13);
+  wishbone_slot_13_out.wb_we_i <= slot_we(13);
+  wishbone_slot_13_out.wb_cyc_i <= slot_cyc(13);
+  wishbone_slot_13_out.wb_stb_i <= slot_stb(13);
+  slot_ack(13) <= wishbone_slot_13_in.wb_ack_o;
+  slot_interrupt(13) <= wishbone_slot_13_in.wb_inta_o;
 
   --Wishbone 14
-  wb_clk_i14 <= sysclk;
-  wb_rst_i14 <= sysrst;
-  slot_read(14) <= wb_dat_o14;
-  wb_dat_i14 <= slot_write(14);
-  wb_adr_i14 <= slot_address(14);
-  wb_we_i14 <= slot_we(14);
-  wb_cyc_i14 <= slot_cyc(14);
-  wb_stb_i14 <= slot_stb(14);
-  slot_ack(14) <= wb_ack_o14;
-  slot_interrupt(14) <= wb_inta_o14;
+  wishbone_slot_14_out.wb_clk_i <= sysclk;
+  wishbone_slot_14_out.wb_rst_i <= sysrst;
+  slot_read(14) <= wishbone_slot_14_in.wb_dat_o;
+  wishbone_slot_14_out.wb_dat_i <= slot_write(14);
+  wishbone_slot_14_out.wb_adr_i <= slot_address(14);
+  wishbone_slot_14_out.wb_we_i <= slot_we(14);
+  wishbone_slot_14_out.wb_cyc_i <= slot_cyc(14);
+  wishbone_slot_14_out.wb_stb_i <= slot_stb(14);
+  slot_ack(14) <= wishbone_slot_14_in.wb_ack_o;
+  slot_interrupt(14) <= wishbone_slot_14_in.wb_inta_o;
 
   --Wishbone 15
-  wb_clk_i15 <= sysclk;
-  wb_rst_i15 <= sysrst;
-  slot_read(15) <= wb_dat_o15;
-  wb_dat_i15 <= slot_write(15);
-  wb_adr_i15 <= slot_address(15);
-  wb_we_i15 <= slot_we(15);
-  wb_cyc_i15 <= slot_cyc(15);
-  wb_stb_i15 <= slot_stb(15);
-  slot_ack(15) <= wb_ack_o15;
-  slot_interrupt(15) <= wb_inta_o15;  
+  wishbone_slot_15_out.wb_clk_i <= sysclk;
+  wishbone_slot_15_out.wb_rst_i <= sysrst;
+  slot_read(15) <= wishbone_slot_15_in.wb_dat_o;
+  wishbone_slot_15_out.wb_dat_i <= slot_write(15);
+  wishbone_slot_15_out.wb_adr_i <= slot_address(15);
+  wishbone_slot_15_out.wb_we_i <= slot_we(15);
+  wishbone_slot_15_out.wb_cyc_i <= slot_cyc(15);
+  wishbone_slot_15_out.wb_stb_i <= slot_stb(15);
+  slot_ack(15) <= wishbone_slot_15_in.wb_ack_o;
+  slot_interrupt(15) <= wishbone_slot_15_in.wb_inta_o;
   
-  
-  
-  --    wb_clk_i       => wb_clk_i,
---	 	wb_rst_i    => wb_rst_i,
---    wb_dat_o      => slot_read(5),
---    wb_dat_i     => slot_write(5),
---    wb_adr_i   => slot_address(5),
---    wb_we_i        => slot_we(5),
---    wb_cyc_i        => slot_cyc(5),
---    wb_stb_i        => slot_stb(5),
---    wb_ack_o      => slot_ack(5),
---    wb_inta_o => slot_interrupt(5),
-  
-  
---      wb_clk_i5: out std_logic;
---	 wb_rst_i5: out std_logic;
---	 
---    wb_dat_o5: in std_logic_vector(wordSize-1 downto 0);
---    wb_dat_i5: out std_logic_vector(wordSize-1 downto 0);
---    wb_adr_i5: out std_logic_vector(maxIObit downto minIObit);
---    wb_we_i5:  out std_logic;
---    wb_cyc_i5: out std_logic;
---    wb_stb_i5: out std_logic;
---    wb_ack_o5: in std_logic;
---    wb_inta_o5:in std_logic
-
   rstgen: zpuino_serialreset
     generic map (
       SYSTEM_CLOCK_MHZ  => 96
@@ -593,59 +393,19 @@ begin
       slot_ack      => slot_ack,
       slot_interrupt=> slot_interrupt,
 
-      m_wb_dat_o    => v_wb_dat_o,
-      m_wb_dat_i    => v_wb_dat_i,
-      m_wb_adr_i    => v_wb_adr_i,
-      m_wb_we_i     => v_wb_we_i,
-      m_wb_cyc_i    => v_wb_cyc_i,
-      m_wb_stb_i    => v_wb_stb_i,
-      m_wb_ack_o    => v_wb_ack_o,
+      m_wb_dat_o    => wishbone_slot_video_out.wb_dat_o,
+      m_wb_dat_i    => wishbone_slot_video_in.wb_dat_i,
+      m_wb_adr_i    => wishbone_slot_video_in.wb_adr_i,
+      m_wb_we_i     => wishbone_slot_video_in.wb_we_i,
+      m_wb_cyc_i    => wishbone_slot_video_in.wb_cyc_i,
+      m_wb_stb_i    => wishbone_slot_video_in.wb_stb_i,
+      m_wb_ack_o    => wishbone_slot_video_out.wb_ack_o,
 
       dbg_reset     => dbg_reset,
       jtag_data_chain_out => open,--jtag_data_chain_out,
       jtag_ctrl_chain_in  => (others=>'0')--jtag_ctrl_chain_in
 
     );
-
---  dbgport: zpuino_debug_jtag
---    port map (
---      jtag_data_chain_in => jtag_data_chain_out,
---      jtag_ctrl_chain_out => jtag_ctrl_chain_in,
-
---      TCK         => TCK,
---      TDI         => TDI,
---      CAPTUREIR   => CAPTUREIR,
---      UPDATEIR    => UPDATEIR,
---      SHIFTIR     => SHIFTIR,
---      CAPTUREDR   => CAPTUREDR,
---      UPDATEDR    => UPDATEDR,
---      SHIFTDR     => SHIFTDR,
---      TLR         => TLR,
-
---      TDO_IR      => TDO_IR,
---      TDO_DR      => TDO_DR
- --   );
-
-
---  dbgport_s3e: zpuino_debug_spartan3e
---    port map (
---
---      TCK         => TCK,
---      TDI         => TDI,
---      CAPTUREIR   => CAPTUREIR,
---      UPDATEIR    => UPDATEIR,
---      SHIFTIR     => SHIFTIR,
- --     CAPTUREDR   => CAPTUREDR,
-  --    UPDATEDR    => UPDATEDR,
- --     SHIFTDR     => SHIFTDR,
---      TLR         => TLR,
---
---      TDO_IR      => TDO_IR,
---      TDO_DR      => TDO_DR
---
- --   );
-
-
 
 
   --
@@ -655,7 +415,7 @@ begin
   --
 
   --
-  -- IO SLOT 0
+  -- IO SLOT 0	For SPI FLash
   --
 
   slot0: zpuino_spi
@@ -720,11 +480,11 @@ begin
     wb_ack_o      => slot_ack(2),
     wb_inta_o => slot_interrupt(2),
 
-    spp_data  => gpio_spp_data,
-    spp_read  => gpio_spp_read,
+    spp_data  => gpio_bus_in.gpio_spp_data,
+    spp_read  => gpio_bus_out.gpio_spp_read,
 
-    gpio_i      => gpio_i,
-    gpio_t      => gpio_t,
+    gpio_i      => gpio_bus_in.gpio_i,
+    gpio_t      => gpio_bus_out.gpio_t,
     gpio_o      => gpio_o_reg,
     spp_cap_in   => spp_cap_in,
     spp_cap_out  => spp_cap_out
@@ -796,44 +556,44 @@ begin
   -- IO SLOT 6
   --
 
-  slot1: zpuino_spi
-  port map (
-    wb_clk_i       => wb_clk_i,
-	 	wb_rst_i    => wb_rst_i,
-    wb_dat_o      => slot_read(6),
-    wb_dat_i     => slot_write(6),
-    wb_adr_i   => slot_address(6),
-    wb_we_i        => slot_we(6),
-    wb_cyc_i        => slot_cyc(6),
-    wb_stb_i        => slot_stb(6),
-    wb_ack_o      => slot_ack(6),
-    wb_inta_o => slot_interrupt(6),
-
-    mosi      => spi2_mosi,
-    miso      => spi2_miso,
-    sck       => spi2_sck,
-    enabled   => open
-  );
-
-
-
-  --
-  -- IO SLOT 7
-  --
-
-  crc16_inst: zpuino_crc16
-  port map (
-    wb_clk_i       => wb_clk_i,
-	 	wb_rst_i    => wb_rst_i,
-    wb_dat_o     => slot_read(7),
-    wb_dat_i     => slot_write(7),
-    wb_adr_i   => slot_address(7),
-    wb_we_i     => slot_we(7),
-    wb_cyc_i        => slot_cyc(7),
-    wb_stb_i        => slot_stb(7),
-    wb_ack_o      => slot_ack(7),
-    wb_inta_o => slot_interrupt(7)
-  );
+--  slot1: zpuino_spi
+--  port map (
+--    wb_clk_i       => wb_clk_i,
+--	 	wb_rst_i    => wb_rst_i,
+--    wb_dat_o      => slot_read(6),
+--    wb_dat_i     => slot_write(6),
+--    wb_adr_i   => slot_address(6),
+--    wb_we_i        => slot_we(6),
+--    wb_cyc_i        => slot_cyc(6),
+--    wb_stb_i        => slot_stb(6),
+--    wb_ack_o      => slot_ack(6),
+--    wb_inta_o => slot_interrupt(6),
+--
+--    mosi      => spi2_mosi,
+--    miso      => spi2_miso,
+--    sck       => spi2_sck,
+--    enabled   => open
+--  );
+--
+--
+--
+--  --
+--  -- IO SLOT 7
+--  --
+--
+--  crc16_inst: zpuino_crc16
+--  port map (
+--    wb_clk_i       => wb_clk_i,
+--	 	wb_rst_i    => wb_rst_i,
+--    wb_dat_o     => slot_read(7),
+--    wb_dat_i     => slot_write(7),
+--    wb_adr_i   => slot_address(7),
+--    wb_we_i     => slot_we(7),
+--    wb_cyc_i        => slot_cyc(7),
+--    wb_stb_i        => slot_stb(7),
+--    wb_ack_o      => slot_ack(7),
+--    wb_inta_o => slot_interrupt(7)
+--  );
 
   --
   -- IO SLOT 8 (optional)
@@ -1078,11 +838,11 @@ begin
   -- Other ports are special, we need to avoid outputs on input-only pins
 
   ibufrx:   IPAD port map ( PAD => RXD,        O => rx, C => sysclk );
-  ibufmiso: IPAD port map ( PAD => SPI_MISO,   O => spi_pf_miso, C => sysclk );
+  ibufmiso: IPAD port map ( PAD => SPI_FLASH_MISO,   O => spi_pf_miso, C => sysclk );
   obuftx:   OPAD port map ( I => tx,   PAD => TXD );
-  ospiclk:  OPAD port map ( I => spi_pf_sck,   PAD => SPI_SCK );
-  ospics:   OPAD port map ( I => gpio_o_reg(48),   PAD => SPI_CS );
-  ospimosi: OPAD port map ( I => spi_pf_mosi,   PAD => SPI_MOSI );
+  ospiclk:  OPAD port map ( I => spi_pf_sck,   PAD => SPI_FLASH_SCK );
+  ospics:   OPAD port map ( I => gpio_o_reg(48),   PAD => SPI_FLASH_CS );
+  ospimosi: OPAD port map ( I => spi_pf_mosi,   PAD => SPI_FLASH_MOSI );
 
 
 --  process(gpio_spp_read,

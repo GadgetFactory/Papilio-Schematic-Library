@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="ZPUino">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2013-10-31T21:17:32</timestamp>
+    <pin polarity="Input" x="96" y="64" name="wishbone_slot_5_in" />
+    <pin polarity="Output" x="112" y="64" name="wishbone_slot_5_out" />
+    <pin polarity="Input" x="992" y="64" name="wishbone_slot_8_in" />
+    <pin polarity="Output" x="1008" y="64" name="wishbone_slot_8_out" />
+    <pin polarity="Input" x="1296" y="64" name="wishbone_slot_9_in" />
+    <pin polarity="Output" x="1312" y="64" name="wishbone_slot_9_out" />
+    <pin polarity="Input" x="400" y="64" name="wishbone_slot_6_in" />
+    <pin polarity="Output" x="416" y="64" name="wishbone_slot_6_out" />
+    <pin polarity="Input" x="704" y="64" name="wishbone_slot_7_in" />
+    <pin polarity="Output" x="720" y="64" name="wishbone_slot_7_out" />
+    <pin polarity="Input" x="1600" y="64" name="wishbone_slot_10_in" />
+    <pin polarity="Output" x="1616" y="64" name="wishbone_slot_10_out" />
+    <pin polarity="Input" x="1904" y="64" name="wishbone_slot_11_in" />
+    <pin polarity="Output" x="1920" y="64" name="wishbone_slot_11_out" />
+    <pin polarity="Input" x="2816" y="64" name="wishbone_slot_14_in" />
+    <pin polarity="Output" x="2832" y="64" name="wishbone_slot_14_out" />
+    <pin polarity="Input" x="2208" y="64" name="wishbone_slot_12_in" />
+    <pin polarity="Output" x="2224" y="64" name="wishbone_slot_12_out" />
+    <pin polarity="Input" x="2496" y="64" name="wishbone_slot_13_in" />
+    <pin polarity="Output" x="2512" y="64" name="wishbone_slot_13_out" />
+    <pin polarity="Input" x="3104" y="64" name="wishbone_slot_15_in" />
+    <pin polarity="Output" x="3120" y="64" name="wishbone_slot_15_out" />
+    <pin polarity="Input" x="3184" y="64" name="wishbone_slot_video_in" />
+    <pin polarity="Output" x="3200" y="64" name="wishbone_slot_video_out" />
+    <pin polarity="Output" x="3216" y="64" name="vgaclkout" />
+    <pin polarity="Input" x="0" y="-576" name="CLK" />
+    <pin polarity="Output" x="3328" y="-576" name="SPI_FLASH_SCK" />
+    <pin polarity="Output" x="3328" y="-544" name="SPI_FLASH_MOSI" />
+    <pin polarity="Output" x="3328" y="-512" name="TXD" />
+    <pin polarity="BiDirectional" x="3328" y="-480" name="SPI_FLASH_CS" />
+    <pin polarity="Output" x="3328" y="-336" name="gpio_bus_out" />
+    <pin polarity="Input" x="3328" y="-352" name="gpio_bus_in" />
+    <pin polarity="Input" x="0" y="-512" name="SPI_FLASH_MISO" />
+    <pin polarity="Input" x="0" y="-448" name="RXD" />
+    <graph>
+        <rect width="3200" x="64" y="-604" height="604" />
+        <line x2="96" y1="64" y2="0" x1="96" />
+        <line x2="112" y1="64" y2="0" x1="112" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="116" y="-8" type="pin wishbone_slot_5_out" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="92" y="-8" type="pin wishbone_slot_5_in" />
+        <line x2="992" y1="64" y2="0" x1="992" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="988" y="-8" type="pin wishbone_slot_8_in" />
+        <line x2="1008" y1="64" y2="0" x1="1008" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="1012" y="-8" type="pin wishbone_slot_8_out" />
+        <line x2="1296" y1="64" y2="0" x1="1296" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="1292" y="-8" type="pin wishbone_slot_9_in" />
+        <line x2="1312" y1="64" y2="0" x1="1312" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="1316" y="-8" type="pin wishbone_slot_9_out" />
+        <line x2="400" y1="64" y2="0" x1="400" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="400" y="-12" type="pin wishbone_slot_6_in" />
+        <line x2="416" y1="64" y2="0" x1="416" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="424" y="-12" type="pin wishbone_slot_6_out" />
+        <line x2="704" y1="64" y2="0" x1="704" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="704" y="-12" type="pin wishbone_slot_7_in" />
+        <line x2="720" y1="64" y2="0" x1="720" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="728" y="-12" type="pin wishbone_slot_7_out" />
+        <line x2="1600" y1="64" y2="0" x1="1600" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="1600" y="-8" type="pin wishbone_slot_10_in" />
+        <line x2="1616" y1="64" y2="0" x1="1616" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="1624" y="-8" type="pin wishbone_slot_10_out" />
+        <line x2="1904" y1="64" y2="0" x1="1904" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="1904" y="-8" type="pin wishbone_slot_11_in" />
+        <line x2="1920" y1="64" y2="0" x1="1920" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="1928" y="-4" type="pin wishbone_slot_11_out" />
+        <line x2="2816" y1="64" y2="0" x1="2816" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="2816" y="-8" type="pin wishbone_slot_14_in" />
+        <line x2="2832" y1="64" y2="0" x1="2832" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="2836" y="-8" type="pin wishbone_slot_14_out" />
+        <line x2="2208" y1="64" y2="0" x1="2208" />
+        <line x2="2224" y1="64" y2="0" x1="2224" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="2232" y="-8" type="pin wishbone_slot_12_out" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="2208" y="-8" type="pin wishbone_slot_12_in" />
+        <line x2="2496" y1="64" y2="0" x1="2496" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="2496" y="-12" type="pin wishbone_slot_13_in" />
+        <line x2="2512" y1="64" y2="0" x1="2512" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="2520" y="-12" type="pin wishbone_slot_13_out" />
+        <line x2="3104" y1="64" y2="0" x1="3104" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="3100" y="-12" type="pin wishbone_slot_15_in" />
+        <line x2="3120" y1="64" y2="0" x1="3120" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="3128" y="-12" type="pin wishbone_slot_15_out" />
+        <line x2="3184" y1="64" y2="0" x1="3184" />
+        <line x2="3200" y1="64" y2="0" x1="3200" />
+        <line x2="3216" y1="64" y2="0" x1="3216" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="3180" y="-16" type="pin wishbone_slot_video_in" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="3204" y="-16" type="pin wishbone_slot_video_out" />
+        <attrtext style="alignment:VLEFT;fontsize:24;fontname:Arial" attrname="PinName" x="3228" y="-16" type="pin vgaclkout" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-576" type="pin CLK" />
+        <line x2="0" y1="-576" y2="-576" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="3256" y="-576" type="pin SPI_FLASH_SCK" />
+        <line x2="3328" y1="-576" y2="-576" x1="3264" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="3256" y="-544" type="pin SPI_FLASH_MOSI" />
+        <line x2="3328" y1="-544" y2="-544" x1="3264" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="3256" y="-512" type="pin TXD" />
+        <line x2="3328" y1="-512" y2="-512" x1="3264" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="3256" y="-480" type="pin SPI_FLASH_CS" />
+        <line x2="3328" y1="-480" y2="-480" x1="3264" />
+        <text style="fontsize:64;fontname:Arial" x="1000" y="-412">ZPUino Soft Processor - Papilio One - v1.0</text>
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="3256" y="-336" type="pin gpio_bus_out" />
+        <line x2="3328" y1="-336" y2="-336" x1="3264" />
+        <line x2="3264" y1="-352" y2="-352" x1="3328" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="3128" y="-356" type="pin gpio_bus_in" />
+        <rect width="168" x="3096" y="-384" height="76" />
+        <text style="fontsize:28;fontname:Arial" x="3112" y="-400">GPIO Pins</text>
+        <line x2="0" y1="-512" y2="-512" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-512" type="pin SPI_FLASH_MISO" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-448" type="pin RXD" />
+        <line x2="0" y1="-448" y2="-448" x1="64" />
+    </graph>
+</symbol>
