@@ -13,7 +13,7 @@
 --
 --Command: 
 --Design Name: 
---
+--  The Papilio Default Pinout device defines the pins for a Papilio board that does not have a MegaWing attached to it.
 
 library ieee;
 use ieee.std_logic_1164.ALL;
