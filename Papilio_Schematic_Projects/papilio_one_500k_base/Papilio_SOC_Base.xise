@@ -149,7 +149,7 @@
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/uart_brgen.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="56"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="12"/>
-    </file>	
+    </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_sigmadelta.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="51"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
@@ -165,11 +165,11 @@
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_spi.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="91"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="34"/>
-    </file>	
+    </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/vga_zxspectrum.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="44"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-    </file>	
+    </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/spi.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="43"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="25"/>
@@ -177,7 +177,7 @@
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/spiclkgen.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="44"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="24"/>
-    </file>	
+    </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_uart.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="95"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="33"/>
@@ -189,11 +189,11 @@
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_uart_rx.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="97"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="22"/>
-    </file>	
+    </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/tx_unit.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="71"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="23"/>
-    </file>	
+    </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_pokey.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="59"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
@@ -230,10 +230,10 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="77"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
-    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_empty_device.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/Wishbone_Empty_Slot.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="23"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="36"/>
-    </file>		
+    </file>
     <file xil_pn:name="../../Libraries/Papilio_Hardware/Papilio_Default.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="80"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="37"/>
@@ -241,6 +241,10 @@
     <file xil_pn:name="../../Libraries/Papilio_Hardware/LogicStart_MegaWing.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="110"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+    <file xil_pn:name="../../Libraries/Papilio_Hardware/papilio_pkg.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="58"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="58"/>
     </file>
   </files>
 
