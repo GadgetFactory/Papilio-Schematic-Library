@@ -47,6 +47,8 @@ use work.papilio_pkg.all;
 library unisim;
 use unisim.vcomponents.all;
 
+
+
 entity ZPUino is
   port (
     CLK:        in std_logic;
@@ -57,55 +59,97 @@ entity ZPUino is
     SPI_FLASH_MOSI:   out std_logic;
     SPI_FLASH_CS:     inout std_logic;
 	 
-	 gpio_bus_in : in gpio_bus_in_type;
-	 gpio_bus_out : out gpio_bus_out_type;	 
+	 gpio_bus_in : in std_logic_vector(97 downto 0);
+	 gpio_bus_out : out std_logic_vector(147 downto 0);
+			
+--	 gpio_bus_in : in gpio_bus_in_type;
+--	 gpio_bus_out : out gpio_bus_out_type;	 
 
     TXD:        out std_logic;
     RXD:        in std_logic;
 
-	 wishbone_slot_video_in : in wishbone_bus_in_type;
-	 wishbone_slot_video_out : out wishbone_bus_out_type;
+-- Unfortunately the Xilinx Schematic Editor does not support records, so we have to put all wishbone signals into one array.
+-- This is a little cumbersome but is better then dealing with all the signals in the schematic editor.
+-- This is what the original record base approach looked like:
+--
+-- type wishbone_bus_in_type is record
+--    wb_clk_i:    std_logic;                     -- Wishbone clock
+--    wb_rst_i:    std_logic;                     -- Wishbone reset (synchronous)
+--    wb_dat_i:    std_logic_vector(31 downto 0); -- Wishbone data input  (32 bits)
+--    wb_adr_i:    std_logic_vector(26 downto 2); -- Wishbone address input  (32 bits)
+--    wb_we_i:     std_logic;                     -- Wishbone write enable signal
+--    wb_cyc_i:    std_logic;                     -- Wishbone cycle signal
+--    wb_stb_i:    std_logic;                     -- Wishbone strobe signal
+-- end record;
+-- 
+-- type wishbone_bus_out_type is record
+--    wb_dat_o:    std_logic_vector(31 downto 0); -- Wishbone data output (32 bits)
+--    wb_ack_o:    std_logic;                      -- Wishbone acknowledge out signal
+--    wb_inta_o:   std_logic;	 
+-- end record; 
+--
+-- Turning them into an array looks like this:
+--
+-- wishbone_in : in std_logic_vector(61 downto 0);
+--
+--  wishbone_in_record.wb_clk_i <= wishbone_in(61);
+--  wishbone_in_record.wb_rst_i <= wishbone_in(60);
+--  wishbone_in_record.wb_dat_i <= wishbone_in(59 downto 28);
+--  wishbone_in_record.wb_adr_i <= wishbone_in(27 downto 3);
+--  wishbone_in_record.wb_we_i <= wishbone_in(2);
+--  wishbone_in_record.wb_cyc_i <= wishbone_in(1);
+--  wishbone_in_record.wb_stb_i <= wishbone_in(0); 
+--
+-- wishbone_out : out std_logic_vector(33 downto 0);
+--
+--  wishbone_out(33 downto 2) <= wishbone_out_record.wb_dat_o;
+--  wishbone_out(1) <= wishbone_out_record.wb_ack_o;
+--  wishbone_out(0) <= wishbone_out_record.wb_inta_o; 
+
+	 --There are more bits in the address for this wishbone connection
+	 wishbone_slot_video_in : in std_logic_vector(63 downto 0);
+	 wishbone_slot_video_out : out std_logic_vector(33 downto 0);
 	 vgaclkout: out std_logic;	
 
-
-	 wishbone_slot_5_in : in wishbone_bus_out_type;
-	 wishbone_slot_5_out : out wishbone_bus_in_type;
+	 --Input and output reversed for the master
+	 wishbone_slot_5_in : out std_logic_vector(61 downto 0);
+	 wishbone_slot_5_out : in std_logic_vector(33 downto 0);
 	 
-	 wishbone_slot_6_in : in wishbone_bus_out_type;
-	 wishbone_slot_6_out : out wishbone_bus_in_type;
+	 wishbone_slot_6_in : out std_logic_vector(61 downto 0);
+	 wishbone_slot_6_out : in std_logic_vector(33 downto 0);
 
-	 wishbone_slot_7_in : in wishbone_bus_out_type;
-	 wishbone_slot_7_out : out wishbone_bus_in_type;	 
-	 
-	 wishbone_slot_8_in : in wishbone_bus_out_type;
-	 wishbone_slot_8_out : out wishbone_bus_in_type;
+	 wishbone_slot_7_in : out std_logic_vector(61 downto 0);
+	 wishbone_slot_7_out : in std_logic_vector(33 downto 0);
 
-	 wishbone_slot_9_in : in wishbone_bus_out_type;
-	 wishbone_slot_9_out : out wishbone_bus_in_type;
+	 wishbone_slot_8_in : out std_logic_vector(61 downto 0);
+	 wishbone_slot_8_out : in std_logic_vector(33 downto 0);
 
-	 wishbone_slot_10_in : in wishbone_bus_out_type;
-	 wishbone_slot_10_out : out wishbone_bus_in_type;
+	 wishbone_slot_9_in : out std_logic_vector(61 downto 0);
+	 wishbone_slot_9_out : in std_logic_vector(33 downto 0);
 
-	 wishbone_slot_11_in : in wishbone_bus_out_type;
-	 wishbone_slot_11_out : out wishbone_bus_in_type;	
+	 wishbone_slot_10_in : out std_logic_vector(61 downto 0);
+	 wishbone_slot_10_out : in std_logic_vector(33 downto 0);
 
-	 wishbone_slot_12_in : in wishbone_bus_out_type;
-	 wishbone_slot_12_out : out wishbone_bus_in_type;	
+	 wishbone_slot_11_in : out std_logic_vector(61 downto 0);
+	 wishbone_slot_11_out : in std_logic_vector(33 downto 0);
 
-	 wishbone_slot_13_in : in wishbone_bus_out_type;
-	 wishbone_slot_13_out : out wishbone_bus_in_type;		 
-	 
-	 wishbone_slot_14_in : in wishbone_bus_out_type;
-	 wishbone_slot_14_out : out wishbone_bus_in_type;	
+	 wishbone_slot_12_in : out std_logic_vector(61 downto 0);
+	 wishbone_slot_12_out : in std_logic_vector(33 downto 0);
 
-	 wishbone_slot_15_in : in wishbone_bus_out_type;
-	 wishbone_slot_15_out : out wishbone_bus_in_type		 
+	 wishbone_slot_13_in : out std_logic_vector(61 downto 0);
+	 wishbone_slot_13_out : in std_logic_vector(33 downto 0);
+
+	 wishbone_slot_14_in : out std_logic_vector(61 downto 0);
+	 wishbone_slot_14_out : in std_logic_vector(33 downto 0);
+
+	 wishbone_slot_15_in : out std_logic_vector(61 downto 0);
+	 wishbone_slot_15_out : in std_logic_vector(33 downto 0)	 
 
   );
 end entity ZPUino;
 
 architecture behave of ZPUino is
-
+ 
   component clkgen is
   port (
     clkin:  in std_logic;
@@ -195,6 +239,35 @@ architecture behave of ZPUino is
 
   signal jtag_data_chain_out: std_logic_vector(98 downto 0);
   signal jtag_ctrl_chain_in:  std_logic_vector(11 downto 0);
+  
+ 
+  signal wishbone_slot_video_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_video_out_record : wishbone_bus_out_type;
+  signal wishbone_slot_5_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_5_out_record : wishbone_bus_out_type;
+  signal wishbone_slot_6_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_6_out_record : wishbone_bus_out_type;
+  signal wishbone_slot_7_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_7_out_record : wishbone_bus_out_type;
+  signal wishbone_slot_8_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_8_out_record : wishbone_bus_out_type;
+  signal wishbone_slot_9_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_9_out_record : wishbone_bus_out_type;
+  signal wishbone_slot_10_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_10_out_record : wishbone_bus_out_type;
+  signal wishbone_slot_11_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_11_out_record : wishbone_bus_out_type;
+  signal wishbone_slot_12_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_12_out_record : wishbone_bus_out_type;
+  signal wishbone_slot_13_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_13_out_record : wishbone_bus_out_type;
+  signal wishbone_slot_14_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_14_out_record : wishbone_bus_out_type;
+  signal wishbone_slot_15_in_record  : wishbone_bus_in_type;
+  signal wishbone_slot_15_out_record : wishbone_bus_out_type;  
+
+  signal gpio_bus_in_record : gpio_bus_in_type;
+  signal gpio_bus_out_record : gpio_bus_out_type;  
 
 
   component zpuino_debug_spartan3e is
@@ -215,143 +288,285 @@ architecture behave of ZPUino is
 
 begin
 
-  gpio_bus_out.gpio_o <= gpio_o_reg;
-  gpio_bus_out.gpio_clk <= sysclk;
+-- Unpack the wishbone array into a record so the modules code is not confusing.
+-- These are backwards for the master.
+--  wishbone_slot_video_in_record.wb_clk_i <= wishbone_slot_video_in(61);
+--  wishbone_slot_video_in_record.wb_rst_i <= wishbone_slot_video_in(60);
+--  wishbone_slot_video_in_record.wb_dat_i <= wishbone_slot_video_in(59 downto 28);
+--  wishbone_slot_video_in_record.wb_adr_i <= wishbone_slot_video_in(27 downto 3);
+--  wishbone_slot_video_in_record.wb_we_i <= wishbone_slot_video_in(2);
+--  wishbone_slot_video_in_record.wb_cyc_i <= wishbone_slot_video_in(1);
+--  wishbone_slot_video_in_record.wb_stb_i <= wishbone_slot_video_in(0); 
+--  wishbone_slot_video_out(33 downto 2) <= wishbone_slot_video_out_record.wb_dat_o;
+--  wishbone_slot_video_out(1) <= wishbone_slot_video_out_record.wb_ack_o;
+--  wishbone_slot_video_out(0) <= wishbone_slot_video_out_record.wb_inta_o;  
+
+  wishbone_slot_5_in(61) <= wishbone_slot_5_in_record.wb_clk_i;
+  wishbone_slot_5_in(60) <= wishbone_slot_5_in_record.wb_rst_i;
+  wishbone_slot_5_in(59 downto 28) <= wishbone_slot_5_in_record.wb_dat_i;
+  wishbone_slot_5_in(27 downto 3) <= wishbone_slot_5_in_record.wb_adr_i;
+  wishbone_slot_5_in(2) <= wishbone_slot_5_in_record.wb_we_i;
+  wishbone_slot_5_in(1) <= wishbone_slot_5_in_record.wb_cyc_i;
+  wishbone_slot_5_in(0) <= wishbone_slot_5_in_record.wb_stb_i; 
+  wishbone_slot_5_out_record.wb_dat_o <= wishbone_slot_5_out(33 downto 2);
+  wishbone_slot_5_out_record.wb_ack_o <= wishbone_slot_5_out(1);
+  wishbone_slot_5_out_record.wb_inta_o <= wishbone_slot_5_out(0); 
+  
+  wishbone_slot_6_in(61) <= wishbone_slot_6_in_record.wb_clk_i;
+  wishbone_slot_6_in(60) <= wishbone_slot_6_in_record.wb_rst_i;
+  wishbone_slot_6_in(59 downto 28) <= wishbone_slot_6_in_record.wb_dat_i;
+  wishbone_slot_6_in(27 downto 3) <= wishbone_slot_6_in_record.wb_adr_i;
+  wishbone_slot_6_in(2) <= wishbone_slot_6_in_record.wb_we_i;
+  wishbone_slot_6_in(1) <= wishbone_slot_6_in_record.wb_cyc_i;
+  wishbone_slot_6_in(0) <= wishbone_slot_6_in_record.wb_stb_i; 
+  wishbone_slot_6_out_record.wb_dat_o <= wishbone_slot_6_out(33 downto 2);
+  wishbone_slot_6_out_record.wb_ack_o <= wishbone_slot_6_out(1);
+  wishbone_slot_6_out_record.wb_inta_o <= wishbone_slot_6_out(0); 
+  
+  wishbone_slot_7_in(61) <= wishbone_slot_7_in_record.wb_clk_i;
+  wishbone_slot_7_in(60) <= wishbone_slot_7_in_record.wb_rst_i;
+  wishbone_slot_7_in(59 downto 28) <= wishbone_slot_7_in_record.wb_dat_i;
+  wishbone_slot_7_in(27 downto 3) <= wishbone_slot_7_in_record.wb_adr_i;
+  wishbone_slot_7_in(2) <= wishbone_slot_7_in_record.wb_we_i;
+  wishbone_slot_7_in(1) <= wishbone_slot_7_in_record.wb_cyc_i;
+  wishbone_slot_7_in(0) <= wishbone_slot_7_in_record.wb_stb_i; 
+  wishbone_slot_7_out_record.wb_dat_o <= wishbone_slot_7_out(33 downto 2);
+  wishbone_slot_7_out_record.wb_ack_o <= wishbone_slot_7_out(1);
+  wishbone_slot_7_out_record.wb_inta_o <= wishbone_slot_7_out(0); 
+
+  wishbone_slot_8_in(61) <= wishbone_slot_8_in_record.wb_clk_i;
+  wishbone_slot_8_in(60) <= wishbone_slot_8_in_record.wb_rst_i;
+  wishbone_slot_8_in(59 downto 28) <= wishbone_slot_8_in_record.wb_dat_i;
+  wishbone_slot_8_in(27 downto 3) <= wishbone_slot_8_in_record.wb_adr_i;
+  wishbone_slot_8_in(2) <= wishbone_slot_8_in_record.wb_we_i;
+  wishbone_slot_8_in(1) <= wishbone_slot_8_in_record.wb_cyc_i;
+  wishbone_slot_8_in(0) <= wishbone_slot_8_in_record.wb_stb_i; 
+  wishbone_slot_8_out_record.wb_dat_o <= wishbone_slot_8_out(33 downto 2);
+  wishbone_slot_8_out_record.wb_ack_o <= wishbone_slot_8_out(1);
+  wishbone_slot_8_out_record.wb_inta_o <= wishbone_slot_8_out(0); 
+
+  wishbone_slot_9_in(61) <= wishbone_slot_9_in_record.wb_clk_i;
+  wishbone_slot_9_in(60) <= wishbone_slot_9_in_record.wb_rst_i;
+  wishbone_slot_9_in(59 downto 28) <= wishbone_slot_9_in_record.wb_dat_i;
+  wishbone_slot_9_in(27 downto 3) <= wishbone_slot_9_in_record.wb_adr_i;
+  wishbone_slot_9_in(2) <= wishbone_slot_9_in_record.wb_we_i;
+  wishbone_slot_9_in(1) <= wishbone_slot_9_in_record.wb_cyc_i;
+  wishbone_slot_9_in(0) <= wishbone_slot_9_in_record.wb_stb_i; 
+  wishbone_slot_9_out_record.wb_dat_o <= wishbone_slot_9_out(33 downto 2);
+  wishbone_slot_9_out_record.wb_ack_o <= wishbone_slot_9_out(1);
+  wishbone_slot_9_out_record.wb_inta_o <= wishbone_slot_9_out(0); 
+
+  wishbone_slot_10_in(61) <= wishbone_slot_10_in_record.wb_clk_i;
+  wishbone_slot_10_in(60) <= wishbone_slot_10_in_record.wb_rst_i;
+  wishbone_slot_10_in(59 downto 28) <= wishbone_slot_10_in_record.wb_dat_i;
+  wishbone_slot_10_in(27 downto 3) <= wishbone_slot_10_in_record.wb_adr_i;
+  wishbone_slot_10_in(2) <= wishbone_slot_10_in_record.wb_we_i;
+  wishbone_slot_10_in(1) <= wishbone_slot_10_in_record.wb_cyc_i;
+  wishbone_slot_10_in(0) <= wishbone_slot_10_in_record.wb_stb_i; 
+  wishbone_slot_10_out_record.wb_dat_o <= wishbone_slot_10_out(33 downto 2);
+  wishbone_slot_10_out_record.wb_ack_o <= wishbone_slot_10_out(1);
+  wishbone_slot_10_out_record.wb_inta_o <= wishbone_slot_10_out(0); 
+
+  wishbone_slot_11_in(61) <= wishbone_slot_11_in_record.wb_clk_i;
+  wishbone_slot_11_in(60) <= wishbone_slot_11_in_record.wb_rst_i;
+  wishbone_slot_11_in(59 downto 28) <= wishbone_slot_11_in_record.wb_dat_i;
+  wishbone_slot_11_in(27 downto 3) <= wishbone_slot_11_in_record.wb_adr_i;
+  wishbone_slot_11_in(2) <= wishbone_slot_11_in_record.wb_we_i;
+  wishbone_slot_11_in(1) <= wishbone_slot_11_in_record.wb_cyc_i;
+  wishbone_slot_11_in(0) <= wishbone_slot_11_in_record.wb_stb_i; 
+  wishbone_slot_11_out_record.wb_dat_o <= wishbone_slot_11_out(33 downto 2);
+  wishbone_slot_11_out_record.wb_ack_o <= wishbone_slot_11_out(1);
+  wishbone_slot_11_out_record.wb_inta_o <= wishbone_slot_11_out(0); 
+
+  wishbone_slot_12_in(61) <= wishbone_slot_12_in_record.wb_clk_i;
+  wishbone_slot_12_in(60) <= wishbone_slot_12_in_record.wb_rst_i;
+  wishbone_slot_12_in(59 downto 28) <= wishbone_slot_12_in_record.wb_dat_i;
+  wishbone_slot_12_in(27 downto 3) <= wishbone_slot_12_in_record.wb_adr_i;
+  wishbone_slot_12_in(2) <= wishbone_slot_12_in_record.wb_we_i;
+  wishbone_slot_12_in(1) <= wishbone_slot_12_in_record.wb_cyc_i;
+  wishbone_slot_12_in(0) <= wishbone_slot_12_in_record.wb_stb_i; 
+  wishbone_slot_12_out_record.wb_dat_o <= wishbone_slot_12_out(33 downto 2);
+  wishbone_slot_12_out_record.wb_ack_o <= wishbone_slot_12_out(1);
+  wishbone_slot_12_out_record.wb_inta_o <= wishbone_slot_12_out(0); 
+
+  wishbone_slot_13_in(61) <= wishbone_slot_13_in_record.wb_clk_i;
+  wishbone_slot_13_in(60) <= wishbone_slot_13_in_record.wb_rst_i;
+  wishbone_slot_13_in(59 downto 28) <= wishbone_slot_13_in_record.wb_dat_i;
+  wishbone_slot_13_in(27 downto 3) <= wishbone_slot_13_in_record.wb_adr_i;
+  wishbone_slot_13_in(2) <= wishbone_slot_13_in_record.wb_we_i;
+  wishbone_slot_13_in(1) <= wishbone_slot_13_in_record.wb_cyc_i;
+  wishbone_slot_13_in(0) <= wishbone_slot_13_in_record.wb_stb_i; 
+  wishbone_slot_13_out_record.wb_dat_o <= wishbone_slot_13_out(33 downto 2);
+  wishbone_slot_13_out_record.wb_ack_o <= wishbone_slot_13_out(1);
+  wishbone_slot_13_out_record.wb_inta_o <= wishbone_slot_13_out(0); 
+
+  wishbone_slot_14_in(61) <= wishbone_slot_14_in_record.wb_clk_i;
+  wishbone_slot_14_in(60) <= wishbone_slot_14_in_record.wb_rst_i;
+  wishbone_slot_14_in(59 downto 28) <= wishbone_slot_14_in_record.wb_dat_i;
+  wishbone_slot_14_in(27 downto 3) <= wishbone_slot_14_in_record.wb_adr_i;
+  wishbone_slot_14_in(2) <= wishbone_slot_14_in_record.wb_we_i;
+  wishbone_slot_14_in(1) <= wishbone_slot_14_in_record.wb_cyc_i;
+  wishbone_slot_14_in(0) <= wishbone_slot_14_in_record.wb_stb_i; 
+  wishbone_slot_14_out_record.wb_dat_o <= wishbone_slot_14_out(33 downto 2);
+  wishbone_slot_14_out_record.wb_ack_o <= wishbone_slot_14_out(1);
+  wishbone_slot_14_out_record.wb_inta_o <= wishbone_slot_14_out(0); 
+
+  wishbone_slot_15_in(61) <= wishbone_slot_15_in_record.wb_clk_i;
+  wishbone_slot_15_in(60) <= wishbone_slot_15_in_record.wb_rst_i;
+  wishbone_slot_15_in(59 downto 28) <= wishbone_slot_15_in_record.wb_dat_i;
+  wishbone_slot_15_in(27 downto 3) <= wishbone_slot_15_in_record.wb_adr_i;
+  wishbone_slot_15_in(2) <= wishbone_slot_15_in_record.wb_we_i;
+  wishbone_slot_15_in(1) <= wishbone_slot_15_in_record.wb_cyc_i;
+  wishbone_slot_15_in(0) <= wishbone_slot_15_in_record.wb_stb_i; 
+  wishbone_slot_15_out_record.wb_dat_o <= wishbone_slot_15_out(33 downto 2);
+  wishbone_slot_15_out_record.wb_ack_o <= wishbone_slot_15_out(1);
+  wishbone_slot_15_out_record.wb_inta_o <= wishbone_slot_15_out(0);   
+
+  gpio_bus_in_record.gpio_i <= gpio_bus_in(97 downto 49);
+  gpio_bus_in_record.gpio_spp_data <= gpio_bus_in(48 downto 0);
+
+  gpio_bus_out(147) <= gpio_bus_out_record.gpio_clk;
+  gpio_bus_out(146 downto 98) <= gpio_bus_out_record.gpio_o;
+  gpio_bus_out(97 downto 49) <= gpio_bus_out_record.gpio_t;
+  gpio_bus_out(48 downto 0) <= gpio_bus_out_record.gpio_spp_read;
+
+  gpio_bus_out_record.gpio_o <= gpio_o_reg;
+  gpio_bus_out_record.gpio_clk <= sysclk;
 
   wb_clk_i <= sysclk;
   wb_rst_i <= sysrst;
   
   --Wishbone 5
-  wishbone_slot_5_out.wb_clk_i <= sysclk;
-  wishbone_slot_5_out.wb_rst_i <= sysrst;
-  slot_read(5) <= wishbone_slot_5_in.wb_dat_o;
-  wishbone_slot_5_out.wb_dat_i <= slot_write(5);
-  wishbone_slot_5_out.wb_adr_i <= slot_address(5);
-  wishbone_slot_5_out.wb_we_i <= slot_we(5);
-  wishbone_slot_5_out.wb_cyc_i <= slot_cyc(5);
-  wishbone_slot_5_out.wb_stb_i <= slot_stb(5);
-  slot_ack(5) <= wishbone_slot_5_in.wb_ack_o;
-  slot_interrupt(5) <= wishbone_slot_5_in.wb_inta_o;
+  wishbone_slot_5_in_record.wb_clk_i <= sysclk;
+  wishbone_slot_5_in_record.wb_rst_i <= sysrst;
+  slot_read(5) <= wishbone_slot_5_out_record.wb_dat_o;
+  wishbone_slot_5_in_record.wb_dat_i <= slot_write(5);
+  wishbone_slot_5_in_record.wb_adr_i <= slot_address(5);
+  wishbone_slot_5_in_record.wb_we_i <= slot_we(5);
+  wishbone_slot_5_in_record.wb_cyc_i <= slot_cyc(5);
+  wishbone_slot_5_in_record.wb_stb_i <= slot_stb(5);
+  slot_ack(5) <= wishbone_slot_5_out_record.wb_ack_o;
+  slot_interrupt(5) <= wishbone_slot_5_out_record.wb_inta_o;
   
   --Wishbone 6
-  wishbone_slot_6_out.wb_clk_i <= sysclk;
-  wishbone_slot_6_out.wb_rst_i <= sysrst;
-  slot_read(6) <= wishbone_slot_6_in.wb_dat_o;
-  wishbone_slot_6_out.wb_dat_i <= slot_write(6);
-  wishbone_slot_6_out.wb_adr_i <= slot_address(6);
-  wishbone_slot_6_out.wb_we_i <= slot_we(6);
-  wishbone_slot_6_out.wb_cyc_i <= slot_cyc(6);
-  wishbone_slot_6_out.wb_stb_i <= slot_stb(6);
-  slot_ack(6) <= wishbone_slot_6_in.wb_ack_o;
-  slot_interrupt(6) <= wishbone_slot_6_in.wb_inta_o;
+  wishbone_slot_6_in_record.wb_clk_i <= sysclk;
+  wishbone_slot_6_in_record.wb_rst_i <= sysrst;
+  slot_read(6) <= wishbone_slot_6_out_record.wb_dat_o;
+  wishbone_slot_6_in_record.wb_dat_i <= slot_write(6);
+  wishbone_slot_6_in_record.wb_adr_i <= slot_address(6);
+  wishbone_slot_6_in_record.wb_we_i <= slot_we(6);
+  wishbone_slot_6_in_record.wb_cyc_i <= slot_cyc(6);
+  wishbone_slot_6_in_record.wb_stb_i <= slot_stb(6);
+  slot_ack(6) <= wishbone_slot_6_out_record.wb_ack_o;
+  slot_interrupt(6) <= wishbone_slot_6_out_record.wb_inta_o;
+  
+   --Wishbone 7
+  wishbone_slot_7_in_record.wb_clk_i <= sysclk;
+  wishbone_slot_7_in_record.wb_rst_i <= sysrst;
+  slot_read(7) <= wishbone_slot_7_out_record.wb_dat_o;
+  wishbone_slot_7_in_record.wb_dat_i <= slot_write(7);
+  wishbone_slot_7_in_record.wb_adr_i <= slot_address(7);
+  wishbone_slot_7_in_record.wb_we_i <= slot_we(7);
+  wishbone_slot_7_in_record.wb_cyc_i <= slot_cyc(7);
+  wishbone_slot_7_in_record.wb_stb_i <= slot_stb(7);
+  slot_ack(7) <= wishbone_slot_7_out_record.wb_ack_o;
+  slot_interrupt(7) <= wishbone_slot_7_out_record.wb_inta_o;
+  
+   --Wishbone 8
+  wishbone_slot_8_in_record.wb_clk_i <= sysclk;
+  wishbone_slot_8_in_record.wb_rst_i <= sysrst;
+  slot_read(8) <= wishbone_slot_8_out_record.wb_dat_o;
+  wishbone_slot_8_in_record.wb_dat_i <= slot_write(8);
+  wishbone_slot_8_in_record.wb_adr_i <= slot_address(8);
+  wishbone_slot_8_in_record.wb_we_i <= slot_we(8);
+  wishbone_slot_8_in_record.wb_cyc_i <= slot_cyc(8);
+  wishbone_slot_8_in_record.wb_stb_i <= slot_stb(8);
+  slot_ack(8) <= wishbone_slot_8_out_record.wb_ack_o;
+  slot_interrupt(8) <= wishbone_slot_8_out_record.wb_inta_o;
+  
+   --Wishbone 9
+  wishbone_slot_9_in_record.wb_clk_i <= sysclk;
+  wishbone_slot_9_in_record.wb_rst_i <= sysrst;
+  slot_read(9) <= wishbone_slot_9_out_record.wb_dat_o;
+  wishbone_slot_9_in_record.wb_dat_i <= slot_write(9);
+  wishbone_slot_9_in_record.wb_adr_i <= slot_address(9);
+  wishbone_slot_9_in_record.wb_we_i <= slot_we(9);
+  wishbone_slot_9_in_record.wb_cyc_i <= slot_cyc(9);
+  wishbone_slot_9_in_record.wb_stb_i <= slot_stb(9);
+  slot_ack(9) <= wishbone_slot_9_out_record.wb_ack_o;
+  slot_interrupt(9) <= wishbone_slot_9_out_record.wb_inta_o;
 
-  --Wishbone 7
-  wishbone_slot_7_out.wb_clk_i <= sysclk;
-  wishbone_slot_7_out.wb_rst_i <= sysrst;
-  slot_read(7) <= wishbone_slot_7_in.wb_dat_o;
-  wishbone_slot_7_out.wb_dat_i <= slot_write(7);
-  wishbone_slot_7_out.wb_adr_i <= slot_address(7);
-  wishbone_slot_7_out.wb_we_i <= slot_we(7);
-  wishbone_slot_7_out.wb_cyc_i <= slot_cyc(7);
-  wishbone_slot_7_out.wb_stb_i <= slot_stb(7);
-  slot_ack(7) <= wishbone_slot_7_in.wb_ack_o;
-  slot_interrupt(7) <= wishbone_slot_7_in.wb_inta_o;  
-  
-  --Wishbone 8
-  wishbone_slot_8_out.wb_clk_i <= sysclk;
-  wishbone_slot_8_out.wb_rst_i <= sysrst;
-  slot_read(8) <= wishbone_slot_8_in.wb_dat_o;
-  wishbone_slot_8_out.wb_dat_i <= slot_write(8);
-  wishbone_slot_8_out.wb_adr_i <= slot_address(8);
-  wishbone_slot_8_out.wb_we_i <= slot_we(8);
-  wishbone_slot_8_out.wb_cyc_i <= slot_cyc(8);
-  wishbone_slot_8_out.wb_stb_i <= slot_stb(8);
-  slot_ack(8) <= wishbone_slot_8_in.wb_ack_o;
-  slot_interrupt(8) <= wishbone_slot_8_in.wb_inta_o;  
-  
-  --Wishbone 9
-  wishbone_slot_9_out.wb_clk_i <= sysclk;
-  wishbone_slot_9_out.wb_rst_i <= sysrst;
-  slot_read(9) <= wishbone_slot_9_in.wb_dat_o;
-  wishbone_slot_9_out.wb_dat_i <= slot_write(9);
-  wishbone_slot_9_out.wb_adr_i <= slot_address(9);
-  wishbone_slot_9_out.wb_we_i <= slot_we(9);
-  wishbone_slot_9_out.wb_cyc_i <= slot_cyc(9);
-  wishbone_slot_9_out.wb_stb_i <= slot_stb(9);
-  slot_ack(9) <= wishbone_slot_9_in.wb_ack_o;
-  slot_interrupt(9) <= wishbone_slot_9_in.wb_inta_o;  
-  
   --Wishbone 10
-  wishbone_slot_10_out.wb_clk_i <= sysclk;
-  wishbone_slot_10_out.wb_rst_i <= sysrst;
-  slot_read(10) <= wishbone_slot_10_in.wb_dat_o;
-  wishbone_slot_10_out.wb_dat_i <= slot_write(10);
-  wishbone_slot_10_out.wb_adr_i <= slot_address(10);
-  wishbone_slot_10_out.wb_we_i <= slot_we(10);
-  wishbone_slot_10_out.wb_cyc_i <= slot_cyc(10);
-  wishbone_slot_10_out.wb_stb_i <= slot_stb(10);
-  slot_ack(10) <= wishbone_slot_10_in.wb_ack_o;
-  slot_interrupt(10) <= wishbone_slot_10_in.wb_inta_o;
-
-  --Wishbone 11
-  wishbone_slot_11_out.wb_clk_i <= sysclk;
-  wishbone_slot_11_out.wb_rst_i <= sysrst;
-  slot_read(11) <= wishbone_slot_11_in.wb_dat_o;
-  wishbone_slot_11_out.wb_dat_i <= slot_write(11);
-  wishbone_slot_11_out.wb_adr_i <= slot_address(11);
-  wishbone_slot_11_out.wb_we_i <= slot_we(11);
-  wishbone_slot_11_out.wb_cyc_i <= slot_cyc(11);
-  wishbone_slot_11_out.wb_stb_i <= slot_stb(11);
-  slot_ack(11) <= wishbone_slot_11_in.wb_ack_o;
-  slot_interrupt(11) <= wishbone_slot_11_in.wb_inta_o;
-
-  --Wishbone 12
-  wishbone_slot_12_out.wb_clk_i <= sysclk;
-  wishbone_slot_12_out.wb_rst_i <= sysrst;
-  slot_read(12) <= wishbone_slot_12_in.wb_dat_o;
-  wishbone_slot_12_out.wb_dat_i <= slot_write(12);
-  wishbone_slot_12_out.wb_adr_i <= slot_address(12);
-  wishbone_slot_12_out.wb_we_i <= slot_we(12);
-  wishbone_slot_12_out.wb_cyc_i <= slot_cyc(12);
-  wishbone_slot_12_out.wb_stb_i <= slot_stb(12);
-  slot_ack(12) <= wishbone_slot_12_in.wb_ack_o;
-  slot_interrupt(12) <= wishbone_slot_12_in.wb_inta_o;
-
-  --Wishbone 13
-  wishbone_slot_13_out.wb_clk_i <= sysclk;
-  wishbone_slot_13_out.wb_rst_i <= sysrst;
-  slot_read(13) <= wishbone_slot_13_in.wb_dat_o;
-  wishbone_slot_13_out.wb_dat_i <= slot_write(13);
-  wishbone_slot_13_out.wb_adr_i <= slot_address(13);
-  wishbone_slot_13_out.wb_we_i <= slot_we(13);
-  wishbone_slot_13_out.wb_cyc_i <= slot_cyc(13);
-  wishbone_slot_13_out.wb_stb_i <= slot_stb(13);
-  slot_ack(13) <= wishbone_slot_13_in.wb_ack_o;
-  slot_interrupt(13) <= wishbone_slot_13_in.wb_inta_o;
-
-  --Wishbone 14
-  wishbone_slot_14_out.wb_clk_i <= sysclk;
-  wishbone_slot_14_out.wb_rst_i <= sysrst;
-  slot_read(14) <= wishbone_slot_14_in.wb_dat_o;
-  wishbone_slot_14_out.wb_dat_i <= slot_write(14);
-  wishbone_slot_14_out.wb_adr_i <= slot_address(14);
-  wishbone_slot_14_out.wb_we_i <= slot_we(14);
-  wishbone_slot_14_out.wb_cyc_i <= slot_cyc(14);
-  wishbone_slot_14_out.wb_stb_i <= slot_stb(14);
-  slot_ack(14) <= wishbone_slot_14_in.wb_ack_o;
-  slot_interrupt(14) <= wishbone_slot_14_in.wb_inta_o;
-
-  --Wishbone 15
-  wishbone_slot_15_out.wb_clk_i <= sysclk;
-  wishbone_slot_15_out.wb_rst_i <= sysrst;
-  slot_read(15) <= wishbone_slot_15_in.wb_dat_o;
-  wishbone_slot_15_out.wb_dat_i <= slot_write(15);
-  wishbone_slot_15_out.wb_adr_i <= slot_address(15);
-  wishbone_slot_15_out.wb_we_i <= slot_we(15);
-  wishbone_slot_15_out.wb_cyc_i <= slot_cyc(15);
-  wishbone_slot_15_out.wb_stb_i <= slot_stb(15);
-  slot_ack(15) <= wishbone_slot_15_in.wb_ack_o;
-  slot_interrupt(15) <= wishbone_slot_15_in.wb_inta_o;
+  wishbone_slot_10_in_record.wb_clk_i <= sysclk;
+  wishbone_slot_10_in_record.wb_rst_i <= sysrst;
+  slot_read(10) <= wishbone_slot_10_out_record.wb_dat_o;
+  wishbone_slot_10_in_record.wb_dat_i <= slot_write(10);
+  wishbone_slot_10_in_record.wb_adr_i <= slot_address(10);
+  wishbone_slot_10_in_record.wb_we_i <= slot_we(10);
+  wishbone_slot_10_in_record.wb_cyc_i <= slot_cyc(10);
+  wishbone_slot_10_in_record.wb_stb_i <= slot_stb(10);
+  slot_ack(10) <= wishbone_slot_10_out_record.wb_ack_o;
+  slot_interrupt(10) <= wishbone_slot_10_out_record.wb_inta_o;
+  
+   --Wishbone 11
+  wishbone_slot_11_in_record.wb_clk_i <= sysclk;
+  wishbone_slot_11_in_record.wb_rst_i <= sysrst;
+  slot_read(11) <= wishbone_slot_11_out_record.wb_dat_o;
+  wishbone_slot_11_in_record.wb_dat_i <= slot_write(11);
+  wishbone_slot_11_in_record.wb_adr_i <= slot_address(11);
+  wishbone_slot_11_in_record.wb_we_i <= slot_we(11);
+  wishbone_slot_11_in_record.wb_cyc_i <= slot_cyc(11);
+  wishbone_slot_11_in_record.wb_stb_i <= slot_stb(11);
+  slot_ack(11) <= wishbone_slot_11_out_record.wb_ack_o;
+  slot_interrupt(11) <= wishbone_slot_11_out_record.wb_inta_o;
+  
+   --Wishbone 12
+  wishbone_slot_12_in_record.wb_clk_i <= sysclk;
+  wishbone_slot_12_in_record.wb_rst_i <= sysrst;
+  slot_read(12) <= wishbone_slot_12_out_record.wb_dat_o;
+  wishbone_slot_12_in_record.wb_dat_i <= slot_write(12);
+  wishbone_slot_12_in_record.wb_adr_i <= slot_address(12);
+  wishbone_slot_12_in_record.wb_we_i <= slot_we(12);
+  wishbone_slot_12_in_record.wb_cyc_i <= slot_cyc(12);
+  wishbone_slot_12_in_record.wb_stb_i <= slot_stb(12);
+  slot_ack(12) <= wishbone_slot_12_out_record.wb_ack_o;
+  slot_interrupt(12) <= wishbone_slot_12_out_record.wb_inta_o;
+  
+   --Wishbone 13
+  wishbone_slot_13_in_record.wb_clk_i <= sysclk;
+  wishbone_slot_13_in_record.wb_rst_i <= sysrst;
+  slot_read(13) <= wishbone_slot_13_out_record.wb_dat_o;
+  wishbone_slot_13_in_record.wb_dat_i <= slot_write(13);
+  wishbone_slot_13_in_record.wb_adr_i <= slot_address(13);
+  wishbone_slot_13_in_record.wb_we_i <= slot_we(13);
+  wishbone_slot_13_in_record.wb_cyc_i <= slot_cyc(13);
+  wishbone_slot_13_in_record.wb_stb_i <= slot_stb(13);
+  slot_ack(13) <= wishbone_slot_13_out_record.wb_ack_o;
+  slot_interrupt(13) <= wishbone_slot_13_out_record.wb_inta_o;
+  
+   --Wishbone 14
+  wishbone_slot_14_in_record.wb_clk_i <= sysclk;
+  wishbone_slot_14_in_record.wb_rst_i <= sysrst;
+  slot_read(14) <= wishbone_slot_14_out_record.wb_dat_o;
+  wishbone_slot_14_in_record.wb_dat_i <= slot_write(14);
+  wishbone_slot_14_in_record.wb_adr_i <= slot_address(14);
+  wishbone_slot_14_in_record.wb_we_i <= slot_we(14);
+  wishbone_slot_14_in_record.wb_cyc_i <= slot_cyc(14);
+  wishbone_slot_14_in_record.wb_stb_i <= slot_stb(14);
+  slot_ack(14) <= wishbone_slot_14_out_record.wb_ack_o;
+  slot_interrupt(14) <= wishbone_slot_14_out_record.wb_inta_o;
+  
+   --Wishbone 15
+  wishbone_slot_15_in_record.wb_clk_i <= sysclk;
+  wishbone_slot_15_in_record.wb_rst_i <= sysrst;
+  slot_read(15) <= wishbone_slot_15_out_record.wb_dat_o;
+  wishbone_slot_15_in_record.wb_dat_i <= slot_write(15);
+  wishbone_slot_15_in_record.wb_adr_i <= slot_address(15);
+  wishbone_slot_15_in_record.wb_we_i <= slot_we(15);
+  wishbone_slot_15_in_record.wb_cyc_i <= slot_cyc(15);
+  wishbone_slot_15_in_record.wb_stb_i <= slot_stb(15);
+  slot_ack(15) <= wishbone_slot_15_out_record.wb_ack_o;
+  slot_interrupt(15) <= wishbone_slot_15_out_record.wb_inta_o;
   
   rstgen: zpuino_serialreset
     generic map (
@@ -393,14 +608,16 @@ begin
       slot_ack      => slot_ack,
       slot_interrupt=> slot_interrupt,
 
-      m_wb_dat_o    => wishbone_slot_video_out.wb_dat_o,
-      m_wb_dat_i    => wishbone_slot_video_in.wb_dat_i,
-      m_wb_adr_i    => wishbone_slot_video_in.wb_adr_i,
-      m_wb_we_i     => wishbone_slot_video_in.wb_we_i,
-      m_wb_cyc_i    => wishbone_slot_video_in.wb_cyc_i,
-      m_wb_stb_i    => wishbone_slot_video_in.wb_stb_i,
-      m_wb_ack_o    => wishbone_slot_video_out.wb_ack_o,
-
+		--Be careful the order for this is different then the other wishbone bus connections.
+		--The address array is bigger so we moved the single signals to the top of the array.
+      m_wb_dat_o    => wishbone_slot_video_out(33 downto 2),
+      m_wb_dat_i    => wishbone_slot_video_in(59 downto 28),
+      m_wb_adr_i    => wishbone_slot_video_in(27 downto 0),
+      m_wb_we_i     => wishbone_slot_video_in(62),
+      m_wb_cyc_i    => wishbone_slot_video_in(61),
+      m_wb_stb_i    => wishbone_slot_video_in(60),
+      m_wb_ack_o    => wishbone_slot_video_out(1),
+ 
       dbg_reset     => dbg_reset,
       jtag_data_chain_out => open,--jtag_data_chain_out,
       jtag_ctrl_chain_in  => (others=>'0')--jtag_ctrl_chain_in
@@ -480,11 +697,11 @@ begin
     wb_ack_o      => slot_ack(2),
     wb_inta_o => slot_interrupt(2),
 
-    spp_data  => gpio_bus_in.gpio_spp_data,
-    spp_read  => gpio_bus_out.gpio_spp_read,
+    spp_data  => gpio_bus_in_record.gpio_spp_data,
+    spp_read  => gpio_bus_out_record.gpio_spp_read,
 
-    gpio_i      => gpio_bus_in.gpio_i,
-    gpio_t      => gpio_bus_out.gpio_t,
+    gpio_i      => gpio_bus_in_record.gpio_i,
+    gpio_t      => gpio_bus_out_record.gpio_t,
     gpio_o      => gpio_o_reg,
     spp_cap_in   => spp_cap_in,
     spp_cap_out  => spp_cap_out
