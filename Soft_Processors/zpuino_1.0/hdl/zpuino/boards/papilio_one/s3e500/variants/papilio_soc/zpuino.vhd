@@ -422,8 +422,9 @@ begin
   wishbone_slot_15_out_record.wb_ack_o <= wishbone_slot_15_out(1);
   wishbone_slot_15_out_record.wb_inta_o <= wishbone_slot_15_out(0);   
 
-  gpio_bus_in_record.gpio_i <= gpio_bus_in(97 downto 49);
-  gpio_bus_in_record.gpio_spp_data <= gpio_bus_in(48 downto 0);
+  
+  gpio_bus_in_record.gpio_spp_data <= gpio_bus_in(97 downto 49);
+  gpio_bus_in_record.gpio_i <= gpio_bus_in(48 downto 0);
 
   gpio_bus_out(147) <= gpio_bus_out_record.gpio_clk;
   gpio_bus_out(146 downto 98) <= gpio_bus_out_record.gpio_o;

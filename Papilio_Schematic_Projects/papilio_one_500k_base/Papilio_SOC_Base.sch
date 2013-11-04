@@ -83,6 +83,8 @@
         <signal name="XLXN_20(33:0)" />
         <signal name="XLXN_21(61:0)" />
         <signal name="XLXN_22(33:0)" />
+        <signal name="XLXN_26(97:0)" />
+        <signal name="XLXN_27(147:0)" />
         <port polarity="Input" name="clk" />
         <port polarity="Input" name="SPI_MISO" />
         <port polarity="Input" name="rxd" />
@@ -183,6 +185,66 @@
             <line x2="64" y1="-256" y2="-224" x1="64" />
             <line x2="80" y1="-256" y2="-224" x1="80" />
         </blockdef>
+        <blockdef name="Papilio_Default_Pinout">
+            <timestamp>2013-11-1T21:24:54</timestamp>
+            <rect width="256" x="64" y="-1784" height="1784" />
+            <line x2="384" y1="-1696" y2="-1696" x1="320" />
+            <line x2="0" y1="-1744" y2="-1744" x1="64" />
+            <line x2="60" y1="-1760" y2="-1760" x1="0" />
+            <rect width="148" x="172" y="-1724" height="276" />
+            <rect width="148" x="172" y="-1436" height="272" />
+            <rect width="148" x="172" y="-1152" height="280" />
+            <rect width="148" x="172" y="-860" height="276" />
+            <rect width="148" x="172" y="-572" height="276" />
+            <rect width="148" x="172" y="-284" height="276" />
+            <line x2="384" y1="-1664" y2="-1664" x1="320" />
+            <line x2="384" y1="-1632" y2="-1632" x1="320" />
+            <line x2="384" y1="-1600" y2="-1600" x1="320" />
+            <line x2="384" y1="-1568" y2="-1568" x1="320" />
+            <line x2="384" y1="-1536" y2="-1536" x1="320" />
+            <line x2="384" y1="-1504" y2="-1504" x1="320" />
+            <line x2="384" y1="-1472" y2="-1472" x1="320" />
+            <line x2="384" y1="-1408" y2="-1408" x1="320" />
+            <line x2="384" y1="-1376" y2="-1376" x1="320" />
+            <line x2="384" y1="-1344" y2="-1344" x1="320" />
+            <line x2="384" y1="-1312" y2="-1312" x1="320" />
+            <line x2="384" y1="-1280" y2="-1280" x1="320" />
+            <line x2="384" y1="-1248" y2="-1248" x1="320" />
+            <line x2="384" y1="-1216" y2="-1216" x1="320" />
+            <line x2="384" y1="-1184" y2="-1184" x1="320" />
+            <line x2="384" y1="-1120" y2="-1120" x1="320" />
+            <line x2="384" y1="-1088" y2="-1088" x1="320" />
+            <line x2="384" y1="-1056" y2="-1056" x1="320" />
+            <line x2="384" y1="-1024" y2="-1024" x1="320" />
+            <line x2="384" y1="-992" y2="-992" x1="320" />
+            <line x2="384" y1="-960" y2="-960" x1="320" />
+            <line x2="384" y1="-928" y2="-928" x1="320" />
+            <line x2="384" y1="-896" y2="-896" x1="320" />
+            <line x2="384" y1="-832" y2="-832" x1="320" />
+            <line x2="384" y1="-800" y2="-800" x1="320" />
+            <line x2="384" y1="-768" y2="-768" x1="320" />
+            <line x2="384" y1="-736" y2="-736" x1="320" />
+            <line x2="384" y1="-704" y2="-704" x1="320" />
+            <line x2="384" y1="-672" y2="-672" x1="320" />
+            <line x2="384" y1="-640" y2="-640" x1="320" />
+            <line x2="384" y1="-608" y2="-608" x1="320" />
+            <line x2="384" y1="-544" y2="-544" x1="320" />
+            <line x2="384" y1="-512" y2="-512" x1="320" />
+            <line x2="384" y1="-480" y2="-480" x1="320" />
+            <line x2="384" y1="-448" y2="-448" x1="320" />
+            <line x2="384" y1="-416" y2="-416" x1="320" />
+            <line x2="384" y1="-384" y2="-384" x1="320" />
+            <line x2="384" y1="-352" y2="-352" x1="320" />
+            <line x2="384" y1="-320" y2="-320" x1="320" />
+            <line x2="384" y1="-256" y2="-256" x1="320" />
+            <line x2="384" y1="-224" y2="-224" x1="320" />
+            <line x2="384" y1="-192" y2="-192" x1="320" />
+            <line x2="384" y1="-160" y2="-160" x1="320" />
+            <line x2="384" y1="-128" y2="-128" x1="320" />
+            <line x2="384" y1="-96" y2="-96" x1="320" />
+            <line x2="384" y1="-64" y2="-64" x1="320" />
+            <line x2="384" y1="-32" y2="-32" x1="320" />
+        </blockdef>
         <block symbolname="ZPUino" name="XLXI_26">
             <blockpin name="wishbone_slot_video_in(63:0)" />
             <blockpin name="wishbone_slot_video_out(33:0)" />
@@ -216,8 +278,8 @@
             <blockpin signalname="XLXN_20(33:0)" name="wishbone_slot_14_out(33:0)" />
             <blockpin signalname="XLXN_21(61:0)" name="wishbone_slot_15_in(61:0)" />
             <blockpin signalname="XLXN_22(33:0)" name="wishbone_slot_15_out(33:0)" />
-            <blockpin name="gpio_bus_out(147:0)" />
-            <blockpin name="gpio_bus_in(97:0)" />
+            <blockpin signalname="XLXN_27(147:0)" name="gpio_bus_out(147:0)" />
+            <blockpin signalname="XLXN_26(97:0)" name="gpio_bus_in(97:0)" />
         </block>
         <block symbolname="Wishbone_Empty_Slot" name="XLXI_27">
             <blockpin signalname="XLXN_1(61:0)" name="wishbone_in(61:0)" />
@@ -262,6 +324,58 @@
         <block symbolname="Wishbone_Empty_Slot" name="XLXI_37">
             <blockpin signalname="XLXN_21(61:0)" name="wishbone_in(61:0)" />
             <blockpin signalname="XLXN_22(33:0)" name="wishbone_out(33:0)" />
+        </block>
+        <block symbolname="Papilio_Default_Pinout" name="XLXI_40">
+            <blockpin signalname="WING_AH0" name="WING_AH0" />
+            <blockpin signalname="XLXN_27(147:0)" name="gpio_bus_out(147:0)" />
+            <blockpin signalname="XLXN_26(97:0)" name="gpio_bus_in(97:0)" />
+            <blockpin signalname="WING_AH1" name="WING_AH1" />
+            <blockpin signalname="WING_AH2" name="WING_AH2" />
+            <blockpin signalname="WING_AH3" name="WING_AH3" />
+            <blockpin signalname="WING_AH4" name="WING_AH4" />
+            <blockpin signalname="WING_AH5" name="WING_AH5" />
+            <blockpin signalname="WING_AH6" name="WING_AH6" />
+            <blockpin signalname="WING_AH7" name="WING_AH7" />
+            <blockpin signalname="WING_AL0" name="WING_AL0" />
+            <blockpin signalname="WING_AL1" name="WING_AL1" />
+            <blockpin signalname="WING_AL2" name="WING_AL2" />
+            <blockpin signalname="WING_AL3" name="WING_AL3" />
+            <blockpin signalname="WING_AL4" name="WING_AL4" />
+            <blockpin signalname="WING_AL5" name="WING_AL5" />
+            <blockpin signalname="WING_AL6" name="WING_AL6" />
+            <blockpin signalname="WING_AL7" name="WING_AL7" />
+            <blockpin signalname="WING_BH0" name="WING_BH0" />
+            <blockpin signalname="WING_BH1" name="WING_BH1" />
+            <blockpin signalname="WING_BH2" name="WING_BH2" />
+            <blockpin signalname="WING_BH3" name="WING_BH3" />
+            <blockpin signalname="WING_BH4" name="WING_BH4" />
+            <blockpin signalname="WING_BH5" name="WING_BH5" />
+            <blockpin signalname="WING_BH6" name="WING_BH6" />
+            <blockpin signalname="WING_BH7" name="WING_BH7" />
+            <blockpin signalname="WING_BL0" name="WING_BL0" />
+            <blockpin signalname="WING_BL1" name="WING_BL1" />
+            <blockpin signalname="WING_BL2" name="WING_BL2" />
+            <blockpin signalname="WING_BL3" name="WING_BL3" />
+            <blockpin signalname="WING_BL4" name="WING_BL4" />
+            <blockpin signalname="WING_BL5" name="WING_BL5" />
+            <blockpin signalname="WING_BL6" name="WING_BL6" />
+            <blockpin signalname="WING_BL7" name="WING_BL7" />
+            <blockpin signalname="WING_CH0" name="WING_CH0" />
+            <blockpin signalname="WING_CH1" name="WING_CH1" />
+            <blockpin signalname="WING_CH2" name="WING_CH2" />
+            <blockpin signalname="WING_CH3" name="WING_CH3" />
+            <blockpin signalname="WING_CH4" name="WING_CH4" />
+            <blockpin signalname="WING_CH5" name="WING_CH5" />
+            <blockpin signalname="WING_CH6" name="WING_CH6" />
+            <blockpin signalname="WING_CH7" name="WING_CH7" />
+            <blockpin signalname="WING_CL0" name="WING_CL0" />
+            <blockpin signalname="WING_CL1" name="WING_CL1" />
+            <blockpin signalname="WING_CL2" name="WING_CL2" />
+            <blockpin signalname="WING_CL3" name="WING_CL3" />
+            <blockpin signalname="WING_CL4" name="WING_CL4" />
+            <blockpin signalname="WING_CL5" name="WING_CL5" />
+            <blockpin signalname="WING_CL6" name="WING_CL6" />
+            <blockpin signalname="WING_CL7" name="WING_CL7" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -623,5 +737,13 @@
         </branch>
         <instance x="3504" y="1024" name="XLXI_37" orien="R0">
         </instance>
+        <instance x="4704" y="2032" name="XLXI_40" orien="R0">
+        </instance>
+        <branch name="XLXN_26(97:0)">
+            <wire x2="4704" y1="272" y2="272" x1="3792" />
+        </branch>
+        <branch name="XLXN_27(147:0)">
+            <wire x2="4704" y1="288" y2="288" x1="3792" />
+        </branch>
     </sheet>
 </drawing>
