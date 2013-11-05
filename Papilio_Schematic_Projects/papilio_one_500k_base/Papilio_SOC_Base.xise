@@ -60,7 +60,7 @@
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/zpuino_crc16.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="76"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="30"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="32"/>
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/zpuino_debug_core.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="77"/>
@@ -68,7 +68,7 @@
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/zpuino_gpio.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="84"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="29"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="31"/>
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/zpuino_intr.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="86"/>
@@ -80,15 +80,15 @@
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/zpuino_serialreset.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="88"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="28"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="30"/>
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/zpuino_timers.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="92"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="27"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="28"/>
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/zpuino_top.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="93"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="26"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="27"/>
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/zpuinopkg.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="102"/>
@@ -100,7 +100,7 @@
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/boards/papilio_one/s3e500/variants/papilio_soc/clkgen.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="104"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="32"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="34"/>
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/boards/papilio_one/s3e500/variants/papilio_soc/zpu_config.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="56"/>
@@ -112,7 +112,7 @@
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/pad.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="48"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="31"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="33"/>
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/wb_rom_ram.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="78"/>
@@ -150,17 +150,17 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="51"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
-    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_sevenseg.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/SevenSeg_zpuino_wb.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="55"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
-    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_YM2149_linmix.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/AUDIO_YM2149_zpuino_wb.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="58"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
-    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_spi.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/SPI_wb_zpuino.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="91"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="34"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/vga_zxspectrum.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="44"/>
@@ -174,9 +174,9 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="44"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="24"/>
     </file>
-    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_uart.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/zpuino_uart.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="95"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="33"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="26"/>
     </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_uart_mv_filter.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="96"/>
@@ -190,7 +190,7 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="71"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="23"/>
     </file>
-    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/zpuino_pokey.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/AUDIO_pokey_zpuino.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="59"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
@@ -206,7 +206,7 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="62"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
-    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/NetSID/src/wb_sid6581.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/NetSID/src/AUDIO_sid6581_wb.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="63"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
@@ -244,7 +244,15 @@
     </file>
     <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/boards/papilio_one/s3e500/variants/papilio_soc/ZPUino_Papilio_One_V1.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="111"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="111"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="36"/>
+    </file>
+    <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino/UART_wb_zpuino.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="60"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+    <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/zpuino_spi.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="146"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="29"/>
     </file>
   </files>
 

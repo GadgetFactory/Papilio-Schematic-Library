@@ -63,27 +63,19 @@ library work;
   use work.zpu_config.all;
   use work.zpupkg.all;
   
-entity zpuino_io_YM2149 is
+entity AUDIO_YM2149_zpuino_wb is
   generic (
     FREQMHZ: integer := 96
   );
   port (
-  wb_clk_i:   in std_logic;
-  wb_rst_i:   in std_logic;
-  wb_dat_i:   in std_logic_vector(wordSize-1 downto 0);
-  wb_dat_o:   out std_logic_vector(wordSize-1 downto 0);
-  wb_adr_i:   in std_logic_vector(maxIOBit downto minIOBit);
-  wb_we_i:    in std_logic;
-  wb_cyc_i:   in std_logic;
-  wb_stb_i:   in std_logic;
-  wb_ack_o:   out std_logic;
-  wb_inta_o:  out std_logic;
+	 wishbone_in : in std_logic_vector(61 downto 0);
+	 wishbone_out : out std_logic_vector(33 downto 0);
 
-  data_out:   out std_logic_vector(7 downto 0)
+	 data_out:   out std_logic_vector(7 downto 0)			--Digital data out - this should be fed into an audio mixer or Delta-Sigma DAC.
   );
 end;
 
-architecture RTL of zpuino_io_YM2149 is
+architecture RTL of AUDIO_YM2149_zpuino_wb is
   type  array_16x8   is array (0 to 15) of std_logic_vector(7 downto 0);
   type  array_3x12   is array (1 to 3) of std_logic_vector(11 downto 0);
 
@@ -137,7 +129,30 @@ architecture RTL of zpuino_io_YM2149 is
   signal predivcnt: integer;
   constant PRE_CLOCK_DIVIDER: integer := (FREQMHZ/2)-1;
 
+  signal  wb_clk_i:    std_logic;                     -- Wishbone clock
+  signal  wb_rst_i:    std_logic;                     -- Wishbone reset (synchronous)
+  signal  wb_dat_i:    std_logic_vector(31 downto 0); -- Wishbone data input  (32 bits)
+  signal  wb_adr_i:    std_logic_vector(26 downto 2); -- Wishbone address input  (32 bits)
+  signal  wb_we_i:     std_logic;                     -- Wishbone write enable signal
+  signal  wb_cyc_i:    std_logic;                     -- Wishbone cycle signal
+  signal  wb_stb_i:    std_logic;                     -- Wishbone strobe signal  
+
+  signal  wb_dat_o:    std_logic_vector(31 downto 0); -- Wishbone data output (32 bits)
+  signal  wb_ack_o:    std_logic;                      -- Wishbone acknowledge out signal
+  signal  wb_inta_o:   std_logic;	
 begin
+-- Unpack the wishbone array into signals so the modules code is not confusing.
+  wb_clk_i <= wishbone_in(61);
+  wb_rst_i <= wishbone_in(60);
+  wb_dat_i <= wishbone_in(59 downto 28);
+  wb_adr_i <= wishbone_in(27 downto 3);
+  wb_we_i <= wishbone_in(2);
+  wb_cyc_i <= wishbone_in(1);
+  wb_stb_i <= wishbone_in(0); 
+  
+  wishbone_out(33 downto 2) <= wb_dat_o;
+  wishbone_out(1) <= wb_ack_o;
+  wishbone_out(0) <= wb_inta_o; 
 
   TEST_chan <= unsigned( cnt_div(1 downto 0) );
   TEST_tone0<=tone_gen_op(1);

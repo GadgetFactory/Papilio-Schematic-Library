@@ -31,7 +31,7 @@
 --  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 --  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --  
---
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -42,27 +42,19 @@ use work.zpuino_config.all;
 use work.zpupkg.all;
 use work.zpuinopkg.all;
 
-entity zpuino_spi is
+entity SPI_wb_zpuino is
   port (
-    wb_clk_i: in std_logic;
-	 	wb_rst_i: in std_logic;
-    wb_dat_o: out std_logic_vector(wordSize-1 downto 0);
-    wb_dat_i: in std_logic_vector(wordSize-1 downto 0);
-    wb_adr_i: in std_logic_vector(maxIObit downto minIObit);
-    wb_we_i:  in std_logic;
-    wb_cyc_i: in std_logic;
-    wb_stb_i: in std_logic;
-    wb_ack_o: out std_logic;
-    wb_inta_o:out std_logic;
+	 wishbone_in : in std_logic_vector(61 downto 0);
+	 wishbone_out : out std_logic_vector(33 downto 0);
 
-    mosi:     out std_logic;
-    miso:     in std_logic;
-    sck:      out std_logic;
-    enabled:  out std_logic
+    mosi:     out std_logic;				-- Master Out Slave In
+    miso:     in std_logic;				-- Master In Slave Out
+    sck:      out std_logic;				-- SPI Clock
+    enabled:  out std_logic				-- An output that is active high when the SPI is not in a reset state
   );
-end entity zpuino_spi;
+end entity SPI_wb_zpuino;
 
-architecture behave of zpuino_spi is
+architecture behave of SPI_wb_zpuino is
 
 
   component spi is
@@ -114,7 +106,32 @@ architecture behave of zpuino_spi is
   signal miso_i: std_logic;
   signal spi_transfersize_q: std_logic_vector(1 downto 0);
   signal trans: std_logic;
+
+  signal  wb_clk_i:    std_logic;                     -- Wishbone clock
+  signal  wb_rst_i:    std_logic;                     -- Wishbone reset (synchronous)
+  signal  wb_dat_i:    std_logic_vector(31 downto 0); -- Wishbone data input  (32 bits)
+  signal  wb_adr_i:    std_logic_vector(26 downto 2); -- Wishbone address input  (32 bits)
+  signal  wb_we_i:     std_logic;                     -- Wishbone write enable signal
+  signal  wb_cyc_i:    std_logic;                     -- Wishbone cycle signal
+  signal  wb_stb_i:    std_logic;                     -- Wishbone strobe signal  
+
+  signal  wb_dat_o:    std_logic_vector(31 downto 0); -- Wishbone data output (32 bits)
+  signal  wb_ack_o:    std_logic;                      -- Wishbone acknowledge out signal
+  signal  wb_inta_o:   std_logic;  
+  
 begin
+-- Unpack the wishbone array into signals so the modules code is not confusing.
+  wb_clk_i <= wishbone_in(61);
+  wb_rst_i <= wishbone_in(60);
+  wb_dat_i <= wishbone_in(59 downto 28);
+  wb_adr_i <= wishbone_in(27 downto 3);
+  wb_we_i <= wishbone_in(2);
+  wb_cyc_i <= wishbone_in(1);
+  wb_stb_i <= wishbone_in(0); 
+  
+  wishbone_out(33 downto 2) <= wb_dat_o;
+  wishbone_out(1) <= wb_ack_o;
+  wishbone_out(0) <= wb_inta_o;
 
   zspi: spi
     port map (

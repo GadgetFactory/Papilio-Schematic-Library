@@ -77,17 +77,8 @@ entity i2c_master_top is
     );
     port   (
             -- wishbone signals
-            wb_clk_i      : in  std_logic;                    -- master clock input
-            wb_rst_i      : in  std_logic := '0';             -- synchronous active high reset
-            arst_i        : in  std_logic := not ARST_LVL;    -- asynchronous reset
-            wb_adr_i      : in  std_logic_vector(2 downto 0); -- lower address bits
-            wb_dat_i      : in  std_logic_vector(7 downto 0); -- Databus input
-            wb_dat_o      : out std_logic_vector(7 downto 0); -- Databus output
-            wb_we_i       : in  std_logic;                    -- Write enable input
-            wb_stb_i      : in  std_logic;                    -- Strobe signals / core select signal
-            wb_cyc_i      : in  std_logic;                    -- Valid bus cycle input
-            wb_ack_o      : out std_logic;                    -- Bus cycle acknowledge output
-            wb_inta_o     : out std_logic;                    -- interrupt request output signal
+				wishbone_in : in std_logic_vector(61 downto 0);
+				wishbone_out : out std_logic_vector(33 downto 0);
 
             -- i2c lines
             scl_pad_i     : in  std_logic;                    -- i2c clock line input
@@ -166,8 +157,33 @@ architecture structural of i2c_master_top is
     signal irq_flag      : std_logic;                -- interrupt pending flag
     signal i2c_busy      : std_logic;                -- i2c bus busy (start signal detected)
     signal i2c_al, al    : std_logic;                -- arbitration lost
+	 
+  signal  wb_clk_i:    std_logic;                     -- Wishbone clock
+  signal  wb_rst_i:    std_logic;                     -- Wishbone reset (synchronous)
+  signal  wb_dat_i:    std_logic_vector(31 downto 0); -- Wishbone data input  (32 bits)
+  signal  wb_adr_i:    std_logic_vector(26 downto 2); -- Wishbone address input  (32 bits)
+  signal  wb_we_i:     std_logic;                     -- Wishbone write enable signal
+  signal  wb_cyc_i:    std_logic;                     -- Wishbone cycle signal
+  signal  wb_stb_i:    std_logic;                     -- Wishbone strobe signal  
+
+  signal  wb_dat_o:    std_logic_vector(31 downto 0); -- Wishbone data output (32 bits)
+  signal  wb_ack_o:    std_logic;                      -- Wishbone acknowledge out signal
+  signal  wb_inta_o:   std_logic;	 
 
 begin
+-- Unpack the wishbone array into signals so the modules code is not confusing.
+  wb_clk_i <= wishbone_in(61);
+  wb_rst_i <= wishbone_in(60);
+  wb_dat_i <= wishbone_in(59 downto 28);
+  wb_adr_i <= wishbone_in(27 downto 3);
+  wb_we_i <= wishbone_in(2);
+  wb_cyc_i <= wishbone_in(1);
+  wb_stb_i <= wishbone_in(0); 
+  
+  wishbone_out(33 downto 2) <= wb_dat_o;
+  wishbone_out(1) <= wb_ack_o;
+  wishbone_out(0) <= wb_inta_o;
+  
     -- generate internal reset signal
     rst_i <= arst_i xor ARST_LVL;
 

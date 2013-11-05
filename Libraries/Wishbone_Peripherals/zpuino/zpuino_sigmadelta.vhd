@@ -49,7 +49,7 @@ use work.zpuinopkg.all;
 entity zpuino_sigmadelta is
 	port (
     wb_clk_i: in std_logic;
-	 	wb_rst_i: in std_logic;
+	wb_rst_i: in std_logic;
     wb_dat_o: out std_logic_vector(wordSize-1 downto 0);
     wb_dat_i: in std_logic_vector(wordSize-1 downto 0);
     wb_adr_i: in std_logic_vector(maxIObit downto minIObit);
@@ -62,7 +62,7 @@ entity zpuino_sigmadelta is
     sync_in:  in std_logic;
 
     -- Connection to GPIO pin
-	 raw_out: out std_logic_vector(17 downto 0);
+	raw_out: out std_logic_vector(17 downto 0);
     spp_data: out std_logic_vector(1 downto 0);
     spp_en:   out std_logic_vector(1 downto 0)
   );

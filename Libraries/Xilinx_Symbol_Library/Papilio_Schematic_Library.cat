@@ -5,20 +5,16 @@
 }
 "Papilio Peripherals"
 {
-"i2c_master_top"
-"vga_zxspectrum"
-"wb_sid6581"
-"zpuino_gpio"
-"zpuino_io_POKEY"
-"zpuino_io_YM2149"
-"zpuino_sevenseg"
-"zpuino_sigmadelta"
-"zpuino_spi"
-"zpuino_uart"
+"UART_wb_zpuino"
 "Wishbone_Empty_Slot"
+"i2c_master_top"
+"AUDIO_YM2149_zpuino_wb"
+"AUDIO_pokey_zpuino"
+"SPI_wb_zpuino"
+"SevenSeg_zpuino_wb"
 }
 "Papilio Soft Processors"
 {
-"zpuino_papilio_pro"
 "ZPUino_Papilio_One_V1"
+"zpuino_papilio_pro"
 }
