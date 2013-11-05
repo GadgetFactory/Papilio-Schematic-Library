@@ -1,17 +1,17 @@
 "Papilio Hardware"
 {
-"LogicStart_MegaWing"
 "Papilio_Default_Pinout"
+"LogicStart_MegaWing_Pinout"
 }
 "Papilio Peripherals"
 {
+"AUDIO_pokey_zpuino"
+"AUDIO_YM2149_zpuino_wb"
+"i2c_master_top"
+"SevenSeg_zpuino_wb"
+"SPI_wb_zpuino"
 "UART_wb_zpuino"
 "Wishbone_Empty_Slot"
-"i2c_master_top"
-"AUDIO_YM2149_zpuino_wb"
-"AUDIO_pokey_zpuino"
-"SPI_wb_zpuino"
-"SevenSeg_zpuino_wb"
 }
 "Papilio Soft Processors"
 {
