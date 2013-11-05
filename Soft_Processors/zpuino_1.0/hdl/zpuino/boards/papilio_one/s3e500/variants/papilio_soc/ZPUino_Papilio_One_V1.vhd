@@ -51,9 +51,11 @@ use unisim.vcomponents.all;
 
 entity ZPUino_Papilio_One_V1 is
   port (
+	 --32Mhz input clock is converted to a 96Mhz clock
     CLK:        in std_logic;
     --RST:        in std_logic; -- No reset on papilio
 
+	 -- Connection to the main SPI flash
     SPI_FLASH_SCK:    out std_logic;
     SPI_FLASH_MISO:   in std_logic;
     SPI_FLASH_MOSI:   out std_logic;
@@ -61,9 +63,15 @@ entity ZPUino_Papilio_One_V1 is
 	 
 	 gpio_bus_in : in std_logic_vector(97 downto 0);
 	 gpio_bus_out : out std_logic_vector(147 downto 0);
-			
+		
+	 -- UART (FTDI) connection
     TXD:        out std_logic;
     RXD:        in std_logic;
+
+	 --There are more bits in the address for this wishbone connection
+	 wishbone_slot_video_in : in std_logic_vector(63 downto 0);
+	 wishbone_slot_video_out : out std_logic_vector(33 downto 0);
+	 vgaclkout: out std_logic;	
 
 -- Unfortunately the Xilinx Schematic Editor does not support records, so we have to put all wishbone signals into one array.
 -- This is a little cumbersome but is better then dealing with all the signals in the schematic editor.
@@ -102,11 +110,6 @@ entity ZPUino_Papilio_One_V1 is
 --  wishbone_out(33 downto 2) <= wishbone_out_record.wb_dat_o;
 --  wishbone_out(1) <= wishbone_out_record.wb_ack_o;
 --  wishbone_out(0) <= wishbone_out_record.wb_inta_o; 
-
-	 --There are more bits in the address for this wishbone connection
-	 wishbone_slot_video_in : in std_logic_vector(63 downto 0);
-	 wishbone_slot_video_out : out std_logic_vector(33 downto 0);
-	 vgaclkout: out std_logic;	
 
 	 --Input and output reversed for the master
 	 wishbone_slot_5_in : out std_logic_vector(61 downto 0);
