@@ -49,7 +49,7 @@ use unisim.vcomponents.all;
 
 
 
-entity ZPUino is
+entity ZPUino_Papilio_One_V1 is
   port (
     CLK:        in std_logic;
     --RST:        in std_logic; -- No reset on papilio
@@ -62,9 +62,6 @@ entity ZPUino is
 	 gpio_bus_in : in std_logic_vector(97 downto 0);
 	 gpio_bus_out : out std_logic_vector(147 downto 0);
 			
---	 gpio_bus_in : in gpio_bus_in_type;
---	 gpio_bus_out : out gpio_bus_out_type;	 
-
     TXD:        out std_logic;
     RXD:        in std_logic;
 
@@ -143,9 +140,9 @@ entity ZPUino is
 	 wishbone_slot_15_out : in std_logic_vector(33 downto 0)	 
 
   );
-end entity ZPUino;
+end entity ZPUino_Papilio_One_V1;
 
-architecture behave of ZPUino is
+architecture behave of ZPUino_Papilio_One_V1 is
  
   component clkgen is
   port (

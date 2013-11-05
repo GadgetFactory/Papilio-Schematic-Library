@@ -1,15 +1,13 @@
 "Papilio Hardware"
 {
-"Papilio_Default"
 "LogicStart_MegaWing"
+"Papilio_Default_Pinout"
 }
 "Papilio Peripherals"
 {
 "i2c_master_top"
-"papilio_stepper"
 "vga_zxspectrum"
 "wb_sid6581"
-"zpuino_empty_device"
 "zpuino_gpio"
 "zpuino_io_POKEY"
 "zpuino_io_YM2149"
@@ -17,9 +15,10 @@
 "zpuino_sigmadelta"
 "zpuino_spi"
 "zpuino_uart"
+"Wishbone_Empty_Slot"
 }
 "Papilio Soft Processors"
 {
-"ZPUino"
 "zpuino_papilio_pro"
+"ZPUino_Papilio_One_V1"
 }
