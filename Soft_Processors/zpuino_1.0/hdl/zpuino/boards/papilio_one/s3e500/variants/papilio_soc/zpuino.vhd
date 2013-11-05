@@ -118,9 +118,6 @@ entity ZPUino is
 	 wishbone_slot_6_in : out std_logic_vector(61 downto 0);
 	 wishbone_slot_6_out : in std_logic_vector(33 downto 0);
 
-	 wishbone_slot_7_in : out std_logic_vector(61 downto 0);
-	 wishbone_slot_7_out : in std_logic_vector(33 downto 0);
-
 	 wishbone_slot_8_in : out std_logic_vector(61 downto 0);
 	 wishbone_slot_8_out : in std_logic_vector(33 downto 0);
 
@@ -247,8 +244,6 @@ architecture behave of ZPUino is
   signal wishbone_slot_5_out_record : wishbone_bus_out_type;
   signal wishbone_slot_6_in_record  : wishbone_bus_in_type;
   signal wishbone_slot_6_out_record : wishbone_bus_out_type;
-  signal wishbone_slot_7_in_record  : wishbone_bus_in_type;
-  signal wishbone_slot_7_out_record : wishbone_bus_out_type;
   signal wishbone_slot_8_in_record  : wishbone_bus_in_type;
   signal wishbone_slot_8_out_record : wishbone_bus_out_type;
   signal wishbone_slot_9_in_record  : wishbone_bus_in_type;
@@ -322,17 +317,6 @@ begin
   wishbone_slot_6_out_record.wb_dat_o <= wishbone_slot_6_out(33 downto 2);
   wishbone_slot_6_out_record.wb_ack_o <= wishbone_slot_6_out(1);
   wishbone_slot_6_out_record.wb_inta_o <= wishbone_slot_6_out(0); 
-  
-  wishbone_slot_7_in(61) <= wishbone_slot_7_in_record.wb_clk_i;
-  wishbone_slot_7_in(60) <= wishbone_slot_7_in_record.wb_rst_i;
-  wishbone_slot_7_in(59 downto 28) <= wishbone_slot_7_in_record.wb_dat_i;
-  wishbone_slot_7_in(27 downto 3) <= wishbone_slot_7_in_record.wb_adr_i;
-  wishbone_slot_7_in(2) <= wishbone_slot_7_in_record.wb_we_i;
-  wishbone_slot_7_in(1) <= wishbone_slot_7_in_record.wb_cyc_i;
-  wishbone_slot_7_in(0) <= wishbone_slot_7_in_record.wb_stb_i; 
-  wishbone_slot_7_out_record.wb_dat_o <= wishbone_slot_7_out(33 downto 2);
-  wishbone_slot_7_out_record.wb_ack_o <= wishbone_slot_7_out(1);
-  wishbone_slot_7_out_record.wb_inta_o <= wishbone_slot_7_out(0); 
 
   wishbone_slot_8_in(61) <= wishbone_slot_8_in_record.wb_clk_i;
   wishbone_slot_8_in(60) <= wishbone_slot_8_in_record.wb_rst_i;
@@ -422,7 +406,6 @@ begin
   wishbone_slot_15_out_record.wb_ack_o <= wishbone_slot_15_out(1);
   wishbone_slot_15_out_record.wb_inta_o <= wishbone_slot_15_out(0);   
 
-  
   gpio_bus_in_record.gpio_spp_data <= gpio_bus_in(97 downto 49);
   gpio_bus_in_record.gpio_i <= gpio_bus_in(48 downto 0);
 
@@ -460,18 +443,6 @@ begin
   wishbone_slot_6_in_record.wb_stb_i <= slot_stb(6);
   slot_ack(6) <= wishbone_slot_6_out_record.wb_ack_o;
   slot_interrupt(6) <= wishbone_slot_6_out_record.wb_inta_o;
-  
-   --Wishbone 7
-  wishbone_slot_7_in_record.wb_clk_i <= sysclk;
-  wishbone_slot_7_in_record.wb_rst_i <= sysrst;
-  slot_read(7) <= wishbone_slot_7_out_record.wb_dat_o;
-  wishbone_slot_7_in_record.wb_dat_i <= slot_write(7);
-  wishbone_slot_7_in_record.wb_adr_i <= slot_address(7);
-  wishbone_slot_7_in_record.wb_we_i <= slot_we(7);
-  wishbone_slot_7_in_record.wb_cyc_i <= slot_cyc(7);
-  wishbone_slot_7_in_record.wb_stb_i <= slot_stb(7);
-  slot_ack(7) <= wishbone_slot_7_out_record.wb_ack_o;
-  slot_interrupt(7) <= wishbone_slot_7_out_record.wb_inta_o;
   
    --Wishbone 8
   wishbone_slot_8_in_record.wb_clk_i <= sysclk;
@@ -795,23 +766,23 @@ begin
 --
 --
 --
---  --
---  -- IO SLOT 7
---  --
---
---  crc16_inst: zpuino_crc16
---  port map (
---    wb_clk_i       => wb_clk_i,
---	 	wb_rst_i    => wb_rst_i,
---    wb_dat_o     => slot_read(7),
---    wb_dat_i     => slot_write(7),
---    wb_adr_i   => slot_address(7),
---    wb_we_i     => slot_we(7),
---    wb_cyc_i        => slot_cyc(7),
---    wb_stb_i        => slot_stb(7),
---    wb_ack_o      => slot_ack(7),
---    wb_inta_o => slot_interrupt(7)
---  );
+  --
+  -- IO SLOT 7
+  --
+
+  crc16_inst: zpuino_crc16
+  port map (
+    wb_clk_i       => wb_clk_i,
+	 	wb_rst_i    => wb_rst_i,
+    wb_dat_o     => slot_read(7),
+    wb_dat_i     => slot_write(7),
+    wb_adr_i   => slot_address(7),
+    wb_we_i     => slot_we(7),
+    wb_cyc_i        => slot_cyc(7),
+    wb_stb_i        => slot_stb(7),
+    wb_ack_o      => slot_ack(7),
+    wb_inta_o => slot_interrupt(7)
+  );
 
   --
   -- IO SLOT 8 (optional)

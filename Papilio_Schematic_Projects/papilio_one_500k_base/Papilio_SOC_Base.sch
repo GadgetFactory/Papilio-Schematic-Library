@@ -65,8 +65,6 @@
         <signal name="XLXN_2(33:0)" />
         <signal name="XLXN_3(61:0)" />
         <signal name="XLXN_4(33:0)" />
-        <signal name="XLXN_5(61:0)" />
-        <signal name="XLXN_6(33:0)" />
         <signal name="XLXN_7(61:0)" />
         <signal name="XLXN_8(33:0)" />
         <signal name="XLXN_9(61:0)" />
@@ -141,7 +139,7 @@
         <port polarity="BiDirectional" name="WING_AL1" />
         <port polarity="BiDirectional" name="WING_AL0" />
         <blockdef name="ZPUino">
-            <timestamp>2013-11-1T21:2:1</timestamp>
+            <timestamp>2013-11-5T16:4:14</timestamp>
             <rect width="3200" x="64" y="-604" height="604" />
             <line x2="3184" y1="64" y2="0" x1="3184" />
             <line x2="3200" y1="64" y2="0" x1="3200" />
@@ -157,8 +155,6 @@
             <line x2="96" y1="64" y2="0" x1="96" />
             <line x2="400" y1="64" y2="0" x1="400" />
             <line x2="416" y1="64" y2="0" x1="416" />
-            <line x2="704" y1="64" y2="0" x1="704" />
-            <line x2="720" y1="64" y2="0" x1="720" />
             <line x2="992" y1="64" y2="0" x1="992" />
             <line x2="1008" y1="64" y2="0" x1="1008" />
             <line x2="1296" y1="64" y2="0" x1="1296" />
@@ -260,8 +256,6 @@
             <blockpin signalname="XLXN_1(61:0)" name="wishbone_slot_5_in(61:0)" />
             <blockpin signalname="XLXN_3(61:0)" name="wishbone_slot_6_in(61:0)" />
             <blockpin signalname="XLXN_4(33:0)" name="wishbone_slot_6_out(33:0)" />
-            <blockpin signalname="XLXN_5(61:0)" name="wishbone_slot_7_in(61:0)" />
-            <blockpin signalname="XLXN_6(33:0)" name="wishbone_slot_7_out(33:0)" />
             <blockpin signalname="XLXN_7(61:0)" name="wishbone_slot_8_in(61:0)" />
             <blockpin signalname="XLXN_8(33:0)" name="wishbone_slot_8_out(33:0)" />
             <blockpin signalname="XLXN_9(61:0)" name="wishbone_slot_9_in(61:0)" />
@@ -288,10 +282,6 @@
         <block symbolname="Wishbone_Empty_Slot" name="XLXI_28">
             <blockpin signalname="XLXN_3(61:0)" name="wishbone_in(61:0)" />
             <blockpin signalname="XLXN_4(33:0)" name="wishbone_out(33:0)" />
-        </block>
-        <block symbolname="Wishbone_Empty_Slot" name="XLXI_29">
-            <blockpin signalname="XLXN_5(61:0)" name="wishbone_in(61:0)" />
-            <blockpin signalname="XLXN_6(33:0)" name="wishbone_out(33:0)" />
         </block>
         <block symbolname="Wishbone_Empty_Slot" name="XLXI_30">
             <blockpin signalname="XLXN_7(61:0)" name="wishbone_in(61:0)" />
@@ -664,14 +654,6 @@
             <wire x2="880" y1="736" y2="768" x1="880" />
         </branch>
         <instance x="800" y="1024" name="XLXI_28" orien="R0">
-        </instance>
-        <branch name="XLXN_5(61:0)">
-            <wire x2="1168" y1="736" y2="768" x1="1168" />
-        </branch>
-        <branch name="XLXN_6(33:0)">
-            <wire x2="1184" y1="736" y2="768" x1="1184" />
-        </branch>
-        <instance x="1104" y="1024" name="XLXI_29" orien="R0">
         </instance>
         <branch name="XLXN_7(61:0)">
             <wire x2="1456" y1="736" y2="768" x1="1456" />
