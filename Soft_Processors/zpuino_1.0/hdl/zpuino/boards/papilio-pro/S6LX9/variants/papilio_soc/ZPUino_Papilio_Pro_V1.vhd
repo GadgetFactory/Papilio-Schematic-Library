@@ -48,7 +48,7 @@ use work.pad.all;
 use work.wishbonepkg.all;
 use work.papilio_pkg.all;
 
-entity zpuino_papilio_pro is
+entity ZPUino_Papilio_Pro_V1 is
   port (
 	 --32Mhz input clock is converted to a 96Mhz clock
     CLK:        in std_logic;
@@ -222,9 +222,9 @@ entity zpuino_papilio_pro is
 --    wb_ack_o14: in std_logic;
 --    wb_inta_o14:in std_logic	 	
   );
-end entity zpuino_papilio_pro;
+end entity ZPUino_Papilio_Pro_V1;
 
-architecture behave of zpuino_papilio_pro is
+architecture behave of ZPUino_Papilio_Pro_V1 is
 
   component zpuino_debug_jtag_spartan6 is
   port (

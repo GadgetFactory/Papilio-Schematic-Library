@@ -624,7 +624,7 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="zpuino_papilio_pro">
+<symbol version="7" name="ZPUino_Papilio_Pro_V1">
     <symboltype>BLOCK</symboltype>
     <timestamp>2013-11-5T23:36:47</timestamp>
     <pin polarity="Output" x="3344" y="-400" name="gpio_bus_out(147:0)" />

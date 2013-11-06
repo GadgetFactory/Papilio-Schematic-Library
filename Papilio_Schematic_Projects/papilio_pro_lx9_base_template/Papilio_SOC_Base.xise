@@ -131,7 +131,7 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="50"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
-    <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/boards/papilio-pro/S6LX9/variants/papilio_soc/zpuino_papilio_pro.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="../../Soft_Processors/zpuino_1.0/hdl/zpuino/boards/papilio-pro/S6LX9/variants/papilio_soc/ZPUino_Papilio_Pro_V1.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="79"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="42"/>
     </file>
