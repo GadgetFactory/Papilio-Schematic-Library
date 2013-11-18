@@ -71,7 +71,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity i2c_master_top is
+entity COMM_zpuino_wb_i2c is
     generic(
             ARST_LVL : std_logic := '0'                   -- asynchronous reset level
     );
@@ -88,9 +88,9 @@ entity i2c_master_top is
             sda_pad_o     : out std_logic;                    -- i2c data line output
             sda_padoen_o  : out std_logic                     -- i2c data line output enable, active low
     );
-end entity i2c_master_top;
+end entity COMM_zpuino_wb_i2c;
 
-architecture structural of i2c_master_top is
+architecture structural of COMM_zpuino_wb_i2c is
     component i2c_master_byte_ctrl is
     port (
           clk    : in std_logic;

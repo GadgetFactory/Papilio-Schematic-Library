@@ -1,19 +1,19 @@
-"Papilio Hardware"
+".Papilio Hardware"
 {
 "LogicStart_MegaWing_Pinout"
 "Papilio_Default_Pinout"
 }
-"Papilio Peripherals"
+".Papilio Peripherals"
 {
-"AUDIO_pokey_zpuino"
-"AUDIO_YM2149_zpuino_wb"
-"i2c_master_top"
-"SevenSeg_zpuino_wb"
-"SPI_wb_zpuino"
-"UART_wb_zpuino"
+"AUDIO_zpuino_wb_pokey"
+"AUDIO_zpuino_wb_YM2149"
+"COMM_zpuino_wb_i2c"
+"MISC_zpuino_wb_SevenSeg"
+"COMM_zpuino_wb_SPI"
+"COMM_zpuino_wb_UART"
 "Wishbone_Empty_Slot"
 }
-"Papilio Soft Processors"
+".Papilio Soft Processors"
 {
 "ZPUino_Papilio_One_V1"
 "ZPUino_Papilio_Pro_V1"

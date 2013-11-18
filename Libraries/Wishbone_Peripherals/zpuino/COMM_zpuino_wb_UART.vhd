@@ -40,7 +40,7 @@ use work.zpu_config.all;
 use work.zpupkg.all;
 use work.zpuinopkg.all;
 
-entity UART_wb_zpuino is
+entity COMM_zpuino_wb_UART is
   generic (
     bits: integer := 2
   );
@@ -52,9 +52,9 @@ entity UART_wb_zpuino is
     tx:       out std_logic;					--UART Transmit pin
     rx:       in std_logic						--UART Receive pin
   );
-end entity UART_wb_zpuino;
+end entity COMM_zpuino_wb_UART;
 
-architecture behave of UART_wb_zpuino is
+architecture behave of COMM_zpuino_wb_UART is
 
   component zpuino_uart_rx is
   port (

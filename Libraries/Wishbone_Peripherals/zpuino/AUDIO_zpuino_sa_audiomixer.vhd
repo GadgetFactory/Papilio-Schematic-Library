@@ -46,7 +46,7 @@ library work;
   use work.zpu_config.all;
   use work.zpupkg.all;
   
-entity zpuino_io_audiomixer is
+entity AUDIO_zpuino_sa_audiomixer is
 	port (
     clk:      	in std_logic;
     rst:      	in std_logic;
@@ -58,9 +58,9 @@ entity zpuino_io_audiomixer is
     
     audio_out: 	out std_logic
     );
-end entity zpuino_io_audiomixer;
+end entity AUDIO_zpuino_sa_audiomixer;
 
-architecture behave of zpuino_io_audiomixer is
+architecture behave of AUDIO_zpuino_sa_audiomixer is
 
 -- divier per input
 signal cnt_div: 			std_logic_vector(1 downto 0) := (others => '0');

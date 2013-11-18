@@ -42,7 +42,7 @@ use work.zpuino_config.all;
 use work.zpupkg.all;
 use work.zpuinopkg.all;
 
-entity SPI_wb_zpuino is
+entity COMM_zpuino_wb_SPI is
   port (
 	 wishbone_in : in std_logic_vector(61 downto 0);
 	 wishbone_out : out std_logic_vector(33 downto 0);
@@ -52,9 +52,9 @@ entity SPI_wb_zpuino is
     sck:      out std_logic;				-- SPI Clock
     enabled:  out std_logic				-- An output that is active high when the SPI is not in a reset state
   );
-end entity SPI_wb_zpuino;
+end entity COMM_zpuino_wb_SPI;
 
-architecture behave of SPI_wb_zpuino is
+architecture behave of COMM_zpuino_wb_SPI is
 
 
   component spi is

@@ -41,7 +41,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity simple_sigmadelta is
+entity AUDIO_zpuino_sa_sigmadelta is
   generic (
     BITS: integer := 8
   );
@@ -51,9 +51,9 @@ entity simple_sigmadelta is
     data_in:  in std_logic_vector(BITS-1 downto 0);
     data_out: out std_logic
     );
-end entity simple_sigmadelta;
+end entity AUDIO_zpuino_sa_sigmadelta;
 
-architecture behave of simple_sigmadelta is
+architecture behave of AUDIO_zpuino_sa_sigmadelta is
 
 signal delta_adder: unsigned(BITS+1 downto 0);
 signal sigma_adder: unsigned(BITS+1 downto 0);

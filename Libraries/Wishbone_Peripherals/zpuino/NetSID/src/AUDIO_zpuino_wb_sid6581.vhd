@@ -44,7 +44,7 @@ use work.zpuino_config.all;
 use work.zpu_config.all;
 use work.zpupkg.all;
 
-entity AUDIO_sid6581_wb is
+entity AUDIO_zpuino_wb_sid6581 is
   port (
 	 wishbone_in : in std_logic_vector(61 downto 0);
 	 wishbone_out : out std_logic_vector(33 downto 0);
@@ -53,9 +53,9 @@ entity AUDIO_sid6581_wb is
     audio_data: out std_logic_vector(17 downto 0)
 
   );
-end entity AUDIO_sid6581_wb;
+end entity AUDIO_zpuino_wb_sid6581;
 
-architecture rtl of AUDIO_sid6581_wb is
+architecture rtl of AUDIO_zpuino_wb_sid6581 is
 
   component sid6581 is
   port (

@@ -42,7 +42,7 @@ use work.zpu_config.all;
 use work.zpupkg.all;
 use work.zpuinopkg.all;
 
-entity SevenSeg_zpuino_wb is
+entity MISC_zpuino_wb_SevenSeg is
   generic (
     BITS: integer := 2;
     EXTRASIZE: integer := 32;
@@ -59,9 +59,9 @@ entity SevenSeg_zpuino_wb is
     extra:    out std_logic_vector(EXTRASIZE-1 downto 0);
     enable:   out std_logic_vector((2**BITS)-1 downto 0)
   );
-end entity SevenSeg_zpuino_wb;
+end entity MISC_zpuino_wb_SevenSeg;
 
-architecture behave of SevenSeg_zpuino_wb is
+architecture behave of MISC_zpuino_wb_SevenSeg is
 
   -- Timer
   constant COUNT: integer := 2**BITS;

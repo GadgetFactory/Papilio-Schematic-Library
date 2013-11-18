@@ -53,7 +53,7 @@ library work;
   use work.zpupkg.all;
   
 
-entity AUDIO_pokey_zpuino is
+entity AUDIO_zpuino_wb_pokey is
   port (
 	 wishbone_in : in std_logic_vector(61 downto 0);
 	 wishbone_out : out std_logic_vector(33 downto 0);
@@ -63,7 +63,7 @@ entity AUDIO_pokey_zpuino is
 end;
 
 
-architecture RTL of AUDIO_pokey_zpuino is
+architecture RTL of AUDIO_zpuino_wb_pokey is
   type  array_8x8   is array (0 to 7) of std_logic_vector(7 downto 0);
   type  array_4x8   is array (1 to 4) of std_logic_vector(7 downto 0);
   type  array_4x4   is array (1 to 4) of std_logic_vector(3 downto 0);

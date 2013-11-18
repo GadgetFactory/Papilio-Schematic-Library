@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="AUDIO_pokey_zpuino">
+<symbol version="7" name="AUDIO_zpuino_wb_pokey">
     <symboltype>BLOCK</symboltype>
     <timestamp>2013-11-5T20:47:8</timestamp>
     <pin polarity="Input" x="112" y="-96" name="wishbone_in(61:0)" />
@@ -16,7 +16,7 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="AUDIO_YM2149_zpuino_wb">
+<symbol version="7" name="AUDIO_zpuino_wb_YM2149">
     <symboltype>BLOCK</symboltype>
     <timestamp>2013-11-5T20:59:51</timestamp>
     <pin polarity="Output" x="304" y="-32" name="data_out(7:0)" />
@@ -33,7 +33,7 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="i2c_master_top">
+<symbol version="7" name="COMM_zpuino_wb_i2c">
     <symboltype>BLOCK</symboltype>
     <timestamp>2013-11-5T20:39:20</timestamp>
     <pin polarity="Input" x="0" y="-224" name="scl_pad_i" />
@@ -427,7 +427,7 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="SevenSeg_zpuino_wb">
+<symbol version="7" name="MISC_zpuino_wb_SevenSeg">
     <symboltype>BLOCK</symboltype>
     <timestamp>2013-11-5T20:52:23</timestamp>
     <pin polarity="Output" x="304" y="-160" name="segdata(6:0)" />
@@ -455,7 +455,7 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="SPI_wb_zpuino">
+<symbol version="7" name="COMM_zpuino_wb_SPI">
     <symboltype>BLOCK</symboltype>
     <timestamp>2013-11-5T20:32:27</timestamp>
     <pin polarity="Input" x="0" y="-192" name="miso" />
@@ -480,7 +480,7 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="UART_wb_zpuino">
+<symbol version="7" name="COMM_zpuino_wb_UART">
     <symboltype>BLOCK</symboltype>
     <timestamp>2013-11-5T20:17:10</timestamp>
     <pin polarity="Input" x="0" y="-80" name="rx" />

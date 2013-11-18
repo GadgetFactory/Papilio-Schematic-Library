@@ -46,7 +46,7 @@ use work.zpupkg.all;
 use work.zpu_config.all;
 use work.zpuinopkg.all;
 
-entity zpuino_sigmadelta is
+entity AUDIO_zpuino_wb_sigmadeltaDAC is
 	port (
     wb_clk_i: in std_logic;
 	wb_rst_i: in std_logic;
@@ -66,9 +66,9 @@ entity zpuino_sigmadelta is
     spp_data: out std_logic_vector(1 downto 0);
     spp_en:   out std_logic_vector(1 downto 0)
   );
-end entity zpuino_sigmadelta;
+end entity AUDIO_zpuino_wb_sigmadeltaDAC;
 
-architecture behave of zpuino_sigmadelta is
+architecture behave of AUDIO_zpuino_wb_sigmadeltaDAC is
 
 signal delta_adder1: unsigned(17 downto 0);
 signal sigma_adder1: unsigned(17 downto 0);

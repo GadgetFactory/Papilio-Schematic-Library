@@ -9,7 +9,7 @@ use work.zpuino_config.all;
 use work.zpupkg.all;
 use work.zpuinopkg.all;
 
-entity vga_zxspectrum is
+entity VIDEO_zpuino_wb_vga_zxspectrum is
   port(
     wb_clk_i: in std_logic;
 	 	wb_rst_i: in std_logic;
@@ -43,7 +43,7 @@ entity vga_zxspectrum is
   );
 end entity;
 
-architecture behave of vga_zxspectrum is
+architecture behave of VIDEO_zpuino_wb_vga_zxspectrum is
 
   component gh_fifo_async_rrd_sr_wf is
 	GENERIC (add_width: INTEGER :=8; -- min value is 2 (4 memory locations)

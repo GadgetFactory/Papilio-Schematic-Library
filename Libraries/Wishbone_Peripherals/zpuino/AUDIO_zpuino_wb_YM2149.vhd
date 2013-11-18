@@ -63,7 +63,7 @@ library work;
   use work.zpu_config.all;
   use work.zpupkg.all;
   
-entity AUDIO_YM2149_zpuino_wb is
+entity AUDIO_zpuino_wb_YM2149 is
   generic (
     FREQMHZ: integer := 96
   );
@@ -75,7 +75,7 @@ entity AUDIO_YM2149_zpuino_wb is
   );
 end;
 
-architecture RTL of AUDIO_YM2149_zpuino_wb is
+architecture RTL of AUDIO_zpuino_wb_YM2149 is
   type  array_16x8   is array (0 to 15) of std_logic_vector(7 downto 0);
   type  array_3x12   is array (1 to 3) of std_logic_vector(11 downto 0);
 
