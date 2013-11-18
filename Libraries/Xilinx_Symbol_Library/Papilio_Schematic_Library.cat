@@ -3,15 +3,21 @@
 "LogicStart_MegaWing_Pinout"
 "Papilio_Default_Pinout"
 }
-".Papilio Peripherals"
+".Papilio Peripherals - Standalone"
+{
+"AUDIO_zpuino_sa_audiomixer"
+"AUDIO_zpuino_sa_sigmadeltaDAC"
+}
+".Papilio Peripherals - Wishbone"
 {
 "AUDIO_zpuino_wb_pokey"
 "AUDIO_zpuino_wb_YM2149"
 "COMM_zpuino_wb_i2c"
-"MISC_zpuino_wb_SevenSeg"
 "COMM_zpuino_wb_SPI"
 "COMM_zpuino_wb_UART"
+"MISC_zpuino_wb_SevenSeg"
 "Wishbone_Empty_Slot"
+"AUDIO_zpuino_wb_sid6581"
 }
 ".Papilio Soft Processors"
 {
