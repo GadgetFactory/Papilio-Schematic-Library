@@ -52,6 +52,10 @@ entity ZPUino_Papilio_Pro_V1 is
   port (
 	 --32Mhz input clock is converted to a 96Mhz clock
     CLK:        in std_logic;
+	 
+	 --Clock outputs to be used in schematic
+	 clk_96Mhz:        out std_logic;	--This is the clock that the system runs on.
+	 clk_1Mhz:        out std_logic;		--This is a 1Mhz clock for symbols like the C64 SID chip.
 
     -- Connection to the main SPI flash
     SPI_SCK:    out std_logic;
@@ -737,9 +741,10 @@ begin
     clkout  => sysclk,
     clkout1  => sysclk_sram_we,
     clkout2  => sysclk_sram_wen,
-	clk_1Mhz_out => sysclk_1mhz,
+	clk_1Mhz_out => clk_1Mhz,
     rstout  => clkgen_rst
   );
+	clk_96Mhz <= sysclk;
 
   -- Other ports are special, we need to avoid outputs on input-only pins
 

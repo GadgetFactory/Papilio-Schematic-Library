@@ -54,6 +54,10 @@ entity ZPUino_Papilio_One_V1 is
 	 --32Mhz input clock is converted to a 96Mhz clock
     CLK:        in std_logic;
     --RST:        in std_logic; -- No reset on papilio
+	 
+	 --Clock outputs to be used in schematic
+	 clk_96Mhz:        out std_logic;	--This is the clock that the system runs on.
+	 clk_1Mhz:        out std_logic;		--This is a 1Mhz clock for symbols like the C64 SID chip.	 
 
 	 -- Connection to the main SPI flash
     SPI_FLASH_SCK:    out std_logic;
@@ -560,11 +564,11 @@ begin
     rstin   => dbg_reset,
     clkout  => sysclk,
 	 vgaclkout => vgaclkout,
-    clkout_1mhz => sysclk_1mhz,
+    clkout_1mhz => clk_1Mhz,
     rstout  => clkgen_rst
   );
 
-
+  clk_96Mhz <= sysclk;
 
   zpuino:zpuino_top
     port map (
