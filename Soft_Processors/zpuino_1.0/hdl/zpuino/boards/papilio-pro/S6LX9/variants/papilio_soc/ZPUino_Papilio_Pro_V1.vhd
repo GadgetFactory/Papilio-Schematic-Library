@@ -121,111 +121,41 @@ entity ZPUino_Papilio_Pro_V1 is
 --	 wishbone_slot_15_out : in std_logic_vector(33 downto 0)	 
 	
 	
---	 v_wb_dat_o: out std_logic_vector(wordSize-1 downto 0);
---	 v_wb_dat_i: in std_logic_vector(wordSize-1 downto 0);
---	 v_wb_adr_i: in std_logic_vector(maxAddrBitIncIO downto 0);
---	 v_wb_we_i:  in std_logic;
---	 v_wb_cyc_i: in std_logic;
---	 v_wb_stb_i: in std_logic;
---	 v_wb_ack_o: out std_logic;
---	 vgaclkout: out std_logic;	 
---	 
---	 --Wishbone Slot 5
---    wb_clk_i5: out std_logic;
---	 wb_rst_i5: out std_logic;
---    wb_dat_o5: in std_logic_vector(31 downto 0);
---    wb_dat_i5: out std_logic_vector(31 downto 0);
---    wb_adr_i5: out std_logic_vector(26 downto 2);
---    wb_we_i5:  out std_logic;
---    wb_cyc_i5: out std_logic;
---    wb_stb_i5: out std_logic;
---    wb_ack_o5: in std_logic;
---    wb_inta_o5:in std_logic;
---	 
---	 --Wishbone Slot 8
---    wb_clk_i8: out std_logic;
---	 wb_rst_i8: out std_logic;
---    wb_dat_o8: in std_logic_vector(31 downto 0);
---    wb_dat_i8: out std_logic_vector(31 downto 0);
---    wb_adr_i8: out std_logic_vector(26 downto 2);
---    wb_we_i8:  out std_logic;
---    wb_cyc_i8: out std_logic;
---    wb_stb_i8: out std_logic;
---    wb_ack_o8: in std_logic;
---    wb_inta_o8:in std_logic;
---
---	 --Wishbone Slot 9
---    wb_clk_i9: out std_logic;
---	 wb_rst_i9: out std_logic;
---    wb_dat_o9: in std_logic_vector(31 downto 0);
---    wb_dat_i9: out std_logic_vector(31 downto 0);
---    wb_adr_i9: out std_logic_vector(26 downto 2);
---    wb_we_i9:  out std_logic;
---    wb_cyc_i9: out std_logic;
---    wb_stb_i9: out std_logic;
---    wb_ack_o9: in std_logic;
---    wb_inta_o9:in std_logic;
---
---	 --Wishbone Slot 10
---    wb_clk_i10: out std_logic;
---	 wb_rst_i10: out std_logic;
---    wb_dat_o10: in std_logic_vector(31 downto 0);
---    wb_dat_i10: out std_logic_vector(31 downto 0);
---    wb_adr_i10: out std_logic_vector(26 downto 2);
---    wb_we_i10:  out std_logic;
---    wb_cyc_i10: out std_logic;
---    wb_stb_i10: out std_logic;
---    wb_ack_o10: in std_logic;
---    wb_inta_o10:in std_logic;
---
---	 --Wishbone Slot 11
---    wb_clk_i11: out std_logic;
---	 wb_rst_i11: out std_logic;
---    wb_dat_o11: in std_logic_vector(31 downto 0);
---    wb_dat_i11: out std_logic_vector(31 downto 0);
---    wb_adr_i11: out std_logic_vector(26 downto 2);
---    wb_we_i11:  out std_logic;
---    wb_cyc_i11: out std_logic;
---    wb_stb_i11: out std_logic;
---    wb_ack_o11: in std_logic;
---    wb_inta_o11:in std_logic;
---
---	 --Wishbone Slot 12
---    wb_clk_i12: out std_logic;
---	 wb_rst_i12: out std_logic;
---    wb_dat_o12: in std_logic_vector(31 downto 0);
---    wb_dat_i12: out std_logic_vector(31 downto 0);
---    wb_adr_i12: out std_logic_vector(26 downto 2);
---    wb_we_i12:  out std_logic;
---    wb_cyc_i12: out std_logic;
---    wb_stb_i12: out std_logic;
---    wb_ack_o12: in std_logic;
---    wb_inta_o12:in std_logic;
---
---	 --Wishbone Slot 13
---    wb_clk_i13: out std_logic;
---	 wb_rst_i13: out std_logic;
---    wb_dat_o13: in std_logic_vector(31 downto 0);
---    wb_dat_i13: out std_logic_vector(31 downto 0);
---    wb_adr_i13: out std_logic_vector(26 downto 2);
---    wb_we_i13:  out std_logic;
---    wb_cyc_i13: out std_logic;
---    wb_stb_i13: out std_logic;
---    wb_ack_o13: in std_logic;
---    wb_inta_o13:in std_logic;
---
---	 --Wishbone Slot 14
---    wb_clk_i14: out std_logic;
---	 wb_rst_i14: out std_logic;
---    wb_dat_o14: in std_logic_vector(31 downto 0);
---    wb_dat_i14: out std_logic_vector(31 downto 0);
---    wb_adr_i14: out std_logic_vector(26 downto 2);
---    wb_we_i14:  out std_logic;
---    wb_cyc_i14: out std_logic;
---    wb_stb_i14: out std_logic;
---    wb_ack_o14: in std_logic;
---    wb_inta_o14:in std_logic	 	
+ 	
   );
+  attribute PERIOD: string; 
+  attribute PERIOD of CLK: signal is "31.25ns";
+  
+  attribute LOC: string;
+  attribute LOC of CLK: signal is "P94";
+  attribute LOC of RXD: signal is "P101";
+  attribute LOC of TXD: signal is "P105";
+  attribute LOC of SPI_CS: signal is "P38";
+  attribute LOC of SPI_SCK: signal is "P70";
+  attribute LOC of SPI_MISO: signal is "P65";
+  attribute LOC of SPI_MOSI: signal is "P64";
+  attribute LOC of DRAM_ADDR: signal is "P34 P35 P141 P40 P41 P43 P44 P45 P46 P137 P138 P139 P140";
+  attribute LOC of DRAM_DQ: signal is "P30 P29 P27 P26 P24 P23 P22 P21 P8 P16 P15 P14 P12 P11 P10 P9"; 
+  attribute LOC of DRAM_DQM: signal is "P17 P7";  
+  attribute LOC of DRAM_BA: signal is "P142 P143"; 
+  attribute LOC of DRAM_WE_N: signal is "P6";
+  attribute LOC of DRAM_CAS_N: signal is "P5";
+  attribute LOC of DRAM_RAS_N: signal is "P2";
+  attribute LOC of DRAM_CS_N: signal is "P1";
+  attribute LOC of DRAM_CLK: signal is "P32";
+  attribute LOC of DRAM_CKE: signal is "P33";  
+ 
+  attribute SLEW: string;
+  attribute SLEW of DRAM_ADDR: signal is "FAST";
+  attribute SLEW of DRAM_DQ: signal is "FAST"; 
+  attribute SLEW of DRAM_DQM: signal is "FAST";  
+  attribute SLEW of DRAM_BA: signal is "FAST"; 
+  attribute SLEW of DRAM_WE_N: signal is "FAST";
+  attribute SLEW of DRAM_CAS_N: signal is "FAST";
+  attribute SLEW of DRAM_RAS_N: signal is "FAST";
+  attribute SLEW of DRAM_CS_N: signal is "FAST";
+  attribute SLEW of DRAM_CLK: signal is "FAST";
+  attribute SLEW of DRAM_CKE: signal is "FAST"; 
 end entity ZPUino_Papilio_Pro_V1;
 
 architecture behave of ZPUino_Papilio_Pro_V1 is

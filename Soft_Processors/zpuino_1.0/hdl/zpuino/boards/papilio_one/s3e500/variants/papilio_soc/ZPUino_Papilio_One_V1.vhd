@@ -147,6 +147,29 @@ entity ZPUino_Papilio_One_V1 is
 	 wishbone_slot_15_out : in std_logic_vector(33 downto 0)	 
 
   );
+  attribute LOC: string;
+  attribute LOC of CLK: signal is "P89";
+  attribute LOC of RXD: signal is "P88";
+  attribute LOC of TXD: signal is "P90";
+  attribute LOC of SPI_FLASH_CS: signal is "P24";
+  attribute LOC of SPI_FLASH_SCK: signal is "P50";
+  attribute LOC of SPI_FLASH_MISO: signal is "P44";
+  attribute LOC of SPI_FLASH_MOSI: signal is "P27";
+  
+  attribute IOSTANDARD: string;
+  attribute IOSTANDARD of CLK: signal is "LVCMOS33"; 
+  attribute IOSTANDARD of RXD: signal is "LVCMOS33"; 
+  attribute IOSTANDARD of TXD: signal is "LVCMOS33";  
+  attribute IOSTANDARD of SPI_FLASH_CS: signal is "LVCMOS33";  
+  attribute IOSTANDARD of SPI_FLASH_SCK: signal is "LVCMOS33"; 
+  attribute IOSTANDARD of SPI_FLASH_MISO: signal is "LVCMOS33"; 
+  attribute IOSTANDARD of SPI_FLASH_MOSI: signal is "LVCMOS33";
+ 
+  attribute PERIOD: string; 
+  attribute PERIOD of CLK: signal is "31.00ns";  
+  
+  
+  
 end entity ZPUino_Papilio_One_V1;
 
 architecture behave of ZPUino_Papilio_One_V1 is
