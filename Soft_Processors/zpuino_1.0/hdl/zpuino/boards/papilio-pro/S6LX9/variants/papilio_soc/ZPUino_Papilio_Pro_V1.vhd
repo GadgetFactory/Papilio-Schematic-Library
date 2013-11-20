@@ -123,39 +123,39 @@ entity ZPUino_Papilio_Pro_V1 is
 	
  	
   );
-  attribute PERIOD: string; 
-  attribute PERIOD of CLK: signal is "31.25ns";
-  
-  attribute LOC: string;
-  attribute LOC of CLK: signal is "P94";
-  attribute LOC of RXD: signal is "P101";
-  attribute LOC of TXD: signal is "P105";
-  attribute LOC of SPI_CS: signal is "P38";
-  attribute LOC of SPI_SCK: signal is "P70";
-  attribute LOC of SPI_MISO: signal is "P65";
-  attribute LOC of SPI_MOSI: signal is "P64";
-  attribute LOC of DRAM_ADDR: signal is "P34 P35 P141 P40 P41 P43 P44 P45 P46 P137 P138 P139 P140";
-  attribute LOC of DRAM_DQ: signal is "P30 P29 P27 P26 P24 P23 P22 P21 P8 P16 P15 P14 P12 P11 P10 P9"; 
-  attribute LOC of DRAM_DQM: signal is "P17 P7";  
-  attribute LOC of DRAM_BA: signal is "P142 P143"; 
-  attribute LOC of DRAM_WE_N: signal is "P6";
-  attribute LOC of DRAM_CAS_N: signal is "P5";
-  attribute LOC of DRAM_RAS_N: signal is "P2";
-  attribute LOC of DRAM_CS_N: signal is "P1";
-  attribute LOC of DRAM_CLK: signal is "P32";
-  attribute LOC of DRAM_CKE: signal is "P33";  
- 
-  attribute SLEW: string;
-  attribute SLEW of DRAM_ADDR: signal is "FAST";
-  attribute SLEW of DRAM_DQ: signal is "FAST"; 
-  attribute SLEW of DRAM_DQM: signal is "FAST";  
-  attribute SLEW of DRAM_BA: signal is "FAST"; 
-  attribute SLEW of DRAM_WE_N: signal is "FAST";
-  attribute SLEW of DRAM_CAS_N: signal is "FAST";
-  attribute SLEW of DRAM_RAS_N: signal is "FAST";
-  attribute SLEW of DRAM_CS_N: signal is "FAST";
-  attribute SLEW of DRAM_CLK: signal is "FAST";
-  attribute SLEW of DRAM_CKE: signal is "FAST"; 
+--  attribute PERIOD: string; 
+--  attribute PERIOD of CLK: signal is "31.25ns";
+--  
+--  attribute LOC: string;
+--  attribute LOC of CLK: signal is "P94";
+--  attribute LOC of RXD: signal is "P101";
+--  attribute LOC of TXD: signal is "P105";
+--  attribute LOC of SPI_CS: signal is "P38";
+--  attribute LOC of SPI_SCK: signal is "P70";
+--  attribute LOC of SPI_MISO: signal is "P65";
+--  attribute LOC of SPI_MOSI: signal is "P64";
+--  attribute LOC of DRAM_ADDR: signal is "P34 P35 P141 P40 P41 P43 P44 P45 P46 P137 P138 P139 P140";
+--  attribute LOC of DRAM_DQ: signal is "P30 P29 P27 P26 P24 P23 P22 P21 P8 P16 P15 P14 P12 P11 P10 P9"; 
+--  attribute LOC of DRAM_DQM: signal is "P17 P7";  
+--  attribute LOC of DRAM_BA: signal is "P142 P143"; 
+--  attribute LOC of DRAM_WE_N: signal is "P6";
+--  attribute LOC of DRAM_CAS_N: signal is "P5";
+--  attribute LOC of DRAM_RAS_N: signal is "P2";
+--  attribute LOC of DRAM_CS_N: signal is "P1";
+--  attribute LOC of DRAM_CLK: signal is "P32";
+--  attribute LOC of DRAM_CKE: signal is "P33";  
+-- 
+--  attribute SLEW: string;
+--  attribute SLEW of DRAM_ADDR: signal is "FAST";
+--  attribute SLEW of DRAM_DQ: signal is "FAST"; 
+--  attribute SLEW of DRAM_DQM: signal is "FAST";  
+--  attribute SLEW of DRAM_BA: signal is "FAST"; 
+--  attribute SLEW of DRAM_WE_N: signal is "FAST";
+--  attribute SLEW of DRAM_CAS_N: signal is "FAST";
+--  attribute SLEW of DRAM_RAS_N: signal is "FAST";
+--  attribute SLEW of DRAM_CS_N: signal is "FAST";
+--  attribute SLEW of DRAM_CLK: signal is "FAST";
+--  attribute SLEW of DRAM_CKE: signal is "FAST"; 
 end entity ZPUino_Papilio_Pro_V1;
 
 architecture behave of ZPUino_Papilio_Pro_V1 is
