@@ -7,9 +7,7 @@ use board.zpuino_config.all;
 use board.zpu_config.all;
 use board.zpupkg.all;
 use board.zpuinopkg.all;
-
-library work;
-use work.wishbonepkg.all;
+use board.wishbonepkg.all;
 
 entity wb_rom_ram is
   generic (

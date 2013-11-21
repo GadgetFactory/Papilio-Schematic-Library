@@ -42,10 +42,11 @@ use board.zpu_config.all;
 use board.zpupkg.all;
 use board.wishbonepkg.all;
 
+
 --library UNISIM;
 --use UNISIM.vcomponents.all;
 
-entity zpu_core_extreme is
+entity zpu_core_extreme_icache is
   port (
     wb_clk_i:       in std_logic;
     wb_rst_i:       in std_logic;
@@ -58,6 +59,7 @@ entity zpu_core_extreme is
     wb_adr_o:       out std_logic_vector(maxAddrBitIncIO downto 0);
     wb_cyc_o:       out std_logic;
     wb_stb_o:       out std_logic;
+    wb_sel_o:       out std_logic_vector(3 downto 0);
     wb_we_o:        out std_logic;
 
     wb_inta_i:      in std_logic;
@@ -70,12 +72,12 @@ entity zpu_core_extreme is
     stack_b_read:         in std_logic_vector(wordSize-1 downto 0);
     stack_a_write:        out std_logic_vector(wordSize-1 downto 0);
     stack_b_write:        out std_logic_vector(wordSize-1 downto 0);
-    stack_a_writeenable:  out std_logic;
+    stack_a_writeenable:  out std_logic_vector(3 downto 0);
     stack_a_enable:       out std_logic;
-    stack_b_writeenable:  out std_logic;
+    stack_b_writeenable:  out std_logic_vector(3 downto 0);
     stack_b_enable:       out std_logic;
-    stack_a_addr:         out std_logic_vector(stackSize_bits+1 downto 2);
-    stack_b_addr:         out std_logic_vector(stackSize_bits+1 downto 2);
+    stack_a_addr:         out std_logic_vector(stackSize_bits-1 downto 2);
+    stack_b_addr:         out std_logic_vector(stackSize_bits-1 downto 2);
     stack_clk:            out std_logic;
 
     -- ROM wb interface
@@ -88,14 +90,15 @@ entity zpu_core_extreme is
     rom_wb_cti_o:       out std_logic_vector(2 downto 0);
     rom_wb_stall_i:     in std_logic;
 
+    cache_flush:        in std_logic;
     -- Debug interface
 
     dbg_out:            out zpu_dbg_out_type;
     dbg_in:             in zpu_dbg_in_type
   );
-end zpu_core_extreme;
+end zpu_core_extreme_icache;
 
-architecture behave of zpu_core_extreme is
+architecture behave of zpu_core_extreme_icache is
 
 component lshifter is
   port (
@@ -109,6 +112,69 @@ component lshifter is
     multorshift: in std_logic
   );
 end component;
+
+component zpuino_icache is
+  generic (
+      ADDRESS_HIGH: integer := 26
+  );
+  port (
+    wb_clk_i:       in std_logic;
+    wb_rst_i:       in std_logic;
+
+    valid:          out std_logic;
+    data:           out std_logic_vector(wordSize-1 downto 0);
+    address:        in std_logic_vector(maxAddrBit downto 0);
+    strobe:         in std_logic;
+    enable:         in std_logic;
+    stall:          out std_logic;
+    flush:          in std_logic;
+    -- Master wishbone interface
+
+    m_wb_ack_i:       in std_logic;
+    m_wb_dat_i:       in std_logic_vector(wordSize-1 downto 0);
+    m_wb_dat_o:       out std_logic_vector(wordSize-1 downto 0);
+    m_wb_adr_o:       out std_logic_vector(maxAddrBit downto 0);
+    m_wb_cyc_o:       out std_logic;
+    m_wb_stb_o:       out std_logic;
+    m_wb_stall_i:     in std_logic;
+    m_wb_we_o:        out std_logic
+  );
+end component;
+
+component zpuino_lsu is
+  port (
+    wb_clk_i:       in std_logic;
+    wb_rst_i:       in std_logic;
+
+    wb_ack_i:       in std_logic;
+    wb_dat_i:       in std_logic_vector(wordSize-1 downto 0);
+    wb_dat_o:       out std_logic_vector(wordSize-1 downto 0);
+    wb_adr_o:       out std_logic_vector(maxAddrBitIncIO downto 2);
+    wb_cyc_o:       out std_logic;
+    wb_stb_o:       out std_logic;
+    wb_sel_o:       out std_logic_vector(3 downto 0);
+    wb_we_o:        out std_logic;
+
+
+    -- Connection to cpu
+    req:            in std_logic;
+    we:             in std_logic;
+    busy:           out std_logic;
+
+    data_read:      out std_logic_vector(wordSize-1 downto 0);
+    data_write:     in std_logic_vector(wordSize-1 downto 0);
+    data_sel:       in std_logic_vector(3 downto 0);
+    address:        in std_logic_vector(maxAddrBitIncIO downto 0)
+  );
+end component;
+
+
+signal cache_valid:          std_logic;
+signal cache_data:           std_logic_vector(wordSize-1 downto 0);
+signal cache_address:        std_logic_vector(maxAddrBit downto 0);
+signal cache_strobe:         std_logic;
+signal cache_enable:         std_logic;
+signal cache_stall:          std_logic;
 
 signal lshifter_enable: std_logic;
 signal lshifter_done: std_logic;
@@ -129,16 +195,10 @@ signal trace_topOfStackB:   std_logic_vector(wordSize-1 downto 0);
 type State_Type is
 (
 State_Execute,
-State_Store,
-State_StoreB,
-State_StoreB2,
-State_Load,
-State_LoadMemory,
 State_LoadStack,
 State_Loadb,
-State_Resync1,
+State_Loadh,
 State_Resync2,
-State_LoadSP,
 State_WaitSPB,
 State_ResyncFromStoreStack,
 State_Neqbranch,
@@ -184,12 +244,13 @@ Decoded_Lessthan,
 Decoded_Ashiftleft,
 Decoded_Ashiftright,
 Decoded_Loadb,
+Decoded_Loadh,
 Decoded_Call,
 Decoded_Mult,
 Decoded_MultF16
 );
 
-constant spMaxBit: integer := 10;
+constant spMaxBit: integer := stackSize_bits-1;
 constant minimal_implementation: boolean := false;
 
 subtype index is integer range 0 to 3;
@@ -240,6 +301,7 @@ type tosSourceType is
   Tos_Source_Shift,
   Tos_Source_Ulessthan,
   Tos_Source_Lessthan,
+  Tos_Source_LSU,
   Tos_Source_None
 );
 
@@ -331,7 +393,14 @@ signal wroteback_q:           std_logic; -- TODO: get rid of this here, move to 
 
 signal freeze_all: std_logic := '0';
 signal single_step: std_logic := '0';
-
+-- LSU
+signal lsu_req:   std_logic;
+signal lsu_we:    std_logic;
+signal lsu_busy:  std_logic;
+signal lsu_data_read:      std_logic_vector(wordSize-1 downto 0);
+signal lsu_data_write:     std_logic_vector(wordSize-1 downto 0);
+signal lsu_data_sel:       std_logic_vector(3 downto 0);
+signal lsu_address:        std_logic_vector(maxAddrBitIncIO downto 0);
 
 begin
 
@@ -340,10 +409,10 @@ begin
 
   dbg_out.pc <= std_logic_vector(prefr.pc);
   dbg_out.opcode <= prefr.opcode;
-  dbg_out.sp <= std_logic_vector(prefr.sp);
+  --dbg_out.sp <= std_logic_vector(prefr.sp);
   dbg_out.brk <= exr.break;
-  dbg_out.stacka <= std_logic_vector(exr.tos);
-  dbg_out.stackb <= std_logic_vector(nos);
+  --dbg_out.stacka <= std_logic_vector(exr.tos);
+  --dbg_out.stackb <= std_logic_vector(nos);
   dbg_out.idim <= prefr.idim;
 
   shl: lshifter
@@ -359,6 +428,8 @@ begin
   );
 
   stack_clk <= wb_clk_i;
+
+  -- synopsys translate_off
 
   traceFileGenerate:
    if Generate_Trace generate
@@ -376,6 +447,54 @@ begin
         );
   end generate;
 
+  -- synopsys translate_on
+
+  cache: zpuino_icache
+  generic map (
+    ADDRESS_HIGH => maxAddrBitBRAM
+  )
+  port map (
+    wb_clk_i    => wb_clk_i,
+    wb_rst_i    => wb_rst_i,
+
+    valid       => cache_valid,
+    data        => cache_data,
+    address     => cache_address,
+    strobe      => cache_strobe,
+    stall       => cache_stall,
+    enable      => cache_enable,
+    flush       => cache_flush,
+    -- Master wishbone interface
+
+    m_wb_ack_i  => rom_wb_ack_i,
+    m_wb_dat_i  => rom_wb_dat_i,
+    m_wb_adr_o  => rom_wb_adr_o,
+    m_wb_cyc_o  => rom_wb_cyc_o,
+    m_wb_stb_o  => rom_wb_stb_o,
+    m_wb_stall_i => rom_wb_stall_i
+  );
+
+  lsu: zpuino_lsu
+  port map (
+    wb_clk_i        => wb_clk_i,
+    wb_rst_i        => wb_rst_i,
+
+    wb_ack_i        => wb_ack_i,
+    wb_dat_i        => wb_dat_i,
+    wb_dat_o        => wb_dat_o,
+    wb_adr_o        => wb_adr_o(maxAddrBitIncIO downto 2),
+    wb_cyc_o        => wb_cyc_o,
+    wb_stb_o        => wb_stb_o,
+    wb_sel_o        => wb_sel_o,
+    wb_we_o         => wb_we_o,
+    req             => lsu_req,
+    we              => lsu_we,
+    busy            => lsu_busy,
+    data_read       => lsu_data_read,
+    data_write      => lsu_data_write,
+    data_sel        => lsu_data_sel,
+    address         => lsu_address
+  );
 
   tOpcode_sel <= to_integer(decr.pcint(minAddrBit-1 downto 0));
 
@@ -383,9 +502,8 @@ begin
     and exr.inInterrupt='0'
     else '0';
 
-
   decodeControl:
-  process(rom_wb_dat_i, tOpcode_sel, sp_load, decr,
+  process(cache_data, tOpcode_sel, sp_load, decr,
     do_interrupt, dbg_in.inject, dbg_in.opcode)
     variable tOpcode : std_logic_vector(OpCode_Size-1 downto 0);
     variable localspOffset: unsigned(4 downto 0);
@@ -395,13 +513,13 @@ begin
     else
       case (tOpcode_sel) is
 
-            when 0 => tOpcode := std_logic_vector(rom_wb_dat_i(31 downto 24));
+            when 0 => tOpcode := std_logic_vector(cache_data(31 downto 24));
 
-            when 1 => tOpcode := std_logic_vector(rom_wb_dat_i(23 downto 16));
+            when 1 => tOpcode := std_logic_vector(cache_data(23 downto 16));
 
-            when 2 => tOpcode := std_logic_vector(rom_wb_dat_i(15 downto 8));
+            when 2 => tOpcode := std_logic_vector(cache_data(15 downto 8));
 
-            when 3 => tOpcode := std_logic_vector(rom_wb_dat_i(7 downto 0));
+            when 3 => tOpcode := std_logic_vector(cache_data(7 downto 0));
 
             when others =>
               null;
@@ -473,7 +591,11 @@ begin
         if (tOpcode(5 downto 0)=OpCode_Loadb) then
           sampledStackOperation<=Stack_Same;
           sampledDecodedOpcode<=Decoded_Loadb;
-          sampledOpWillFreeze<='1';
+          sampledTosSource <= Tos_Source_LSU;
+        elsif (tOpcode(5 downto 0)=OpCode_Loadh) then
+          sampledStackOperation<=Stack_Same;
+          sampledDecodedOpcode<=Decoded_Loadh;
+          sampledTosSource <= Tos_Source_LSU;
         elsif (tOpcode(5 downto 0)=OpCode_Neqbranch) then
           sampledStackOperation<=Stack_DualPop;
           sampledDecodedOpcode<=Decoded_Neqbranch;
@@ -499,6 +621,10 @@ begin
 
         elsif (tOpcode(5 downto 0)=OpCode_StoreB) then
           sampledDecodedOpcode<=Decoded_StoreB;
+          sampledStackOperation<=Stack_DualPop;
+          sampledOpWillFreeze<='1';
+        elsif (tOpcode(5 downto 0)=OpCode_StoreH) then
+          sampledDecodedOpcode<=Decoded_StoreH;
           sampledStackOperation<=Stack_DualPop;
           sampledOpWillFreeze<='1';
         elsif (tOpcode(5 downto 0)=OpCode_Mult) then
@@ -553,7 +679,8 @@ begin
           sampledTosSource <= Tos_Source_And;
         when OpCode_Load =>
           sampledDecodedOpcode<=Decoded_Load;
-          sampledOpWillFreeze<='1';
+          --sampledOpWillFreeze<='1';
+          sampledTosSource <= Tos_Source_LSU;
         when OpCode_Not =>
           sampledDecodedOpcode<=Decoded_Not;
           sampledTosSource <= Tos_Source_Not;
@@ -589,15 +716,15 @@ begin
 
   -- Decode/Fetch unit
 
-  rom_wb_stb_o <= not exu_busy;
+  cache_enable <= not exu_busy;
 
   process(decr, jump_address, decode_jump, wb_clk_i, sp_load,
           sampledDecodedOpcode,sampledOpcode,decode_load_sp,
           exu_busy, pfu_busy,
-          pcnext, rom_wb_ack_i, wb_rst_i, sampledStackOperation, sampledspOffset,
+          pcnext, cache_valid, wb_rst_i, sampledStackOperation, sampledspOffset,
           sampledTosSource, prefr.recompute_sp, sampledOpWillFreeze,
           dbg_in.flush, dbg_in.inject,dbg_in.injectmode,
-          prefr.valid, prefr.break, rom_wb_stall_i
+          prefr.valid, prefr.break, cache_stall
           )
     variable w: decoderegs_type;
   begin
@@ -606,9 +733,7 @@ begin
 
     pcnext <= decr.fetchpc + 1;
 
-    rom_wb_adr_o <= std_logic_vector(pc_to_memaddr(decr.fetchpc));
-
-    rom_wb_cti_o <= CTI_CYCLE_INCRADDR;
+    cache_address(maxAddrBit downto 0) <= std_logic_vector(decr.fetchpc(maxAddrBit downto 0));
 
     if wb_rst_i='1' then
       w.pc     := (others => '0');
@@ -619,16 +744,15 @@ begin
       w.im_emu:='0';
       w.state := State_Run;
       w.break := '0';
-      rom_wb_cyc_o <= '0';
+      cache_strobe <= DontCareValue;
     else
-
-      rom_wb_cyc_o <= '1';
+      cache_strobe <= '1';
 
       case decr.state is
         when State_Run =>
 
           if pfu_busy='0' then
-            if dbg_in.injectmode='0' and decr.break='0' and rom_wb_stall_i='0' then
+            if dbg_in.injectmode='0' and decr.break='0' and cache_stall='0' then
               w.fetchpc := pcnext;
             end if;
 
@@ -637,12 +761,12 @@ begin
               w.valid := '0';
               w.im := '0';
               w.break := '0'; -- Invalidate eventual break after branch instruction
-              --rom_wb_cti_o <= CTI_CYCLE_ENDOFBURST;
-              rom_wb_cyc_o<='0';
+              --rom_wb_cyc_o<='0';
+              cache_strobe<='0';
               --if rom_wb_stall_i='0' then
-                w.fetchpc := jump_address;
+              w.fetchpc := jump_address;
               --else
-                w.state := State_Jump;
+              w.state := State_Jump;
               --end if;
             else
               if dbg_in.injectmode='1' then --or decr.break='1' then
@@ -652,7 +776,8 @@ begin
                 w.im_emu := decr.im;
                 w.valid := '0';
                 --rom_wb_cti_o <= CTI_CYCLE_ENDOFBURST;
-                rom_wb_cyc_o <='0';
+                --rom_wb_cyc_o <='0';
+                cache_strobe <= '0';
                 -- Wait until no work is to be done
                 if prefr.valid='0' and decr.valid='0' and exu_busy='0' then
                   w.state := State_Inject;
@@ -667,23 +792,29 @@ begin
                 if decr.break='1' then
                   w.valid := '0';
                 else
-                  w.valid := rom_wb_ack_i;
+                  --if exu_busy='0' then
+                    w.valid := cache_valid;
+                  --end if;
                 end if;
 
-                if rom_wb_ack_i='1' then
-                  w.im := sampledOpcode(7);
+                if cache_valid='1' then
+                  --if exu_busy='0' then
+                    w.im := sampledOpcode(7);
+                  --end if;
                   if sampledDecodedOpcode=Decoded_Break then
                     w.break:='1';
                   end if;
                 end if;
 
-                if prefr.break='0' and rom_wb_stall_i='0' then
+                if prefr.break='0' and cache_stall='0' then
                   w.pcint := decr.fetchpc;
                   w.pc := decr.pcint;
                 end if;
-                if rom_wb_stall_i='0' then
+                --if cache_stall='0' then
+                if exu_busy='0' then
                   w.opcode := sampledOpcode;
                 end if;
+                --end if;
               end if;
 
             end if;
@@ -698,9 +829,11 @@ begin
 
         when State_Jump =>
           w.valid := '0';
-          w.pcint := decr.fetchpc;
-          w.fetchpc := pcnext;
-          w.state := State_Run;
+          if cache_stall='0' then
+            w.pcint := decr.fetchpc;
+            w.fetchpc := pcnext;
+            w.state := State_Run;
+          end if;
 
         when State_InjectJump =>
           w.valid := '0';
@@ -710,7 +843,7 @@ begin
 
         when State_Inject =>
           -- NOTE: disable ROM
-          rom_wb_cyc_o <= '0';
+          --rom_wb_cyc_o <= '0';
 
           if dbg_in.injectmode='0' then
             w.im := decr.im_emu;
@@ -760,7 +893,6 @@ begin
     end if;
 
   end process;
-
 
   -- Prefetch/Load unit.
   
@@ -816,7 +948,9 @@ begin
       if dbg_in.flush='1' then
         w.valid := '0';
       else
-        w.valid := decr.valid;
+        if exu_busy='0' then
+          w.valid := decr.valid;
+        end if;
       end if;
     end if;
 
@@ -829,8 +963,10 @@ begin
           | Decoded_Mult
           | Decoded_Ashiftleft
           | Decoded_Break
-          | Decoded_Load
+          --| Decoded_Load
+          | Decoded_LoadH
           | Decoded_Store
+          | Decoded_StoreH
           | Decoded_PopSP
           | Decoded_MultF16 =>
 
@@ -852,7 +988,7 @@ begin
     end if;
 
     if wb_rst_i='1' then
-      w.spnext := unsigned(spStart(10 downto 2));
+      w.spnext := unsigned(spStart(spMaxBit downto 2));
       --w.sp := unsigned(spStart(10 downto 2));
       w.valid := '0';
       w.idim := '0';
@@ -871,38 +1007,40 @@ begin
         trace_pc(maxAddrBit downto 0) <= std_logic_vector(prefr.pc);
         trace_opcode <= prefr.opcode;
         trace_sp <= (others => '0');
-        trace_sp(10 downto 2) <= std_logic_vector(prefr.sp);
+        trace_sp(spMaxBit downto 2) <= std_logic_vector(prefr.sp);
         trace_topOfStack <= std_logic_vector( exr.tos );
         trace_topOfStackB <= std_logic_vector( nos );
   end process;
 
   -- IO/Memory Accesses
 
-  wb_adr_o(maxAddrBitIncIO downto 0) <= std_logic_vector(exr.tos_save(maxAddrBitIncIO downto 0));
-  wb_cyc_o    <= exr.wb_cyc;
-  wb_stb_o    <= exr.wb_stb;
-  wb_we_o     <= exr.wb_we;
-  wb_dat_o    <= std_logic_vector( exr.nos_save );
+  lsu_address    <= std_logic_vector(exr.tos(maxAddrBitIncIO downto 0));
+  --wb_cyc_o    <= exr.wb_cyc;
+  --wb_stb_o    <= exr.wb_stb;
+  --wb_we_o     <= exr.wb_we;
+  --lsu_data_write <= std_logic_vector( nos );
 
   freeze_all  <= dbg_in.freeze;
 
   process(exr, wb_inta_i, wb_clk_i, wb_rst_i, pcnext, stack_a_read,stack_b_read,
           wb_ack_i, wb_dat_i, do_interrupt,exr, prefr, nos,
-          single_step, freeze_all, dbg_in.step, wroteback_q,lshifter_done,lshifter_output
+          single_step, freeze_all, dbg_in.step, wroteback_q,lshifter_done,lshifter_output,
+          lsu_busy, lsu_data_read
           )
 
     variable spOffset: unsigned(4 downto 0);
     variable w: exuregs_type;
     variable instruction_executed: std_logic;
     variable wroteback: std_logic;
-
+    variable datawrite: std_logic_vector(wordSize-1 downto 0);
+    variable sel: std_logic_vector(3 downto 0);
   begin
 
     w := exr;
 
     instruction_executed := '0'; -- used for single stepping
 
-    stack_b_writeenable <= '0';
+    stack_b_writeenable <= (others => '0');
     stack_a_enable <= '1';
     stack_b_enable <= '1';
 
@@ -921,10 +1059,9 @@ begin
 
     stack_a_addr <= std_logic_vector( prefr.sp );
 
-    stack_a_writeenable <= '0';
+    stack_a_writeenable <= (others => '0');
     wroteback := wroteback_q;
 
-    stack_b_writeenable <= '0';
     stack_a_write <= std_logic_vector(exr.tos);
 
     spOffset(4):=not prefr.opcode(4);
@@ -944,14 +1081,11 @@ begin
 
     decode_load_sp <= '0';
 
+    lsu_req <= '0';
+    lsu_we <= DontCareValue;
+    lsu_data_sel <= (others => DontCareValue);
+    lsu_data_write <= (others => DontCareValue);
     case exr.state is
-
-      when State_Resync1 =>
-        exu_busy <= '1';
-
-        stack_a_enable<='1';
-        w.state := State_Resync2;
-        wroteback := '0';
 
       when State_ResyncFromStoreStack =>
         exu_busy <= '1';
@@ -1015,7 +1149,7 @@ begin
           when Tos_Source_SP =>
             w.tos := (others => '0');
             w.tos(31) := '1'; -- Stack address
-            w.tos(10 downto 2) := prefr.sp;
+            w.tos(spMaxBit downto 2) := prefr.sp;
 
           when Tos_Source_Add =>
             w.tos := exr.tos + nos;
@@ -1063,6 +1197,11 @@ begin
 
           when Tos_Source_Shift =>
             w.tos := exr.tos + exr.tos;
+
+          when Tos_Source_LSU =>
+            if lsu_busy='0' then
+              w.tos := unsigned(lsu_data_read);
+            end if;
           when others =>
 
         end case;
@@ -1074,15 +1213,15 @@ begin
            w.inInterrupt := '1';
            jump_address <= to_unsigned(32, maxAddrBit+1);
            decode_jump <= '1';
-           stack_a_writeenable<='1';
+           stack_a_writeenable<=(others =>'1');
            wroteback:='1';
-           stack_b_enable<='0';
+           stack_b_enable<= '0';
            instruction_executed := '0';
            w.state := State_WaitSPB;
 
           when Decoded_Im0 =>
 
-            stack_a_writeenable<='1';
+            stack_a_writeenable<= (others =>'1');
             wroteback:='1';
 
           when Decoded_ImN =>
@@ -1108,36 +1247,36 @@ begin
             jump_address <= (others => '0');
             jump_address(9 downto 5) <= unsigned(prefr.opcode(4 downto 0));
 
-            stack_a_writeenable<='1';
+            stack_a_writeenable<=(others =>'1');
             wroteback:='1';
 
           when Decoded_PushSP =>
 
-            stack_a_writeenable<='1';
+            stack_a_writeenable<=(others =>'1');
             wroteback:='1';
 
           when Decoded_LoadSP =>
 
-            stack_a_writeenable <= '1';
+            stack_a_writeenable <= (others =>'1');
             wroteback:='1';
 
           when Decoded_DupStackB =>
 
-            stack_a_writeenable <= '1';
+            stack_a_writeenable <= (others => '1');
             wroteback:='1';
 
           when Decoded_Dup =>
 
-            stack_a_writeenable<='1';
+            stack_a_writeenable<= (others =>'1');
             wroteback:='1';
 
           when Decoded_AddSP =>
 
-            stack_a_writeenable <= '1';
+            stack_a_writeenable <= (others =>'1');
 
           when Decoded_StoreSP =>
 
-            stack_a_writeenable <= '1';
+            stack_a_writeenable <= (others =>'1');
             wroteback:='1';
             stack_a_addr <= std_logic_vector(prefr.sp + spOffset);
             instruction_executed := '0';
@@ -1145,7 +1284,7 @@ begin
 
           when Decoded_PopDown =>
 
-            stack_a_writeenable<='1';
+            stack_a_writeenable<=(others =>'1');
 
           when Decoded_Pop =>
 
@@ -1158,32 +1297,80 @@ begin
           when Decoded_MultF16  =>
             w.state := State_MultF16;
 
-          when Decoded_Store =>
+          when Decoded_Store | Decoded_StoreB | Decoded_StoreH =>
+
+              if prefr.decodedOpcode=Decoded_Store then
+                datawrite := std_logic_vector(nos);
+                sel := "1111";
+
+              elsif prefr.decodedOpcode=Decoded_StoreH then
+                datawrite := (others => DontCareValue);
+                if exr.tos(1)='1' then
+                  datawrite(15 downto 0) := std_logic_vector(nos(15 downto 0))  ;
+                  sel := "0011";
+                else
+                  datawrite(31 downto 16) := std_logic_vector(nos(15 downto 0))  ;
+                  sel := "1100";
+                end if;
+              else
+                datawrite := (others => DontCareValue);
+                case exr.tos(1 downto 0) is
+                  when "11" =>
+                    datawrite(7 downto 0) := std_logic_vector(nos(7 downto 0))  ;
+                    sel := "0001";
+                  when "10" =>
+                    datawrite(15 downto 8) := std_logic_vector(nos(7 downto 0))  ;
+                    sel := "0010";
+                  when "01" =>
+                    datawrite(23 downto 16) := std_logic_vector(nos(7 downto 0))  ;
+                    sel := "0100";
+                  when "00" =>
+                    datawrite(31 downto 24) := std_logic_vector(nos(7 downto 0))  ;
+                    sel := "1000";
+                  when others =>
+                end case;
+              end if;
+
+
+            stack_a_writeenable <=sel;
+            lsu_data_sel <= sel;
 
             if exr.tos(31)='1' then
-              stack_a_addr <= std_logic_vector(exr.tos(10 downto 2));
-              stack_a_write <= std_logic_vector(nos);
-              stack_a_writeenable<='1';
+              stack_a_addr <= std_logic_vector(exr.tos(spMaxBit downto 2));
+              stack_a_write <= datawrite;
+              stack_a_writeenable <= sel;
               w.state := State_ResyncFromStoreStack;
             else
 
-              w.wb_we  := '1';
-              w.wb_cyc := '1';
-              w.wb_stb := '1';
+              --w.wb_we  := '1';
+              --w.wb_cyc := '1';
+              --w.wb_stb := '1';
 
               wroteback := wroteback_q; -- Keep WB
-              stack_a_enable<='0';
-              stack_a_addr  <= (others => DontCareValue);
+      --        stack_a_enable<='0';
+              stack_a_enable<=not lsu_busy;
+              stack_a_writeenable <= (others => '0');
+    --          stack_a_addr  <= (others => DontCareValue);
               stack_a_write <= (others => DontCareValue);
-
-              stack_b_enable<='0';
+              stack_a_addr <= std_logic_vector(prefr.spnext);
+              stack_b_enable<= not lsu_busy;
+              lsu_data_write <= datawrite;
 
               instruction_executed := '0';
-              w.state := State_Store;
+
+              exu_busy <= '1';
+              lsu_req <= '1';
+              lsu_we  <= '1';
+
+              if lsu_busy='0' then
+              
+                wroteback := '0';
+                w.state := State_Resync2;
+              end if;
 
             end if;
 
-          when Decoded_Load | Decoded_Loadb | Decoded_StoreB =>
+          when Decoded_Load | Decoded_Loadb | Decoded_Loadh =>
 
             --w.tos_save := exr.tos; -- Byte select
 
@@ -1191,25 +1378,35 @@ begin
             wroteback := wroteback_q; -- Keep WB
 
             if exr.tos(wordSize-1)='1' then
-              stack_a_addr<=std_logic_vector(exr.tos(10 downto 2));
+              stack_a_addr<=std_logic_vector(exr.tos(spMaxBit downto 2));
               stack_a_enable<='1';
+              exu_busy <= '1';
               w.state := State_LoadStack;
             else
+              exu_busy <= lsu_busy;
+              lsu_req <= '1';
+              lsu_we  <= '0';
               stack_a_enable <= '0';
               stack_a_addr  <= (others => DontCareValue);
               stack_a_write <= (others => DontCareValue);
+              stack_b_enable <= not lsu_busy;
 
-              w.wb_we  :='0';
-              w.wb_cyc :='1';
-              w.wb_stb :='1';
-              w.state := State_Load;
+              if lsu_busy='0' then
+                if prefr.decodedOpcode=Decoded_Loadb then
+                  exu_busy<='1';
+                  w.state:=State_Loadb;
+                elsif prefr.decodedOpcode=Decoded_Loadh then
+                  exu_busy<='1';
+                  w.state:=State_Loadh;
+                end if;
+              end if;
             end if;
 
           when Decoded_PopSP =>
 
             decode_load_sp <= '1';
             instruction_executed := '0';
-            stack_a_addr <= std_logic_vector(exr.tos(10 downto 2));
+            stack_a_addr <= std_logic_vector(exr.tos(spMaxBit downto 2));
             w.state := State_Resync2;
 
           --when Decoded_Break =>
@@ -1275,30 +1472,6 @@ begin
         wroteback := '0';
         w.state := State_Execute;
   
-      when State_Store =>
-        
-
-        exu_busy <= '1';
-
-        
-        -- Keep writeback flag
-        wroteback := wroteback_q;
-
-        if wb_ack_i='1' then
-          stack_a_addr <= std_logic_vector(prefr.spnext);
-          stack_a_enable<='1';
-          stack_b_enable<='1';
-          wroteback := '0';
-          --exu_busy <= '1';
-          w.wb_cyc := '0';
-          w.state := State_Resync2;
-        else
-          stack_a_addr  <= (others => DontCareValue);
-          stack_a_write <= (others => DontCareValue);
-          stack_a_enable<='0';
-          stack_b_enable<='0';
-        end if;
-
       when State_Loadb =>
         w.tos(wordSize-1 downto 8) := (others => '0');
         case exr.tos_save(1 downto 0) is
@@ -1317,27 +1490,20 @@ begin
         wroteback := '0';
         w.state := State_Execute;
 
-      when State_Load =>
+      when State_Loadh =>
+        w.tos(wordSize-1 downto 8) := (others => '0');
 
-          if wb_ack_i='0' then
-            exu_busy<='1';
-          else
-            w.tos := unsigned(wb_dat_i);
-            w.wb_cyc := '0';
-
-            if prefr.decodedOpcode=Decoded_Loadb then
-              exu_busy<='1';
-              w.state := State_Loadb;
-            elsif prefr.decodedOpcode=Decoded_Storeb then
-              exu_busy<='1';
-              w.state := State_Storeb;
-            else
-              instruction_executed:='1';
-              wroteback := '0';
-              w.state := State_Execute;
-            end if;
-
-          end if;
+        case exr.tos_save(1) is
+          when '1' =>
+            w.tos(15 downto 0) := unsigned(exr.tos(15 downto 0));
+          when '0' =>
+            w.tos(15 downto 0) := unsigned(exr.tos(31 downto 16));
+          when others =>
+            null;
+        end case;
+        instruction_executed:='1';
+        wroteback := '0';
+        w.state := State_Execute;
 
       when State_LoadStack =>
         w.tos := unsigned(stack_a_read);
@@ -1345,9 +1511,9 @@ begin
         if prefr.decodedOpcode=Decoded_Loadb then
           exu_busy<='1';
           w.state:=State_Loadb;
-        elsif prefr.decodedOpcode=Decoded_Storeb then
+        elsif prefr.decodedOpcode=Decoded_Loadh then
           exu_busy<='1';
-          w.state:=State_Storeb;
+          w.state:=State_Loadh;
         else
           instruction_executed:='1';
           wroteback := '0';
@@ -1370,66 +1536,6 @@ begin
         wroteback:='0';
         w.state := State_Resync2;
 
-      when State_StoreB =>
-        exu_busy <= '1';
-        --
-        -- At this point, we have loaded the 32-bit, and it's in TOS
-        -- The IO address is still saved in save_TOS.
-        -- The original write value is still at save_NOS
-        --
-        -- So we mangle the write value, and update save_NOS, and restore
-        -- the IO address to TOS
-        --
-        -- This is still buggy - don't use. Problems arise when writing to stack.
-        --
-
-        w.nos_save := exr.tos;
-
-        case exr.tos_save(1 downto 0) is
-          when "00" =>
-            w.nos_save(31 downto 24) := exr.nos_save(7 downto 0);
-          when "01" =>
-            w.nos_save(23 downto 16) := exr.nos_save(7 downto 0);
-          when "10" =>
-            w.nos_save(15 downto 8) := exr.nos_save(7 downto 0);
-          when "11" =>
-            w.nos_save(7 downto 0) := exr.nos_save(7 downto 0);
-          when others =>
-            null;
-        end case;
-
-        w.tos := exr.tos_save;
-        w.state := State_StoreB2;
-
-      when State_StoreB2 =>
-
-            exu_busy <= '1';
-
-            if exr.tos(31)='1' then
-              stack_a_addr <= std_logic_vector(exr.tos(10 downto 2));
-              stack_a_write <= std_logic_vector(exr.nos_save); -- hmm I don't like this
-              stack_a_writeenable<='1';
-              w.state := State_ResyncFromStoreStack;
-            else
-
-              w.wb_we  := '1';
-              w.wb_cyc := '1';
-              w.wb_stb := '1';
-
-              wroteback := wroteback_q; -- Keep WB
-              stack_a_enable<='0';
-              stack_a_addr  <= (others => DontCareValue);
-              stack_a_write <= (others => DontCareValue);
-
-              stack_b_enable<='0';
-
-              instruction_executed := '0';
-              w.state := State_Store;
-
-            end if;
-
-
-
       when others =>
          null;
 
@@ -1444,6 +1550,7 @@ begin
         exr.break <= '0';
         exr.wb_cyc <= '0';
         exr.wb_stb <= '1';
+        wroteback_q <= '0';
       else
         exr <= w;
         -- TODO: move wroteback_q into EXU regs
