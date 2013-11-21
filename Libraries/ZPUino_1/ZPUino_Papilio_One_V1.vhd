@@ -37,12 +37,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 library ZPUino_1;
-use ZPUino_1.zpupkg.all;
-use ZPUino_1.zpuinopkg.all;
-use ZPUino_1.zpuino_config.all;
-use ZPUino_1.zpu_config.all;
 use ZPUino_1.pad.all;
 use ZPUino_1.papilio_pkg.all;
+
+library board;
+use board.zpuino_config.all;
+use board.zpu_config.all;
+use board.zpupkg.all;
+use board.zpuinopkg.all;
 
 library unisim;
 use unisim.vcomponents.all;

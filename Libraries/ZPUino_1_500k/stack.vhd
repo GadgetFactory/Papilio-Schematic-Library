@@ -2,9 +2,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.all;
 
-library ZPUino_1;
-use ZPUino_1.zpu_config.all;
-use ZPUino_1.zpupkg.all;
+library work;
+use work.zpu_config.all;
+use work.zpupkg.all;
 
 library UNISIM;
 use UNISIM.vcomponents.all;

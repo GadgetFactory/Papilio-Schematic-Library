@@ -1,7 +1,7 @@
 --
---  UART for ZPUINO - Majority voting filter
+--  Configuration file for ZPUINO
 -- 
---  Copyright 2011 Alvaro Lopes <alvieboy@alvie.com>
+--  Copyright 2010 Alvaro Lopes <alvieboy@alvie.com>
 -- 
 --  Version: 1.0
 -- 
@@ -34,56 +34,41 @@
 --
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
 
-library board;
-use board.zpu_config.all;
-use board.zpupkg.all;
-use board.zpuinopkg.all;
+package zpuino_config is
 
-entity zpuino_uart_mv_filter is
-  generic (
-    bits: natural;
-    threshold: natural
+  -- General ZPUino configuration
+
+  type zpu_core_type is (
+    small,
+    large
   );
-  port (
-    clk:      in std_logic;
-	 	rst:      in std_logic;
-    sin:      in std_logic;
-    sout:     out std_logic;
-    clear:    in std_logic;
-    enable:   in std_logic
-  );
-end entity zpuino_uart_mv_filter;
 
-architecture behave of zpuino_uart_mv_filter is
+  -- ZPUino large is buggy, don't use it.
 
-signal count_q: unsigned(bits-1 downto 0);
+  constant zpuinocore: zpu_core_type := small;
 
-begin
 
-process(clk)
-begin
-  if rising_edge(clk) then
-    if rst='1' then
-      count_q <= (others => '0');
-      sout <= '0';
-    else
-      if clear='1' then
-        count_q <= (others => '0');
-        sout <= '0';
-      else
-        if enable='1' then
-          if sin='1' then
-            count_q <= count_q + 1;
-          end if;
-        end if;
-        if (count_q >= threshold) then
-          sout<='1';
-        end if;
-      end if;
-    end if;
-  end if;
-end process;
+  -- Set iobusyinput to 'true' to allow registered input to IO core. This also allows for IO
+  -- to become busy without needing to register its inputs. However, an extra clock-cycle is
+  -- required to access IO if this is used.
 
-end behave;
+  constant zpuino_iobusyinput: boolean := true;
+
+  -- For SPI blocking operation, you need to define also iobusyinput
+  constant zpuino_spiblocking: boolean := true;
+
+  -- Number of GPIO to map (number of FPGA pins)
+  constant zpuino_gpio_count: integer := 49;
+
+  -- Peripheral Pin Select
+  constant zpuino_pps_enabled: boolean := true;
+
+  -- Internal SPI ADC
+  constant zpuino_adc_enabled: boolean := false;
+
+  constant zpuino_number_io_select_bits: integer := 4;
+
+end package zpuino_config;

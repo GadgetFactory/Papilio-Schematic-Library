@@ -1,7 +1,7 @@
 --
---  UART for ZPUINO - Majority voting filter
+--  Serial reset for ZPUINO
 -- 
---  Copyright 2011 Alvaro Lopes <alvieboy@alvie.com>
+--  Copyright 2010 Alvaro Lopes <alvieboy@alvie.com>
 -- 
 --  Version: 1.0
 -- 
@@ -32,58 +32,65 @@
 --  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --  
 --
+
+--
+--  This module causes a synchronous reset when we receive 0xFF at 300 baud.
+--  Hopefully no other speed setting will cause this.
+--
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 library board;
+use board.zpuino_config.all;
 use board.zpu_config.all;
 use board.zpupkg.all;
 use board.zpuinopkg.all;
 
-entity zpuino_uart_mv_filter is
+entity zpuino_serialreset is
   generic (
-    bits: natural;
-    threshold: natural
+    SYSTEM_CLOCK_MHZ: integer := 100
   );
   port (
     clk:      in std_logic;
-	 	rst:      in std_logic;
-    sin:      in std_logic;
-    sout:     out std_logic;
-    clear:    in std_logic;
-    enable:   in std_logic
+    rx:       in std_logic;
+    rstin:    in std_logic;
+    rstout:   out std_logic
   );
-end entity zpuino_uart_mv_filter;
+end entity zpuino_serialreset;
 
-architecture behave of zpuino_uart_mv_filter is
 
-signal count_q: unsigned(bits-1 downto 0);
+architecture behave of zpuino_serialreset is
+
+constant rstcount_val: integer := ((SYSTEM_CLOCK_MHZ*1000000)/300)*8;
+
+signal rstcount: integer;
+signal rstcount_zero_q: std_logic;
 
 begin
 
-process(clk)
-begin
-  if rising_edge(clk) then
-    if rst='1' then
-      count_q <= (others => '0');
-      sout <= '0';
-    else
-      if clear='1' then
-        count_q <= (others => '0');
-        sout <= '0';
+  rstout<='1' when rstin='1' or rstcount_zero_q='1' else '0';
+
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if rstin='1' then
+        rstcount <= rstcount_val;
+        rstcount_zero_q <= '0';
       else
-        if enable='1' then
-          if sin='1' then
-            count_q <= count_q + 1;
+        if rx='1' then
+          rstcount <= rstcount_val;
+        else
+          if rstcount/=0 then
+            rstcount <= rstcount - 1;
+            rstcount_zero_q<='0';
+          else
+            rstcount_zero_q<='1';
           end if;
-        end if;
-        if (count_q >= threshold) then
-          sout<='1';
         end if;
       end if;
     end if;
-  end if;
-end process;
+  end process;
 
 end behave;

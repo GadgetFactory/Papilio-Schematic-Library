@@ -1,7 +1,7 @@
 --
---  UART for ZPUINO - Majority voting filter
+--  General-purpose FIFO for ZPUINO
 -- 
---  Copyright 2011 Alvaro Lopes <alvieboy@alvie.com>
+--  Copyright 2010 Alvaro Lopes <alvieboy@alvie.com>
 -- 
 --  Version: 1.0
 -- 
@@ -35,55 +35,82 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use IEEE.std_logic_unsigned.all; 
 
-library board;
-use board.zpu_config.all;
-use board.zpupkg.all;
-use board.zpuinopkg.all;
 
-entity zpuino_uart_mv_filter is
+entity fifo is
   generic (
-    bits: natural;
-    threshold: natural
+    bits: integer := 11
   );
   port (
     clk:      in std_logic;
-	 	rst:      in std_logic;
-    sin:      in std_logic;
-    sout:     out std_logic;
-    clear:    in std_logic;
-    enable:   in std_logic
+    rst:      in std_logic;
+    wr:       in std_logic;
+    rd:       in std_logic;
+    write:    in std_logic_vector(7 downto 0);
+    read :    out std_logic_vector(7 downto 0);
+    full:     out std_logic;
+    empty:    out std_logic
   );
-end entity zpuino_uart_mv_filter;
+end entity fifo;
 
-architecture behave of zpuino_uart_mv_filter is
+architecture behave of fifo is
 
-signal count_q: unsigned(bits-1 downto 0);
+  type mem_t is array (0 to ((2**bits)-1)) of std_logic_vector(7 downto 0);
+
+  signal memory:  mem_t;
+
+  signal wraddr: unsigned(bits-1 downto 0);
+  signal rdaddr: unsigned(bits-1 downto 0);
 
 begin
 
-process(clk)
-begin
-  if rising_edge(clk) then
-    if rst='1' then
-      count_q <= (others => '0');
-      sout <= '0';
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      read <= memory( conv_integer(std_logic_vector(rdaddr)) );
+    end if;
+  end process;
+
+  process(clk,rdaddr,wraddr,rst)
+    variable full_v: std_logic;
+    variable empty_v: std_logic;
+  begin
+  
+    if rdaddr=wraddr then
+      empty_v:='1';
     else
-      if clear='1' then
-        count_q <= (others => '0');
-        sout <= '0';
+      empty_v:='0';
+    end if;
+
+    if wraddr=rdaddr-1 then
+      full_v:='1';
+    else
+      full_v:='0';
+    end if;
+
+    if rising_edge(clk) then
+      if rst='1' then
+        wraddr <= (others => '0');
+        rdaddr <= (others => '0');
       else
-        if enable='1' then
-          if sin='1' then
-            count_q <= count_q + 1;
-          end if;
+  
+        if wr='1' and full_v='0' then
+          memory(conv_integer(std_logic_vector(wraddr) ) ) <= write;
+          wraddr <= wraddr+1;
         end if;
-        if (count_q >= threshold) then
-          sout<='1';
+  
+        if rd='1' and empty_v='0' then
+          rdaddr <= rdaddr+1;
         end if;
       end if;
-    end if;
-  end if;
-end process;
 
+      full <= full_v;
+      empty <= empty_v;
+
+    end if;
+
+
+  end process;
 end behave;
+

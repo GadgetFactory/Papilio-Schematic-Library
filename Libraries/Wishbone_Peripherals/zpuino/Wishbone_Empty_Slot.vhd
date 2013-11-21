@@ -2,12 +2,14 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.all;
 
-library work;
-use work.zpu_config.all;
-use work.zpuino_config.all;
-use work.zpupkg.all;
-use work.zpuinopkg.all;
-use work.papilio_pkg.all;
+library board;
+use board.zpu_config.all;
+use board.zpuino_config.all;
+use board.zpupkg.all;
+use board.zpuinopkg.all;
+
+library ZPUino_1;
+use ZPUino_1.papilio_pkg.all;
 
 -- Unfortunately the Xilinx Schematic Editor does not support records, so we have to put all wishbone signals into one array.
 -- This is a little cumbersome but is better then dealing with all the signals in the schematic editor.
