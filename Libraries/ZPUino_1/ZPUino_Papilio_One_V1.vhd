@@ -36,9 +36,9 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-library ZPUino_1;
-use ZPUino_1.pad.all;
-use ZPUino_1.papilio_pkg.all;
+library zpuino;
+use zpuino.pad.all;
+use zpuino.papilio_pkg.all;
 
 library board;
 use board.zpuino_config.all;
