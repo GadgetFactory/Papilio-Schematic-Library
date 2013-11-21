@@ -37,10 +37,10 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
-library work;
-use work.zpu_config.all;
-use work.zpupkg.all;
-use work.zpuinopkg.all;
+library board;
+use board.zpu_config.all;
+use board.zpupkg.all;
+use board.zpuinopkg.all;
 
 entity MISC_zpuino_wb_SevenSeg is
   generic (

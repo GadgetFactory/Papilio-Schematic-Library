@@ -43,7 +43,7 @@ use ieee.numeric_std.all;
 
 entity AUDIO_zpuino_sa_sigmadeltaDAC is
   generic (
-    BITS: integer := 8
+    BITS: integer := 18
   );
 	port (
     clk:      in std_logic;
@@ -97,10 +97,10 @@ begin
 	  if rst='1' then
       sigma_latch <= (others => '0');
 		  sigma_latch(BITS+1) <= '1';
-		  data_out <= '0';
+		  audio_out <= '0';
 	  else
 		  sigma_latch <= sigma_adder;
-		  data_out <= sigma_latch(BITS+1);
+		  audio_out <= sigma_latch(BITS+1);
   	end if;
   end if;
 end process;

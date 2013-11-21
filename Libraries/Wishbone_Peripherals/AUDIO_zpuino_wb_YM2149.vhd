@@ -58,10 +58,11 @@ library ieee;
   use ieee.std_logic_1164.all;
   use ieee.std_logic_arith.all;
   use ieee.std_logic_unsigned.all;
-library work;
-  use work.zpuino_config.all;
-  use work.zpu_config.all;
-  use work.zpupkg.all;
+
+library board;
+  use board.zpuino_config.all;
+  use board.zpu_config.all;
+  use board.zpupkg.all;
   
 entity AUDIO_zpuino_wb_YM2149 is
   generic (

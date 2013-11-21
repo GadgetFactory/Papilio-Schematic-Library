@@ -41,10 +41,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-library work;
-use work.zpupkg.all;
-use work.zpu_config.all;
-use work.zpuinopkg.all;
+library board;
+  use board.zpuino_config.all;
+  use board.zpu_config.all;
+  use board.zpupkg.all;
 
 entity AUDIO_zpuino_wb_sigmadeltaDAC is
 	port (

@@ -41,10 +41,10 @@ library ieee;
   use ieee.std_logic_arith.all;
   use ieee.std_logic_unsigned.all;
 
-library work;
-  use work.zpuino_config.all;
-  use work.zpu_config.all;
-  use work.zpupkg.all;
+library board;
+  use board.zpuino_config.all;
+  use board.zpu_config.all;
+  use board.zpupkg.all;
   
 entity AUDIO_zpuino_sa_audiomixer is
 	port (
@@ -74,7 +74,7 @@ signal current_input:	std_logic_vector(17 downto 0) := (others => '0');
 signal data_out:			std_logic_vector(17 downto 0) := (others => '0');
 
 -- DAC
-component simple_sigmadelta is
+component AUDIO_zpuino_sa_sigmadeltaDAC is
   generic (
     BITS: integer := 18
   );
@@ -82,13 +82,13 @@ component simple_sigmadelta is
     clk:      in std_logic;
     rst:      in std_logic;
     data_in:  in std_logic_vector(BITS-1 downto 0);
-    data_out: out std_logic
+    audio_out: out std_logic
     );
-end component simple_sigmadelta;
+end component AUDIO_zpuino_sa_sigmadeltaDAC;
 
 begin
 
-	sdo: simple_sigmadelta
+	sdo: AUDIO_zpuino_sa_sigmadeltaDAC
 	generic map (
 		BITS =>  18
 	)
@@ -96,7 +96,7 @@ begin
 		clk       => clk,
 		rst       => rst,
 		data_in   => data_out,
-		data_out  => audio_out
+		audio_out  => audio_out
 	);
 
 	-- divide clock by input channels number

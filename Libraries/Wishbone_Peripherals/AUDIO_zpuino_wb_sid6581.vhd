@@ -39,10 +39,10 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
 
-library work;
-use work.zpuino_config.all;
-use work.zpu_config.all;
-use work.zpupkg.all;
+library board;
+use board.zpuino_config.all;
+use board.zpu_config.all;
+use board.zpupkg.all;
 
 entity AUDIO_zpuino_wb_sid6581 is
   port (
