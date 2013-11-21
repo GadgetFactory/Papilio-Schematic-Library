@@ -209,14 +209,25 @@ architecture behave of ZPUino_Papilio_One_V1 is
 
   constant spp_cap_in: std_logic_vector(zpuino_gpio_count-1 downto 0) :=
     "0" &
-    "1111111111111111" &
-    "1111111111111111" &
-    "1111111111111111";
+    "0000000000000000" &
+    "0000000000000000" &
+    "0000000000000000";
   constant spp_cap_out: std_logic_vector(zpuino_gpio_count-1 downto 0) :=
     "0" &
-    "1111111111111111" &
-    "1111111111111111" &
-    "1111111111111111";
+    "0000000000000000" &
+    "0000000000000000" &
+    "0000000000000000";
+
+--  constant spp_cap_in: std_logic_vector(zpuino_gpio_count-1 downto 0) :=
+--    "0" &
+--    "1111111111111111" &
+--    "1111111111111111" &
+--    "1111111111111111";
+--  constant spp_cap_out: std_logic_vector(zpuino_gpio_count-1 downto 0) :=
+--    "0" &
+--    "1111111111111111" &
+--    "1111111111111111" &
+--    "1111111111111111";
 
   -- I/O Signals
   signal slot_cyc:   slot_std_logic_type;

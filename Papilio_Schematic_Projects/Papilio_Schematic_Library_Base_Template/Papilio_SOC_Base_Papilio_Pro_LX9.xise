@@ -279,7 +279,7 @@
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/ZPUino_Papilio_Pro_V1.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="152"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="43"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
       <library xil_pn:name="ZPUino_1"/>
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/zpuino_serialreset.vhd" xil_pn:type="FILE_VHDL">
@@ -374,7 +374,7 @@
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1_Pro/ZPUino_Papilio_Pro_V1.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="171"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="43"/>
       <library xil_pn:name="board"/>
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1_Pro/zpupkg.vhd" xil_pn:type="FILE_VHDL">
@@ -386,6 +386,10 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="173"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
       <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Utility.sch" xil_pn:type="FILE_SCHEMATIC">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="76"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
   </files>
 

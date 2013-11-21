@@ -219,15 +219,27 @@ architecture behave of ZPUino_Papilio_Pro_V1 is
 
   constant spp_cap_in: std_logic_vector(48 downto 0) :=
     "0" &                -- SPI CS 
-    "1111111111111111" &  -- Wing C
-    "1111111111111111" &  -- Wing B
-    "1111111111111111";   -- Wing A
+    "0000000000000000" &  -- Wing C
+    "0000000000000000" &  -- Wing B
+    "0000000000000000";   -- Wing A
 
   constant spp_cap_out: std_logic_vector(48 downto 0) :=
     "0" &                -- SPI CS 
-    "1111111111111111" &  -- Wing C
-    "1111111111111111" &  -- Wing B
-    "1111111111111111";   -- Wing A
+    "0000000000000000" &  -- Wing C
+    "0000000000000000" &  -- Wing B
+    "0000000000000000";   -- Wing A
+
+--  constant spp_cap_in: std_logic_vector(48 downto 0) :=
+--    "0" &                -- SPI CS 
+--    "1111111111111111" &  -- Wing C
+--    "1111111111111111" &  -- Wing B
+--    "1111111111111111";   -- Wing A
+--
+--  constant spp_cap_out: std_logic_vector(48 downto 0) :=
+--    "0" &                -- SPI CS 
+--    "1111111111111111" &  -- Wing C
+--    "1111111111111111" &  -- Wing B
+--    "1111111111111111";   -- Wing A
 
   -- I/O Signals
   signal slot_cyc:    slot_std_logic_type;

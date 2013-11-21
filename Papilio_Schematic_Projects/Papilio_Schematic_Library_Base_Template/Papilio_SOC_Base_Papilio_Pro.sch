@@ -6,20 +6,6 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="LED" />
-        <signal name="DRAM_DQM(1:0)" />
-        <signal name="DRAM_BA(1:0)" />
-        <signal name="DRAM_ADDR(12:0)" />
-        <signal name="DRAM_WE_N" />
-        <signal name="DRAM_RAS_N" />
-        <signal name="DRAM_CS_N" />
-        <signal name="DRAM_CLK" />
-        <signal name="DRAM_CKE" />
-        <signal name="DRAM_CAS_N" />
-        <signal name="DRAM_DQ(15:0)" />
-        <signal name="CLK" />
-        <signal name="SPI_MISO" />
-        <signal name="RXD" />
         <signal name="SPI_SCK" />
         <signal name="SPI_MOSI" />
         <signal name="TXD" />
@@ -92,20 +78,20 @@
         <signal name="WING_CH5" />
         <signal name="WING_CH6" />
         <signal name="WING_CH7" />
-        <port polarity="Output" name="LED" />
-        <port polarity="Output" name="DRAM_DQM(1:0)" />
-        <port polarity="Output" name="DRAM_BA(1:0)" />
-        <port polarity="Output" name="DRAM_ADDR(12:0)" />
-        <port polarity="Output" name="DRAM_WE_N" />
-        <port polarity="Output" name="DRAM_RAS_N" />
-        <port polarity="Output" name="DRAM_CS_N" />
-        <port polarity="Output" name="DRAM_CLK" />
-        <port polarity="Output" name="DRAM_CKE" />
-        <port polarity="Output" name="DRAM_CAS_N" />
-        <port polarity="BiDirectional" name="DRAM_DQ(15:0)" />
-        <port polarity="Input" name="CLK" />
-        <port polarity="Input" name="SPI_MISO" />
-        <port polarity="Input" name="RXD" />
+        <signal name="LED" />
+        <signal name="DRAM_DQM(1:0)" />
+        <signal name="DRAM_BA(1:0)" />
+        <signal name="DRAM_ADDR(12:0)" />
+        <signal name="DRAM_WE_N" />
+        <signal name="DRAM_RAS_N" />
+        <signal name="DRAM_CS_N" />
+        <signal name="DRAM_CLK" />
+        <signal name="DRAM_CKE" />
+        <signal name="DRAM_CAS_N" />
+        <signal name="DRAM_DQ(15:0)" />
+        <signal name="CLK" />
+        <signal name="SPI_MISO" />
+        <signal name="RXD" />
         <port polarity="Output" name="SPI_SCK" />
         <port polarity="Output" name="SPI_MOSI" />
         <port polarity="Output" name="TXD" />
@@ -158,6 +144,20 @@
         <port polarity="BiDirectional" name="WING_CH5" />
         <port polarity="BiDirectional" name="WING_CH6" />
         <port polarity="BiDirectional" name="WING_CH7" />
+        <port polarity="Output" name="LED" />
+        <port polarity="Output" name="DRAM_DQM(1:0)" />
+        <port polarity="Output" name="DRAM_BA(1:0)" />
+        <port polarity="Output" name="DRAM_ADDR(12:0)" />
+        <port polarity="Output" name="DRAM_WE_N" />
+        <port polarity="Output" name="DRAM_RAS_N" />
+        <port polarity="Output" name="DRAM_CS_N" />
+        <port polarity="Output" name="DRAM_CLK" />
+        <port polarity="Output" name="DRAM_CKE" />
+        <port polarity="Output" name="DRAM_CAS_N" />
+        <port polarity="BiDirectional" name="DRAM_DQ(15:0)" />
+        <port polarity="Input" name="CLK" />
+        <port polarity="Input" name="SPI_MISO" />
+        <port polarity="Input" name="RXD" />
         <blockdef name="Papilio_Default_Pinout">
             <timestamp>2013-11-19T0:52:3</timestamp>
             <rect width="256" x="64" y="-1784" height="1784" />
@@ -409,62 +409,6 @@
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
-        <branch name="LED">
-            <wire x2="896" y1="704" y2="704" x1="864" />
-        </branch>
-        <branch name="DRAM_DQM(1:0)">
-            <wire x2="896" y1="640" y2="640" x1="864" />
-        </branch>
-        <branch name="DRAM_BA(1:0)">
-            <wire x2="896" y1="608" y2="608" x1="864" />
-        </branch>
-        <branch name="DRAM_ADDR(12:0)">
-            <wire x2="896" y1="576" y2="576" x1="864" />
-        </branch>
-        <branch name="DRAM_WE_N">
-            <wire x2="896" y1="544" y2="544" x1="864" />
-        </branch>
-        <branch name="DRAM_RAS_N">
-            <wire x2="896" y1="512" y2="512" x1="864" />
-        </branch>
-        <branch name="DRAM_CS_N">
-            <wire x2="896" y1="480" y2="480" x1="864" />
-        </branch>
-        <branch name="DRAM_CLK">
-            <wire x2="896" y1="448" y2="448" x1="864" />
-        </branch>
-        <branch name="DRAM_CKE">
-            <wire x2="896" y1="416" y2="416" x1="864" />
-        </branch>
-        <branch name="DRAM_CAS_N">
-            <wire x2="896" y1="384" y2="384" x1="864" />
-        </branch>
-        <branch name="DRAM_DQ(15:0)">
-            <wire x2="896" y1="352" y2="352" x1="864" />
-        </branch>
-        <iomarker fontsize="28" x="864" y="704" name="LED" orien="R180" />
-        <iomarker fontsize="28" x="864" y="640" name="DRAM_DQM(1:0)" orien="R180" />
-        <iomarker fontsize="28" x="864" y="608" name="DRAM_BA(1:0)" orien="R180" />
-        <iomarker fontsize="28" x="864" y="576" name="DRAM_ADDR(12:0)" orien="R180" />
-        <iomarker fontsize="28" x="864" y="544" name="DRAM_WE_N" orien="R180" />
-        <iomarker fontsize="28" x="864" y="512" name="DRAM_RAS_N" orien="R180" />
-        <iomarker fontsize="28" x="864" y="480" name="DRAM_CS_N" orien="R180" />
-        <iomarker fontsize="28" x="864" y="448" name="DRAM_CLK" orien="R180" />
-        <iomarker fontsize="28" x="864" y="416" name="DRAM_CKE" orien="R180" />
-        <iomarker fontsize="28" x="864" y="384" name="DRAM_CAS_N" orien="R180" />
-        <iomarker fontsize="28" x="864" y="352" name="DRAM_DQ(15:0)" orien="R180" />
-        <branch name="CLK">
-            <wire x2="896" y1="128" y2="128" x1="864" />
-        </branch>
-        <iomarker fontsize="28" x="864" y="128" name="CLK" orien="R180" />
-        <branch name="SPI_MISO">
-            <wire x2="896" y1="192" y2="192" x1="864" />
-        </branch>
-        <iomarker fontsize="28" x="864" y="192" name="SPI_MISO" orien="R180" />
-        <branch name="RXD">
-            <wire x2="896" y1="256" y2="256" x1="864" />
-        </branch>
-        <iomarker fontsize="28" x="864" y="256" name="RXD" orien="R180" />
         <branch name="SPI_SCK">
             <wire x2="4272" y1="128" y2="128" x1="4240" />
         </branch>
@@ -757,5 +701,61 @@
         </instance>
         <instance x="896" y="784" name="XLXI_19" orien="R0">
         </instance>
+        <branch name="LED">
+            <wire x2="896" y1="704" y2="704" x1="864" />
+        </branch>
+        <branch name="DRAM_DQM(1:0)">
+            <wire x2="896" y1="640" y2="640" x1="864" />
+        </branch>
+        <branch name="DRAM_BA(1:0)">
+            <wire x2="896" y1="608" y2="608" x1="864" />
+        </branch>
+        <branch name="DRAM_ADDR(12:0)">
+            <wire x2="896" y1="576" y2="576" x1="864" />
+        </branch>
+        <branch name="DRAM_WE_N">
+            <wire x2="896" y1="544" y2="544" x1="864" />
+        </branch>
+        <branch name="DRAM_RAS_N">
+            <wire x2="896" y1="512" y2="512" x1="864" />
+        </branch>
+        <branch name="DRAM_CS_N">
+            <wire x2="896" y1="480" y2="480" x1="864" />
+        </branch>
+        <branch name="DRAM_CLK">
+            <wire x2="896" y1="448" y2="448" x1="864" />
+        </branch>
+        <branch name="DRAM_CKE">
+            <wire x2="896" y1="416" y2="416" x1="864" />
+        </branch>
+        <branch name="DRAM_CAS_N">
+            <wire x2="896" y1="384" y2="384" x1="864" />
+        </branch>
+        <branch name="DRAM_DQ(15:0)">
+            <wire x2="896" y1="352" y2="352" x1="864" />
+        </branch>
+        <branch name="CLK">
+            <wire x2="896" y1="128" y2="128" x1="864" />
+        </branch>
+        <branch name="SPI_MISO">
+            <wire x2="896" y1="192" y2="192" x1="864" />
+        </branch>
+        <branch name="RXD">
+            <wire x2="896" y1="256" y2="256" x1="864" />
+        </branch>
+        <iomarker fontsize="28" x="864" y="704" name="LED" orien="R180" />
+        <iomarker fontsize="28" x="864" y="640" name="DRAM_DQM(1:0)" orien="R180" />
+        <iomarker fontsize="28" x="864" y="608" name="DRAM_BA(1:0)" orien="R180" />
+        <iomarker fontsize="28" x="864" y="576" name="DRAM_ADDR(12:0)" orien="R180" />
+        <iomarker fontsize="28" x="864" y="544" name="DRAM_WE_N" orien="R180" />
+        <iomarker fontsize="28" x="864" y="512" name="DRAM_RAS_N" orien="R180" />
+        <iomarker fontsize="28" x="864" y="480" name="DRAM_CS_N" orien="R180" />
+        <iomarker fontsize="28" x="864" y="448" name="DRAM_CLK" orien="R180" />
+        <iomarker fontsize="28" x="864" y="416" name="DRAM_CKE" orien="R180" />
+        <iomarker fontsize="28" x="864" y="384" name="DRAM_CAS_N" orien="R180" />
+        <iomarker fontsize="28" x="864" y="352" name="DRAM_DQ(15:0)" orien="R180" />
+        <iomarker fontsize="28" x="864" y="128" name="CLK" orien="R180" />
+        <iomarker fontsize="28" x="864" y="192" name="SPI_MISO" orien="R180" />
+        <iomarker fontsize="28" x="864" y="256" name="RXD" orien="R180" />
     </sheet>
 </drawing>
