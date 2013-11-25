@@ -46,8 +46,8 @@ entity AUDIO_zpuino_sa_sigmadeltaDAC is
     BITS: integer := 18
   );
 	port (
-    clk:      in std_logic;
-    rst:      in std_logic;
+    clk_96Mhz:      in std_logic;
+    --rst:      in std_logic;
     data_in:  in std_logic_vector(BITS-1 downto 0);
     audio_out: out std_logic
     );
@@ -61,15 +61,16 @@ signal sigma_latch: unsigned(BITS+1 downto 0);
 signal delta_b:     unsigned(BITS+1 downto 0);
 
 signal dat_q: unsigned(BITS+1 downto 0);
+signal rst: std_logic := '0';
 
 begin
 
 dat_q(BITS+1) <= '0';
 dat_q(BITS) <= '0';
 
-process(clk)
+process(clk_96Mhz)
 begin
-  if rising_edge(clk) then
+  if rising_edge(clk_96Mhz) then
     dat_q(BITS-1 downto 0) <= unsigned(data_in);
   end if;
 end process;
@@ -91,9 +92,9 @@ begin
 	sigma_adder <= delta_adder + sigma_latch;
 end process;
 
-process(clk)
+process(clk_96Mhz)
 begin
-  if rising_edge(clk) then
+  if rising_edge(clk_96Mhz) then
 	  if rst='1' then
       sigma_latch <= (others => '0');
 		  sigma_latch(BITS+1) <= '1';

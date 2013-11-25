@@ -72,7 +72,7 @@ entity AUDIO_zpuino_wb_YM2149 is
 	 wishbone_in : in std_logic_vector(61 downto 0);
 	 wishbone_out : out std_logic_vector(33 downto 0);
 
-	 data_out:   out std_logic_vector(7 downto 0)			--Digital data out - this should be fed into an audio mixer or Delta-Sigma DAC.
+	 data_out:   out std_logic_vector(17 downto 0)			--Digital data out - this should be fed into an audio mixer or Delta-Sigma DAC.
   );
 end;
 
@@ -140,7 +140,7 @@ architecture RTL of AUDIO_zpuino_wb_YM2149 is
 
   signal  wb_dat_o:    std_logic_vector(31 downto 0); -- Wishbone data output (32 bits)
   signal  wb_ack_o:    std_logic;                      -- Wishbone acknowledge out signal
-  signal  wb_inta_o:   std_logic;	
+  signal  wb_inta_o:   std_logic;
 begin
 -- Unpack the wishbone array into signals so the modules code is not confusing.
   wb_clk_i <= wishbone_in(61);
@@ -166,7 +166,7 @@ begin
   
   I_SEL_L <= '1';
   ENA <= '1';
-  data_out <= O_AUDIO;
+  data_out <= O_AUDIO & "0000000000";
 
   p_wdata                : process(wb_clk_i)
   begin

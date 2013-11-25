@@ -10,14 +10,15 @@
 }
 ".Papilio Peripherals - Wishbone"
 {
+"AUDIO_zpuino_wb_passthrough"
 "AUDIO_zpuino_wb_pokey"
+"AUDIO_zpuino_wb_sid6581"
 "AUDIO_zpuino_wb_YM2149"
 "COMM_zpuino_wb_i2c"
 "COMM_zpuino_wb_SPI"
 "COMM_zpuino_wb_UART"
 "MISC_zpuino_wb_SevenSeg"
 "Wishbone_Empty_Slot"
-"AUDIO_zpuino_wb_sid6581"
 }
 ".Papilio Soft Processors"
 {
