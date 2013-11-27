@@ -1,0 +1,4 @@
+for /f %%F in ('dir /AD /b  ^| findstr /vile "Papilio_Schematic_Library_Base_Template"') do copy Papilio_Schematic_Library_Base_Template\Papilio_SOC_Base_Papilio_Pro_LX9.xise "%%F"\*
+for /f %%F in ('dir /AD /b  ^| findstr /vile "Papilio_Schematic_Library_Base_Template"') do copy Papilio_Schematic_Library_Base_Template\Papilio_SOC_Base_Papilio_One_250K.xise "%%F"\*
+for /f %%F in ('dir /AD /b  ^| findstr /vile "Papilio_Schematic_Library_Base_Template"') do copy Papilio_Schematic_Library_Base_Template\Papilio_SOC_Base_Papilio_One_500K.xise "%%F"\*
+for /f %%F in ('dir /AD /b  ^| findstr /vile "Papilio_Schematic_Library_Base_Template"') do copy Papilio_Schematic_Library_Base_Template\clean.bat "%%F"\*
