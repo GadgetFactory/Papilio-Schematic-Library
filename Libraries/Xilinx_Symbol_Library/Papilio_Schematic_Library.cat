@@ -2,6 +2,9 @@
 {
 "LogicStart_MegaWing_Pinout"
 "Papilio_Default_Pinout"
+"Papilio_Wing_Pinout"
+"Wing_Audio"
+"Wing_GPIO"
 }
 ".Papilio Peripherals - Standalone"
 {
