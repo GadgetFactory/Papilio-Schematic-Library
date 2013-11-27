@@ -10,6 +10,8 @@
 {
 "AUDIO_zpuino_sa_audiomixer"
 "AUDIO_zpuino_sa_sigmadeltaDAC"
+"MISC_zpuino_sa_splitter2"
+"MISC_zpuino_sa_splitter4"
 }
 ".Papilio Peripherals - Wishbone"
 {

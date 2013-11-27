@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    13:54:01 11/26/2013 
+-- Create Date:    09:01:17 11/27/2013 
 -- Design Name: 
--- Module Name:    Wing_Audio - Behavioral 
+-- Module Name:    MISC_zpuino_sa_splitter2 - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,26 +29,17 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Wing_Audio is
-   port (    
-			 audio_left : in std_logic;
-			 audio_right : in std_logic;
-			 wt_miso: inout std_logic_vector(7 downto 0); 
-			 wt_mosi: inout std_logic_vector(7 downto 0)			 
-			 );	
-end Wing_Audio;
+entity MISC_zpuino_sa_splitter2 is
+    Port ( in1 : in  STD_LOGIC;
+           out1 : out  STD_LOGIC;
+           out2 : out  STD_LOGIC);
+end MISC_zpuino_sa_splitter2;
 
-architecture Behavioral of Wing_Audio is
+architecture Behavioral of MISC_zpuino_sa_splitter2 is
 
 begin
-wt_miso(0) <= audio_right;
-wt_miso(1) <= audio_left;
-wt_miso(2) <= wt_mosi(2);
-wt_miso(3) <= wt_mosi(3);
-wt_miso(4) <= wt_mosi(4);
-wt_miso(5) <= wt_mosi(5);
-wt_miso(6) <= wt_mosi(6);
-wt_miso(7) <= wt_mosi(7);
+out1 <= in1;
+out2 <= in1;
 
 end Behavioral;
 
