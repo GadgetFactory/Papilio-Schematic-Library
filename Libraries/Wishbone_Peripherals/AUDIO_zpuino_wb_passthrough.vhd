@@ -1,7 +1,7 @@
 --
 -- Audio Passthrough
 --
--- Copyright 2008,2009,2010 �lvaro Lopes <alvieboy@alvie.com>
+-- Copyright 2008,2009,2010 Alvaro Lopes <alvieboy@alvie.com>
 --
 -- Version: 1.2
 --
@@ -87,7 +87,7 @@ begin
   wishbone_out(0) <= wb_inta_o; 
 
 
-  wb_dat_o <= (others => DontCareValue);
+  wb_dat_o <= (others => '0');
   wb_inta_o <= '0';
   wb_ack_o <= wb_cyc_i and wb_stb_i;
   
