@@ -1,0 +1,14 @@
+YM-TOOL v3.01
+-------------
+
+YM-Tool is a tools to manage your YM files (ST-Sound music file format). Coded by Arnaud Carré (aka Leonard/OXYGENE). Using YM-Tool you can:
+
+- Convert all YM formats into YM6 format
+- Automaticaly find perfect loop-point in YM music
+- Add/Modify YM file info
+- Batching multiple YM files ("ymtool c *.ym")
+- and lotsa more cool features !
+
+More info at:
+http://leonard.oxg.free.fr
+
