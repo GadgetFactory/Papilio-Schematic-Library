@@ -1,9 +1,14 @@
-Papilio Schematic Library - Schematic System on Chip (Source Code) - Current Version 1.2
+Papilio Schematic Library - Schematic System on Chip (Source Code) - Current Version 1.3
 
 Papilio SOC Home Page
 http://papilio.cc
 
 CHANGELOG
+11/29/2013 Version 1.3
+	-Support for Wing types allow you to connect a wing that overrides GPIO.
+	-Audio example projects.
+	-Made ZPUino symbols more spread out.
+
 11/21/2013 Version 1.2
 	-Support for Papilio One 250K board.
 	-Base template projects were consolidated into a single directory.
