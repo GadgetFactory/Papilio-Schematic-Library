@@ -1,38 +1,19 @@
 /*
   Gadget Factory
-  Papilio One VGA Hello World Example
+  SID Audio Player Example
   
- VGA Wing Introduction:
- http://papilio.cc/index.php?n=Papilio.VGAWingIntroduction
+ SID libraries
+ http://www.papilio.cc/index.php?n=Papilio.SID
+ http://www.papilio.cc/index.php?n=Papilio.SIDVoice
  
  Hardware:
- If using an Arcade MegaWing or a LogicStart MegaWing then select the appropriate "Hyperion" board type in the ZAP IDE.
- If using a VGA Wing or some other device then use the "Hyperion" pinselect board type in the ZAP IDE and be sure to uncomment "setup_pin_select" in setup.
+ Due to the size of the sid libraries this will only run on the Papilio Pro.
+ This will work with any hardware with an audio jack: Audio Wing, LogicStart MegaWing, Arcade MegaWing, RetroCade MegaWing.
  
  ZPUino Variant:
- Hyperion "The Lord of Light" with HQVGA adapter is needed for this example sketch
+ Use the Papilio Schematic Library to create a ZPUino that contains the SID audio component.
 
- created 2012
- by Jack Gassett
- http://www.gadgetfactory.net
- 
- This example code is in the public domain.
- */
-/*
-  Gadget Factory
-  Papilio One VGA Hello World Example
-  
- VGA Wing Introduction:
- http://papilio.cc/index.php?n=Papilio.VGAWingIntroduction
- 
- Hardware:
- If using an Arcade MegaWing or a LogicStart MegaWing then select the appropriate "Hyperion" board type in the ZAP IDE.
- If using a VGA Wing or some other device then use the "Hyperion" pinselect board type in the ZAP IDE and be sure to uncomment "setup_pin_select" in setup.
- 
- ZPUino Variant:
- Hyperion "The Lord of Light" with HQVGA adapter is needed for this example sketch
-
- created 2012
+ created 2013
  by Jack Gassett
  http://www.gadgetfactory.net
  
@@ -74,6 +55,7 @@ void setup() {
   INTRMASK = BIT(INTRLINE_TIMER0); // Enable Timer0 interrupt
   INTRCTL=1;     
     
+  //Set what wishbone slot the sid device is connected to.
   sidplayer.setup(5);  
   
   sidplayer.loadFile("music.sid");

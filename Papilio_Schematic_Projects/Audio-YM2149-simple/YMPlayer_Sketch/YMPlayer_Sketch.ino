@@ -1,18 +1,19 @@
 /*
   Gadget Factory
-  Papilio One VGA Hello World Example
+  YM2149 Audio Player Example
   
- VGA Wing Introduction:
- http://papilio.cc/index.php?n=Papilio.VGAWingIntroduction
+ SID libraries
+ http://www.papilio.cc/index.php?n=Papilio.YM2149
+ http://www.papilio.cc/index.php?n=Papilio.YMVoice
  
  Hardware:
- If using an Arcade MegaWing or a LogicStart MegaWing then select the appropriate "Hyperion" board type in the ZAP IDE.
- If using a VGA Wing or some other device then use the "Hyperion" pinselect board type in the ZAP IDE and be sure to uncomment "setup_pin_select" in setup.
+ Will work on Papilio Pro and Papilo One 500K
+ This will work with any hardware with an audio jack: Audio Wing, LogicStart MegaWing, Arcade MegaWing, RetroCade MegaWing.
  
  ZPUino Variant:
- Hyperion "The Lord of Light" with HQVGA adapter is needed for this example sketch
+ Use the Papilio Schematic Library to create a ZPUino that contains the YM2149 audio component.
 
- created 2012
+ created 2013
  by Jack Gassett
  http://www.gadgetfactory.net
  
@@ -41,7 +42,8 @@ void setup() {
   else{
      //Serial.println("SmallFS Started.");
   }  
-  
+
+  //Set what wishbone slot the ym2149 device is connected to.  
   ymplayer.setup(&ym2149,5); 
   
   ym2149.V1.setVolume(11);
