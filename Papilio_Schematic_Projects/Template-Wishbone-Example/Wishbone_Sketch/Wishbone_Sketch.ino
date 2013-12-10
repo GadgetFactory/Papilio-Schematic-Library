@@ -3,7 +3,7 @@
   Wishbone Example
   
  Hardware:
- Will work on Papilio Pro and Papilo One 500K
+ Will work on Papilio Pro and Papilo One 500K and 250K
  
  ZPUino Variant:
  Use the Papilio Schematic Library to create a ZPUino that contains the wishbone example device
@@ -40,6 +40,7 @@ void loop() {
   Serial.println(MYREG(1),HEX);
   Serial.print("Register2: ");
   Serial.println(MYREG(2),HEX);
-  
+
+  Serial.println("");  
   delay(3000);
 }
