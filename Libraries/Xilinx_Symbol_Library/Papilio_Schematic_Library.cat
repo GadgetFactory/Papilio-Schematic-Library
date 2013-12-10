@@ -24,6 +24,7 @@
 "COMM_zpuino_wb_UART"
 "MISC_zpuino_wb_SevenSeg"
 "Wishbone_Empty_Slot"
+"TEMPLATE_zpuino_wb_Wishbone"
 }
 ".Papilio Soft Processors"
 {
