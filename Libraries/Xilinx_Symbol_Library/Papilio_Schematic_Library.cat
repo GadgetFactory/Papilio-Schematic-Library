@@ -12,6 +12,7 @@
 "AUDIO_zpuino_sa_sigmadeltaDAC"
 "MISC_zpuino_sa_splitter2"
 "MISC_zpuino_sa_splitter4"
+"clk_96to800"
 }
 ".Papilio Peripherals - Wishbone"
 {
@@ -23,8 +24,9 @@
 "COMM_zpuino_wb_SPI"
 "COMM_zpuino_wb_UART"
 "MISC_zpuino_wb_SevenSeg"
-"Wishbone_Empty_Slot"
 "TEMPLATE_zpuino_wb_Wishbone"
+"Wishbone_Empty_Slot"
+"BENCHY_zpuino_wb_waveform_generator"
 }
 ".Papilio Soft Processors"
 {
