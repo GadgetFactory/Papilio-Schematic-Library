@@ -39,7 +39,7 @@ entity BENCHY_zpuino_wb_waveform_generator is
 	
 	sin_dac_out : OUT std_logic;	 
 	cos_dac_out : OUT std_logic;
-	--squ_dac_out : OUT std_logic;
+	squ_dac_out : OUT std_logic;
 	saw_dac_out : OUT std_logic
 	
 	--all_dac_out : OUT std_logic
@@ -217,15 +217,15 @@ begin
 		clk_96Mhz => clk_in
 	);		
 
---	Inst_dac3: AUDIO_zpuino_sa_sigmadeltaDAC 
---	generic MAP (
---	   BITS => 12
---	)	
---	PORT MAP(
---		audio_out => squ_dac_out,
---		data_in => squ_out_s,
---		clk_96Mhz => clk_in
---	);		
+	Inst_dac3: AUDIO_zpuino_sa_sigmadeltaDAC 
+	generic MAP (
+	   BITS => 12
+	)	
+	PORT MAP(
+		audio_out => squ_dac_out,
+		data_in => squ_out_s,
+		clk_96Mhz => clk_in
+	);		
 
 	Inst_dac4: AUDIO_zpuino_sa_sigmadeltaDAC 
 	generic MAP (

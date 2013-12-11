@@ -12,7 +12,6 @@
 "AUDIO_zpuino_sa_sigmadeltaDAC"
 "MISC_zpuino_sa_splitter2"
 "MISC_zpuino_sa_splitter4"
-"clk_96to800"
 }
 ".Papilio Peripherals - Wishbone"
 {
@@ -20,13 +19,23 @@
 "AUDIO_zpuino_wb_pokey"
 "AUDIO_zpuino_wb_sid6581"
 "AUDIO_zpuino_wb_YM2149"
+"BENCHY_zpuino_wb_waveform_generator"
 "COMM_zpuino_wb_i2c"
 "COMM_zpuino_wb_SPI"
 "COMM_zpuino_wb_UART"
 "MISC_zpuino_wb_SevenSeg"
 "TEMPLATE_zpuino_wb_Wishbone"
 "Wishbone_Empty_Slot"
-"BENCHY_zpuino_wb_waveform_generator"
+}
+".Papilio Pro Clocks"
+{
+"clk_32to100"
+"clk_32to200"
+"clk_32to300"
+"clk_32to350"
+"clk_32to400"
+"clk_32to800"
+"clk_32to960"
 }
 ".Papilio Soft Processors"
 {
