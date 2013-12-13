@@ -59,6 +59,7 @@ entity ZPUino_Papilio_Pro_V1 is
 	 --Clock outputs to be used in schematic
 	 clk_96Mhz:        out std_logic;	--This is the clock that the system runs on.
 	 clk_1Mhz:        out std_logic;		--This is a 1Mhz clock for symbols like the C64 SID chip.
+	 clk_osc_32Mhz:   out std_logic;		--This is the 32Mhz clock from external oscillator.
 
     -- Connection to the main SPI flash
     SPI_SCK:    out std_logic;
@@ -180,7 +181,9 @@ architecture behave of ZPUino_Papilio_Pro_V1 is
     clkout: out std_logic;
     clkout1: out std_logic;
     clkout2: out std_logic;
-	clk_1Mhz_out: out std_logic;	
+	 clk_1Mhz_out: out std_logic;
+	 clk_osc_32Mhz: out std_logic;
+	 vgaclkout: out std_logic;
     rstout: out std_logic
   );
   end component;
@@ -686,7 +689,9 @@ begin
     clkout  => sysclk,
     clkout1  => sysclk_sram_we,
     clkout2  => sysclk_sram_wen,
-	clk_1Mhz_out => clk_1Mhz,
+	 clk_1Mhz_out => clk_1Mhz,
+	 clk_osc_32Mhz => clk_osc_32Mhz,
+	 vgaclkout => vgaclkout,
     rstout  => clkgen_rst
   );
 	clk_96Mhz <= sysclk;

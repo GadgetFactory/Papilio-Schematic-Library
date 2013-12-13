@@ -20,11 +20,15 @@ use ieee.std_logic_1164.ALL;
 use ieee.numeric_std.ALL;
 library UNISIM;
 use UNISIM.Vcomponents.ALL;
-use work.zpupkg.all;
-use work.zpuinopkg.all;
-use work.zpuino_config.all;
-use work.zpu_config.all;
-use work.pad.all;
+library board;
+use board.zpupkg.all;
+use board.zpuinopkg.all;
+use board.zpuino_config.all;
+use board.zpu_config.all;
+
+library zpuino;
+use zpuino.pad.all;
+use zpuino.papilio_pkg.all;
 
 entity LogicStart_MegaWing_Pinout is
    port (    
@@ -37,6 +41,11 @@ entity LogicStart_MegaWing_Pinout is
           VGA_Hsync    : in    std_logic; 
           VGA_Red      : in    std_logic_vector (2 downto 0); 
           VGA_Vsync    : in    std_logic; 	
+			 
+			 SPI_CLK      : in    std_logic; 
+			 SPI_MOSI     : in    std_logic; 
+			 SPI_MISO     : out    std_logic; 
+			 SPI_CS       : in    std_logic; 			 
 
 			gpio_bus_in : out std_logic_vector(97 downto 0);
 			gpio_bus_out : in std_logic_vector(147 downto 0);	
@@ -162,8 +171,13 @@ begin
 	WING_BL7 <= VGA_Red(0);
 	WING_BH0 <= VGA_Red(1);
 	WING_BH1 <= VGA_Red(2);
+	
+	--SPI ADC
+	WING_AH7 <= SPI_CLK;
+	WING_AH6 <= SPI_MOSI;
+	SPI_MISO <= WING_AH5;
+	WING_AH4 <= SPI_CS;
   
-
 --  pin00: IOPAD port map(I => gpio_o(0), O => gpio_i(0), T => gpio_t(0), C => gpio_clk,PAD => WING_AL0 );
 --  pin01: IOPAD port map(I => gpio_o(1), O => gpio_i(1), T => gpio_t(1), C => gpio_clk,PAD => WING_AL1 );
 --  pin02: IOPAD port map(I => gpio_o(2), O => gpio_i(2), T => gpio_t(2), C => gpio_clk,PAD => WING_AL2 );
@@ -176,10 +190,10 @@ begin
 --  pin09: IOPAD port map(I => gpio_o(9), O => gpio_i(9), T => gpio_t(9), C => gpio_clk,PAD => WING_AH1 );
 --  pin10: IOPAD port map(I => gpio_o(10),O => gpio_i(10),T => gpio_t(10),C => gpio_clk,PAD => WING_AH2 );
 --  pin11: IOPAD port map(I => gpio_o(11),O => gpio_i(11),T => gpio_t(11),C => gpio_clk,PAD => WING_AH3 );
-  pin12: IOPAD port map(I => gpio_o(12),O => gpio_i(12),T => gpio_t(12),C => gpio_clk,PAD => WING_AH4 );
-  pin13: IOPAD port map(I => gpio_o(13),O => gpio_i(13),T => gpio_t(13),C => gpio_clk,PAD => WING_AH5 );
-  pin14: IOPAD port map(I => gpio_o(14),O => gpio_i(14),T => gpio_t(14),C => gpio_clk,PAD => WING_AH6 );
-  pin15: IOPAD port map(I => gpio_o(15),O => gpio_i(15),T => gpio_t(15),C => gpio_clk,PAD => WING_AH7 );
+--  pin12: IOPAD port map(I => gpio_o(12),O => gpio_i(12),T => gpio_t(12),C => gpio_clk,PAD => WING_AH4 );
+--  pin13: IOPAD port map(I => gpio_o(13),O => gpio_i(13),T => gpio_t(13),C => gpio_clk,PAD => WING_AH5 );
+--  pin14: IOPAD port map(I => gpio_o(14),O => gpio_i(14),T => gpio_t(14),C => gpio_clk,PAD => WING_AH6 );
+--  pin15: IOPAD port map(I => gpio_o(15),O => gpio_i(15),T => gpio_t(15),C => gpio_clk,PAD => WING_AH7 );
 
 --  pin16: IOPAD port map(I => gpio_o(16),O => gpio_i(16),T => gpio_t(16),C => gpio_clk,PAD => WING_BL0 );
 --  pin17: IOPAD port map(I => gpio_o(17),O => gpio_i(17),T => gpio_t(17),C => gpio_clk,PAD => WING_BL1 );

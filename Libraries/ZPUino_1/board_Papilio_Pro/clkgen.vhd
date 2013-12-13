@@ -50,6 +50,7 @@ entity clkgen is
     clkout2: out std_logic;
 	 clk_1Mhz_out: out std_logic;
 	 clk_osc_32Mhz: out std_logic;
+	 vgaclkout: out std_logic;
     rstout: out std_logic
   );
 end entity clkgen;
@@ -120,6 +121,12 @@ begin
       I=> dcmclock,
       O=> clkfb
     );
+	 
+  vgainst: BUFG
+    port map (
+      I =>  clkin_i,
+      O =>  vgaclkout
+    );	 
 
   clk1_inst: BUFG port map ( I => clk1, O => clkout1 );
   clk2_inst: BUFG port map ( I => clk2, O => clkout2 );

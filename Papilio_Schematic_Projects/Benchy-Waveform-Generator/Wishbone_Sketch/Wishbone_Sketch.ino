@@ -22,7 +22,7 @@
 void setup() {
   // put your setup code here, to run once:
   
-  setFreq(1.5);  //Sets in Mhz
+  setFreq(2.4);  //Sets in Mhz
 
 }
 

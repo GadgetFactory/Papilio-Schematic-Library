@@ -1,10 +1,10 @@
 ".Papilio Hardware"
 {
-"LogicStart_MegaWing_Pinout"
 "Papilio_Default_Pinout"
 "Papilio_Wing_Pinout"
 "Wing_Audio"
 "Wing_GPIO"
+"LogicStart_MegaWing_Pinout"
 }
 ".Papilio Peripherals - Standalone"
 {
@@ -26,6 +26,8 @@
 "MISC_zpuino_wb_SevenSeg"
 "TEMPLATE_zpuino_wb_Wishbone"
 "Wishbone_Empty_Slot"
+"VIDEO_zpuino_wb_vga_hqvga"
+"VIDEO_zpuino_wb_char_ram_8x8_sp"
 }
 ".Papilio Pro Clocks"
 {
@@ -36,6 +38,7 @@
 "clk_32to400"
 "clk_32to800"
 "clk_32to960"
+"clk_32to50"
 }
 ".Papilio Soft Processors"
 {

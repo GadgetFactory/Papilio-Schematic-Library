@@ -110,6 +110,7 @@ begin
   wishbone_out(33 downto 2) <= wb_dat_o;
   wishbone_out(1) <= wb_ack_o;
   wishbone_out(0) <= wb_inta_o;
+-- Finish unpacking Wishbone signals.
 
   invsig <= '1' when INVERT=true else '0';
 
