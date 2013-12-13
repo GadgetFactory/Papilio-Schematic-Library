@@ -97,8 +97,12 @@ begin
 
   -- Input buffering
   --------------------------------------
-  clkin1 <= CLK_IN1;
-
+  --clkin1 <= CLK_IN1;
+  clkin2_inst: BUFG
+    port map (
+      I =>  CLK_IN1,
+      O =>  clkin1
+    );
 
   -- Clocking primitive
   --------------------------------------
@@ -153,11 +157,11 @@ begin
   clkfb <= '0';
 
 
-  clkout1_buf : BUFG
-  port map
-   (O   => CLK_OUT1,
-    I   => clkfx);
+--  clkout1_buf : BUFG
+--  port map
+--   (O   => CLK_OUT1,
+--    I   => clkfx);
 
-
+CLK_OUT1 <= clkfx;
 
 end xilinx;
