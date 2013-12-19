@@ -31,19 +31,19 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity prescaler is
+entity sump_prescaler is
 	generic (
-		SCALE : integer
+		SCALE : integer := 54
 	);
-	
-   Port ( clock : in  STD_LOGIC;
-	 	    reset : in std_logic;
-			 div : in std_logic_vector(1 downto 0);
-			 scaled : out std_logic
+   Port ( 
+		clock : in  STD_LOGIC;
+		reset : in std_logic;
+		div : in std_logic_vector(1 downto 0);
+		scaled : out std_logic
 	);
-end prescaler;
+end sump_prescaler;
 
-architecture Behavioral of prescaler is
+architecture Behavioral of sump_prescaler is
 
 signal counter : integer range 0 to (6 * SCALE) - 1;
 

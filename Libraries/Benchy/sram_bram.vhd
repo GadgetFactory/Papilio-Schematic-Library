@@ -82,14 +82,14 @@ begin
 	begin
 		if rising_edge(clock) then
 			if write = '1' then
-				if addra >= ((brams/2)*1024) - 1 then
+				if addra >= (brams*512) - 1 then
 					addra <= (others => '0');
 				else
 					addra <= addra + 1;
 				end if;
 			elsif read = '1' then
 				if addra = "0" then
-					addra <= std_logic_vector(to_unsigned(((brams/2)*1024) - 1, addra'length));
+					addra <= std_logic_vector(to_unsigned((brams*512) - 1, addra'length));
 				else
 					addra <= addra - 1;
 				end if;

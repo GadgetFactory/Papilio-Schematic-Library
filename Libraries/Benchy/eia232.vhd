@@ -54,7 +54,7 @@ end eia232;
 
 architecture Behavioral of eia232 is
 
-	COMPONENT prescaler
+	COMPONENT sump_prescaler
 	generic (
 		SCALE : integer
 	);
@@ -141,7 +141,7 @@ begin
 	end process;
 
 
-	Inst_prescaler: prescaler 
+	Inst_sump_prescaler: sump_prescaler 
 	generic map (
 		SCALE => SCALE
 	)
