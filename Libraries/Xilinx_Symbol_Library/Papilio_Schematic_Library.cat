@@ -1,11 +1,16 @@
+".Papilio Benchy"
+{
+"BENCHY_zpuino_wb_waveform_generator"
+"BENCHY_sa_SumpBlaze_LogicAnalyzer8"
+}
 ".Papilio Hardware"
 {
+"Arcade_MegaWing_Pinout"
 "LogicStart_MegaWing_Pinout"
 "Papilio_Default_Pinout"
 "Papilio_Wing_Pinout"
 "Wing_Audio"
 "Wing_GPIO"
-"Arcade_MegaWing_Pinout"
 }
 ".Papilio Peripherals - Standalone"
 {
@@ -20,7 +25,6 @@
 "AUDIO_zpuino_wb_pokey"
 "AUDIO_zpuino_wb_sid6581"
 "AUDIO_zpuino_wb_YM2149"
-"BENCHY_zpuino_wb_waveform_generator"
 "COMM_zpuino_wb_i2c"
 "COMM_zpuino_wb_SPI"
 "COMM_zpuino_wb_UART"

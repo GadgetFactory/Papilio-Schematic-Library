@@ -36,9 +36,12 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
-entity BENCHY_sa_SumpBlaze_LogicAnalyzer is
+entity BENCHY_sa_SumpBlaze_LogicAnalyzer8 is
+	generic (
+	 brams: integer := 12
+	);	
 	port(
-		CLK : in std_logic;
+		clk_32Mhz : in std_logic;
 		--extClockIn : in std_logic;
 --		extClockOut : out std_logic;
 		--extTriggerIn : in std_logic;
@@ -63,9 +66,9 @@ entity BENCHY_sa_SumpBlaze_LogicAnalyzer is
 		--armLED : out std_logic;
 		--triggerLED : out std_logic
 	);
-end BENCHY_sa_SumpBlaze_LogicAnalyzer;
+end BENCHY_sa_SumpBlaze_LogicAnalyzer8;
 
-architecture behavioral of BENCHY_sa_SumpBlaze_LogicAnalyzer is
+architecture behavioral of BENCHY_sa_SumpBlaze_LogicAnalyzer8 is
 
 	component clockman
 		port(
@@ -135,6 +138,9 @@ architecture behavioral of BENCHY_sa_SumpBlaze_LogicAnalyzer is
 	end component;
 
 	component sram_bram
+		generic (
+		 brams: integer := 12
+		);	
 		port(
 			clock : in std_logic;
 			output : out std_logic_vector(35 downto 0);
@@ -175,7 +181,7 @@ begin
 	
 	Inst_clockman: clockman
 	port map(
-		clkin => CLK,
+		clkin => clk_32Mhz,
 		clk0 => clock
 	);
 	
@@ -240,6 +246,9 @@ extTriggerIn <= '0';		--External trigger disabled
 	);
 
 	Inst_sram: sram_bram
+	generic map (
+		brams => brams
+	)		
 	port map(
 		clock => clock,
 		output => memoryIn,

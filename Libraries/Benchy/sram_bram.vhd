@@ -36,6 +36,9 @@ use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
 entity sram_bram is
+	generic (
+	 brams: integer := 12
+	);
 	port(
 		clock : in std_logic;
 		output : out std_logic_vector(35 downto 0);
@@ -47,7 +50,10 @@ end sram_bram;
 
 architecture behavioral of sram_bram is
 
-	component BRAM6k36bit -- SampleRAM
+	component Mem_Gen_36bit -- SampleRAM
+		generic (
+		 brams: integer := 12
+		);	
 		port (
 			clk: IN std_logic;
 			we: IN std_logic;
@@ -57,8 +63,6 @@ architecture behavioral of sram_bram is
 		);
 	end component;
 
---	attribute box_type : boolean;
---	attribute box_type of BRAM6k36bit: component is true;
 	signal addra : std_logic_vector (12 downto 0) := (others => '0');
 	signal writeSignal : std_logic;
 	signal bramIn, bramOut : std_logic_vector (35 downto 0);
@@ -78,14 +82,14 @@ begin
 	begin
 		if rising_edge(clock) then
 			if write = '1' then
-				if addra >= (6*1024) - 1 then
+				if addra >= ((brams/2)*1024) - 1 then
 					addra <= (others => '0');
 				else
 					addra <= addra + 1;
 				end if;
 			elsif read = '1' then
 				if addra = "0" then
-					addra <= std_logic_vector(to_unsigned((6*1024) - 1, addra'length));
+					addra <= std_logic_vector(to_unsigned(((brams/2)*1024) - 1, addra'length));
 				else
 					addra <= addra - 1;
 				end if;
@@ -93,7 +97,10 @@ begin
 		end if;
 	end process;
 
-	 Inst_SampleRAM : BRAM6k36bit
+	 Inst_SampleRAM : Mem_Gen_36bit
+	generic map (
+		brams => brams
+	)	 
 	 port map (
 		 clk => clock,
 		 we => writeSignal,

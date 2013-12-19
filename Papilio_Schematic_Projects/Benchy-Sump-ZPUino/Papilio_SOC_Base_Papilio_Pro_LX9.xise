@@ -24,7 +24,7 @@
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/board_Papilio_Pro/bootloader.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="137"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="30"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="31"/>
       <library xil_pn:name="board"/>
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/board_Papilio_Pro/clkgen.vhd" xil_pn:type="FILE_VHDL">
@@ -39,7 +39,7 @@
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/board_Papilio_Pro/sdram_hamster.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="140"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="29"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="30"/>
       <library xil_pn:name="board"/>
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/board_Papilio_Pro/sdram_wrap.vhd" xil_pn:type="FILE_VHDL">
@@ -49,7 +49,7 @@
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/board_Papilio_Pro/stack.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="142"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="28"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="29"/>
       <library xil_pn:name="board"/>
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/board_Papilio_Pro/wb_bootloader.vhd" xil_pn:type="FILE_VHDL">
@@ -93,7 +93,7 @@
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/fifo.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="77"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="27"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="28"/>
       <library xil_pn:name="zpuino"/>
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/generic_dp_ram.vhd" xil_pn:type="FILE_VHDL">
@@ -143,12 +143,12 @@
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/timer.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="87"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="26"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="27"/>
       <library xil_pn:name="zpuino"/>
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/wbarb2_1.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="88"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="25"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="26"/>
       <library xil_pn:name="zpuino"/>
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/wbbootloadermux.vhd" xil_pn:type="FILE_VHDL">
@@ -158,7 +158,7 @@
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/wbmux2.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="90"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="24"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="25"/>
       <library xil_pn:name="zpuino"/>
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/wb_master_np_to_slave_p.vhd" xil_pn:type="FILE_VHDL">
@@ -188,7 +188,7 @@
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/zpuino_debug_core.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="96"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="23"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="24"/>
       <library xil_pn:name="zpuino"/>
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/zpuino_gpio.vhd" xil_pn:type="FILE_VHDL">
@@ -208,7 +208,7 @@
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/zpuino_io.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="100"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="22"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="23"/>
       <library xil_pn:name="zpuino"/>
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/ZPUino_Papilio_One_V1.vhd" xil_pn:type="FILE_VHDL">
@@ -258,12 +258,8 @@
     </file>
     <file xil_pn:name="../../Libraries/ZPUino_1/zpu_core_extreme_icache.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="110"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="21"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="22"/>
       <library xil_pn:name="zpuino"/>
-    </file>
-    <file xil_pn:name="../../Libraries/ZPUino_1/Arcade_MegaWing_Pinout.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="93"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/AUDIO_zpuino_sa_audiomixer.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="222"/>
@@ -432,12 +428,12 @@
     </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/spi.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="255"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="34"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="35"/>
       <library xil_pn:name="wishbone"/>
     </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/spiclkgen.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="256"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="33"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="34"/>
       <library xil_pn:name="wishbone"/>
     </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/spimaster.vhd" xil_pn:type="FILE_VHDL">
@@ -452,7 +448,7 @@
     </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/tx_unit.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="259"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="32"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="33"/>
       <library xil_pn:name="wishbone"/>
     </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/uart_brgen.vhd" xil_pn:type="FILE_VHDL">
@@ -492,7 +488,7 @@
     </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino_uart_rx.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="267"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="31"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="32"/>
       <library xil_pn:name="wishbone"/>
     </file>
     <file xil_pn:name="../../Libraries/Wishbone_Peripherals/zpuino_vga_ram.vhd" xil_pn:type="FILE_VHDL">
@@ -500,144 +496,149 @@
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
       <library xil_pn:name="wishbone"/>
     </file>
-    <file xil_pn:name="../../Libraries/Benchy/BENCHY_sa_SumpBlaze_LogicAnalyzer.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="282"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="71"/>
+    <file xil_pn:name="../../Libraries/Benchy/BENCHY_sa_SumpBlaze_LogicAnalyzer8.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="127"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="127"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/BRAM6k36bit.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="283"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="47"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="128"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="128"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/BRAM8k36bit.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="284"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="129"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="129"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/clockman_papilio.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="285"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="65"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="130"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="130"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/controller.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="286"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="46"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="131"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="131"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/core.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="287"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="64"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="132"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="132"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/decoder.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="288"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="45"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="133"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="133"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/demux.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="289"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="20"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="134"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="134"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/eia232.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="290"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="63"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="135"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="135"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/filter.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="291"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="19"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="136"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="136"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/flags.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="292"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="44"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="137"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="137"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/group_selector.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="293"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="43"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="138"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="138"/>
+      <library xil_pn:name="benchy"/>
+    </file>
+    <file xil_pn:name="../../Libraries/Benchy/Mem_Gen_36bit.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="139"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="139"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/muldex.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="294"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="42"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="140"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="140"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/muldex_16.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="295"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="18"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="141"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="141"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/muldex_8.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="296"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="17"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="142"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="142"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/Papilio_One.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="297"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="143"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="143"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/prescaler.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="298"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="41"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="144"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="144"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/receiver.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="299"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="40"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="145"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="145"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/rle.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="300"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="39"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="146"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="146"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/rle_enc.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="301"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="16"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="147"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="147"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/rle_fmt.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="302"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="15"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="148"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="148"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/sampler.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="303"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="38"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="149"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="149"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/sram_bram.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="304"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="62"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="150"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="150"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/stage.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="305"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="14"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="151"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="151"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/sync.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="306"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="37"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="152"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="152"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/testmode.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="307"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="153"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="153"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/transmitter.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="308"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="36"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="154"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="154"/>
       <library xil_pn:name="benchy"/>
     </file>
     <file xil_pn:name="../../Libraries/Benchy/trigger.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="309"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="35"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="155"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="155"/>
       <library xil_pn:name="benchy"/>
     </file>
   </files>
