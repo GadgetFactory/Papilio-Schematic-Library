@@ -42,7 +42,7 @@ use board.zpuinopkg.all;
 
 entity COMM_zpuino_wb_UART is
   generic (
-    bits: integer := 2
+    bits: integer := 4
   );
   port (
 	 wishbone_in : in std_logic_vector(61 downto 0);

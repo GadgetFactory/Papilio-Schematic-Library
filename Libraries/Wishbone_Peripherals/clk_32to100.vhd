@@ -100,7 +100,7 @@ begin
    (BANDWIDTH            => "OPTIMIZED",
     CLK_FEEDBACK         => "CLKFBOUT",
     COMPENSATION         => "INTERNAL",
-    DIVCLK_DIVIDE        => 2.0,
+    DIVCLK_DIVIDE        => 2,
     CLKFBOUT_MULT        => 8,
     CLKFBOUT_PHASE       => 0.000,
     CLKOUT0_DIVIDE       => 25,

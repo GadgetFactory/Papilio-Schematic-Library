@@ -79,7 +79,7 @@ component AUDIO_zpuino_sa_sigmadeltaDAC is
     BITS: integer := 18
   );
 	port (
-    clk:      in std_logic;
+    clk_96Mhz:      in std_logic;
     --rst:      in std_logic;
     data_in:  in std_logic_vector(BITS-1 downto 0);
     audio_out: out std_logic
@@ -93,7 +93,7 @@ begin
 		BITS =>  18
 	)
 	port map (
-		clk       => clk,
+		clk_96Mhz       => clk,
 		--rst       => rst,
 		data_in   => data_out,
 		audio_out  => audio_out
