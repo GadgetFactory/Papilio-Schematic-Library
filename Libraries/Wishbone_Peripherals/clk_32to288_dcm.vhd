@@ -1,4 +1,4 @@
--- file: clk_32to50.vhd
+-- file: clk_32to288_dcm.vhd
 -- 
 -- (c) Copyright 2008 - 2011 Xilinx, Inc. All rights reserved.
 -- 
@@ -71,18 +71,18 @@ use ieee.numeric_std.all;
 library unisim;
 use unisim.vcomponents.all;
 
-entity clk_32to50 is
+entity clk_32to288_dcm is
 port
  (-- Clock in ports
   CLK_IN1           : in     std_logic;
   -- Clock out ports
   CLK_OUT1          : out    std_logic
  );
-end clk_32to50;
+end clk_32to288_dcm;
 
-architecture xilinx of clk_32to50 is
+architecture xilinx of clk_32to288_dcm is
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of xilinx : architecture is "clk_32to50,clk_wiz_v3_6,{component_name=clk_32to50,use_phase_alignment=false,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,feedback_source=FDBK_AUTO,primtype_sel=DCM_SP,num_out_clk=1,clkin1_period=31.25,clkin2_period=31.25,use_power_down=false,use_reset=false,use_locked=false,use_inclk_stopped=false,use_status=false,use_freeze=false,use_clk_valid=false,feedback_type=SINGLE,clock_mgr_type=AUTO,manual_override=false}";
+  attribute CORE_GENERATION_INFO of xilinx : architecture is "clk_32to288_dcm,clk_wiz_v3_6,{component_name=clk_32to288_dcm,use_phase_alignment=false,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,feedback_source=FDBK_AUTO,primtype_sel=DCM_SP,num_out_clk=1,clkin1_period=31.25,clkin2_period=31.25,use_power_down=false,use_reset=false,use_locked=false,use_inclk_stopped=false,use_status=false,use_freeze=false,use_clk_valid=false,feedback_type=SINGLE,clock_mgr_type=AUTO,manual_override=false}";
 	  -- Input clock buffering / unused connectors
   signal clkin1            : std_logic;
   -- Output clock buffering
@@ -113,8 +113,8 @@ begin
   dcm_sp_inst: DCM_SP
   generic map
    (CLKDV_DIVIDE          => 2.000,
-    CLKFX_DIVIDE          => 16,
-    CLKFX_MULTIPLY        => 25,
+    CLKFX_DIVIDE          => 1,
+    CLKFX_MULTIPLY        => 9,
     CLKIN_DIVIDE_BY_2     => FALSE,
     CLKIN_PERIOD          => 31.25,
     CLKOUT_PHASE_SHIFT    => "NONE",

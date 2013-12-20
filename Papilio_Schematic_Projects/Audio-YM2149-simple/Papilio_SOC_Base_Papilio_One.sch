@@ -293,7 +293,7 @@
             <line x2="0" y1="-144" y2="-144" x1="64" />
         </blockdef>
         <blockdef name="ZPUino_Papilio_One_V1">
-            <timestamp>2013-11-27T22:56:45</timestamp>
+            <timestamp>2013-12-20T0:22:17</timestamp>
             <rect width="172" x="320" y="-92" height="92" />
             <rect width="172" x="768" y="-92" height="92" />
             <rect width="172" x="1216" y="-92" height="92" />
@@ -306,7 +306,7 @@
             <rect width="4240" x="64" y="-688" height="688" />
             <line x2="4368" y1="-272" y2="-272" x1="4304" />
             <line x2="4304" y1="-240" y2="-240" x1="4368" />
-            <rect width="136" x="4168" y="-300" height="80" />
+            <rect width="180" x="4124" y="-300" height="112" />
             <line x2="4240" y1="64" y2="0" x1="4240" />
             <line x2="4256" y1="64" y2="0" x1="4256" />
             <line x2="4272" y1="64" y2="0" x1="4272" />
@@ -341,6 +341,7 @@
             <line x2="4368" y1="-400" y2="-400" x1="4304" />
             <line x2="4304" y1="-416" y2="-416" x1="4368" />
             <rect width="248" x="4056" y="-448" height="76" />
+            <line x2="4304" y1="-208" y2="-208" x1="4368" />
         </blockdef>
         <block symbolname="Papilio_Wing_Pinout" name="XLXI_20">
             <blockpin signalname="XLXN_408(147:0)" name="gpio_bus_out(147:0)" />
@@ -482,6 +483,7 @@
         <block symbolname="ZPUino_Papilio_One_V1" name="XLXI_43">
             <blockpin signalname="XLXN_456" name="clk_96Mhz" />
             <blockpin name="clk_1Mhz" />
+            <blockpin name="clk_osc_32Mhz" />
             <blockpin name="wishbone_slot_video_in(63:0)" />
             <blockpin name="wishbone_slot_video_out(33:0)" />
             <blockpin name="vgaclkout" />

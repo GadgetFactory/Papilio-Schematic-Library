@@ -376,12 +376,6 @@
             <line x2="144" y1="-304" y2="-256" x1="144" />
             <line x2="160" y1="-304" y2="-256" x1="160" />
         </blockdef>
-        <blockdef name="clk_32to50">
-            <timestamp>2013-12-13T18:4:14</timestamp>
-            <rect width="256" x="64" y="-64" height="64" />
-            <line x2="0" y1="-32" y2="-32" x1="64" />
-            <line x2="384" y1="-32" y2="-32" x1="320" />
-        </blockdef>
         <blockdef name="COMM_zpuino_wb_SPI">
             <timestamp>2013-12-13T18:37:27</timestamp>
             <rect width="112" x="64" y="-224" height="224" />
@@ -397,6 +391,12 @@
             <line x2="96" y1="-112" y2="-64" x1="96" />
             <line x2="112" y1="-112" y2="-64" x1="112" />
             <rect width="120" x="44" y="-64" height="64" />
+        </blockdef>
+        <blockdef name="clk_32to50_dcm">
+            <timestamp>2013-12-20T18:40:9</timestamp>
+            <rect width="256" x="64" y="-64" height="64" />
+            <line x2="0" y1="-32" y2="-32" x1="64" />
+            <line x2="384" y1="-32" y2="-32" x1="320" />
         </blockdef>
         <block symbolname="ZPUino_Papilio_Pro_V1" name="XLXI_28">
             <blockpin signalname="XLXN_408(147:0)" name="gpio_bus_out(147:0)" />
@@ -459,10 +459,6 @@
         <block symbolname="Wishbone_Empty_Slot" name="XLXI_31">
             <blockpin signalname="XLXN_442(61:0)" name="wishbone_in(61:0)" />
             <blockpin signalname="XLXN_443(33:0)" name="wishbone_out(33:0)" />
-        </block>
-        <block symbolname="clk_32to50" name="XLXI_58">
-            <blockpin signalname="XLXN_549" name="CLK_IN1" />
-            <blockpin signalname="XLXN_596" name="CLK_OUT1" />
         </block>
         <block symbolname="VIDEO_zpuino_wb_char_ram_8x8_sp" name="XLXI_62">
             <blockpin signalname="XLXN_567(61:0)" name="wishbone_in(61:0)" />
@@ -578,6 +574,10 @@
             <blockpin signalname="XLXN_450(17:0)" name="data_in(17:0)" />
             <blockpin signalname="XLXN_610" name="audio_out" />
             <blockpin signalname="XLXN_452" name="clk_96Mhz" />
+        </block>
+        <block symbolname="clk_32to50_dcm" name="XLXI_64">
+            <blockpin signalname="XLXN_549" name="CLK_IN1" />
+            <blockpin signalname="XLXN_596" name="CLK_OUT1" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -963,8 +963,6 @@
         <branch name="XLXN_596">
             <wire x2="1888" y1="1504" y2="1504" x1="1856" />
         </branch>
-        <instance x="1472" y="1536" name="XLXI_58" orien="R0">
-        </instance>
         <branch name="XLXN_542(6:0)">
             <wire x2="4608" y1="2000" y2="2000" x1="3136" />
         </branch>
@@ -1013,5 +1011,7 @@
             <wire x2="4720" y1="480" y2="480" x1="4704" />
             <wire x2="4720" y1="480" y2="1072" x1="4720" />
         </branch>
+        <instance x="1472" y="1536" name="XLXI_64" orien="R0">
+        </instance>
     </sheet>
 </drawing>

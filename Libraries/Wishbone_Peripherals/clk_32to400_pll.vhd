@@ -1,4 +1,4 @@
--- file: clk_32to800.vhd
+-- file: clk_32to400_pll.vhd
 -- 
 -- (c) Copyright 2008 - 2011 Xilinx, Inc. All rights reserved.
 -- 
@@ -55,7 +55,7 @@
 -- "Output    Output      Phase     Duty      Pk-to-Pk        Phase"
 -- "Clock    Freq (MHz) (degrees) Cycle (%) Jitter (ps)  Error (ps)"
 ------------------------------------------------------------------------------
--- CLK_OUT1___800.000______0.000______50.0______170.542____196.077
+-- CLK_OUT1___400.000______0.000______50.0______189.203____196.077
 --
 ------------------------------------------------------------------------------
 -- "Input Clock   Freq (MHz)    Input Jitter (UI)"
@@ -71,18 +71,18 @@ use ieee.numeric_std.all;
 library unisim;
 use unisim.vcomponents.all;
 
-entity clk_32to800 is
+entity clk_32to400_pll is
 port
  (-- Clock in ports
   CLK_IN1           : in     std_logic;
   -- Clock out ports
   CLK_OUT1          : out    std_logic
  );
-end clk_32to800;
+end clk_32to400_pll;
 
-architecture xilinx of clk_32to800 is
+architecture xilinx of clk_32to400_pll is
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of xilinx : architecture is "clk_32to800,clk_wiz_v3_6,{component_name=clk_32to800,use_phase_alignment=false,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,feedback_source=FDBK_AUTO,primtype_sel=PLL_BASE,num_out_clk=1,clkin1_period=31.250,clkin2_period=31.250,use_power_down=false,use_reset=false,use_locked=false,use_inclk_stopped=false,use_status=false,use_freeze=false,use_clk_valid=false,feedback_type=SINGLE,clock_mgr_type=AUTO,manual_override=false}";
+  attribute CORE_GENERATION_INFO of xilinx : architecture is "clk_32to400_pll,clk_wiz_v3_6,{component_name=clk_32to400_pll,use_phase_alignment=false,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,feedback_source=FDBK_AUTO,primtype_sel=PLL_BASE,num_out_clk=1,clkin1_period=31.250,clkin2_period=31.250,use_power_down=false,use_reset=false,use_locked=false,use_inclk_stopped=false,use_status=false,use_freeze=false,use_clk_valid=false,feedback_type=SINGLE,clock_mgr_type=AUTO,manual_override=false}";
   -- Input clock buffering / unused connectors
   signal clkin1      : std_logic;
   -- Output clock buffering / unused connectors
@@ -118,7 +118,7 @@ begin
     DIVCLK_DIVIDE        => 1,
     CLKFBOUT_MULT        => 25,
     CLKFBOUT_PHASE       => 0.000,
-    CLKOUT0_DIVIDE       => 1,
+    CLKOUT0_DIVIDE       => 2,
     CLKOUT0_PHASE        => 0.000,
     CLKOUT0_DUTY_CYCLE   => 0.500,
     CLKIN_PERIOD         => 31.250,

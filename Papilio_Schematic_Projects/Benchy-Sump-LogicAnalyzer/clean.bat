@@ -29,5 +29,5 @@ if exist papilio_soc_base_papilio_one.bit (
 )
 
 REM Deletes all unnecessary files
-for /f %%F in ('dir /b /a-d ^| findstr /vile ".sch .xise .bit .bat .sym .vhd"') do del "%%F"
+for /f %%F in ('dir /b /a-d ^| findstr /vile ".sch .xise .bit .bat .sym .vhd .pdf"') do del "%%F"
 for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles"') do rmdir /q /s "%%F"

@@ -271,7 +271,7 @@
             <line x2="224" y1="-32" y2="-32" x1="160" />
         </blockdef>
         <blockdef name="ZPUino_Papilio_Pro_V1">
-            <timestamp>2013-12-11T19:18:3</timestamp>
+            <timestamp>2013-12-20T0:23:30</timestamp>
             <line x2="4368" y1="-400" y2="-400" x1="4304" />
             <line x2="4304" y1="-416" y2="-416" x1="4368" />
             <rect width="248" x="4056" y="-448" height="76" />
@@ -336,12 +336,6 @@
             <line x2="64" y1="-64" y2="-32" x1="64" />
             <line x2="80" y1="-64" y2="-32" x1="80" />
         </blockdef>
-        <blockdef name="clk_32to350">
-            <timestamp>2013-12-11T21:31:50</timestamp>
-            <rect width="256" x="64" y="-64" height="64" />
-            <line x2="0" y1="-32" y2="-32" x1="64" />
-            <line x2="384" y1="-32" y2="-32" x1="320" />
-        </blockdef>
         <blockdef name="BENCHY_zpuino_wb_waveform_generator">
             <timestamp>2013-12-11T21:54:16</timestamp>
             <rect width="224" x="64" y="-480" height="480" />
@@ -357,6 +351,12 @@
             <line x2="16" y1="-448" y2="-448" x1="80" />
             <line x2="144" y1="-528" y2="-480" x1="144" />
             <line x2="160" y1="-528" y2="-476" x1="160" />
+        </blockdef>
+        <blockdef name="clk_32to960_pll">
+            <timestamp>2013-12-20T18:40:22</timestamp>
+            <rect width="256" x="64" y="-64" height="64" />
+            <line x2="0" y1="-32" y2="-32" x1="64" />
+            <line x2="384" y1="-32" y2="-32" x1="320" />
         </blockdef>
         <block symbolname="Papilio_Wing_Pinout" name="XLXI_20">
             <blockpin signalname="XLXN_408(147:0)" name="gpio_bus_out(147:0)" />
@@ -524,10 +524,6 @@
             <blockpin name="wishbone_slot_video_out(33:0)" />
             <blockpin name="vgaclkout" />
         </block>
-        <block symbolname="clk_32to350" name="XLXI_47">
-            <blockpin signalname="XLXN_466" name="CLK_IN1" />
-            <blockpin signalname="XLXN_475" name="CLK_OUT1" />
-        </block>
         <block symbolname="BENCHY_zpuino_wb_waveform_generator" name="XLXI_48">
             <blockpin name="saw_out(11:0)" />
             <blockpin name="sin_out(11:0)" />
@@ -538,6 +534,10 @@
             <blockpin signalname="XLXN_475" name="clk_in" />
             <blockpin signalname="XLXN_448(61:0)" name="wishbone_in(61:0)" />
             <blockpin signalname="XLXN_449(33:0)" name="wishbone_out(33:0)" />
+        </block>
+        <block symbolname="clk_32to960_pll" name="XLXI_50">
+            <blockpin signalname="XLXN_466" name="CLK_IN1" />
+            <blockpin signalname="XLXN_475" name="CLK_OUT1" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -923,8 +923,6 @@
         </branch>
         <instance x="336" y="752" name="XLXI_46" orien="R0">
         </instance>
-        <instance x="112" y="1808" name="XLXI_47" orien="R0">
-        </instance>
         <instance x="592" y="2368" name="XLXI_48" orien="R0">
         </instance>
         <branch name="WING_CL0">
@@ -941,7 +939,8 @@
         <iomarker fontsize="28" x="976" y="2048" name="WING_CL1" orien="R0" />
         <iomarker fontsize="28" x="976" y="2112" name="WING_CL2" orien="R0" />
         <branch name="XLXN_475">
-            <wire x2="544" y1="1776" y2="1776" x1="496" />
+            <wire x2="512" y1="1776" y2="1776" x1="496" />
+            <wire x2="544" y1="1776" y2="1776" x1="512" />
             <wire x2="544" y1="1776" y2="1920" x1="544" />
             <wire x2="608" y1="1920" y2="1920" x1="544" />
         </branch>
@@ -949,5 +948,7 @@
             <wire x2="5200" y1="2640" y2="2640" x1="5168" />
         </branch>
         <iomarker fontsize="28" x="5200" y="2640" name="WING_CL3" orien="R0" />
+        <instance x="112" y="1808" name="XLXI_50" orien="R0">
+        </instance>
     </sheet>
 </drawing>

@@ -498,9 +498,9 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="clk_32to50">
+<symbol version="7" name="clk_32to50_dcm">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2013-12-13T18:4:14</timestamp>
+    <timestamp>2013-12-20T18:40:9</timestamp>
     <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
     <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
     <graph>
@@ -513,24 +513,9 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="clk_32to100">
+<symbol version="7" name="clk_32to100_dcm">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2013-12-11T21:31:18</timestamp>
-    <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
-    <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
-    <graph>
-        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-72" type="symbol" />
-        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin CLK_IN1" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-32" type="pin CLK_OUT1" />
-        <rect width="256" x="64" y="-64" height="64" />
-        <line x2="0" y1="-32" y2="-32" x1="64" />
-        <line x2="384" y1="-32" y2="-32" x1="320" />
-    </graph>
-</symbol>
-<?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="clk_32to200">
-    <symboltype>BLOCK</symboltype>
-    <timestamp>2013-12-11T21:31:29</timestamp>
+    <timestamp>2013-12-20T18:39:19</timestamp>
     <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
     <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
     <graph>
@@ -543,9 +528,9 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="clk_32to300">
+<symbol version="7" name="clk_32to100_pll">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2013-12-11T21:31:39</timestamp>
+    <timestamp>2013-12-20T18:39:27</timestamp>
     <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
     <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
     <graph>
@@ -558,24 +543,9 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="clk_32to350">
+<symbol version="7" name="clk_32to200_pll">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2013-12-11T21:31:50</timestamp>
-    <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
-    <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
-    <graph>
-        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-72" type="symbol" />
-        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin CLK_IN1" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-32" type="pin CLK_OUT1" />
-        <rect width="256" x="64" y="-64" height="64" />
-        <line x2="0" y1="-32" y2="-32" x1="64" />
-        <line x2="384" y1="-32" y2="-32" x1="320" />
-    </graph>
-</symbol>
-<?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="clk_32to400">
-    <symboltype>BLOCK</symboltype>
-    <timestamp>2013-12-11T21:31:56</timestamp>
+    <timestamp>2013-12-20T18:39:36</timestamp>
     <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
     <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
     <graph>
@@ -588,9 +558,9 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="clk_32to800">
+<symbol version="7" name="clk_32to288_dcm">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2013-12-11T21:32:5</timestamp>
+    <timestamp>2013-12-20T18:39:44</timestamp>
     <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
     <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
     <graph>
@@ -603,9 +573,69 @@
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
-<symbol version="7" name="clk_32to960">
+<symbol version="7" name="clk_32to300_pll">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2013-12-11T21:32:11</timestamp>
+    <timestamp>2013-12-20T18:39:51</timestamp>
+    <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
+    <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
+    <graph>
+        <rect width="256" x="64" y="-64" height="64" />
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-72" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin CLK_IN1" />
+        <line x2="0" y1="-32" y2="-32" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-32" type="pin CLK_OUT1" />
+        <line x2="384" y1="-32" y2="-32" x1="320" />
+    </graph>
+</symbol>
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="clk_32to350_pll">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2013-12-20T18:39:57</timestamp>
+    <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
+    <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
+    <graph>
+        <rect width="256" x="64" y="-64" height="64" />
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-72" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin CLK_IN1" />
+        <line x2="0" y1="-32" y2="-32" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-32" type="pin CLK_OUT1" />
+        <line x2="384" y1="-32" y2="-32" x1="320" />
+    </graph>
+</symbol>
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="clk_32to400_pll">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2013-12-20T18:40:3</timestamp>
+    <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
+    <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
+    <graph>
+        <rect width="256" x="64" y="-64" height="64" />
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-72" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin CLK_IN1" />
+        <line x2="0" y1="-32" y2="-32" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-32" type="pin CLK_OUT1" />
+        <line x2="384" y1="-32" y2="-32" x1="320" />
+    </graph>
+</symbol>
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="clk_32to800_pll">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2013-12-20T18:40:16</timestamp>
+    <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
+    <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
+    <graph>
+        <rect width="256" x="64" y="-64" height="64" />
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-72" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin CLK_IN1" />
+        <line x2="0" y1="-32" y2="-32" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-32" type="pin CLK_OUT1" />
+        <line x2="384" y1="-32" y2="-32" x1="320" />
+    </graph>
+</symbol>
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="clk_32to960_pll">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2013-12-20T18:40:22</timestamp>
     <pin polarity="Input" x="0" y="-32" name="CLK_IN1" />
     <pin polarity="Output" x="384" y="-32" name="CLK_OUT1" />
     <graph>
@@ -1709,6 +1739,47 @@
         <rect width="64" x="160" y="-44" height="24" />
         <line x2="224" y1="-32" y2="-32" x1="160" />
         <text style="fontsize:40;fontname:Arial" x="12" y="-160">GPIO Wing</text>
+    </graph>
+</symbol>
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="Wing_VGA8">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2013-12-20T17:31:8</timestamp>
+    <pin polarity="Input" x="-16" y="-208" name="vga_hsync" />
+    <pin polarity="Input" x="-16" y="-192" name="vga_vsync" />
+    <pin polarity="Input" x="-16" y="-144" name="vga_red1" />
+    <pin polarity="Input" x="-16" y="-128" name="vga_red0" />
+    <pin polarity="Input" x="-16" y="-80" name="vga_green1" />
+    <pin polarity="Input" x="-16" y="-64" name="vga_green0" />
+    <pin polarity="BiDirectional" x="400" y="-144" name="wt_miso(7:0)" />
+    <pin polarity="BiDirectional" x="400" y="-80" name="wt_mosi(7:0)" />
+    <pin polarity="Input" x="-16" y="-32" name="vga_blue1" />
+    <pin polarity="Input" x="-16" y="-16" name="vga_blue0" />
+    <graph>
+        <text style="fontsize:40;fontname:Arial" x="104" y="36">VGA8 Wing</text>
+        <rect width="288" x="48" y="-224" height="224" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="56" y="-208" type="pin vga_hsync" />
+        <line x2="-16" y1="-208" y2="-208" x1="48" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="56" y="-192" type="pin vga_vsync" />
+        <line x2="-16" y1="-192" y2="-192" x1="48" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="56" y="-144" type="pin vga_red1" />
+        <line x2="-16" y1="-144" y2="-144" x1="48" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="56" y="-128" type="pin vga_red0" />
+        <line x2="-16" y1="-128" y2="-128" x1="48" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="56" y="-80" type="pin vga_green1" />
+        <line x2="-16" y1="-80" y2="-80" x1="48" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="56" y="-64" type="pin vga_green0" />
+        <line x2="-16" y1="-64" y2="-64" x1="48" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="328" y="-144" type="pin wt_miso(7:0)" />
+        <rect width="64" x="336" y="-156" height="24" />
+        <line x2="400" y1="-144" y2="-144" x1="336" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="328" y="-80" type="pin wt_mosi(7:0)" />
+        <rect width="64" x="336" y="-92" height="24" />
+        <line x2="400" y1="-80" y2="-80" x1="336" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="56" y="-32" type="pin vga_blue1" />
+        <line x2="-16" y1="-32" y2="-32" x1="48" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="56" y="-16" type="pin vga_blue0" />
+        <line x2="-16" y1="-16" y2="-16" x1="48" />
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>

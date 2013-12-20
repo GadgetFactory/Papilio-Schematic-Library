@@ -103,13 +103,7 @@
         <signal name="XLXN_486(17:0)" />
         <signal name="XLXN_488" />
         <signal name="XLXN_489" />
-        <signal name="XLXN_494(17:0)" />
-        <signal name="XLXN_495(17:0)" />
-        <signal name="XLXN_496(17:0)" />
         <signal name="XLXN_491" />
-        <signal name="XLXN_498(17:0)" />
-        <signal name="XLXN_499(17:0)" />
-        <signal name="XLXN_500(17:0)" />
         <signal name="WING_CL1" />
         <signal name="WING_CL0" />
         <signal name="XLXN_504" />
@@ -282,7 +276,7 @@
             <line x2="224" y1="-32" y2="-32" x1="160" />
         </blockdef>
         <blockdef name="ZPUino_Papilio_Pro_V1">
-            <timestamp>2013-12-11T19:18:3</timestamp>
+            <timestamp>2013-12-20T0:23:30</timestamp>
             <line x2="4368" y1="-400" y2="-400" x1="4304" />
             <line x2="4304" y1="-416" y2="-416" x1="4368" />
             <rect width="248" x="4056" y="-448" height="76" />

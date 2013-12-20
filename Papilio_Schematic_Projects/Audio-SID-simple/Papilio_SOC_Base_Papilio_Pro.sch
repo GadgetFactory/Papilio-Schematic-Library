@@ -275,7 +275,7 @@
             <line x2="224" y1="-32" y2="-32" x1="160" />
         </blockdef>
         <blockdef name="ZPUino_Papilio_Pro_V1">
-            <timestamp>2013-11-27T1:14:51</timestamp>
+            <timestamp>2013-12-20T0:23:30</timestamp>
             <line x2="4368" y1="-400" y2="-400" x1="4304" />
             <line x2="4304" y1="-416" y2="-416" x1="4368" />
             <rect width="248" x="4056" y="-448" height="76" />
@@ -286,7 +286,7 @@
             <line x2="4312" y1="-656" y2="-656" x1="4368" />
             <line x2="4368" y1="-272" y2="-272" x1="4304" />
             <line x2="4304" y1="-240" y2="-240" x1="4368" />
-            <rect width="136" x="4168" y="-300" height="80" />
+            <rect width="176" x="4128" y="-300" height="124" />
             <line x2="0" y1="-432" y2="-432" x1="64" />
             <line x2="0" y1="-80" y2="-80" x1="64" />
             <rect width="250" x="66" y="-456" height="328" />
@@ -332,6 +332,7 @@
             <line x2="4112" y1="64" y2="0" x1="4112" />
             <line x2="4128" y1="64" y2="0" x1="4128" />
             <line x2="4144" y1="64" y2="0" x1="4144" />
+            <line x2="4304" y1="-208" y2="-208" x1="4368" />
         </blockdef>
         <blockdef name="Wishbone_Empty_Slot">
             <timestamp>2013-11-27T1:19:15</timestamp>
@@ -466,6 +467,7 @@
             <blockpin signalname="SPI_SCK" name="SPI_SCK" />
             <blockpin signalname="XLXN_465" name="clk_96Mhz" />
             <blockpin signalname="XLXN_464" name="clk_1Mhz" />
+            <blockpin name="clk_osc_32Mhz" />
             <blockpin signalname="DRAM_DQ(15:0)" name="DRAM_DQ(15:0)" />
             <blockpin signalname="LED" name="LED" />
             <blockpin signalname="DRAM_CAS_N" name="DRAM_CAS_N" />

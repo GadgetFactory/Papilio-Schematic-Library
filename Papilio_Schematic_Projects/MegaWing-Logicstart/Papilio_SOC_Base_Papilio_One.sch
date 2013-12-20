@@ -96,9 +96,7 @@
         <signal name="XLXN_574" />
         <signal name="XLXN_575" />
         <signal name="XLXN_576" />
-        <signal name="XLXN_578" />
         <signal name="XLXN_577" />
-        <signal name="XLXN_580" />
         <signal name="XLXN_542(6:0)" />
         <signal name="XLXN_543(3:0)" />
         <signal name="XLXN_544" />
@@ -304,12 +302,6 @@
             <line x2="144" y1="-304" y2="-256" x1="144" />
             <line x2="160" y1="-304" y2="-256" x1="160" />
         </blockdef>
-        <blockdef name="clk_32to50">
-            <timestamp>2013-12-13T18:4:14</timestamp>
-            <rect width="256" x="64" y="-64" height="64" />
-            <line x2="0" y1="-32" y2="-32" x1="64" />
-            <line x2="384" y1="-32" y2="-32" x1="320" />
-        </blockdef>
         <blockdef name="COMM_zpuino_wb_SPI">
             <timestamp>2013-12-13T18:37:27</timestamp>
             <rect width="112" x="64" y="-224" height="224" />
@@ -370,6 +362,12 @@
             <line x2="4304" y1="-416" y2="-416" x1="4368" />
             <rect width="248" x="4056" y="-448" height="76" />
             <line x2="4304" y1="-208" y2="-208" x1="4368" />
+        </blockdef>
+        <blockdef name="clk_32to50_dcm">
+            <timestamp>2013-12-20T18:40:9</timestamp>
+            <rect width="256" x="64" y="-64" height="64" />
+            <line x2="0" y1="-32" y2="-32" x1="64" />
+            <line x2="384" y1="-32" y2="-32" x1="320" />
         </blockdef>
         <block symbolname="Wishbone_Empty_Slot" name="XLXI_37">
             <blockpin signalname="XLXN_430(61:0)" name="wishbone_in(61:0)" />
@@ -527,10 +525,6 @@
             <blockpin signalname="XLXN_536(61:0)" name="wishbone_in(61:0)" />
             <blockpin signalname="XLXN_537(33:0)" name="wishbone_out(33:0)" />
         </block>
-        <block symbolname="clk_32to50" name="XLXI_58">
-            <blockpin signalname="XLXN_549" name="CLK_IN1" />
-            <blockpin signalname="XLXN_577" name="CLK_OUT1" />
-        </block>
         <block symbolname="MISC_zpuino_wb_SevenSeg" name="XLXI_57">
             <blockpin signalname="XLXN_542(6:0)" name="segdata(6:0)" />
             <blockpin name="extra(31:0)" />
@@ -546,6 +540,10 @@
             <blockpin signalname="XLXN_554" name="mosi" />
             <blockpin signalname="XLXN_559(61:0)" name="wishbone_in(61:0)" />
             <blockpin signalname="XLXN_560(33:0)" name="wishbone_out(33:0)" />
+        </block>
+        <block symbolname="clk_32to50_dcm" name="XLXI_64">
+            <blockpin signalname="XLXN_549" name="CLK_IN1" />
+            <blockpin signalname="XLXN_577" name="CLK_OUT1" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -922,8 +920,6 @@
         <branch name="XLXN_577">
             <wire x2="1888" y1="1504" y2="1504" x1="1856" />
         </branch>
-        <instance x="1472" y="1536" name="XLXI_58" orien="R0">
-        </instance>
         <branch name="XLXN_542(6:0)">
             <wire x2="4608" y1="2000" y2="2000" x1="3136" />
         </branch>
@@ -958,5 +954,7 @@
             <wire x2="2960" y1="2848" y2="2992" x1="2960" />
             <wire x2="4608" y1="2848" y2="2848" x1="2960" />
         </branch>
+        <instance x="1472" y="1536" name="XLXI_64" orien="R0">
+        </instance>
     </sheet>
 </drawing>
