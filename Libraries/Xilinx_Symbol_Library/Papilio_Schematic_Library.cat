@@ -11,6 +11,7 @@
 "Papilio_Wing_Pinout"
 "Wing_Audio"
 "Wing_GPIO"
+"Papilio_Default_Wing_Pinout"
 }
 ".Papilio Peripherals - Standalone"
 {
@@ -48,6 +49,6 @@
 ".Papilio Soft Processors"
 {
 "ZPUino_Papilio_One_V1"
-"ZPUino_Papilio_Pro_V1"
 "ZPUino_Papilio_One_V1_hyperion"
+"ZPUino_Papilio_Pro_V1"
 }
