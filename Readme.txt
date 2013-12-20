@@ -1,9 +1,19 @@
-Papilio Schematic Library - Schematic System on Chip (Source Code) - Current Version 1.3
+Papilio Schematic Library - Schematic System on Chip (Source Code) - Current Version 1.4
 
 Papilio SOC Home Page
 http://papilio.cc
 
 CHANGELOG
+12/20/2013 Version 1.4
+	-Wishbone Template, for users to make their own Wishbone peripherals.
+	-Benchy Waveform generator - generate sin, cos, and sawtooth waveforms.
+	-Added a bunch of clock options - convert the 32Mhz clock to other standard speeds - 50Mhz, 100Mhz, 300Mhz, 900Mhz.
+	-HQVGA - Use the VGA library with this HQVGA adapter in your project.
+	-Hyperion Soft Processor for Papilio One 500K. Hyperion uses less BRAM memory for program code so you can use the HQVGA adapter on a P1 500K.
+	-Sump Blaze Logic Analyzer - Add a logic analyzer to your project and debug external pins or internal FPGA logic.
+	-LogicStart MegaWing Symbol
+	-Arcade MegaWing Symbol (untested)
+
 11/29/2013 Version 1.3
 	-Support for Wing types allow you to connect a wing that overrides GPIO.
 	-Audio example projects.
