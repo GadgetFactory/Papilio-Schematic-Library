@@ -59,9 +59,19 @@ entity VIDEO_zpuino_wb_vga_hqvga is
 
     vga_hsync:  out std_logic;
     vga_vsync:  out std_logic;
-    vga_r:      out std_logic_vector(2 downto 0);
-    vga_g:      out std_logic_vector(2 downto 0);
-    vga_b:      out std_logic_vector(1 downto 0)
+	 vga_r2:		 out std_logic;
+	 vga_r1:		 out std_logic;
+	 vga_r0:		 out std_logic;
+	 
+	 vga_g2:		 out std_logic;
+	 vga_g1:		 out std_logic;
+	 vga_g0:		 out std_logic;
+	 
+	 vga_b1:		 out std_logic;
+	 vga_b0:		 out std_logic
+--    vga_r:      out std_logic_vector(2 downto 0);
+--    vga_g:      out std_logic_vector(2 downto 0);
+--    vga_b:      out std_logic_vector(1 downto 0)
   );
 end entity VIDEO_zpuino_wb_vga_hqvga;
 
@@ -146,6 +156,10 @@ architecture behave of VIDEO_zpuino_wb_vga_hqvga is
   signal  wb_dat_o:    std_logic_vector(31 downto 0); -- Wishbone data output (32 bits)
   signal  wb_ack_o:    std_logic;                      -- Wishbone acknowledge out signal
   signal  wb_inta_o:   std_logic;
+  
+  signal vga_r:		  std_logic_vector(2 downto 0);
+  signal vga_g:		  std_logic_vector(2 downto 0);
+  signal vga_b:		  std_logic_vector(1 downto 0);
 begin
 -- Unpack the wishbone array into signals so the modules code is not confusing.
   wb_clk_i <= wishbone_in(61);
@@ -160,6 +174,21 @@ begin
   wishbone_out(1) <= wb_ack_o;
   wishbone_out(0) <= wb_inta_o;
 -- Finish unpacking Wishbone signals.
+
+--    vga_r:      out std_logic_vector(2 downto 0);
+--    vga_g:      out std_logic_vector(2 downto 0);
+--    vga_b:      out std_logic_vector(1 downto 0)
+
+  vga_r2 <= vga_r(2);
+  vga_r1 <= vga_r(1);
+  vga_r0 <= vga_r(0);
+  
+  vga_g2 <= vga_g(2);
+  vga_g1 <= vga_g(1);
+  vga_g0 <= vga_g(0);  
+
+  vga_b1 <= vga_b(1);
+  vga_b0 <= vga_b(0);
 
   wb_inta_o <= '0';
 

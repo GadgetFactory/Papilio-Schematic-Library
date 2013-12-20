@@ -36,10 +36,18 @@ entity LogicStart_MegaWing_Pinout is
           Seg7_dot     : in    std_logic; 
           Seg7_enable  : in    std_logic_vector (3 downto 0); 
           Seg7_segdata : in    std_logic_vector (6 downto 0); 
-          VGA_Blue     : in    std_logic_vector (1 downto 0); 
-          VGA_Green    : in    std_logic_vector (2 downto 0); 
+--          VGA_Red      : in    std_logic_vector (2 downto 0); 
+--          VGA_Green    : in    std_logic_vector (2 downto 0); 			 
+--          VGA_Blue     : in    std_logic_vector (1 downto 0); 
+			 VGA_Red2	  : in 	 std_logic;
+			 VGA_Red1	  : in 	 std_logic;
+			 VGA_Red0	  : in 	 std_logic;
+			 VGA_Green2	  : in 	 std_logic;
+			 VGA_Green1	  : in 	 std_logic;
+			 VGA_Green0	  : in 	 std_logic;
+			 VGA_Blue1	  : in 	 std_logic;
+			 VGA_Blue0	  : in 	 std_logic;
           VGA_Hsync    : in    std_logic; 
-          VGA_Red      : in    std_logic_vector (2 downto 0); 
           VGA_Vsync    : in    std_logic; 	
 			 
 			 SPI_CLK      : in    std_logic; 
@@ -163,14 +171,14 @@ begin
 	--VGA
 	WING_BL0 <= VGA_Vsync;
 	WING_BL1 <= VGA_Hsync;
-	WING_BL2 <= VGA_Blue(0);
-	WING_BL3 <= VGA_Blue(1);
-	WING_BL4 <= VGA_Green(0);
-	WING_BL5 <= VGA_Green(1);
-	WING_BL6 <= VGA_Green(2);
-	WING_BL7 <= VGA_Red(0);
-	WING_BH0 <= VGA_Red(1);
-	WING_BH1 <= VGA_Red(2);
+	WING_BL2 <= VGA_Blue0;
+	WING_BL3 <= VGA_Blue1;
+	WING_BL4 <= VGA_Green0;
+	WING_BL5 <= VGA_Green1;
+	WING_BL6 <= VGA_Green2;
+	WING_BL7 <= VGA_Red0;
+	WING_BH0 <= VGA_Red1;
+	WING_BH1 <= VGA_Red2;
 	
 	--SPI ADC
 	WING_AH7 <= SPI_CLK;

@@ -8,10 +8,9 @@
 "Arcade_MegaWing_Pinout"
 "LogicStart_MegaWing_Pinout"
 "Papilio_Default_Pinout"
-"Papilio_Wing_Pinout"
+"Papilio_Default_Wing_Pinout"
 "Wing_Audio"
 "Wing_GPIO"
-"Papilio_Default_Wing_Pinout"
 }
 ".Papilio Peripherals - Standalone"
 {
@@ -32,8 +31,8 @@
 "MISC_zpuino_wb_SevenSeg"
 "TEMPLATE_zpuino_wb_Wishbone"
 "VIDEO_zpuino_wb_char_ram_8x8_sp"
-"VIDEO_zpuino_wb_vga_hqvga"
 "Wishbone_Empty_Slot"
+"VIDEO_zpuino_wb_vga_hqvga"
 }
 ".Papilio Pro Clocks"
 {
@@ -51,4 +50,8 @@
 "ZPUino_Papilio_One_V1"
 "ZPUino_Papilio_One_V1_hyperion"
 "ZPUino_Papilio_Pro_V1"
+}
+"Papilio Obsolete"
+{
+"Papilio_Wing_Pinout"
 }

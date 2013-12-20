@@ -74,32 +74,39 @@
         <signal name="WING_AL2" />
         <signal name="WING_AL1" />
         <signal name="WING_AL0" />
-        <signal name="XLXN_531(2:0)" />
-        <signal name="XLXN_532(2:0)" />
-        <signal name="XLXN_533(1:0)" />
-        <signal name="XLXN_534" />
-        <signal name="XLXN_535" />
         <signal name="XLXN_536(61:0)" />
         <signal name="XLXN_537(33:0)" />
         <signal name="XLXN_540(61:0)" />
         <signal name="XLXN_541(33:0)" />
+        <signal name="XLXN_545(61:0)" />
+        <signal name="XLXN_546(33:0)" />
+        <signal name="XLXN_549" />
+        <signal name="XLXN_559(61:0)" />
+        <signal name="XLXN_560(33:0)" />
+        <signal name="XLXN_450(17:0)" />
+        <signal name="XLXN_565(61:0)" />
+        <signal name="XLXN_566(33:0)" />
+        <signal name="XLXN_567" />
+        <signal name="XLXN_568" />
+        <signal name="XLXN_569" />
+        <signal name="XLXN_570" />
+        <signal name="XLXN_571" />
+        <signal name="XLXN_572" />
+        <signal name="XLXN_573" />
+        <signal name="XLXN_574" />
+        <signal name="XLXN_575" />
+        <signal name="XLXN_576" />
+        <signal name="XLXN_578" />
+        <signal name="XLXN_577" />
+        <signal name="XLXN_580" />
         <signal name="XLXN_542(6:0)" />
         <signal name="XLXN_543(3:0)" />
         <signal name="XLXN_544" />
-        <signal name="XLXN_545(61:0)" />
-        <signal name="XLXN_546(33:0)" />
-        <signal name="XLXN_548" />
-        <signal name="XLXN_549" />
         <signal name="XLXN_552" />
         <signal name="XLXN_553" />
         <signal name="XLXN_554" />
         <signal name="XLXN_555" />
-        <signal name="XLXN_559(61:0)" />
-        <signal name="XLXN_560(33:0)" />
-        <signal name="XLXN_450(17:0)" />
-        <signal name="XLXN_564" />
-        <signal name="XLXN_565(61:0)" />
-        <signal name="XLXN_566(33:0)" />
+        <signal name="XLXN_588" />
         <port polarity="Input" name="RXD" />
         <port polarity="Input" name="SPI_MISO" />
         <port polarity="Input" name="CLK" />
@@ -178,12 +185,8 @@
             <line x2="0" y1="-144" y2="-144" x1="64" />
         </blockdef>
         <blockdef name="LogicStart_MegaWing_Pinout">
-            <timestamp>2013-12-13T18:33:25</timestamp>
+            <timestamp>2013-12-20T4:48:44</timestamp>
             <rect width="432" x="64" y="-1808" height="1804" />
-            <line x2="0" y1="-1136" y2="-1136" x1="64" />
-            <line x2="0" y1="-1072" y2="-1072" x1="64" />
-            <rect width="64" x="0" y="-1276" height="24" />
-            <line x2="0" y1="-1264" y2="-1264" x1="64" />
             <rect width="148" x="348" y="-1740" height="276" />
             <rect width="148" x="348" y="-1452" height="272" />
             <rect width="148" x="348" y="-1168" height="280" />
@@ -240,44 +243,53 @@
             <line x2="560" y1="-112" y2="-112" x1="496" />
             <line x2="560" y1="-80" y2="-80" x1="496" />
             <line x2="560" y1="-48" y2="-48" x1="496" />
-            <rect width="208" x="68" y="-1356" height="316" />
-            <line x2="0" y1="-1200" y2="-1200" x1="64" />
-            <rect width="64" x="0" y="-1340" height="24" />
-            <line x2="0" y1="-1328" y2="-1328" x1="64" />
-            <line x2="0" y1="-912" y2="-912" x1="64" />
-            <rect width="64" x="0" y="-732" height="24" />
-            <line x2="0" y1="-720" y2="-720" x1="64" />
-            <rect width="64" x="0" y="-860" height="24" />
-            <line x2="0" y1="-848" y2="-848" x1="64" />
-            <rect width="220" x="68" y="-932" height="236" />
-            <line x2="0" y1="-240" y2="-240" x1="64" />
-            <rect width="84" x="64" y="-284" height="80" />
-            <rect width="184" x="64" y="-620" height="244" />
-            <line x2="0" y1="-400" y2="-400" x1="64" />
-            <line x2="0" y1="-464" y2="-464" x1="64" />
-            <line x2="0" y1="-528" y2="-528" x1="64" />
-            <line x2="0" y1="-592" y2="-592" x1="64" />
+            <rect width="208" x="64" y="-1624" height="232" />
+            <line x2="0" y1="-1408" y2="-1408" x1="64" />
+            <line x2="0" y1="-1424" y2="-1424" x1="64" />
+            <line x2="0" y1="-1456" y2="-1456" x1="64" />
+            <line x2="0" y1="-1472" y2="-1472" x1="64" />
+            <line x2="0" y1="-1488" y2="-1488" x1="64" />
+            <line x2="0" y1="-1520" y2="-1520" x1="64" />
+            <line x2="0" y1="-1536" y2="-1536" x1="64" />
+            <line x2="0" y1="-1552" y2="-1552" x1="64" />
+            <line x2="0" y1="-1600" y2="-1600" x1="64" />
+            <line x2="0" y1="-1584" y2="-1584" x1="64" />
+            <line x2="0" y1="-256" y2="-256" x1="64" />
+            <rect width="84" x="64" y="-300" height="80" />
+            <rect width="184" x="64" y="-732" height="244" />
+            <line x2="0" y1="-512" y2="-512" x1="64" />
+            <line x2="0" y1="-576" y2="-576" x1="64" />
+            <line x2="0" y1="-640" y2="-640" x1="64" />
+            <line x2="0" y1="-704" y2="-704" x1="64" />
+            <line x2="0" y1="-1168" y2="-1168" x1="64" />
+            <rect width="64" x="0" y="-988" height="24" />
+            <line x2="0" y1="-976" y2="-976" x1="64" />
+            <rect width="64" x="0" y="-1116" height="24" />
+            <line x2="0" y1="-1104" y2="-1104" x1="64" />
+            <rect width="220" x="68" y="-1188" height="236" />
         </blockdef>
         <blockdef name="VIDEO_zpuino_wb_vga_hqvga">
-            <timestamp>2013-12-13T18:14:25</timestamp>
-            <rect width="144" x="64" y="-384" height="384" />
-            <line x2="0" y1="-352" y2="-352" x1="64" />
-            <line x2="128" y1="-432" y2="-384" x1="128" />
-            <line x2="144" y1="-432" y2="-384" x1="144" />
-            <rect width="64" x="208" y="-284" height="24" />
-            <line x2="272" y1="-272" y2="-272" x1="208" />
-            <rect width="64" x="208" y="-220" height="24" />
-            <line x2="272" y1="-208" y2="-208" x1="208" />
-            <rect width="64" x="208" y="-156" height="24" />
-            <line x2="272" y1="-144" y2="-144" x1="208" />
-            <line x2="272" y1="-80" y2="-80" x1="208" />
-            <line x2="272" y1="-16" y2="-16" x1="208" />
+            <timestamp>2013-12-20T4:19:24</timestamp>
+            <rect width="272" x="64" y="-256" height="256" />
+            <line x2="0" y1="-224" y2="-224" x1="64" />
+            <line x2="400" y1="-224" y2="-224" x1="336" />
+            <line x2="400" y1="-208" y2="-208" x1="336" />
+            <line x2="400" y1="-176" y2="-176" x1="336" />
+            <line x2="400" y1="-160" y2="-160" x1="336" />
+            <line x2="400" y1="-144" y2="-144" x1="336" />
+            <line x2="400" y1="-112" y2="-112" x1="336" />
+            <line x2="400" y1="-96" y2="-96" x1="336" />
+            <line x2="400" y1="-80" y2="-80" x1="336" />
+            <line x2="400" y1="-48" y2="-48" x1="336" />
+            <line x2="400" y1="-32" y2="-32" x1="336" />
+            <line x2="192" y1="-304" y2="-256" x1="192" />
+            <line x2="208" y1="-304" y2="-256" x1="208" />
         </blockdef>
         <blockdef name="VIDEO_zpuino_wb_char_ram_8x8_sp">
-            <timestamp>2013-12-13T17:0:58</timestamp>
-            <rect width="80" x="64" y="-64" height="64" />
+            <timestamp>2013-12-20T4:18:30</timestamp>
             <line x2="96" y1="-112" y2="-64" x1="96" />
             <line x2="112" y1="-112" y2="-64" x1="112" />
+            <rect width="120" x="44" y="-64" height="64" />
         </blockdef>
         <blockdef name="MISC_zpuino_wb_SevenSeg">
             <timestamp>2013-12-12T16:24:3</timestamp>
@@ -309,7 +321,7 @@
             <line x2="128" y1="-272" y2="-224" x1="128" />
         </blockdef>
         <blockdef name="ZPUino_Papilio_One_V1_hyperion">
-            <timestamp>2013-12-19T21:29:42</timestamp>
+            <timestamp>2013-12-20T0:21:36</timestamp>
             <rect width="172" x="320" y="-92" height="92" />
             <rect width="172" x="768" y="-92" height="92" />
             <rect width="172" x="1216" y="-92" height="92" />
@@ -376,9 +388,6 @@
             <blockpin signalname="XLXN_443(33:0)" name="wishbone_out(33:0)" />
         </block>
         <block symbolname="LogicStart_MegaWing_Pinout" name="XLXI_52">
-            <blockpin signalname="XLXN_534" name="VGA_Hsync" />
-            <blockpin signalname="XLXN_535" name="VGA_Vsync" />
-            <blockpin signalname="XLXN_532(2:0)" name="VGA_Green(2:0)" />
             <blockpin signalname="XLXN_408(147:0)" name="gpio_bus_out(147:0)" />
             <blockpin signalname="XLXN_409(97:0)" name="gpio_bus_in(97:0)" />
             <blockpin signalname="WING_AL0" name="WING_AL0" />
@@ -429,50 +438,28 @@
             <blockpin signalname="WING_CH5" name="WING_CH5" />
             <blockpin signalname="WING_CH6" name="WING_CH6" />
             <blockpin signalname="WING_CH7" name="WING_CH7" />
-            <blockpin signalname="XLXN_533(1:0)" name="VGA_Blue(1:0)" />
-            <blockpin signalname="XLXN_531(2:0)" name="VGA_Red(2:0)" />
-            <blockpin signalname="XLXN_544" name="Seg7_dot" />
-            <blockpin signalname="XLXN_543(3:0)" name="Seg7_enable(3:0)" />
-            <blockpin signalname="XLXN_542(6:0)" name="Seg7_segdata(6:0)" />
-            <blockpin signalname="XLXN_564" name="Audio" />
+            <blockpin signalname="XLXN_569" name="VGA_Red2" />
+            <blockpin signalname="XLXN_570" name="VGA_Red1" />
+            <blockpin signalname="XLXN_571" name="VGA_Red0" />
+            <blockpin signalname="XLXN_572" name="VGA_Green2" />
+            <blockpin signalname="XLXN_573" name="VGA_Green1" />
+            <blockpin signalname="XLXN_574" name="VGA_Green0" />
+            <blockpin signalname="XLXN_575" name="VGA_Blue1" />
+            <blockpin signalname="XLXN_576" name="VGA_Blue0" />
+            <blockpin signalname="XLXN_567" name="VGA_Hsync" />
+            <blockpin signalname="XLXN_568" name="VGA_Vsync" />
+            <blockpin signalname="XLXN_588" name="Audio" />
             <blockpin signalname="XLXN_555" name="SPI_MISO" />
             <blockpin signalname="XLXN_554" name="SPI_MOSI" />
             <blockpin signalname="XLXN_553" name="SPI_CLK" />
             <blockpin signalname="XLXN_552" name="SPI_CS" />
-        </block>
-        <block symbolname="VIDEO_zpuino_wb_vga_hqvga" name="XLXI_55">
-            <blockpin signalname="XLXN_548" name="clk_50Mhz" />
-            <blockpin signalname="XLXN_536(61:0)" name="wishbone_in(61:0)" />
-            <blockpin signalname="XLXN_537(33:0)" name="wishbone_out(33:0)" />
-            <blockpin signalname="XLXN_531(2:0)" name="vga_r(2:0)" />
-            <blockpin signalname="XLXN_532(2:0)" name="vga_g(2:0)" />
-            <blockpin signalname="XLXN_533(1:0)" name="vga_b(1:0)" />
-            <blockpin signalname="XLXN_534" name="vga_hsync" />
-            <blockpin signalname="XLXN_535" name="vga_vsync" />
+            <blockpin signalname="XLXN_544" name="Seg7_dot" />
+            <blockpin signalname="XLXN_543(3:0)" name="Seg7_enable(3:0)" />
+            <blockpin signalname="XLXN_542(6:0)" name="Seg7_segdata(6:0)" />
         </block>
         <block symbolname="VIDEO_zpuino_wb_char_ram_8x8_sp" name="XLXI_56">
             <blockpin signalname="XLXN_540(61:0)" name="wishbone_in(61:0)" />
             <blockpin signalname="XLXN_541(33:0)" name="wishbone_out(33:0)" />
-        </block>
-        <block symbolname="MISC_zpuino_wb_SevenSeg" name="XLXI_57">
-            <blockpin signalname="XLXN_542(6:0)" name="segdata(6:0)" />
-            <blockpin name="extra(31:0)" />
-            <blockpin signalname="XLXN_543(3:0)" name="enable(3:0)" />
-            <blockpin signalname="XLXN_544" name="dot" />
-            <blockpin signalname="XLXN_545(61:0)" name="wishbone_in(61:0)" />
-            <blockpin signalname="XLXN_546(33:0)" name="wishbone_out(33:0)" />
-        </block>
-        <block symbolname="clk_32to50" name="XLXI_58">
-            <blockpin signalname="XLXN_549" name="CLK_IN1" />
-            <blockpin signalname="XLXN_548" name="CLK_OUT1" />
-        </block>
-        <block symbolname="COMM_zpuino_wb_SPI" name="XLXI_60">
-            <blockpin signalname="XLXN_555" name="miso" />
-            <blockpin signalname="XLXN_552" name="enabled" />
-            <blockpin signalname="XLXN_553" name="sck" />
-            <blockpin signalname="XLXN_554" name="mosi" />
-            <blockpin signalname="XLXN_559(61:0)" name="wishbone_in(61:0)" />
-            <blockpin signalname="XLXN_560(33:0)" name="wishbone_out(33:0)" />
         </block>
         <block symbolname="AUDIO_zpuino_wb_passthrough" name="XLXI_38">
             <blockpin signalname="XLXN_450(17:0)" name="raw_out(17:0)" />
@@ -481,7 +468,7 @@
         </block>
         <block symbolname="AUDIO_zpuino_sa_sigmadeltaDAC" name="XLXI_39">
             <blockpin signalname="XLXN_450(17:0)" name="data_in(17:0)" />
-            <blockpin signalname="XLXN_564" name="audio_out" />
+            <blockpin signalname="XLXN_588" name="audio_out" />
             <blockpin signalname="XLXN_452" name="clk_96Mhz" />
         </block>
         <block symbolname="Wishbone_Empty_Slot" name="XLXI_62">
@@ -524,6 +511,41 @@
             <blockpin signalname="SPI_CS" name="SPI_FLASH_CS" />
             <blockpin signalname="XLXN_408(147:0)" name="gpio_bus_out(147:0)" />
             <blockpin signalname="XLXN_409(97:0)" name="gpio_bus_in(97:0)" />
+        </block>
+        <block symbolname="VIDEO_zpuino_wb_vga_hqvga" name="XLXI_55">
+            <blockpin signalname="XLXN_577" name="clk_50Mhz" />
+            <blockpin signalname="XLXN_567" name="vga_hsync" />
+            <blockpin signalname="XLXN_568" name="vga_vsync" />
+            <blockpin signalname="XLXN_569" name="vga_r2" />
+            <blockpin signalname="XLXN_570" name="vga_r1" />
+            <blockpin signalname="XLXN_571" name="vga_r0" />
+            <blockpin signalname="XLXN_572" name="vga_g2" />
+            <blockpin signalname="XLXN_573" name="vga_g1" />
+            <blockpin signalname="XLXN_574" name="vga_g0" />
+            <blockpin signalname="XLXN_575" name="vga_b1" />
+            <blockpin signalname="XLXN_576" name="vga_b0" />
+            <blockpin signalname="XLXN_536(61:0)" name="wishbone_in(61:0)" />
+            <blockpin signalname="XLXN_537(33:0)" name="wishbone_out(33:0)" />
+        </block>
+        <block symbolname="clk_32to50" name="XLXI_58">
+            <blockpin signalname="XLXN_549" name="CLK_IN1" />
+            <blockpin signalname="XLXN_577" name="CLK_OUT1" />
+        </block>
+        <block symbolname="MISC_zpuino_wb_SevenSeg" name="XLXI_57">
+            <blockpin signalname="XLXN_542(6:0)" name="segdata(6:0)" />
+            <blockpin name="extra(31:0)" />
+            <blockpin signalname="XLXN_543(3:0)" name="enable(3:0)" />
+            <blockpin signalname="XLXN_544" name="dot" />
+            <blockpin signalname="XLXN_545(61:0)" name="wishbone_in(61:0)" />
+            <blockpin signalname="XLXN_546(33:0)" name="wishbone_out(33:0)" />
+        </block>
+        <block symbolname="COMM_zpuino_wb_SPI" name="XLXI_60">
+            <blockpin signalname="XLXN_555" name="miso" />
+            <blockpin signalname="XLXN_552" name="enabled" />
+            <blockpin signalname="XLXN_553" name="sck" />
+            <blockpin signalname="XLXN_554" name="mosi" />
+            <blockpin signalname="XLXN_559(61:0)" name="wishbone_in(61:0)" />
+            <blockpin signalname="XLXN_560(33:0)" name="wishbone_out(33:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -796,29 +818,12 @@
         </branch>
         <instance x="4608" y="3104" name="XLXI_52" orien="R0">
         </instance>
-        <branch name="XLXN_531(2:0)">
-            <wire x2="4608" y1="1776" y2="1776" x1="2224" />
-        </branch>
-        <branch name="XLXN_532(2:0)">
-            <wire x2="4608" y1="1840" y2="1840" x1="2224" />
-        </branch>
-        <branch name="XLXN_533(1:0)">
-            <wire x2="4608" y1="1904" y2="1904" x1="2224" />
-        </branch>
-        <branch name="XLXN_534">
-            <wire x2="4608" y1="1968" y2="1968" x1="2224" />
-        </branch>
-        <branch name="XLXN_535">
-            <wire x2="4608" y1="2032" y2="2032" x1="2224" />
-        </branch>
         <branch name="XLXN_536(61:0)">
-            <wire x2="2080" y1="816" y2="1616" x1="2080" />
+            <wire x2="2080" y1="816" y2="1424" x1="2080" />
         </branch>
         <branch name="XLXN_537(33:0)">
-            <wire x2="2096" y1="816" y2="1616" x1="2096" />
+            <wire x2="2096" y1="816" y2="1424" x1="2096" />
         </branch>
-        <instance x="1952" y="2048" name="XLXI_55" orien="R0">
-        </instance>
         <branch name="XLXN_540(61:0)">
             <wire x2="2544" y1="816" y2="848" x1="2544" />
         </branch>
@@ -826,58 +831,28 @@
             <wire x2="2560" y1="816" y2="848" x1="2560" />
         </branch>
         <instance x="2448" y="960" name="XLXI_56" orien="R0" />
-        <branch name="XLXN_542(6:0)">
-            <wire x2="4608" y1="2256" y2="2256" x1="3136" />
-        </branch>
-        <branch name="XLXN_543(3:0)">
-            <wire x2="4608" y1="2384" y2="2384" x1="3136" />
-        </branch>
-        <branch name="XLXN_544">
-            <wire x2="4608" y1="2192" y2="2192" x1="3136" />
-        </branch>
         <branch name="XLXN_545(61:0)">
-            <wire x2="2976" y1="816" y2="2112" x1="2976" />
+            <wire x2="2976" y1="816" y2="832" x1="2976" />
+            <wire x2="2976" y1="832" y2="1856" x1="2976" />
         </branch>
         <branch name="XLXN_546(33:0)">
-            <wire x2="2992" y1="816" y2="2112" x1="2992" />
+            <wire x2="2992" y1="816" y2="832" x1="2992" />
+            <wire x2="2992" y1="832" y2="1856" x1="2992" />
         </branch>
-        <instance x="2832" y="2416" name="XLXI_57" orien="R0">
-        </instance>
-        <branch name="XLXN_548">
-            <wire x2="1952" y1="1696" y2="1696" x1="1920" />
-        </branch>
-        <instance x="1536" y="1728" name="XLXI_58" orien="R0">
-        </instance>
         <branch name="XLXN_549">
-            <wire x2="4784" y1="1072" y2="1072" x1="1456" />
-            <wire x2="1456" y1="1072" y2="1696" x1="1456" />
-            <wire x2="1536" y1="1696" y2="1696" x1="1456" />
-            <wire x2="4784" y1="544" y2="544" x1="4704" />
-            <wire x2="4784" y1="544" y2="1072" x1="4784" />
-        </branch>
-        <branch name="XLXN_552">
-            <wire x2="4608" y1="2704" y2="2704" x1="1312" />
-        </branch>
-        <branch name="XLXN_553">
-            <wire x2="4608" y1="2640" y2="2640" x1="1312" />
-        </branch>
-        <branch name="XLXN_554">
-            <wire x2="4608" y1="2576" y2="2576" x1="1312" />
+            <wire x2="1392" y1="1024" y2="1504" x1="1392" />
+            <wire x2="1472" y1="1504" y2="1504" x1="1392" />
+            <wire x2="4864" y1="1024" y2="1024" x1="1392" />
+            <wire x2="4864" y1="544" y2="544" x1="4704" />
+            <wire x2="4864" y1="544" y2="1024" x1="4864" />
         </branch>
         <branch name="XLXN_559(61:0)">
-            <wire x2="1184" y1="816" y2="2464" x1="1184" />
+            <wire x2="1184" y1="816" y2="832" x1="1184" />
+            <wire x2="1184" y1="832" y2="2352" x1="1184" />
         </branch>
         <branch name="XLXN_560(33:0)">
-            <wire x2="1200" y1="816" y2="2464" x1="1200" />
-        </branch>
-        <instance x="1072" y="2736" name="XLXI_60" orien="R0">
-        </instance>
-        <branch name="XLXN_555">
-            <wire x2="1008" y1="2400" y2="2544" x1="1008" />
-            <wire x2="1072" y1="2544" y2="2544" x1="1008" />
-            <wire x2="1328" y1="2400" y2="2400" x1="1008" />
-            <wire x2="1328" y1="2400" y2="2512" x1="1328" />
-            <wire x2="4608" y1="2512" y2="2512" x1="1328" />
+            <wire x2="1200" y1="816" y2="832" x1="1200" />
+            <wire x2="1200" y1="832" y2="2352" x1="1200" />
         </branch>
         <instance x="592" y="2960" name="XLXI_38" orien="R0">
         </instance>
@@ -893,11 +868,6 @@
             <wire x2="4720" y1="480" y2="480" x1="4704" />
             <wire x2="4720" y1="480" y2="1152" x1="4720" />
         </branch>
-        <branch name="XLXN_564">
-            <wire x2="2960" y1="2992" y2="2992" x1="1312" />
-            <wire x2="2960" y1="2864" y2="2992" x1="2960" />
-            <wire x2="4608" y1="2864" y2="2864" x1="2960" />
-        </branch>
         <branch name="XLXN_565(61:0)">
             <wire x2="4496" y1="816" y2="848" x1="4496" />
         </branch>
@@ -905,8 +875,88 @@
             <wire x2="4512" y1="816" y2="848" x1="4512" />
         </branch>
         <instance x="4432" y="912" name="XLXI_62" orien="R0" />
-        <text style="fontsize:64;fontname:Arial" x="1336" y="3440">WARNING - To use the HQVGA core with the Papilio One 500K you must import the Hyperion board library!</text>
         <instance x="336" y="752" name="XLXI_63" orien="R0">
         </instance>
+        <branch name="XLXN_567">
+            <wire x2="4592" y1="1504" y2="1504" x1="2288" />
+            <wire x2="4608" y1="1504" y2="1504" x1="4592" />
+        </branch>
+        <branch name="XLXN_568">
+            <wire x2="4592" y1="1520" y2="1520" x1="2288" />
+            <wire x2="4608" y1="1520" y2="1520" x1="4592" />
+        </branch>
+        <branch name="XLXN_569">
+            <wire x2="4592" y1="1552" y2="1552" x1="2288" />
+            <wire x2="4608" y1="1552" y2="1552" x1="4592" />
+        </branch>
+        <branch name="XLXN_570">
+            <wire x2="4592" y1="1568" y2="1568" x1="2288" />
+            <wire x2="4608" y1="1568" y2="1568" x1="4592" />
+        </branch>
+        <branch name="XLXN_571">
+            <wire x2="4592" y1="1584" y2="1584" x1="2288" />
+            <wire x2="4608" y1="1584" y2="1584" x1="4592" />
+        </branch>
+        <branch name="XLXN_572">
+            <wire x2="4592" y1="1616" y2="1616" x1="2288" />
+            <wire x2="4608" y1="1616" y2="1616" x1="4592" />
+        </branch>
+        <branch name="XLXN_573">
+            <wire x2="4592" y1="1632" y2="1632" x1="2288" />
+            <wire x2="4608" y1="1632" y2="1632" x1="4592" />
+        </branch>
+        <branch name="XLXN_574">
+            <wire x2="4592" y1="1648" y2="1648" x1="2288" />
+            <wire x2="4608" y1="1648" y2="1648" x1="4592" />
+        </branch>
+        <branch name="XLXN_575">
+            <wire x2="4592" y1="1680" y2="1680" x1="2288" />
+            <wire x2="4608" y1="1680" y2="1680" x1="4592" />
+        </branch>
+        <branch name="XLXN_576">
+            <wire x2="4592" y1="1696" y2="1696" x1="2288" />
+            <wire x2="4608" y1="1696" y2="1696" x1="4592" />
+        </branch>
+        <instance x="1888" y="1728" name="XLXI_55" orien="R0">
+        </instance>
+        <branch name="XLXN_577">
+            <wire x2="1888" y1="1504" y2="1504" x1="1856" />
+        </branch>
+        <instance x="1472" y="1536" name="XLXI_58" orien="R0">
+        </instance>
+        <branch name="XLXN_542(6:0)">
+            <wire x2="4608" y1="2000" y2="2000" x1="3136" />
+        </branch>
+        <branch name="XLXN_543(3:0)">
+            <wire x2="4608" y1="2128" y2="2128" x1="3136" />
+        </branch>
+        <branch name="XLXN_544">
+            <wire x2="4608" y1="1936" y2="1936" x1="3136" />
+        </branch>
+        <instance x="2832" y="2160" name="XLXI_57" orien="R0">
+        </instance>
+        <branch name="XLXN_552">
+            <wire x2="4608" y1="2592" y2="2592" x1="1312" />
+        </branch>
+        <branch name="XLXN_553">
+            <wire x2="4608" y1="2528" y2="2528" x1="1312" />
+        </branch>
+        <branch name="XLXN_554">
+            <wire x2="4608" y1="2464" y2="2464" x1="1312" />
+        </branch>
+        <branch name="XLXN_555">
+            <wire x2="1008" y1="2288" y2="2432" x1="1008" />
+            <wire x2="1072" y1="2432" y2="2432" x1="1008" />
+            <wire x2="1328" y1="2288" y2="2288" x1="1008" />
+            <wire x2="1328" y1="2288" y2="2400" x1="1328" />
+            <wire x2="4608" y1="2400" y2="2400" x1="1328" />
+        </branch>
+        <instance x="1072" y="2624" name="XLXI_60" orien="R0">
+        </instance>
+        <branch name="XLXN_588">
+            <wire x2="2960" y1="2992" y2="2992" x1="1312" />
+            <wire x2="2960" y1="2848" y2="2992" x1="2960" />
+            <wire x2="4608" y1="2848" y2="2848" x1="2960" />
+        </branch>
     </sheet>
 </drawing>
