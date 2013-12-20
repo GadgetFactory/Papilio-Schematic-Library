@@ -41,7 +41,7 @@ use ieee.numeric_std.all;
 library UNISIM;
 use UNISIM.VCOMPONENTS.all;
 
-entity clkgen is
+entity clkgen_hyperion is
   port (
     clkin:  in std_logic;
     rstin:  in std_logic;
@@ -51,9 +51,9 @@ entity clkgen is
 	 vgaclkout: out std_logic;
     rstout: out std_logic
   );
-end entity clkgen;
+end entity clkgen_hyperion;
 
-architecture behave of clkgen is
+architecture behave of clkgen_hyperion is
 
 signal dcmlocked: std_logic;
 signal dcmlocked_1mhz: std_logic;

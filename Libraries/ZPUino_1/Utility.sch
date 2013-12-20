@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drawing version="7">
-    <attr value="spartan6" name="DeviceFamilyName">
+    <attr value="spartan3e" name="DeviceFamilyName">
         <trait delete="all:0" />
         <trait editname="all:0" />
         <trait edittrait="all:0" />
@@ -72,6 +72,18 @@
         <signal name="WING_CH5" />
         <signal name="WING_CH6" />
         <signal name="WING_CH7" />
+        <signal name="XLXN_335(7:0)" />
+        <signal name="XLXN_336(7:0)" />
+        <signal name="XLXN_333(7:0)" />
+        <signal name="XLXN_334(7:0)" />
+        <signal name="XLXN_331(7:0)" />
+        <signal name="XLXN_332(7:0)" />
+        <signal name="XLXN_329(7:0)" />
+        <signal name="XLXN_330(7:0)" />
+        <signal name="XLXN_327(7:0)" />
+        <signal name="XLXN_328(7:0)" />
+        <signal name="XLXN_325(7:0)" />
+        <signal name="XLXN_326(7:0)" />
         <port polarity="Output" name="LED" />
         <port polarity="Output" name="DRAM_DQM(1:0)" />
         <port polarity="Output" name="DRAM_BA(1:0)" />
@@ -138,6 +150,38 @@
         <port polarity="BiDirectional" name="WING_CH5" />
         <port polarity="BiDirectional" name="WING_CH6" />
         <port polarity="BiDirectional" name="WING_CH7" />
+        <blockdef name="Wing_GPIO">
+            <timestamp>2013-11-27T0:38:36</timestamp>
+            <rect width="160" x="0" y="-128" height="128" />
+            <rect width="64" x="160" y="-108" height="24" />
+            <line x2="224" y1="-96" y2="-96" x1="160" />
+            <rect width="64" x="160" y="-44" height="24" />
+            <line x2="224" y1="-32" y2="-32" x1="160" />
+        </blockdef>
+        <block symbolname="Wing_GPIO" name="XLXI_27">
+            <blockpin signalname="XLXN_335(7:0)" name="wt_miso(7:0)" />
+            <blockpin signalname="XLXN_336(7:0)" name="wt_mosi(7:0)" />
+        </block>
+        <block symbolname="Wing_GPIO" name="XLXI_26">
+            <blockpin signalname="XLXN_333(7:0)" name="wt_miso(7:0)" />
+            <blockpin signalname="XLXN_334(7:0)" name="wt_mosi(7:0)" />
+        </block>
+        <block symbolname="Wing_GPIO" name="XLXI_25">
+            <blockpin signalname="XLXN_331(7:0)" name="wt_miso(7:0)" />
+            <blockpin signalname="XLXN_332(7:0)" name="wt_mosi(7:0)" />
+        </block>
+        <block symbolname="Wing_GPIO" name="XLXI_24">
+            <blockpin signalname="XLXN_329(7:0)" name="wt_miso(7:0)" />
+            <blockpin signalname="XLXN_330(7:0)" name="wt_mosi(7:0)" />
+        </block>
+        <block symbolname="Wing_GPIO" name="XLXI_23">
+            <blockpin signalname="XLXN_327(7:0)" name="wt_miso(7:0)" />
+            <blockpin signalname="XLXN_328(7:0)" name="wt_mosi(7:0)" />
+        </block>
+        <block symbolname="Wing_GPIO" name="XLXI_22">
+            <blockpin signalname="XLXN_325(7:0)" name="wt_miso(7:0)" />
+            <blockpin signalname="XLXN_326(7:0)" name="wt_mosi(7:0)" />
+        </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
         <branch name="LED">
@@ -410,5 +454,67 @@
         <iomarker fontsize="28" x="2992" y="2576" name="WING_CH7" orien="R0" />
         <rect width="724" x="2664" y="824" height="1868" />
         <text style="fontsize:40;fontname:Arial" x="2920" y="2644">IO Connections</text>
+        <instance x="1472" y="1040" name="XLXI_27" orien="R0">
+        </instance>
+        <instance x="1472" y="1328" name="XLXI_26" orien="R0">
+        </instance>
+        <instance x="1472" y="1600" name="XLXI_25" orien="R0">
+        </instance>
+        <instance x="1472" y="1904" name="XLXI_24" orien="R0">
+        </instance>
+        <instance x="1472" y="2192" name="XLXI_23" orien="R0">
+        </instance>
+        <instance x="1472" y="2480" name="XLXI_22" orien="R0">
+        </instance>
+        <branch name="XLXN_335(7:0)">
+            <wire x2="1712" y1="944" y2="944" x1="1696" />
+            <wire x2="1728" y1="944" y2="944" x1="1712" />
+        </branch>
+        <branch name="XLXN_336(7:0)">
+            <wire x2="1712" y1="1008" y2="1008" x1="1696" />
+            <wire x2="1728" y1="1008" y2="1008" x1="1712" />
+        </branch>
+        <branch name="XLXN_333(7:0)">
+            <wire x2="1712" y1="1232" y2="1232" x1="1696" />
+            <wire x2="1728" y1="1232" y2="1232" x1="1712" />
+        </branch>
+        <branch name="XLXN_334(7:0)">
+            <wire x2="1712" y1="1296" y2="1296" x1="1696" />
+            <wire x2="1728" y1="1296" y2="1296" x1="1712" />
+        </branch>
+        <branch name="XLXN_331(7:0)">
+            <wire x2="1712" y1="1504" y2="1504" x1="1696" />
+            <wire x2="1728" y1="1504" y2="1504" x1="1712" />
+        </branch>
+        <branch name="XLXN_332(7:0)">
+            <wire x2="1712" y1="1568" y2="1568" x1="1696" />
+            <wire x2="1728" y1="1568" y2="1568" x1="1712" />
+        </branch>
+        <branch name="XLXN_329(7:0)">
+            <wire x2="1712" y1="1808" y2="1808" x1="1696" />
+            <wire x2="1728" y1="1808" y2="1808" x1="1712" />
+        </branch>
+        <branch name="XLXN_330(7:0)">
+            <wire x2="1712" y1="1872" y2="1872" x1="1696" />
+            <wire x2="1728" y1="1872" y2="1872" x1="1712" />
+        </branch>
+        <branch name="XLXN_327(7:0)">
+            <wire x2="1712" y1="2096" y2="2096" x1="1696" />
+            <wire x2="1728" y1="2096" y2="2096" x1="1712" />
+        </branch>
+        <branch name="XLXN_328(7:0)">
+            <wire x2="1712" y1="2160" y2="2160" x1="1696" />
+            <wire x2="1728" y1="2160" y2="2160" x1="1712" />
+        </branch>
+        <branch name="XLXN_325(7:0)">
+            <wire x2="1712" y1="2384" y2="2384" x1="1696" />
+            <wire x2="1728" y1="2384" y2="2384" x1="1712" />
+        </branch>
+        <branch name="XLXN_326(7:0)">
+            <wire x2="1712" y1="2448" y2="2448" x1="1696" />
+            <wire x2="1728" y1="2448" y2="2448" x1="1712" />
+        </branch>
+        <rect width="456" x="1400" y="800" height="1760" />
+        <text style="fontsize:40;fontname:Arial" x="1496" y="2524">GPIO Wings</text>
     </sheet>
 </drawing>

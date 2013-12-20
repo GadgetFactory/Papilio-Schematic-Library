@@ -47,6 +47,7 @@ entity clkgen is
     rstin:  in std_logic;
     clkout: out std_logic;
     clkout_1mhz: out std_logic;
+	 clk_osc_32Mhz: out std_logic;
 	 vgaclkout: out std_logic;
     rstout: out std_logic
   );
@@ -71,6 +72,8 @@ signal clkfb_1mhz: std_logic;
 signal clk0_1mhz: std_logic;
 
 begin
+
+  clk_osc_32Mhz <= clkin_i;
 
   clkout <= clkout_i;
 

@@ -308,8 +308,8 @@
             <line x2="112" y1="-272" y2="-224" x1="112" />
             <line x2="128" y1="-272" y2="-224" x1="128" />
         </blockdef>
-        <blockdef name="ZPUino_Papilio_One_V1">
-            <timestamp>2013-12-11T21:43:21</timestamp>
+        <blockdef name="ZPUino_Papilio_One_V1_hyperion">
+            <timestamp>2013-12-19T21:29:42</timestamp>
             <rect width="172" x="320" y="-92" height="92" />
             <rect width="172" x="768" y="-92" height="92" />
             <rect width="172" x="1216" y="-92" height="92" />
@@ -484,7 +484,11 @@
             <blockpin signalname="XLXN_564" name="audio_out" />
             <blockpin signalname="XLXN_452" name="clk_96Mhz" />
         </block>
-        <block symbolname="ZPUino_Papilio_One_V1" name="XLXI_61">
+        <block symbolname="Wishbone_Empty_Slot" name="XLXI_62">
+            <blockpin signalname="XLXN_565(61:0)" name="wishbone_in(61:0)" />
+            <blockpin signalname="XLXN_566(33:0)" name="wishbone_out(33:0)" />
+        </block>
+        <block symbolname="ZPUino_Papilio_One_V1_hyperion" name="XLXI_63">
             <blockpin signalname="XLXN_452" name="clk_96Mhz" />
             <blockpin name="clk_1Mhz" />
             <blockpin signalname="XLXN_549" name="clk_osc_32Mhz" />
@@ -520,10 +524,6 @@
             <blockpin signalname="SPI_CS" name="SPI_FLASH_CS" />
             <blockpin signalname="XLXN_408(147:0)" name="gpio_bus_out(147:0)" />
             <blockpin signalname="XLXN_409(97:0)" name="gpio_bus_in(97:0)" />
-        </block>
-        <block symbolname="Wishbone_Empty_Slot" name="XLXI_62">
-            <blockpin signalname="XLXN_565(61:0)" name="wishbone_in(61:0)" />
-            <blockpin signalname="XLXN_566(33:0)" name="wishbone_out(33:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -898,8 +898,6 @@
             <wire x2="2960" y1="2864" y2="2992" x1="2960" />
             <wire x2="4608" y1="2864" y2="2864" x1="2960" />
         </branch>
-        <instance x="336" y="752" name="XLXI_61" orien="R0">
-        </instance>
         <branch name="XLXN_565(61:0)">
             <wire x2="4496" y1="816" y2="848" x1="4496" />
         </branch>
@@ -908,5 +906,7 @@
         </branch>
         <instance x="4432" y="912" name="XLXI_62" orien="R0" />
         <text style="fontsize:64;fontname:Arial" x="1336" y="3440">WARNING - To use the HQVGA core with the Papilio One 500K you must import the Hyperion board library!</text>
+        <instance x="336" y="752" name="XLXI_63" orien="R0">
+        </instance>
     </sheet>
 </drawing>

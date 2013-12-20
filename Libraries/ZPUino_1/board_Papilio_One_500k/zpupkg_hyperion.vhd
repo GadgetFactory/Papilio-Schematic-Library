@@ -37,9 +37,9 @@ use IEEE.STD_LOGIC_1164.all;
 use ieee.numeric_std.all;
 
 library board;
-use board.zpu_config.all;
+use board.zpu_config_hyperion.all;
 
-package zpupkg is
+package zpupkg_hyperion is
 
 	-- This bit is set for read/writes to IO
 	-- FIX!!! eventually this should be set to wordSize-1 so as to
@@ -48,7 +48,7 @@ package zpupkg is
 	-- libraries.
 	
 	constant byteBits			: integer := wordPower-3; -- # of bits in a word that addresses bytes
-	constant maxAddrBit			: integer := maxAddrBitBRAM;
+	constant maxAddrBit			: integer := 13;
 	constant ioBit				: integer := maxAddrBitIncIO;
 	constant wordSize			: integer := 2**wordPower;
 	constant wordBytes			: integer := wordSize/8;
@@ -141,7 +141,7 @@ package zpupkg is
   );
   end component;
 
-  component zpu_core_extreme is
+  component zpu_core_extreme_hyperion is
   port (
     wb_clk_i:       in std_logic;
     wb_rst_i:       in std_logic;
@@ -256,4 +256,4 @@ package zpupkg is
 
 
 		
-end zpupkg;
+end zpupkg_hyperion;

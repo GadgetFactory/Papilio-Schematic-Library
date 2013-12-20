@@ -1,7 +1,7 @@
 ".Papilio Benchy"
 {
-"BENCHY_zpuino_wb_waveform_generator"
 "BENCHY_sa_SumpBlaze_LogicAnalyzer8"
+"BENCHY_zpuino_wb_waveform_generator"
 }
 ".Papilio Hardware"
 {
@@ -49,4 +49,5 @@
 {
 "ZPUino_Papilio_One_V1"
 "ZPUino_Papilio_Pro_V1"
+"ZPUino_Papilio_One_V1_hyperion"
 }

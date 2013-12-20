@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drawing version="7">
-    <attr value="spartan6" name="DeviceFamilyName">
+    <attr value="spartan3e" name="DeviceFamilyName">
         <trait delete="all:0" />
         <trait editname="all:0" />
         <trait edittrait="all:0" />
@@ -69,17 +69,6 @@
         <signal name="RXD" />
         <signal name="SPI_MISO" />
         <signal name="CLK" />
-        <signal name="DRAM_DQ(15:0)" />
-        <signal name="DRAM_CAS_N" />
-        <signal name="DRAM_CKE" />
-        <signal name="DRAM_CLK" />
-        <signal name="DRAM_CS_N" />
-        <signal name="DRAM_RAS_N" />
-        <signal name="DRAM_WE_N" />
-        <signal name="DRAM_ADDR(12:0)" />
-        <signal name="DRAM_BA(1:0)" />
-        <signal name="DRAM_DQM(1:0)" />
-        <signal name="LED" />
         <signal name="SPI_CS" />
         <signal name="TXD" />
         <signal name="SPI_MOSI" />
@@ -104,6 +93,8 @@
         <signal name="XLXN_445(33:0)" />
         <signal name="XLXN_446(61:0)" />
         <signal name="XLXN_447(33:0)" />
+        <signal name="XLXN_448(61:0)" />
+        <signal name="XLXN_449(33:0)" />
         <port polarity="BiDirectional" name="WING_AL0" />
         <port polarity="BiDirectional" name="WING_AL1" />
         <port polarity="BiDirectional" name="WING_AL2" />
@@ -155,17 +146,6 @@
         <port polarity="Input" name="RXD" />
         <port polarity="Input" name="SPI_MISO" />
         <port polarity="Input" name="CLK" />
-        <port polarity="BiDirectional" name="DRAM_DQ(15:0)" />
-        <port polarity="Output" name="DRAM_CAS_N" />
-        <port polarity="Output" name="DRAM_CKE" />
-        <port polarity="Output" name="DRAM_CLK" />
-        <port polarity="Output" name="DRAM_CS_N" />
-        <port polarity="Output" name="DRAM_RAS_N" />
-        <port polarity="Output" name="DRAM_WE_N" />
-        <port polarity="Output" name="DRAM_ADDR(12:0)" />
-        <port polarity="Output" name="DRAM_BA(1:0)" />
-        <port polarity="Output" name="DRAM_DQM(1:0)" />
-        <port polarity="Output" name="LED" />
         <port polarity="BiDirectional" name="SPI_CS" />
         <port polarity="Output" name="TXD" />
         <port polarity="Output" name="SPI_MOSI" />
@@ -268,52 +248,14 @@
             <rect width="64" x="160" y="-44" height="24" />
             <line x2="224" y1="-32" y2="-32" x1="160" />
         </blockdef>
-        <blockdef name="ZPUino_Papilio_Pro_V1">
-            <timestamp>2013-12-20T0:23:30</timestamp>
-            <line x2="4368" y1="-400" y2="-400" x1="4304" />
-            <line x2="4304" y1="-416" y2="-416" x1="4368" />
-            <rect width="248" x="4056" y="-448" height="76" />
-            <line x2="4368" y1="-560" y2="-560" x1="4304" />
-            <rect width="4240" x="64" y="-688" height="688" />
-            <line x2="4312" y1="-592" y2="-592" x1="4368" />
-            <line x2="4312" y1="-624" y2="-624" x1="4368" />
-            <line x2="4312" y1="-656" y2="-656" x1="4368" />
-            <line x2="4368" y1="-272" y2="-272" x1="4304" />
-            <line x2="4304" y1="-240" y2="-240" x1="4368" />
-            <rect width="176" x="4128" y="-300" height="124" />
-            <line x2="0" y1="-432" y2="-432" x1="64" />
-            <line x2="0" y1="-80" y2="-80" x1="64" />
-            <rect width="250" x="66" y="-456" height="328" />
-            <line x2="0" y1="-400" y2="-400" x1="64" />
-            <line x2="0" y1="-368" y2="-368" x1="64" />
-            <line x2="0" y1="-336" y2="-336" x1="64" />
-            <line x2="0" y1="-304" y2="-304" x1="64" />
-            <line x2="0" y1="-272" y2="-272" x1="64" />
-            <line x2="0" y1="-240" y2="-240" x1="64" />
-            <line x2="0" y1="-208" y2="-208" x1="64" />
-            <line x2="0" y1="-176" y2="-176" x1="64" />
-            <line x2="0" y1="-144" y2="-144" x1="64" />
-            <line x2="0" y1="-656" y2="-656" x1="64" />
-            <line x2="0" y1="-592" y2="-592" x1="64" />
-            <line x2="0" y1="-528" y2="-528" x1="64" />
-            <line x2="416" y1="64" y2="0" x1="416" />
-            <line x2="400" y1="64" y2="0" x1="400" />
-            <line x2="848" y1="64" y2="0" x1="848" />
-            <line x2="864" y1="64" y2="0" x1="864" />
-            <line x2="1296" y1="64" y2="0" x1="1296" />
-            <line x2="1312" y1="64" y2="0" x1="1312" />
-            <line x2="1744" y1="64" y2="0" x1="1744" />
-            <line x2="1760" y1="64" y2="0" x1="1760" />
-            <line x2="2208" y1="64" y2="0" x1="2208" />
-            <line x2="2224" y1="64" y2="0" x1="2224" />
-            <line x2="2640" y1="64" y2="0" x1="2640" />
-            <line x2="2656" y1="64" y2="0" x1="2656" />
-            <line x2="3104" y1="64" y2="0" x1="3104" />
-            <line x2="3120" y1="64" y2="0" x1="3120" />
-            <line x2="3552" y1="64" y2="0" x1="3552" />
-            <line x2="3568" y1="64" y2="0" x1="3568" />
-            <line x2="4000" y1="64" y2="0" x1="4000" />
-            <line x2="4016" y1="64" y2="0" x1="4016" />
+        <blockdef name="Wishbone_Empty_Slot">
+            <timestamp>2013-11-27T1:19:15</timestamp>
+            <rect width="140" x="0" y="-32" height="32" />
+            <line x2="64" y1="-64" y2="-32" x1="64" />
+            <line x2="80" y1="-64" y2="-32" x1="80" />
+        </blockdef>
+        <blockdef name="ZPUino_Papilio_One_V1_hyperion">
+            <timestamp>2013-12-19T22:33:38</timestamp>
             <rect width="172" x="320" y="-92" height="92" />
             <rect width="172" x="768" y="-92" height="92" />
             <rect width="172" x="1216" y="-92" height="92" />
@@ -323,16 +265,45 @@
             <rect width="172" x="3024" y="-92" height="92" />
             <rect width="172" x="3472" y="-92" height="92" />
             <rect width="172" x="3920" y="-92" height="92" />
-            <line x2="4112" y1="64" y2="0" x1="4112" />
-            <line x2="4128" y1="64" y2="0" x1="4128" />
-            <line x2="4144" y1="64" y2="0" x1="4144" />
+            <rect width="4240" x="64" y="-688" height="688" />
+            <line x2="4368" y1="-272" y2="-272" x1="4304" />
+            <line x2="4304" y1="-240" y2="-240" x1="4368" />
+            <rect width="180" x="4124" y="-300" height="112" />
+            <line x2="4240" y1="64" y2="0" x1="4240" />
+            <line x2="4256" y1="64" y2="0" x1="4256" />
+            <line x2="4272" y1="64" y2="0" x1="4272" />
+            <line x2="4160" y1="64" y2="0" x1="4160" />
+            <line x2="4176" y1="64" y2="0" x1="4176" />
+            <line x2="4000" y1="64" y2="0" x1="4000" />
+            <line x2="4016" y1="64" y2="0" x1="4016" />
+            <line x2="3552" y1="64" y2="0" x1="3552" />
+            <line x2="3568" y1="64" y2="0" x1="3568" />
+            <line x2="3104" y1="64" y2="0" x1="3104" />
+            <line x2="3120" y1="64" y2="0" x1="3120" />
+            <line x2="2640" y1="64" y2="0" x1="2640" />
+            <line x2="2656" y1="64" y2="0" x1="2656" />
+            <line x2="2208" y1="64" y2="0" x1="2208" />
+            <line x2="2224" y1="64" y2="0" x1="2224" />
+            <line x2="1744" y1="64" y2="0" x1="1744" />
+            <line x2="1760" y1="64" y2="0" x1="1760" />
+            <line x2="1296" y1="64" y2="0" x1="1296" />
+            <line x2="1312" y1="64" y2="0" x1="1312" />
+            <line x2="848" y1="64" y2="0" x1="848" />
+            <line x2="864" y1="64" y2="0" x1="864" />
+            <rect width="172" x="4128" y="-92" height="92" />
+            <line x2="416" y1="64" y2="0" x1="416" />
+            <line x2="400" y1="64" y2="0" x1="400" />
+            <line x2="0" y1="-656" y2="-656" x1="64" />
+            <line x2="0" y1="-592" y2="-592" x1="64" />
+            <line x2="0" y1="-528" y2="-528" x1="64" />
+            <line x2="4368" y1="-656" y2="-656" x1="4304" />
+            <line x2="4368" y1="-624" y2="-624" x1="4304" />
+            <line x2="4368" y1="-592" y2="-592" x1="4304" />
+            <line x2="4368" y1="-560" y2="-560" x1="4304" />
+            <line x2="4368" y1="-400" y2="-400" x1="4304" />
+            <line x2="4304" y1="-416" y2="-416" x1="4368" />
+            <rect width="248" x="4056" y="-448" height="76" />
             <line x2="4304" y1="-208" y2="-208" x1="4368" />
-        </blockdef>
-        <blockdef name="Wishbone_Empty_Slot">
-            <timestamp>2013-11-27T1:19:15</timestamp>
-            <rect width="140" x="0" y="-32" height="32" />
-            <line x2="64" y1="-64" y2="-32" x1="64" />
-            <line x2="80" y1="-64" y2="-32" x1="80" />
         </blockdef>
         <block symbolname="Papilio_Wing_Pinout" name="XLXI_20">
             <blockpin signalname="XLXN_408(147:0)" name="gpio_bus_out(147:0)" />
@@ -422,52 +393,6 @@
             <blockpin signalname="XLXN_335(7:0)" name="wt_miso(7:0)" />
             <blockpin signalname="XLXN_336(7:0)" name="wt_mosi(7:0)" />
         </block>
-        <block symbolname="ZPUino_Papilio_Pro_V1" name="XLXI_28">
-            <blockpin signalname="XLXN_408(147:0)" name="gpio_bus_out(147:0)" />
-            <blockpin signalname="XLXN_409(97:0)" name="gpio_bus_in(97:0)" />
-            <blockpin signalname="SPI_CS" name="SPI_CS" />
-            <blockpin signalname="TXD" name="TXD" />
-            <blockpin signalname="SPI_MOSI" name="SPI_MOSI" />
-            <blockpin signalname="SPI_SCK" name="SPI_SCK" />
-            <blockpin name="clk_96Mhz" />
-            <blockpin name="clk_1Mhz" />
-            <blockpin name="clk_osc_32Mhz" />
-            <blockpin signalname="DRAM_DQ(15:0)" name="DRAM_DQ(15:0)" />
-            <blockpin signalname="LED" name="LED" />
-            <blockpin signalname="DRAM_CAS_N" name="DRAM_CAS_N" />
-            <blockpin signalname="DRAM_CKE" name="DRAM_CKE" />
-            <blockpin signalname="DRAM_CLK" name="DRAM_CLK" />
-            <blockpin signalname="DRAM_CS_N" name="DRAM_CS_N" />
-            <blockpin signalname="DRAM_RAS_N" name="DRAM_RAS_N" />
-            <blockpin signalname="DRAM_WE_N" name="DRAM_WE_N" />
-            <blockpin signalname="DRAM_ADDR(12:0)" name="DRAM_ADDR(12:0)" />
-            <blockpin signalname="DRAM_BA(1:0)" name="DRAM_BA(1:0)" />
-            <blockpin signalname="DRAM_DQM(1:0)" name="DRAM_DQM(1:0)" />
-            <blockpin signalname="CLK" name="CLK" />
-            <blockpin signalname="SPI_MISO" name="SPI_MISO" />
-            <blockpin signalname="RXD" name="RXD" />
-            <blockpin signalname="XLXN_447(33:0)" name="wishbone_slot_5_out(33:0)" />
-            <blockpin signalname="XLXN_446(61:0)" name="wishbone_slot_5_in(61:0)" />
-            <blockpin signalname="XLXN_444(61:0)" name="wishbone_slot_6_in(61:0)" />
-            <blockpin signalname="XLXN_445(33:0)" name="wishbone_slot_6_out(33:0)" />
-            <blockpin signalname="XLXN_442(61:0)" name="wishbone_slot_8_in(61:0)" />
-            <blockpin signalname="XLXN_443(33:0)" name="wishbone_slot_8_out(33:0)" />
-            <blockpin signalname="XLXN_440(61:0)" name="wishbone_slot_9_in(61:0)" />
-            <blockpin signalname="XLXN_441(33:0)" name="wishbone_slot_9_out(33:0)" />
-            <blockpin signalname="XLXN_438(61:0)" name="wishbone_slot_10_in(61:0)" />
-            <blockpin signalname="XLXN_439(33:0)" name="wishbone_slot_10_out(33:0)" />
-            <blockpin signalname="XLXN_436(61:0)" name="wishbone_slot_11_in(61:0)" />
-            <blockpin signalname="XLXN_437(33:0)" name="wishbone_slot_11_out(33:0)" />
-            <blockpin signalname="XLXN_434(61:0)" name="wishbone_slot_12_in(61:0)" />
-            <blockpin signalname="XLXN_435(33:0)" name="wishbone_slot_12_out(33:0)" />
-            <blockpin signalname="XLXN_432(61:0)" name="wishbone_slot_13_in(61:0)" />
-            <blockpin signalname="XLXN_433(33:0)" name="wishbone_slot_13_out(33:0)" />
-            <blockpin signalname="XLXN_430(61:0)" name="wishbone_slot_14_in(61:0)" />
-            <blockpin signalname="XLXN_431(33:0)" name="wishbone_slot_14_out(33:0)" />
-            <blockpin name="wishbone_slot_video_in(63:0)" />
-            <blockpin name="wishbone_slot_video_out(33:0)" />
-            <blockpin name="vgaclkout" />
-        </block>
         <block symbolname="Wishbone_Empty_Slot" name="XLXI_37">
             <blockpin signalname="XLXN_430(61:0)" name="wishbone_in(61:0)" />
             <blockpin signalname="XLXN_431(33:0)" name="wishbone_out(33:0)" />
@@ -503,6 +428,47 @@
         <block symbolname="Wishbone_Empty_Slot" name="XLXI_29">
             <blockpin signalname="XLXN_446(61:0)" name="wishbone_in(61:0)" />
             <blockpin signalname="XLXN_447(33:0)" name="wishbone_out(33:0)" />
+        </block>
+        <block symbolname="Wishbone_Empty_Slot" name="XLXI_40">
+            <blockpin signalname="XLXN_448(61:0)" name="wishbone_in(61:0)" />
+            <blockpin signalname="XLXN_449(33:0)" name="wishbone_out(33:0)" />
+        </block>
+        <block symbolname="ZPUino_Papilio_One_V1_hyperion" name="XLXI_41">
+            <blockpin name="clk_96Mhz" />
+            <blockpin name="clk_1Mhz" />
+            <blockpin name="clk_osc_32Mhz" />
+            <blockpin name="wishbone_slot_video_in(63:0)" />
+            <blockpin name="wishbone_slot_video_out(33:0)" />
+            <blockpin name="vgaclkout" />
+            <blockpin signalname="XLXN_448(61:0)" name="wishbone_slot_15_in(61:0)" />
+            <blockpin signalname="XLXN_449(33:0)" name="wishbone_slot_15_out(33:0)" />
+            <blockpin signalname="XLXN_430(61:0)" name="wishbone_slot_14_in(61:0)" />
+            <blockpin signalname="XLXN_431(33:0)" name="wishbone_slot_14_out(33:0)" />
+            <blockpin signalname="XLXN_432(61:0)" name="wishbone_slot_13_in(61:0)" />
+            <blockpin signalname="XLXN_433(33:0)" name="wishbone_slot_13_out(33:0)" />
+            <blockpin signalname="XLXN_434(61:0)" name="wishbone_slot_12_in(61:0)" />
+            <blockpin signalname="XLXN_435(33:0)" name="wishbone_slot_12_out(33:0)" />
+            <blockpin signalname="XLXN_436(61:0)" name="wishbone_slot_11_in(61:0)" />
+            <blockpin signalname="XLXN_437(33:0)" name="wishbone_slot_11_out(33:0)" />
+            <blockpin signalname="XLXN_438(61:0)" name="wishbone_slot_10_in(61:0)" />
+            <blockpin signalname="XLXN_439(33:0)" name="wishbone_slot_10_out(33:0)" />
+            <blockpin signalname="XLXN_440(61:0)" name="wishbone_slot_9_in(61:0)" />
+            <blockpin signalname="XLXN_441(33:0)" name="wishbone_slot_9_out(33:0)" />
+            <blockpin signalname="XLXN_442(61:0)" name="wishbone_slot_8_in(61:0)" />
+            <blockpin signalname="XLXN_443(33:0)" name="wishbone_slot_8_out(33:0)" />
+            <blockpin signalname="XLXN_444(61:0)" name="wishbone_slot_6_in(61:0)" />
+            <blockpin signalname="XLXN_445(33:0)" name="wishbone_slot_6_out(33:0)" />
+            <blockpin signalname="XLXN_447(33:0)" name="wishbone_slot_5_out(33:0)" />
+            <blockpin signalname="XLXN_446(61:0)" name="wishbone_slot_5_in(61:0)" />
+            <blockpin signalname="CLK" name="CLK" />
+            <blockpin signalname="SPI_MISO" name="SPI_FLASH_MISO" />
+            <blockpin signalname="RXD" name="RXD" />
+            <blockpin signalname="SPI_SCK" name="SPI_FLASH_SCK" />
+            <blockpin signalname="SPI_MOSI" name="SPI_FLASH_MOSI" />
+            <blockpin signalname="TXD" name="TXD" />
+            <blockpin signalname="SPI_CS" name="SPI_FLASH_CS" />
+            <blockpin signalname="XLXN_408(147:0)" name="gpio_bus_out(147:0)" />
+            <blockpin signalname="XLXN_409(97:0)" name="gpio_bus_in(97:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -757,55 +723,9 @@
         <branch name="CLK">
             <wire x2="336" y1="96" y2="96" x1="304" />
         </branch>
-        <branch name="DRAM_DQ(15:0)">
-            <wire x2="336" y1="320" y2="320" x1="304" />
-        </branch>
-        <branch name="DRAM_CAS_N">
-            <wire x2="336" y1="352" y2="352" x1="304" />
-        </branch>
-        <branch name="DRAM_CKE">
-            <wire x2="336" y1="384" y2="384" x1="304" />
-        </branch>
-        <branch name="DRAM_CLK">
-            <wire x2="336" y1="416" y2="416" x1="304" />
-        </branch>
-        <branch name="DRAM_CS_N">
-            <wire x2="336" y1="448" y2="448" x1="304" />
-        </branch>
-        <branch name="DRAM_RAS_N">
-            <wire x2="336" y1="480" y2="480" x1="304" />
-        </branch>
-        <branch name="DRAM_WE_N">
-            <wire x2="336" y1="512" y2="512" x1="304" />
-        </branch>
-        <branch name="DRAM_ADDR(12:0)">
-            <wire x2="336" y1="544" y2="544" x1="304" />
-        </branch>
-        <branch name="DRAM_BA(1:0)">
-            <wire x2="336" y1="576" y2="576" x1="304" />
-        </branch>
-        <branch name="DRAM_DQM(1:0)">
-            <wire x2="336" y1="608" y2="608" x1="304" />
-        </branch>
-        <branch name="LED">
-            <wire x2="336" y1="672" y2="672" x1="304" />
-        </branch>
         <iomarker fontsize="28" x="304" y="224" name="RXD" orien="R180" />
         <iomarker fontsize="28" x="304" y="160" name="SPI_MISO" orien="R180" />
         <iomarker fontsize="28" x="304" y="96" name="CLK" orien="R180" />
-        <iomarker fontsize="28" x="304" y="320" name="DRAM_DQ(15:0)" orien="R180" />
-        <iomarker fontsize="28" x="304" y="352" name="DRAM_CAS_N" orien="R180" />
-        <iomarker fontsize="28" x="304" y="384" name="DRAM_CKE" orien="R180" />
-        <iomarker fontsize="28" x="304" y="416" name="DRAM_CLK" orien="R180" />
-        <iomarker fontsize="28" x="304" y="448" name="DRAM_CS_N" orien="R180" />
-        <iomarker fontsize="28" x="304" y="480" name="DRAM_RAS_N" orien="R180" />
-        <iomarker fontsize="28" x="304" y="512" name="DRAM_WE_N" orien="R180" />
-        <iomarker fontsize="28" x="304" y="544" name="DRAM_ADDR(12:0)" orien="R180" />
-        <iomarker fontsize="28" x="304" y="576" name="DRAM_BA(1:0)" orien="R180" />
-        <iomarker fontsize="28" x="304" y="608" name="DRAM_DQM(1:0)" orien="R180" />
-        <iomarker fontsize="28" x="304" y="672" name="LED" orien="R180" />
-        <instance x="336" y="752" name="XLXI_28" orien="R0">
-        </instance>
         <branch name="SPI_CS">
             <wire x2="4736" y1="192" y2="192" x1="4704" />
         </branch>
@@ -841,7 +761,6 @@
         <branch name="XLXN_431(33:0)">
             <wire x2="4352" y1="816" y2="848" x1="4352" />
         </branch>
-        <instance x="4272" y="912" name="XLXI_37" orien="R0" />
         <branch name="XLXN_432(61:0)">
             <wire x2="3888" y1="816" y2="848" x1="3888" />
         </branch>
@@ -898,5 +817,15 @@
             <wire x2="752" y1="816" y2="848" x1="752" />
         </branch>
         <instance x="672" y="912" name="XLXI_29" orien="R0" />
+        <instance x="4272" y="912" name="XLXI_37" orien="R0" />
+        <branch name="XLXN_448(61:0)">
+            <wire x2="4496" y1="816" y2="848" x1="4496" />
+        </branch>
+        <branch name="XLXN_449(33:0)">
+            <wire x2="4512" y1="816" y2="848" x1="4512" />
+        </branch>
+        <instance x="4432" y="912" name="XLXI_40" orien="R0" />
+        <instance x="336" y="752" name="XLXI_41" orien="R0">
+        </instance>
     </sheet>
 </drawing>

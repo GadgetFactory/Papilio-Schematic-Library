@@ -38,7 +38,7 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 
-package zpu_config is
+package zpu_config_hyperion is
 	-- generate trace output or not.
 	constant	Generate_Trace		: boolean := false;
 	constant wordPower			: integer := 5;
@@ -63,4 +63,4 @@ package zpu_config is
 
   constant enable_fmul16: boolean := false;
 
-end zpu_config;
+end zpu_config_hyperion;
