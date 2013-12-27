@@ -4,6 +4,9 @@ Papilio SOC Home Page
 http://papilio.cc
 
 CHANGELOG
+12/27/2013 Version 1.4.2
+	-Fix for LogicStart GPIO problem.
+
 12/20/2013 Version 1.4
 	-Wishbone Template, for users to make their own Wishbone peripherals.
 	-Benchy Waveform generator - generate sin, cos, and sawtooth waveforms.
