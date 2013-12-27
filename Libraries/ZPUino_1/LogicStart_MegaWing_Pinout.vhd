@@ -214,28 +214,28 @@ begin
 --  pin24: IOPAD port map(I => gpio_o(24),O => gpio_i(24),T => gpio_t(24),C => gpio_clk,PAD => WING_BH0 );
 --  pin25: IOPAD port map(I => gpio_o(25),O => gpio_i(25),T => gpio_t(25),C => gpio_clk,PAD => WING_BH1 );
 --  pin26: IOPAD port map(I => gpio_o(26),O => gpio_i(26),T => gpio_t(26),C => gpio_clk,PAD => WING_BH2 );
-  pin27: IOPAD port map(I => gpio_o(27),O => gpio_i(27),T => gpio_t(27),C => gpio_clk,PAD => WING_BH3 );
-  pin28: IOPAD port map(I => gpio_o(28),O => gpio_i(28),T => gpio_t(28),C => gpio_clk,PAD => WING_BH4 );
-  pin29: IOPAD port map(I => gpio_o(29),O => gpio_i(29),T => gpio_t(29),C => gpio_clk,PAD => WING_BH5 );
-  pin30: IOPAD port map(I => gpio_o(30),O => gpio_i(30),T => gpio_t(30),C => gpio_clk,PAD => WING_BH6 );
-  pin31: IOPAD port map(I => gpio_o(31),O => gpio_i(31),T => gpio_t(31),C => gpio_clk,PAD => WING_BH7 );
+  pin27: IOPAD port map(I => gpio_o(27),O => gpio_bus_in(27),T => gpio_t(27),C => gpio_clk,PAD => WING_BH3 );
+  pin28: IOPAD port map(I => gpio_o(28),O => gpio_bus_in(28),T => gpio_t(28),C => gpio_clk,PAD => WING_BH4 );
+  pin29: IOPAD port map(I => gpio_o(29),O => gpio_bus_in(29),T => gpio_t(29),C => gpio_clk,PAD => WING_BH5 );
+  pin30: IOPAD port map(I => gpio_o(30),O => gpio_bus_in(30),T => gpio_t(30),C => gpio_clk,PAD => WING_BH6 );
+  pin31: IOPAD port map(I => gpio_o(31),O => gpio_bus_in(31),T => gpio_t(31),C => gpio_clk,PAD => WING_BH7 );
 
-  pin32: IOPAD port map(I => gpio_o(32),O => gpio_i(32),T => gpio_t(32),C => gpio_clk,PAD => WING_CL0 );
-  pin33: IOPAD port map(I => gpio_o(33),O => gpio_i(33),T => gpio_t(33),C => gpio_clk,PAD => WING_CL1 );
-  pin34: IOPAD port map(I => gpio_o(34),O => gpio_i(34),T => gpio_t(34),C => gpio_clk,PAD => WING_CL2 );
-  pin35: IOPAD port map(I => gpio_o(35),O => gpio_i(35),T => gpio_t(35),C => gpio_clk,PAD => WING_CL3 );
-  pin36: IOPAD port map(I => gpio_o(36),O => gpio_i(36),T => gpio_t(36),C => gpio_clk,PAD => WING_CL4 );
-  pin37: IOPAD port map(I => gpio_o(37),O => gpio_i(37),T => gpio_t(37),C => gpio_clk,PAD => WING_CL5 );
-  pin38: IOPAD port map(I => gpio_o(38),O => gpio_i(38),T => gpio_t(38),C => gpio_clk,PAD => WING_CL6 );
-  pin39: IOPAD port map(I => gpio_o(39),O => gpio_i(39),T => gpio_t(39),C => gpio_clk,PAD => WING_CL7 );
-  pin40: IOPAD port map(I => gpio_o(40),O => gpio_i(40),T => gpio_t(40),C => gpio_clk,PAD => WING_CH0 );
-  pin41: IOPAD port map(I => gpio_o(41),O => gpio_i(41),T => gpio_t(41),C => gpio_clk,PAD => WING_CH1 );
-  pin42: IOPAD port map(I => gpio_o(42),O => gpio_i(42),T => gpio_t(42),C => gpio_clk,PAD => WING_CH2 );
-  pin43: IOPAD port map(I => gpio_o(43),O => gpio_i(43),T => gpio_t(43),C => gpio_clk,PAD => WING_CH3 );
-  pin44: IOPAD port map(I => gpio_o(44),O => gpio_i(44),T => gpio_t(44),C => gpio_clk,PAD => WING_CH4 );
-  pin45: IOPAD port map(I => gpio_o(45),O => gpio_i(45),T => gpio_t(45),C => gpio_clk,PAD => WING_CH5 );
-  pin46: IOPAD port map(I => gpio_o(46),O => gpio_i(46),T => gpio_t(46),C => gpio_clk,PAD => WING_CH6 );
-  pin47: IOPAD port map(I => gpio_o(47),O => gpio_i(47),T => gpio_t(47),C => gpio_clk,PAD => WING_CH7 );
+  pin32: IOPAD port map(I => gpio_o(32),O => gpio_bus_in(32),T => gpio_t(32),C => gpio_clk,PAD => WING_CL0 );
+  pin33: IOPAD port map(I => gpio_o(33),O => gpio_bus_in(33),T => gpio_t(33),C => gpio_clk,PAD => WING_CL1 );
+  pin34: IOPAD port map(I => gpio_o(34),O => gpio_bus_in(34),T => gpio_t(34),C => gpio_clk,PAD => WING_CL2 );
+  pin35: IOPAD port map(I => gpio_o(35),O => gpio_bus_in(35),T => gpio_t(35),C => gpio_clk,PAD => WING_CL3 );
+  pin36: IOPAD port map(I => gpio_o(36),O => gpio_bus_in(36),T => gpio_t(36),C => gpio_clk,PAD => WING_CL4 );
+  pin37: IOPAD port map(I => gpio_o(37),O => gpio_bus_in(37),T => gpio_t(37),C => gpio_clk,PAD => WING_CL5 );
+  pin38: IOPAD port map(I => gpio_o(38),O => gpio_bus_in(38),T => gpio_t(38),C => gpio_clk,PAD => WING_CL6 );
+  pin39: IOPAD port map(I => gpio_o(39),O => gpio_bus_in(39),T => gpio_t(39),C => gpio_clk,PAD => WING_CL7 );
+  pin40: IOPAD port map(I => gpio_o(40),O => gpio_bus_in(40),T => gpio_t(40),C => gpio_clk,PAD => WING_CH0 );
+  pin41: IOPAD port map(I => gpio_o(41),O => gpio_bus_in(41),T => gpio_t(41),C => gpio_clk,PAD => WING_CH1 );
+  pin42: IOPAD port map(I => gpio_o(42),O => gpio_bus_in(42),T => gpio_t(42),C => gpio_clk,PAD => WING_CH2 );
+  pin43: IOPAD port map(I => gpio_o(43),O => gpio_bus_in(43),T => gpio_t(43),C => gpio_clk,PAD => WING_CH3 );
+  pin44: IOPAD port map(I => gpio_o(44),O => gpio_bus_in(44),T => gpio_t(44),C => gpio_clk,PAD => WING_CH4 );
+  pin45: IOPAD port map(I => gpio_o(45),O => gpio_bus_in(45),T => gpio_t(45),C => gpio_clk,PAD => WING_CH5 );
+  pin46: IOPAD port map(I => gpio_o(46),O => gpio_bus_in(46),T => gpio_t(46),C => gpio_clk,PAD => WING_CH6 );
+  pin47: IOPAD port map(I => gpio_o(47),O => gpio_bus_in(47),T => gpio_t(47),C => gpio_clk,PAD => WING_CH7 );
 --  ospics:   OPAD port map ( I => gpio_o(48),   PAD => SPI_CS );
   
 
@@ -245,18 +245,9 @@ begin
 --          spi2_mosi,spi2_sck)
   begin
 
-    gpio_spp_data <= (others => DontCareValue);
+--		gpio_spp_data <= (others => DontCareValue);
+		gpio_bus_in(97 downto 49) <= (others => DontCareValue);
 
---    gpio_spp_data(0) <= platform_audio_sd; -- PPS0 : SIGMADELTA DATA
---    gpio_spp_data(1) <= timers_pwm(0);          -- PPS1 : TIMER0
---    gpio_spp_data(2) <= timers_pwm(1);          -- PPS2 : TIMER1
---    gpio_spp_data(3) <= spi2_mosi;              -- PPS3 : USPI MOSI
---    gpio_spp_data(4) <= spi2_sck;               -- PPS4 : USPI SCK
---    gpio_spp_data(5) <= platform_audio_sd; -- PPS5 : SIGMADELTA1 DATA
---    gpio_spp_data(6) <= uart2_tx;               -- PPS6 : UART2 DATA
---    gpio_spp_data(8) <= platform_audio_sd;
---    spi2_miso <= gpio_spp_read(0);              -- PPS0 : USPI MISO
---    uart2_rx <= gpio_spp_read(1);              -- PPS0 : USPI MISO
 
   end process;
 
