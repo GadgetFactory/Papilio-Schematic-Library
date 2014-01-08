@@ -1,0 +1,72 @@
+<?xml version="1.0" standalone="yes"?>
+
+<mydoggy version="1.5.0" contentManagerEnabled="true">
+    <toolWindows>
+        <sharedWindows></sharedWindows>
+        <toolWindow id="Cursor" available="true" visible="false" active="false" autoHide="false" anchor="RIGHT" anchorIndex="2" type="DOCKED" aggregateMode="false" maximized="false" index="1" flashing="false" lockedOnAnchor="false" hideOnZeroTabs="false">
+            <descriptors>
+                <docked animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" dockLength="200" minimumDockLength="100" popupMenuEnabled="false"/>
+                <sliding animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" transparentMode="true" transparentDelay="1000" transparentRatio="0.5"/>
+                <floating animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" modal="false" transparentMode="true" transparentDelay="1500" transparentRatio="0.7" addToTaskBar="false" alwaysOnTop="true" osDecorated="false" resizable="true"/>
+                <floatingLive animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" transparentMode="true" transparentDelay="1000" transparentRatio="0.5" resizable="true"/>
+                <anchor visible="true" title="Cursor details" previewEnabled="false" previewDelay="1000" previewTransparentRatio="0.65">
+                    <lockingAnchors></lockingAnchors>
+                </anchor>
+            </descriptors>
+        </toolWindow>
+        <toolWindow id="Acquisition" available="true" visible="false" active="false" autoHide="false" anchor="RIGHT" anchorIndex="1" type="DOCKED" aggregateMode="false" maximized="false" index="2" flashing="false" lockedOnAnchor="false" hideOnZeroTabs="false">
+            <descriptors>
+                <docked animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" dockLength="200" minimumDockLength="100" popupMenuEnabled="false"/>
+                <sliding animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" transparentMode="true" transparentDelay="1000" transparentRatio="0.5"/>
+                <floating animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" modal="false" transparentMode="true" transparentDelay="1500" transparentRatio="0.7" addToTaskBar="false" alwaysOnTop="true" osDecorated="false" resizable="true"/>
+                <floatingLive animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" transparentMode="true" transparentDelay="1000" transparentRatio="0.5" resizable="true"/>
+                <anchor visible="true" title="Acquisition details" previewEnabled="false" previewDelay="1000" previewTransparentRatio="0.65">
+                    <lockingAnchors></lockingAnchors>
+                </anchor>
+            </descriptors>
+        </toolWindow>
+        <toolWindow id="Measure" available="true" visible="false" active="false" autoHide="false" anchor="RIGHT" anchorIndex="0" type="DOCKED" aggregateMode="false" maximized="false" index="3" flashing="false" lockedOnAnchor="false" hideOnZeroTabs="false">
+            <descriptors>
+                <docked animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" dockLength="200" minimumDockLength="100" popupMenuEnabled="false"/>
+                <sliding animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" transparentMode="true" transparentDelay="1000" transparentRatio="0.5"/>
+                <floating animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" modal="false" transparentMode="true" transparentDelay="1500" transparentRatio="0.7" addToTaskBar="false" alwaysOnTop="true" osDecorated="false" resizable="true"/>
+                <floatingLive animating="false" autoHide="false" enabled="true" hideRepresentativeButtonOnVisible="false" idVisibleOnTitleBar="false" titleBarButtonsVisible="false" titleBarVisible="false" transparentMode="true" transparentDelay="1000" transparentRatio="0.5" resizable="true"/>
+                <anchor visible="true" title="Measurement" previewEnabled="false" previewDelay="1000" previewTransparentRatio="0.65">
+                    <lockingAnchors></lockingAnchors>
+                </anchor>
+            </descriptors>
+        </toolWindow>
+    </toolWindows>
+    <toolWindowManagerDescriptor numberingEnabled="true" previewEnabled="true" showUnavailableTools="false">
+        <pushAway pushAwayMode="VERTICAL">
+            <mode type="MOST_RECENT">
+                <anchor type="TOP"/>
+                <anchor type="RIGHT"/>
+                <anchor type="BOTTOM"/>
+                <anchor type="LEFT"/>
+            </mode>
+        </pushAway>
+    </toolWindowManagerDescriptor>
+    <contentManagerUI>
+        <TabbedContentManagerUI closeable="true" detachable="true" minimizable="true" maximizable="true" popupMenuEnabled="true" showAlwaysTab="false" tabLayout="SCROLL" tabPlacement="TOP"/>
+    </contentManagerUI>
+    <contentManager>
+        <sharedWindows></sharedWindows>
+        <contents></contents>
+    </contentManager>
+    <toolWindowBars>
+        <toolWindowBar anchor="LEFT" dividerSize="3" aggregateMode="false" length="23" visible="true" toolsVisible="true"></toolWindowBar>
+        <toolWindowBar anchor="BOTTOM" dividerSize="3" aggregateMode="false" length="23" visible="true" toolsVisible="true"></toolWindowBar>
+        <toolWindowBar anchor="RIGHT" dividerSize="3" aggregateMode="false" length="23" visible="true" toolsVisible="true">
+            <layout>
+                <![CDATA[
+<java version="1.6.0_43" class="java.beans.XMLDecoder"> 
+ <null/> 
+</java> 
+]]>
+            </layout>
+        </toolWindowBar>
+        <toolWindowBar anchor="TOP" dividerSize="3" aggregateMode="false" length="23" visible="true" toolsVisible="true"></toolWindowBar>
+    </toolWindowBars>
+</mydoggy>
+
