@@ -18,17 +18,17 @@
 
  
  Papilio Pro
-   Click to program bit file: sketchdir://papilio_pro.bit
+   Click to program bit file: sketchdir://LX9/papilio_pro.bit
    Click to view schematic:   sketchdir://schematic_papilio_pro.pdf
    Click to modify schematic: sketchdir://PSL_Papilio_Pro_LX9.xise
    
  Papilio One 500K
-   Click to program bit file: sketchdir://papilio_one_500k.bit
+   Click to program bit file: sketchdir://500K/papilio_one_500k.bit
    Click to view schematic:   sketchdir://schematic_papilio_one_500k.pdf
    Click to modify schematic: sketchdir://PSL_Papilio_One_500K.xise
    
  Papilio One 250K
-   Click to program bit file: sketchdir://papilio_one_250k.bit
+   Click to program bit file: sketchdir://250K/papilio_one_250k.bit
    Click to view schematic:   sketchdir://schematic_papilio_one_250k.pdf
    Click to modify schematic: sketchdir://PSL_Papilio_One_250k.xise
   
