@@ -38,17 +38,27 @@ if exist papilio_one_250k.bit (
 
 REM Deletes all unnecessary files
 for /f %%F in ('dir /b /a-d ^| findstr /vile ".sch .xise .bit .bat .sym .vhd .pdf .ino .cmd_log .cmd .xst .prj .vhf .ut"') do del "%%F"
-cd LX9
-move Papilio_Pro.cmd_log Papilio_Pro.cmd
-for /f %%F in ('dir /b /a-d ^| findstr /vile ".sch .xise .bit .bat .sym .vhd .pdf .ino .cmd_log .cmd .xst .prj .vhf .ut .html"') do del "%%F"
-for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles rebuild LX9 500K 250K"') do rmdir /q /s "%%F"
-cd ../250K
-move Papilio_One_250K.cmd_log Papilio_One_250K.cmd
-for /f %%F in ('dir /b /a-d ^| findstr /vile ".sch .xise .bit .bat .sym .vhd .pdf .ino .cmd_log .cmd .xst .prj .vhf .ut .html"') do del "%%F"
-for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles rebuild LX9 500K 250K"') do rmdir /q /s "%%F"
-cd ../500K
-move Papilio_One_500K.cmd_log Papilio_One_500K.cmd
-for /f %%F in ('dir /b /a-d ^| findstr /vile ".sch .xise .bit .bat .sym .vhd .pdf .ino .cmd_log .cmd .xst .prj .vhf .ut .html"') do del "%%F"
-for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles rebuild LX9 500K 250K"') do rmdir /q /s "%%F"
-cd ..
 for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles rebuild LX9 500K 250K smallfs"') do rmdir /q /s "%%F"
+
+if exist LX9 (
+	cd LX9
+	move Papilio_Pro.cmd_log Papilio_Pro.cmd
+	for /f %%F in ('dir /b /a-d ^| findstr /vile ".sch .xise .bit .bat .sym .vhd .pdf .ino .cmd_log .cmd .xst .prj .vhf .ut .html"') do del "%%F"
+	for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles rebuild LX9 500K 250K"') do rmdir /q /s "%%F"
+	cd ..
+)
+if exist 250K (
+	cd 250K
+	move Papilio_One_250K.cmd_log Papilio_One_250K.cmd
+	for /f %%F in ('dir /b /a-d ^| findstr /vile ".sch .xise .bit .bat .sym .vhd .pdf .ino .cmd_log .cmd .xst .prj .vhf .ut .html"') do del "%%F"
+	for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles rebuild LX9 500K 250K"') do rmdir /q /s "%%F"
+	cd ..
+)
+if exist 500K (
+	cd 500K
+	move Papilio_One_500K.cmd_log Papilio_One_500K.cmd
+	for /f %%F in ('dir /b /a-d ^| findstr /vile ".sch .xise .bit .bat .sym .vhd .pdf .ino .cmd_log .cmd .xst .prj .vhf .ut .html"') do del "%%F"
+	for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles rebuild LX9 500K 250K"') do rmdir /q /s "%%F"
+	cd ..
+)
+
