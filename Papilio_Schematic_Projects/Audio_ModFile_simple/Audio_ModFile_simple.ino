@@ -32,15 +32,18 @@
    Click to view schematic:   sketchdir://schematic_papilio_pro.pdf
    Click to modify schematic: sketchdir://PSL_Papilio_Pro_LX9.xise
 
+ Tutorials:
+   http://gadgetfactory.net/learn/2013/12/09/papilio-schematic-library-amiga-mod-player/
+ 
  Related library documentation:
 
  Hardware:
- Due to the size of the mod player libraries this will only run on the Papilio Pro.
- This sketch will work with any hardware with an audio jack: Audio Wing, LogicStart MegaWing, Arcade MegaWing, RetroCade MegaWing.
- This example circuit is wired for an Audio Wing connected to CH, to use with any of the other hardware click the link to modify the schematic to adjust for your hardware.
+   Due to the size of the mod player libraries this will only run on the Papilio Pro.
+   This sketch will work with any hardware with an audio jack: Audio Wing, LogicStart MegaWing, Arcade MegaWing, RetroCade MegaWing.
+   This example circuit is wired for an Audio Wing connected to CH, to use with any of the other hardware click the link to modify the schematic to adjust for your hardware.
  
  Board Type:
- ZPUino Vanilla Variant for Papilio Pro
+   ZPUino Vanilla Variant for Papilio Pro
 
  created 2013
  by Jack Gassett

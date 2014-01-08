@@ -1,6 +1,6 @@
 /*
  Gadget Factory
- Papilio Schematic Library Example
+ YM2149 Audio Player Example
  To learn more about the Papilio Schematic Library please visit http://learn.gadgetfactory.net
  
  To use this sketch do the following steps:
@@ -25,7 +25,7 @@
  If you do not have Xilinx ISE Webpack installed visit this tutorial to learn how. http://gadgetfactory.net/learn/2013/10/23/install-xilinxs-free-ise-webpack/
  
  If the links below do not work then then open the sketch directory from Sketch/Show Sketch Folder (Ctl-K) and manually access the files defined in the links below.
- 
+
  Papilio Pro
    Click to program bit file: sketchdir://LX9/papilio_pro.bit
    Click to view schematic:   sketchdir://schematic_papilio_pro.pdf
@@ -35,40 +35,82 @@
    Click to program bit file: sketchdir://500K/papilio_one_500k.bit
    Click to view schematic:   sketchdir://schematic_papilio_one_500k.pdf
    Click to modify schematic: sketchdir://PSL_Papilio_One_500K.xise
-   
- Papilio One 250K
-   Click to program bit file: sketchdir://250K/papilio_one_250k.bit
-   Click to view schematic:   sketchdir://schematic_papilio_one_250k.pdf
-   Click to modify schematic: sketchdir://PSL_Papilio_One_250k.xise
-  
+
  Tutorials:
-   http://gadgetfactory.net/learn/2013/10/29/papilio-schematic-library-getting-started/
+   http://gadgetfactory.net/learn/2013/12/09/7336/
   
  Related library documentation:
-
+   http://www.papilio.cc/index.php?n=Papilio.YM2149
+   http://www.papilio.cc/index.php?n=Papilio.YMVoice
+ 
  Hardware:
+   This sketch will work with any hardware with an audio jack: Audio Wing, LogicStart MegaWing, Arcade MegaWing, RetroCade MegaWing.
    This example circuit is wired for an Audio Wing connected to CH, to use with any of the other hardware click the link to modify the schematic to adjust for your hardware.
+   This sketch will work with the Papilio Pro and Papilio One 500K.
  
  Board Type:
-   ZPUino Vanilla Variant for your hardware type
+   ZPUino Vanilla Variant for your board type.
 
- created 2014
+ created 2013
  by Jack Gassett
  http://www.gadgetfactory.net
  
  This example code is in the public domain.
  */
 
+ #define FREQ 17000          //Freq for ymplayer
+ 
+#include <SD.h>
+#include "YM2149.h"
+#include "SmallFS.h"
+#include "ymplayer.h"
+#include "ramFS.h"
+#include "cbuffer.h"
+
+YMPLAYER ymplayer;
+YM2149 ym2149;
+
 void setup() {
   // put your setup code here, to run once:
+  Serial.begin(9600);
   
-  pinMode(0, OUTPUT);   
+   //Start SmallFS
+  if (SmallFS.begin()<0) {
+	//Serial.println("No SmalLFS found.");
+  }
+  else{
+     //Serial.println("SmallFS Started.");
+  }  
+
+  //Set what wishbone slot the ym2149 device is connected to.  
+  ymplayer.setup(&ym2149,5); 
   
+  ym2149.V1.setVolume(11);
+  ym2149.V2.setVolume(11);
+  ym2149.V3.setVolume(11);   
+
+  ymplayer.loadFile("music.ymd");
+  ymplayer.play(true);
+  
+ //Setup timer for YM and mod players, this generates an interrupt at 17Khz
+  TMR0CTL = 0;
+  TMR0CNT = 0;
+  TMR0CMP = ((CLK_FREQ/2) / FREQ )- 1;
+  TMR0CTL = _BV(TCTLENA)|_BV(TCTLCCM)|_BV(TCTLDIR)|
+  	_BV(TCTLCP0) | _BV(TCTLIEN);
+  INTRMASK = BIT(INTRLINE_TIMER0); // Enable Timer0 interrupt
+  INTRCTL=1;    
+
+}
+
+void _zpu_interrupt()
+{
+  //Interrupt runs at 17KHz
+  ymplayer.zpu_interrupt(); 
 }
 
 void loop() {
-  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);               // wait for a second
-  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);               // wait for a second
+  // put your main code here, to run repeatedly: 
+  if (ymplayer.getPlaying() == 1)
+    ymplayer.audiofill();
 }
