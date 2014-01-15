@@ -108,7 +108,6 @@
         <signal name="XLXN_542(6:0)" />
         <signal name="XLXN_543(3:0)" />
         <signal name="XLXN_544" />
-        <signal name="XLXN_602" />
         <signal name="XLXN_603" />
         <signal name="XLXN_604" />
         <signal name="XLXN_605" />
@@ -529,7 +528,7 @@
             <blockpin signalname="XLXN_605" name="SPI_MISO" />
             <blockpin signalname="XLXN_604" name="SPI_MOSI" />
             <blockpin signalname="XLXN_603" name="SPI_CLK" />
-            <blockpin signalname="XLXN_602" name="SPI_CS" />
+            <blockpin name="SPI_CS" />
             <blockpin signalname="XLXN_544" name="Seg7_dot" />
             <blockpin signalname="XLXN_543(3:0)" name="Seg7_enable(3:0)" />
             <blockpin signalname="XLXN_542(6:0)" name="Seg7_segdata(6:0)" />
@@ -559,7 +558,7 @@
         </block>
         <block symbolname="COMM_zpuino_wb_SPI" name="XLXI_60">
             <blockpin signalname="XLXN_605" name="miso" />
-            <blockpin signalname="XLXN_602" name="enabled" />
+            <blockpin name="enabled" />
             <blockpin signalname="XLXN_603" name="sck" />
             <blockpin signalname="XLXN_604" name="mosi" />
             <blockpin signalname="XLXN_559(61:0)" name="wishbone_in(61:0)" />
@@ -974,9 +973,6 @@
         </branch>
         <instance x="2832" y="2160" name="XLXI_57" orien="R0">
         </instance>
-        <branch name="XLXN_602">
-            <wire x2="4608" y1="2592" y2="2592" x1="1312" />
-        </branch>
         <branch name="XLXN_603">
             <wire x2="4608" y1="2528" y2="2528" x1="1312" />
         </branch>
