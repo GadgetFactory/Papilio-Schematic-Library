@@ -31,7 +31,7 @@
    Click to view schematic:   sketchdir://schematic_papilio_pro.pdf
    Click to modify schematic: sketchdir://PSL_Papilio_Pro_LX9.xise
    
- Papilio One 500K
+ Papilio One 500K - NOTE: There is not enough code space for the mod file playback
    Click to program bit file: sketchdir://500K/papilio_one_500k.bit
    Click to view schematic:   sketchdir://schematic_papilio_one_500k.pdf
    Click to modify schematic: sketchdir://PSL_Papilio_One_500K.xise
@@ -62,12 +62,19 @@
 #define LS_JOY_UP    WB14
 #define LS_JOY_SELECT WB15
 
-
-#include <SD.h>
 #include "VGA.h"
 #include <SevenSegHW.h>
 #include "SPIADC.h"
 #include "SPI.h"
+
+#ifdef __ZPUINO_PAPILIO_PRO__
+  #include <SD.h>
+  #include "SmallFS.h"
+  #include "modplayer.h"
+  #include "ramFS.h"
+  #include "cbuffer.h"
+  MODPLAYER modplayer;
+#endif
 
 SEVENSEGHW sevenseg;
 
@@ -92,6 +99,31 @@ int timeout=0;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  
+#ifdef __ZPUINO_PAPILIO_PRO__
+   //Start SmallFS
+  if (SmallFS.begin()<0) {
+	Serial.println("No SmalLFS found.");
+  }
+  else{
+     Serial.println("SmallFS Started.");
+  }  
+  
+  //Set what wishbone slot the audio passthrough device is connected to.
+  modplayer.setup(5);
+
+  modplayer.loadFile("music.mod");
+  modplayer.play(true);  
+#endif  
+  
+ //Setup timer for YM and mod players, this generates an interrupt at 1700hz
+  TMR0CTL = 0;
+  TMR0CNT = 0;
+  TMR0CMP = ((CLK_FREQ/2) / FREQ )- 1;
+  TMR0CTL = _BV(TCTLENA)|_BV(TCTLCCM)|_BV(TCTLDIR)|
+  	_BV(TCTLCP0) | _BV(TCTLIEN);
+  INTRMASK = BIT(INTRLINE_TIMER0); // Enable Timer0 interrupt
+  INTRCTL=1;     
   
   //Setup VGA Hello World
   VGA.begin(VGAWISHBONESLOT(9),CHARMAPWISHBONESLOT(10));
@@ -136,9 +168,33 @@ void setup() {
   
 }
 
+#ifdef __ZPUINO_PAPILIO_PRO__
+void _zpu_interrupt()
+{
+  //Interrupt runs at 17KHz
+  modplayer.zpu_interrupt();
+}
+#endif 
+
+
+void chanUpdate()
+{
+        timeout = 1700;
+        #ifdef __ZPUINO_PAPILIO_ONE__
+          timeout = 300;
+        #endif     
+	sevenseg.setDigitValue(channel,0,3);
+        sevenseg.custom(0,2);
+        sevenseg.custom(SEGF|SEGE|SEGB|SEGC|SEGG,1);
+        sevenseg.setHexValue(0xC,0);
+}
 
 void loop() {
   // put your main code here, to run repeatedly: 
+#ifdef __ZPUINO_PAPILIO_PRO__
+  if (modplayer.getPlaying() == 1)
+    modplayer.audiofill();
+#endif     
     
   //Handle LED's and Switches
   for (int thisPin = 0; thisPin < switchCount; thisPin++)  {
@@ -157,7 +213,7 @@ void loop() {
     }
   }    
   
-//  //Handle joystick and reading SPI ADC
+  //Handle joystick and reading SPI ADC
   if ((extcnt & 0x17) == 0) {
 
     if (!digitalRead(LS_JOY_SELECT)) {
@@ -184,27 +240,19 @@ void loop() {
         if (channel<7)
           channel++;
           /* Print something and add timeout */
-          timeout = 17000;
           chanUpdate();
         } else if (!digitalRead(LS_JOY_DOWN)) {
           if (channel!=0)
             channel--;
-            timeout = 17000;
             chanUpdate();
           }
     }
         cnt++;
   }
-      delay(1);
       extcnt++;
       if (timeout!=0)
         timeout--;
-}
-
-static void chanUpdate()
-{
-	sevenseg.setDigitValue(channel,0,3);
-        sevenseg.custom(0,2);
-        sevenseg.custom(SEGF|SEGE|SEGB|SEGC|SEGG,1);
-        sevenseg.setHexValue(0xC,0);
+      #ifdef __ZPUINO_PAPILIO_ONE__
+        delay(1);
+      #endif          
 }
