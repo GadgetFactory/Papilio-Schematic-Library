@@ -43,6 +43,11 @@
    http://www.papilio.cc/index.php?n=Papilio.YM2149
    http://www.papilio.cc/index.php?n=Papilio.YMVoice
  
+ Additional Software:
+   Use the ym_converter script to convert ym files to ymd files
+   sketchdir://ym_converter
+   
+ 
  Hardware:
    This sketch will work with any hardware with an audio jack: Audio Wing, LogicStart MegaWing, Arcade MegaWing, RetroCade MegaWing.
    This example circuit is wired for an Audio Wing connected to CH, to use with any of the other hardware click the link to modify the schematic to adjust for your hardware.

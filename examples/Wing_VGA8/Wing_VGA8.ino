@@ -41,6 +41,7 @@
    http://papilio.cc/index.php?n=Papilio.VGAWingIntroduction
   
  Related library documentation:
+  http://papilio.cc/index.php?n=Papilio.VGA
 
  Hardware:
    This example circuit is wired for an VGA Wing connected to CH, to use with any of the other hardware click the link to modify the schematic to adjust for your hardware.

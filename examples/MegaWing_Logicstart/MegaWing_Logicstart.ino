@@ -40,12 +40,14 @@
    http://gadgetfactory.net/learn/2013/10/29/papilio-schematic-library-getting-started/
   
  Related library documentation:
+  http://papilio.cc/index.php?n=Papilio.VGA
 
  Hardware:
-   This example circuit is wired for an VGA Wing connected to CH, to use with any of the other hardware click the link to modify the schematic to adjust for your hardware.
+   This example circuit is wired for the LogicStart MegaWing
  
  Board Type:
-   ZPUino Hyperion "The Lord of Light" with HQVGA adapter for your hardware type
+   Use a  ZPUino Hyperion "The Lord of Light" with HQVGA board type for the Papilio One 500K
+   Use a ZPUino "Vanilla" board type for the Papilio Pro
 
  created 2014
  by Alvaro Lopes and Jack Gassett

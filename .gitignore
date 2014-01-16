@@ -152,7 +152,6 @@ dist
 build
 eggs
 parts
-bin
 var
 sdist
 develop-eggs
@@ -193,7 +192,6 @@ pip-log.txt
 *.stx
 *.xmsgs
 *.xreport
-*.exe
 *.cmd_log
 *_beh.prj
 *.ncd
