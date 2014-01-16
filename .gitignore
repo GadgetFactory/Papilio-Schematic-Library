@@ -5,7 +5,6 @@ felix-cache
 *.mrp
 *.ngm
 *.psr
-*.bin
 *.cfi
 *.prm
 *vhdl.prj
@@ -17,7 +16,6 @@ felix-cache
 *.pydevproject
 .project
 .metadata
-bin/
 tmp/
 *.tmp
 *.bak
