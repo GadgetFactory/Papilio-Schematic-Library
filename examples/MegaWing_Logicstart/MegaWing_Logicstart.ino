@@ -130,7 +130,6 @@ void setup() {
   VGA.clear();
   VGA.setBackgroundColor(BLACK);
   VGA.setColor(RED);
-  VGA.printtext(32,0," LogicStart");
   VGA.printtext(35,10,"Hello World");
   VGA.printtext(15,30, "Hello World RED");
   VGA.setColor(GREEN);

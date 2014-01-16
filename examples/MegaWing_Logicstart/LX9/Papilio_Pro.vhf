@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.6
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_Pro.vhf
--- /___/   /\     Timestamp : 01/15/2014 11:25:39
+-- /___/   /\     Timestamp : 01/16/2014 15:55:33
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
