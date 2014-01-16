@@ -1,9 +1,17 @@
-Papilio Schematic Library - Schematic System on Chip (Source Code) - Current Version 1.4
+Papilio Schematic Library - Schematic System on Chip (Source Code) - Current Version 1.5
 
 Papilio SOC Home Page
 http://papilio.cc
 
 CHANGELOG
+1/16/2014 Version 1.5
+	-Re-arranged folder structure so PSL can plug right into the examples section of the ZAP IDE.
+	-Added URLs to all sketches that point to the pdf version of the schematic, bit file, and ISE project.
+	-Broke out examples so each board type has its own build directory. There is now a script to build all board types at once.
+	-Added Jawi's Logic Analyzer client to the Logic Analyzer example.
+	-Completed LogicStart example.
+	
+
 12/27/2013 Version 1.4.2
 	-Fix for LogicStart GPIO problem.
 
