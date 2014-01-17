@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.6
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_Pro.vhf
--- /___/   /\     Timestamp : 01/07/2014 21:56:54
+-- /___/   /\     Timestamp : 01/17/2014 11:56:04
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family spartan6 -flat -suppress -vhdl C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/Papilio_Schematic_Projects/Template_PSL_Base/LX9/Papilio_Pro.vhf -w C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/Papilio_Schematic_Projects/Template_PSL_Base/Papilio_Pro.sch
+--Command: sch2hdl -intstyle ise -family spartan6 -flat -suppress -vhdl C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Template_PSL_Base/LX9/Papilio_Pro.vhf -w C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Template_PSL_Base/Papilio_Pro.sch
 --Design Name: Papilio_Pro
 --Device: spartan6
 --Purpose:

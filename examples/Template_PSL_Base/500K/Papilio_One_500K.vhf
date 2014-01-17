@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.6
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_One_500K.vhf
--- /___/   /\     Timestamp : 01/07/2014 21:58:23
+-- /___/   /\     Timestamp : 01/17/2014 11:56:23
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/Papilio_Schematic_Projects/Template_PSL_Base/500K/Papilio_One_500K.vhf -w C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/Papilio_Schematic_Projects/Template_PSL_Base/Papilio_One_500K.sch
+--Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Template_PSL_Base/500K/Papilio_One_500K.vhf -w C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Template_PSL_Base/Papilio_One_500K.sch
 --Design Name: Papilio_One_500K
 --Device: spartan3e
 --Purpose:
