@@ -96,9 +96,7 @@ begin
 					end if;					
 				when WAIT_CS_LO =>
 					-- wait for cs before sending the next byte
-					if reset = '1' then
-						state <= IDLE;
-					elsif cs = '0' and rsync_sclk = "01" then
+					if cs = '0' and rsync_sclk = "01" then
 						state <= SEND_BITS;
 						tx_buf <= tx_buf(38 downto 0) & '0';
 						bytes <= bytes + 1;
@@ -132,12 +130,9 @@ begin
 				when WAIT_CS_HI =>
 					-- tx stops until cs rising edge
 --					if rsync_cs = "01" or cs = '0' then
-					if reset = '1' then
-						state <= IDLE;
-					else
 						state <= IDLE;
 						busy <= '0';
-					end if;
+--					end if;
 			end case;
 
 		end if;
