@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.6
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_Pro.vhf
--- /___/   /\     Timestamp : 01/22/2014 22:26:24
+-- /___/   /\     Timestamp : 01/27/2014 15:18:21
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -sympath C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/experimental/bscan3/LX9 -intstyle ise -family spartan6 -flat -suppress -vhdl C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/experimental/bscan3/LX9/Papilio_Pro.vhf -w C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/experimental/bscan3/Papilio_Pro.sch
+--Command: sch2hdl -intstyle ise -family spartan6 -flat -suppress -vhdl C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Benchy_Sump_LogicAnalyzer_JTAG/LX9/Papilio_Pro.vhf -w C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Benchy_Sump_LogicAnalyzer_JTAG/Papilio_Pro.sch
 --Design Name: Papilio_Pro
 --Device: spartan6
 --Purpose:
@@ -95,6 +95,7 @@ entity Papilio_Pro is
 end Papilio_Pro;
 
 architecture BEHAVIORAL of Papilio_Pro is
+   attribute brams      : string ;
    signal XLXN_325                                  : std_logic_vector (7 
          downto 0);
    signal XLXN_326                                  : std_logic_vector (7 
@@ -159,10 +160,6 @@ architecture BEHAVIORAL of Papilio_Pro is
          downto 0);
    signal XLXN_515                                  : std_logic_vector (33 
          downto 0);
-   signal XLXN_516                                  : std_logic;
-   signal XLXN_517                                  : std_logic;
-   signal XLXN_518                                  : std_logic;
-   signal XLXN_519                                  : std_logic;
    signal XLXN_520                                  : std_logic;
    signal XLXI_44_wishbone_slot_video_in_openSignal : std_logic_vector (63 
          downto 0);
@@ -288,14 +285,7 @@ architecture BEHAVIORAL of Papilio_Pro is
              vgaclkout               : out   std_logic);
    end component;
    
-   component bscan_spi
-      port ( SPI_MISO : in    std_logic; 
-             SPI_MOSI : inout std_logic; 
-             SPI_CS   : inout std_logic; 
-             SPI_SCK  : inout std_logic);
-   end component;
-   
-   component BENCHY_sa_SumpBlaze_LogicAnalyzer8_spi
+   component BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag
       port ( clk_32Mhz : in    std_logic; 
              la0       : in    std_logic; 
              la1       : in    std_logic; 
@@ -304,13 +294,10 @@ architecture BEHAVIORAL of Papilio_Pro is
              la4       : in    std_logic; 
              la5       : in    std_logic; 
              la6       : in    std_logic; 
-             la7       : in    std_logic; 
-             mosi      : in    std_logic; 
-             sclk      : in    std_logic; 
-             cs        : in    std_logic; 
-             miso      : out   std_logic);
+             la7       : in    std_logic);
    end component;
    
+   attribute brams of XLXI_60 : label is "12";
 begin
    XLXI_20 : Papilio_Wing_Pinout
       port map (gpio_bus_out(147 downto 0)=>XLXN_408(147 downto 0),
@@ -479,19 +466,12 @@ begin
       port map (wishbone_in(61 downto 0)=>XLXN_492(61 downto 0),
                 wishbone_out(33 downto 0)=>XLXN_493(33 downto 0));
    
-   XLXI_56 : bscan_spi
-      port map (SPI_MISO=>XLXN_519,
-                SPI_CS=>XLXN_517,
-                SPI_MOSI=>XLXN_516,
-                SPI_SCK=>XLXN_518);
-   
    XLXI_59 : Wishbone_Empty_Slot
       port map (wishbone_in(61 downto 0)=>XLXN_514(61 downto 0),
                 wishbone_out(33 downto 0)=>XLXN_515(33 downto 0));
    
-   XLXI_60 : BENCHY_sa_SumpBlaze_LogicAnalyzer8_spi
+   XLXI_60 : BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag
       port map (clk_32Mhz=>XLXN_520,
-                cs=>XLXN_517,
                 la0=>WING_AL0,
                 la1=>WING_AL1,
                 la2=>WING_AL2,
@@ -499,10 +479,7 @@ begin
                 la4=>WING_AL4,
                 la5=>WING_AL5,
                 la6=>WING_AL6,
-                la7=>WING_AL7,
-                mosi=>XLXN_516,
-                sclk=>XLXN_518,
-                miso=>XLXN_519);
+                la7=>WING_AL7);
    
 end BEHAVIORAL;
 

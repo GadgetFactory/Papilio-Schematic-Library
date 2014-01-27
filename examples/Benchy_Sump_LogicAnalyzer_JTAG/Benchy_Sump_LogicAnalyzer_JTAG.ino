@@ -21,6 +21,12 @@
  4)
  Run the sketch, it should communicate with the ZPUino included in the bit file you loaded earlier. 
  
+ 5)
+ In the case of using the JTAG Logic Analyzer you will need to run the network server that acts as the communication bridge between the Papilio and the Logic Analyzer client.
+ The network server will make a connection with Channel A of the Papilio, which is connected to the JTAG port of the FPGA, and will forward all data to the Logic Analyzer client.
+   For Windows: sketchdir://papilio-prog-jtag-server/papilio-prog-jtag-server.exe
+   For Linux: Coming soon
+ 
  If you want to modify the circuit then make sure you have Xilinx ISE Webpack installed and click on the appropriate link below to modify the schematic.
  If you do not have Xilinx ISE Webpack installed visit this tutorial to learn how. http://gadgetfactory.net/learn/2013/10/23/install-xilinxs-free-ise-webpack/
  
@@ -30,12 +36,7 @@
    Click to program bit file: sketchdir://LX9/papilio_pro.bit
    Click to view schematic:   sketchdir://schematic_papilio_pro.pdf
    Click to modify schematic: sketchdir://PSL_Papilio_Pro_LX9.xise
-   
- Papilio One 500K
-   Click to program bit file: sketchdir://500K/papilio_one_500k.bit
-   Click to view schematic:   sketchdir://schematic_papilio_one_500k.pdf
-   Click to modify schematic: sketchdir://PSL_Papilio_One_500K.xise
-  
+ 
  Tutorials:
   
  Related library documentation:

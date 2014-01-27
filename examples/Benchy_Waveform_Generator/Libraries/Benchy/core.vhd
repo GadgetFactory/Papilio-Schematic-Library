@@ -57,6 +57,7 @@ entity core is
 		extClockOut : out std_logic;
 		armLED : out std_logic;
 		triggerLED : out std_logic;
+		reset : out std_logic;
 		tx_bytes : out integer range 0 to 4
 	);
 end core;
@@ -230,7 +231,7 @@ architecture behavioral of core is
 	signal opcode : std_logic_vector (7 downto 0);
 	signal data : std_logic_vector (31 downto 0);
 	signal sample, syncedla_input : std_logic_vector (31 downto 0);
-	signal sampleClock, run, reset : std_logic;
+	signal sampleClock, run : std_logic;
 	signal wrtrigmask, wrtrigval, wrtrigcfg : std_logic_vector(3 downto 0);
 	signal wrDivider, wrsize, arm, resetCmd: std_logic;
 	signal flagDemux, flagFilter, flagExternal, flagInverted : std_logic;
@@ -316,9 +317,10 @@ begin
 							if ident = '1' then
 								state <= IDENTIFY;
 							end if;
-							if meta = '1' then
-								state <= METADATA;
-							end if;
+							--Disabled, this was wreaking havoc with SPI slave
+--							if meta = '1' then
+--								state <= METADATA;
+--							end if;
 						end if;
 						send_cmd <= '0';
 						addr <= 0;
@@ -442,7 +444,7 @@ begin
 		la_inputReady => sampleReady,
 		data => data,
 		clock => clock,
-		reset => reset,
+		reset => resetCmd,
 		wrMask => wrtrigmask,
 		wrValue => wrtrigval,
 		wrConfig => wrtrigcfg,
@@ -465,7 +467,7 @@ begin
 	 Inst_rle: rle
 	 port map(
 		clock => clock,
-		reset => reset,
+		reset => resetCmd,
 		raw_inp => raw_inp,
 		fmt_out => controller_memoryIn,
 		enable => flagRLE,
@@ -484,7 +486,7 @@ begin
 	Inst_controller: controller
 	port map(
 		clock => clock,
-		reset => reset,
+		reset => resetCmd,
 		la_input => controller_la_input,
 		la_inputReady => controller_la_inputReady,
 		run => run,
@@ -509,7 +511,7 @@ begin
 	Inst_muldex : muldex
 	port map(
 		clock => clock,
-		reset => reset,
+		reset => resetCmd,
 		data_inp => data_inp,
 		data_out => rle_inp,
 		data_rd => data_rd,

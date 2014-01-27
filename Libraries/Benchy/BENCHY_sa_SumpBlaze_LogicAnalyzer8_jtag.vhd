@@ -36,7 +36,7 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
-entity BENCHY_sa_SumpBlaze_LogicAnalyzer8_spi is
+entity BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag is
 	generic (
 	 brams: integer := 12
 	);	
@@ -54,21 +54,21 @@ entity BENCHY_sa_SumpBlaze_LogicAnalyzer8_spi is
 		la4	: in std_logic;
 		la5	: in std_logic;
 		la6	: in std_logic;
-		la7	: in std_logic;
+		la7	: in std_logic
 --		rx : in std_logic;
 --		tx : out std_logic
-		miso : out std_logic;
-		mosi : in std_logic;
-		sclk : in std_logic;
-		cs : in std_logic
+--		miso : out std_logic;
+--		mosi : in std_logic;
+--		sclk : in std_logic;
+--		cs : in std_logic
 --		dataReady : out std_logic;
 --		adc_cs_n : inout std_logic;
 		--armLED : out std_logic;
 		--triggerLED : out std_logic
 	);
-end BENCHY_sa_SumpBlaze_LogicAnalyzer8_spi;
+end BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag;
 
-architecture behavioral of BENCHY_sa_SumpBlaze_LogicAnalyzer8_spi is
+architecture behavioral of BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag is
 
 	component clockman
 		port(
@@ -76,6 +76,15 @@ architecture behavioral of BENCHY_sa_SumpBlaze_LogicAnalyzer8_spi is
 			clk0 : out std_logic
 		);
 	end component;
+	
+	COMPONENT bscan_spi
+	PORT(
+		SPI_MISO : IN std_logic;       
+		SPI_MOSI : INOUT std_logic;
+		SPI_CS : INOUT std_logic;
+		SPI_SCK : INOUT std_logic
+		);
+	END COMPONENT;	
 	
 	COMPONENT eia232
 	generic (
@@ -160,6 +169,7 @@ architecture behavioral of BENCHY_sa_SumpBlaze_LogicAnalyzer8_spi is
 	signal tx_bytes : integer range 0 to 4;
 	signal extClockIn, extTriggerIn : std_logic;
 	signal dataReady, reset : std_logic;
+	signal mosi, miso, sclk, cs : std_logic;
 	
 	--Constants for UART
 	constant FREQ : integer := 100000000;				-- limited to 100M by onboard SRAM
@@ -187,6 +197,13 @@ begin
 		clkin => clk_32Mhz,
 		clk0 => clock
 	);
+	
+	Inst_bscan_spi: bscan_spi PORT MAP(
+		SPI_MISO => miso,
+		SPI_MOSI => mosi,
+		SPI_CS => cs,
+		SPI_SCK => sclk
+	);	
 	
 --	Inst_eia232: eia232
 --	generic map (

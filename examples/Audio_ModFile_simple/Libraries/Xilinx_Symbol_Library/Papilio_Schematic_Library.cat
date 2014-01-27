@@ -2,6 +2,7 @@
 {
 "BENCHY_sa_SumpBlaze_LogicAnalyzer8"
 "BENCHY_zpuino_wb_waveform_generator"
+"BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag"
 }
 ".Papilio Clocks"
 {
@@ -54,8 +55,8 @@
 }
 ".Papilio Testing"
 {
-"COMM_zpuino_wb_i2c"
 "Arcade_MegaWing_Pinout"
+"COMM_zpuino_wb_i2c"
 }
 "Papilio Obsolete"
 {
