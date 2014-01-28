@@ -376,10 +376,9 @@
             <line x2="160" y1="-304" y2="-256" x1="160" />
         </blockdef>
         <blockdef name="COMM_zpuino_wb_SPI">
-            <timestamp>2013-12-13T18:37:27</timestamp>
-            <rect width="112" x="64" y="-224" height="224" />
+            <timestamp>2014-1-28T22:49:29</timestamp>
+            <rect width="112" x="64" y="-224" height="160" />
             <line x2="0" y1="-192" y2="-192" x1="64" />
-            <line x2="240" y1="-32" y2="-32" x1="176" />
             <line x2="240" y1="-96" y2="-96" x1="176" />
             <line x2="240" y1="-160" y2="-160" x1="176" />
             <line x2="112" y1="-272" y2="-224" x1="112" />
@@ -558,7 +557,6 @@
         </block>
         <block symbolname="COMM_zpuino_wb_SPI" name="XLXI_60">
             <blockpin signalname="XLXN_605" name="miso" />
-            <blockpin name="enabled" />
             <blockpin signalname="XLXN_603" name="sck" />
             <blockpin signalname="XLXN_604" name="mosi" />
             <blockpin signalname="XLXN_559(61:0)" name="wishbone_in(61:0)" />

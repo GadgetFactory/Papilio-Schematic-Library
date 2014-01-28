@@ -24,8 +24,13 @@
  5)
  In the case of using the JTAG Logic Analyzer you will need to run the network server that acts as the communication bridge between the Papilio and the Logic Analyzer client.
  The network server will make a connection with Channel A of the Papilio, which is connected to the JTAG port of the FPGA, and will forward all data to the Logic Analyzer client.
-   For Windows: sketchdir://papilio-prog-jtag-server/papilio-prog-jtag-server.exe
-   For Linux: Coming soon
+   1) Load the bit file:  sketchdir://LX9/papilio_pro.bit
+   2) Start the JTAG server
+     For Windows: sketchdir://papilio-prog-jtag-server/papilio-prog-jtag-server.exe
+     For Linux: Coming soon
+   3) Start Logic Analyzer client:
+     For Windows: sketchdir://ols-0.9.7/run.bat
+     For Linux: Coming soon 
  
  If you want to modify the circuit then make sure you have Xilinx ISE Webpack installed and click on the appropriate link below to modify the schematic.
  If you do not have Xilinx ISE Webpack installed visit this tutorial to learn how. http://gadgetfactory.net/learn/2013/10/23/install-xilinxs-free-ise-webpack/

@@ -656,6 +656,11 @@
       <association xil_pn:name="Implementation" xil_pn:seqID="204"/>
       <library xil_pn:name="wishbone"/>
     </file>
+    <file xil_pn:name="Libraries/ZPUino_1/Wing_Analog.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="246"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <library xil_pn:name="zpuino"/>
+    </file>		
     <file xil_pn:name="Libraries/Wishbone_Peripherals/VIDEO_zpuino_wb_vga_zxspectrum.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="205"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="205"/>

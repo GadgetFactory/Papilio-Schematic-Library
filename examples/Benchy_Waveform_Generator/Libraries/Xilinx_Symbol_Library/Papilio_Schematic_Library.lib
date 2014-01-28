@@ -720,26 +720,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="COMM_zpuino_wb_SPI">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2013-12-13T18:37:27</timestamp>
+    <timestamp>2014-1-28T22:49:29</timestamp>
     <pin polarity="Input" x="0" y="-192" name="miso" />
-    <pin polarity="Output" x="240" y="-32" name="enabled" />
     <pin polarity="Output" x="240" y="-96" name="sck" />
     <pin polarity="Output" x="240" y="-160" name="mosi" />
     <pin polarity="Input" x="112" y="-272" name="wishbone_in(61:0)" />
     <pin polarity="Output" x="128" y="-272" name="wishbone_out(33:0)" />
     <graph>
-        <rect width="112" x="64" y="-224" height="224" />
+        <rect width="112" x="64" y="-224" height="160" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-192" type="pin miso" />
         <line x2="0" y1="-192" y2="-192" x1="64" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="168" y="-32" type="pin enabled" />
-        <line x2="240" y1="-32" y2="-32" x1="176" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="168" y="-96" type="pin sck" />
         <line x2="240" y1="-96" y2="-96" x1="176" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="168" y="-160" type="pin mosi" />
         <line x2="240" y1="-160" y2="-160" x1="176" />
         <line x2="112" y1="-272" y2="-224" x1="112" />
         <line x2="128" y1="-272" y2="-224" x1="128" />
-        <text style="fontsize:64;fontname:Arial" x="64" y="36">SPI</text>
+        <text style="fontsize:64;fontname:Arial" x="64" y="-24">SPI</text>
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1740,6 +1737,32 @@
         <attrtext style="alignment:RIGHT;fontsize:20;fontname:Arial" attrname="PinName" x="328" y="-224" type="pin vga_hsync" />
         <text style="fontsize:32;fontname:Arial" x="88" y="-112">Requires</text>
         <text style="fontsize:32;fontname:Arial" x="84" y="-76">10 BRAM </text>
+    </graph>
+</symbol>
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="Wing_Analog">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2014-1-28T22:51:23</timestamp>
+    <pin polarity="BiDirectional" x="384" y="32" name="wt_miso(7:0)" />
+    <pin polarity="BiDirectional" x="384" y="96" name="wt_mosi(7:0)" />
+    <pin polarity="Input" x="0" y="96" name="sck" />
+    <pin polarity="Input" x="0" y="64" name="mosi" />
+    <pin polarity="Output" x="0" y="32" name="miso" />
+    <graph>
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="32" type="pin wt_miso(7:0)" />
+        <rect width="64" x="320" y="20" height="24" />
+        <line x2="384" y1="32" y2="32" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="96" type="pin wt_mosi(7:0)" />
+        <rect width="64" x="320" y="84" height="24" />
+        <line x2="384" y1="96" y2="96" x1="320" />
+        <rect width="256" x="64" y="8" height="120" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="96" type="pin sck" />
+        <line x2="0" y1="96" y2="96" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="64" type="pin mosi" />
+        <line x2="0" y1="64" y2="64" x1="64" />
+        <line x2="64" y1="32" y2="32" x1="0" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="120" y="32" type="pin miso" />
+        <text style="fontsize:64;fontname:Arial" x="16" y="-44">Analog Wing</text>
     </graph>
 </symbol>
 <?xml version="1.0" encoding="UTF-8"?>

@@ -1,8 +1,8 @@
 ".Papilio Benchy"
 {
 "BENCHY_sa_SumpBlaze_LogicAnalyzer8"
-"BENCHY_zpuino_wb_waveform_generator"
 "BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag"
+"BENCHY_zpuino_wb_waveform_generator"
 }
 ".Papilio Clocks"
 {
@@ -25,6 +25,7 @@
 "Wing_Audio"
 "Wing_GPIO"
 "Wing_VGA8"
+"Wing_Analog"
 }
 ".Papilio Peripherals - Standalone"
 {
@@ -39,13 +40,13 @@
 "AUDIO_zpuino_wb_pokey"
 "AUDIO_zpuino_wb_sid6581"
 "AUDIO_zpuino_wb_YM2149"
-"COMM_zpuino_wb_SPI"
 "COMM_zpuino_wb_UART"
 "MISC_zpuino_wb_SevenSeg"
 "TEMPLATE_zpuino_wb_Wishbone"
 "VIDEO_zpuino_wb_char_ram_8x8_sp"
 "VIDEO_zpuino_wb_vga_hqvga"
 "Wishbone_Empty_Slot"
+"COMM_zpuino_wb_SPI"
 }
 ".Papilio Soft Processors"
 {
