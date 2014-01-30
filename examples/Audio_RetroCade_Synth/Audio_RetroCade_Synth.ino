@@ -21,6 +21,10 @@ http://www.gadgetfactory.net
 License: GPL
 
 ChangeLog:
+1/29/2014      Version 1.2
+        -Moved to Papilio Schematic Library and drew up a schematic of the RetroCade system.
+        -Added Analog mode to the LCD.
+
 9/26/2013       Version 1.1
         -Added SID Analog Filters!!!!!!!!  Thanks to Alvie for writing the VHDL code.
         -Added SidPlayer library to process SID files from smallFS and SD Cards. Thanks to Alvie for porting to the ZPUino.
@@ -124,6 +128,10 @@ void setup(){
   //Setup pins for RetroCade MegaWing
   retrocade.setupMegaWing(); 
   
+  //Set Wishbone slots for audio chips
+  retrocade.sid.setup(14);
+  retrocade.ym2149.setup(13);
+  
   ///Give some volume
   retrocade.ym2149.V1.setVolume(11);
   retrocade.ym2149.V2.setVolume(11);
@@ -152,7 +160,7 @@ void setup(){
   //retrocade.sidplayer.loadFile("music.sid");
   //retrocade.sidplayer.play(true);
   
-  analog.begin(CS(WING_C_9),WISHBONESLOT(8),ADCBITS(SPIADC_12BIT));
+  //analog.begin(CS(WING_C_9),WISHBONESLOT(8),ADCBITS(SPIADC_8BIT));
 
 }
 
@@ -385,12 +393,15 @@ void loop(){
   if (retrocade.modplayer.getPlaying() == 1)
     retrocade.modplayer.audiofill();
   else
+  {
     retrocade.spaceInvadersLCD();          //Don't move the space invader when a mod file is playing
+     
+  }
   if (retrocade.ymplayer.getPlaying() == 1)
-    retrocade.ymplayer.audiofill(); 
-  retrocade.handleJoystick(); 
-  retrocade.sidplayer.audiofill();
-  delay(100); 
-  Serial.println(analog.read(1)); 
+    retrocade.ymplayer.audiofill();
+  if (retrocade.sidplayer.getPlaying() == 1)
+    retrocade.sidplayer.audiofill(); 
+  retrocade.handleJoystick();
+  retrocade.updateAnalog();  
 }
 

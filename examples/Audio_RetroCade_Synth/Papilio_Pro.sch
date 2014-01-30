@@ -34,19 +34,13 @@
         <signal name="WING_BH5" />
         <signal name="WING_BH6" />
         <signal name="WING_BH7" />
-        <signal name="WING_CL2">
-        </signal>
-        <signal name="WING_CL3">
-        </signal>
-        <signal name="WING_CL4">
-        </signal>
+        <signal name="WING_CL2" />
+        <signal name="WING_CL3" />
+        <signal name="WING_CL4" />
         <signal name="WING_CL5" />
-        <signal name="WING_CL6">
-        </signal>
-        <signal name="WING_CL7">
-        </signal>
-        <signal name="WING_CH0">
-        </signal>
+        <signal name="WING_CL6" />
+        <signal name="WING_CL7" />
+        <signal name="WING_CH0" />
         <signal name="WING_CH1" />
         <signal name="WING_CH2" />
         <signal name="WING_CH3" />
@@ -101,7 +95,6 @@
         <signal name="XLXN_330(7:0)" />
         <signal name="XLXN_329(7:0)" />
         <signal name="XLXN_484(17:0)" />
-        <signal name="XLXN_488" />
         <signal name="WING_CL1" />
         <signal name="WING_CL0" />
         <signal name="XLXN_504" />
@@ -147,7 +140,13 @@
         <port polarity="BiDirectional" name="WING_BH5" />
         <port polarity="BiDirectional" name="WING_BH6" />
         <port polarity="BiDirectional" name="WING_BH7" />
+        <port polarity="Output" name="WING_CL2" />
+        <port polarity="Input" name="WING_CL3" />
+        <port polarity="Output" name="WING_CL4" />
         <port polarity="BiDirectional" name="WING_CL5" />
+        <port polarity="Output" name="WING_CL6" />
+        <port polarity="Input" name="WING_CL7" />
+        <port polarity="Output" name="WING_CH0" />
         <port polarity="BiDirectional" name="WING_CH1" />
         <port polarity="BiDirectional" name="WING_CH2" />
         <port polarity="BiDirectional" name="WING_CH3" />
@@ -410,10 +409,9 @@
             <line x2="384" y1="-32" y2="-32" x1="320" />
         </blockdef>
         <blockdef name="COMM_zpuino_wb_SPI">
-            <timestamp>2013-12-13T18:37:27</timestamp>
-            <rect width="112" x="64" y="-224" height="224" />
+            <timestamp>2014-1-28T22:49:29</timestamp>
+            <rect width="112" x="64" y="-224" height="160" />
             <line x2="0" y1="-192" y2="-192" x1="64" />
-            <line x2="240" y1="-32" y2="-32" x1="176" />
             <line x2="240" y1="-96" y2="-96" x1="176" />
             <line x2="240" y1="-160" y2="-160" x1="176" />
             <line x2="112" y1="-272" y2="-224" x1="112" />
@@ -615,7 +613,6 @@
         </block>
         <block symbolname="COMM_zpuino_wb_SPI" name="XLXI_61">
             <blockpin signalname="WING_CL3" name="miso" />
-            <blockpin name="enabled" />
             <blockpin signalname="WING_CL2" name="sck" />
             <blockpin signalname="WING_CL4" name="mosi" />
             <blockpin signalname="XLXN_517(61:0)" name="wishbone_in(61:0)" />
@@ -623,7 +620,6 @@
         </block>
         <block symbolname="COMM_zpuino_wb_SPI" name="XLXI_62">
             <blockpin signalname="WING_CL7" name="miso" />
-            <blockpin name="enabled" />
             <blockpin signalname="WING_CL6" name="sck" />
             <blockpin signalname="WING_CH0" name="mosi" />
             <blockpin signalname="XLXN_519(61:0)" name="wishbone_in(61:0)" />
@@ -1093,10 +1089,16 @@
             <wire x2="2784" y1="3008" y2="3008" x1="2272" />
         </branch>
         <instance x="2272" y="3072" name="XLXI_63" orien="R270" />
-        <text style="fontsize:64;fontname:Arial" x="1120" y="1228">ADC1</text>
-        <text style="fontsize:64;fontname:Arial" x="1556" y="1744">ADC2</text>
         <text style="fontsize:64;fontname:Arial" x="2836" y="1352">MIDI UART</text>
-        <text style="fontsize:40;fontname:Arial" x="1016" y="1284">CS is WING_CL5 (C5)</text>
-        <text style="fontsize:40;fontname:Arial" x="1452" y="1804">CS is WING_CH1 (C9)</text>
+        <iomarker fontsize="28" x="1376" y="1440" name="WING_CL7" orien="R180" />
+        <iomarker fontsize="28" x="1920" y="1472" name="WING_CH0" orien="R0" />
+        <iomarker fontsize="28" x="1920" y="1536" name="WING_CL6" orien="R0" />
+        <iomarker fontsize="28" x="1440" y="1024" name="WING_CL2" orien="R0" />
+        <iomarker fontsize="28" x="1440" y="960" name="WING_CL4" orien="R0" />
+        <iomarker fontsize="28" x="944" y="928" name="WING_CL3" orien="R180" />
+        <text style="fontsize:40;fontname:Arial" x="1004" y="1220">CS is WING_CL5 (C5)</text>
+        <text style="fontsize:64;fontname:Arial" x="1108" y="1164">ADC2</text>
+        <text style="fontsize:64;fontname:Arial" x="1564" y="1684">ADC1</text>
+        <text style="fontsize:40;fontname:Arial" x="1460" y="1744">CS is WING_CH1 (C9)</text>
     </sheet>
 </drawing>

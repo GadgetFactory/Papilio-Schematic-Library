@@ -84,6 +84,7 @@ class RETROCADE
    boolean sdFsActive();
    boolean smallFsActive();
    void spaceInvadersLCD();
+   void updateAnalog(); 
   private:
    void initSD();
    int fileExtension(const char* name, const char* extension, size_t length);
@@ -91,13 +92,17 @@ class RETROCADE
    void instrumentJoystick();
    void modFileJoystick();
    void ymFileJoystick(); 
-   void sidFileJoystick(); 
+   void sidFileJoystick();
+   void analogJoystick();
+   void channelJoystick();
+   void welcomeJoystick();
+   void aboutJoystick();
    byte lcdMode;
    kButtonDirection buttonPressed;
-   byte activeChannel;
+   byte activeChannel, analogChannel;
    int activeInstrument;
    byte smallfsActiveTrack;
-   unsigned long timeout;
+   unsigned long timeout, analogTimeout;
    boolean smallFs;
    boolean sdFs;
    byte invadersCurLoc;

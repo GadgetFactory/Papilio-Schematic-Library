@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.6
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_Pro.vhf
--- /___/   /\     Timestamp : 01/28/2014 08:57:37
+-- /___/   /\     Timestamp : 01/28/2014 16:32:09
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family spartan6 -flat -suppress -vhdl C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Audio_RetroCade_Synth/LX9/Papilio_Pro.vhf -w C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Audio_RetroCade_Synth/Papilio_Pro.sch
+--Command: sch2hdl -sympath C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Audio_RetroCade_Synth/LX9 -intstyle ise -family spartan6 -flat -suppress -vhdl C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Audio_RetroCade_Synth/LX9/Papilio_Pro.vhf -w C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Audio_RetroCade_Synth/Papilio_Pro.sch
 --Design Name: Papilio_Pro
 --Device: spartan6
 --Purpose:
@@ -30,6 +30,8 @@ entity Papilio_Pro is
           RXD        : in    std_logic; 
           SPI_MISO   : in    std_logic; 
           WING_CL1   : in    std_logic; 
+          WING_CL3   : in    std_logic; 
+          WING_CL7   : in    std_logic; 
           DRAM_ADDR  : out   std_logic_vector (12 downto 0); 
           DRAM_BA    : out   std_logic_vector (1 downto 0); 
           DRAM_CAS_N : out   std_logic; 
@@ -47,7 +49,11 @@ entity Papilio_Pro is
           WING_BL1   : out   std_logic; 
           WING_BL2   : out   std_logic; 
           WING_BL3   : out   std_logic; 
+          WING_CH0   : out   std_logic; 
           WING_CL0   : out   std_logic; 
+          WING_CL2   : out   std_logic; 
+          WING_CL4   : out   std_logic; 
+          WING_CL6   : out   std_logic; 
           DRAM_DQ    : inout std_logic_vector (15 downto 0); 
           SPI_CS     : inout std_logic; 
           WING_AH0   : inout std_logic; 
@@ -90,12 +96,6 @@ end Papilio_Pro;
 
 architecture BEHAVIORAL of Papilio_Pro is
    attribute BOX_TYPE   : string ;
-   signal WING_CH0                                  : std_logic;
-   signal WING_CL2                                  : std_logic;
-   signal WING_CL3                                  : std_logic;
-   signal WING_CL4                                  : std_logic;
-   signal WING_CL6                                  : std_logic;
-   signal WING_CL7                                  : std_logic;
    signal XLXN_329                                  : std_logic_vector (7 
          downto 0);
    signal XLXN_330                                  : std_logic_vector (7 
@@ -347,7 +347,6 @@ architecture BEHAVIORAL of Papilio_Pro is
    
    component COMM_zpuino_wb_SPI
       port ( miso         : in    std_logic; 
-             enabled      : out   std_logic; 
              sck          : out   std_logic; 
              mosi         : out   std_logic; 
              wishbone_in  : in    std_logic_vector (61 downto 0); 
@@ -552,7 +551,6 @@ begin
    XLXI_61 : COMM_zpuino_wb_SPI
       port map (miso=>WING_CL3,
                 wishbone_in(61 downto 0)=>XLXN_517(61 downto 0),
-                enabled=>open,
                 mosi=>WING_CL4,
                 sck=>WING_CL2,
                 wishbone_out(33 downto 0)=>XLXN_518(33 downto 0));
@@ -560,7 +558,6 @@ begin
    XLXI_62 : COMM_zpuino_wb_SPI
       port map (miso=>WING_CL7,
                 wishbone_in(61 downto 0)=>XLXN_519(61 downto 0),
-                enabled=>open,
                 mosi=>WING_CH0,
                 sck=>WING_CL6,
                 wishbone_out(33 downto 0)=>XLXN_520(33 downto 0));
