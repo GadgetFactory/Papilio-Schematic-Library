@@ -1,9 +1,15 @@
-Papilio Schematic Library - Schematic System on Chip (Source Code) - Current Version 1.5
+Papilio Schematic Library - Schematic System on Chip (Source Code) - Current Version 1.6
 
 Papilio SOC Home Page
 http://papilio.cc
 
 CHANGELOG
+1/30/2014 Version 1.6
+	-Moved libraries into sketch folder so sketches can be saved in any location
+	-JTAG Logic Analyzer Example
+	-Analog Wing Example
+	-Updated RetroCade Synth example with support for Analog readout
+
 1/16/2014 Version 1.5
 	-Re-arranged folder structure so PSL can plug right into the examples section of the ZAP IDE.
 	-Added URLs to all sketches that point to the pdf version of the schematic, bit file, and ISE project.
