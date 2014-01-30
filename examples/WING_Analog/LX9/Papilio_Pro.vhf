@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.6
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_Pro.vhf
--- /___/   /\     Timestamp : 01/28/2014 16:11:04
+-- /___/   /\     Timestamp : 01/30/2014 14:20:27
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -sympath C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/WING_Analog/LX9 -intstyle ise -family spartan6 -flat -suppress -vhdl C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/WING_Analog/LX9/Papilio_Pro.vhf -w C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/WING_Analog/Papilio_Pro.sch
+--Command: sch2hdl -intstyle ise -family spartan6 -flat -suppress -vhdl C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/WING_Analog/LX9/Papilio_Pro.vhf -w C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/WING_Analog/Papilio_Pro.sch
 --Design Name: Papilio_Pro
 --Device: spartan6
 --Purpose:
@@ -95,6 +95,7 @@ entity Papilio_Pro is
 end Papilio_Pro;
 
 architecture BEHAVIORAL of Papilio_Pro is
+   attribute brams      : string ;
    signal XLXN_329                                  : std_logic_vector (7 
          downto 0);
    signal XLXN_330                                  : std_logic_vector (7 
@@ -159,11 +160,16 @@ architecture BEHAVIORAL of Papilio_Pro is
          downto 0);
    signal XLXN_472                                  : std_logic_vector (33 
          downto 0);
-   signal XLXN_473                                  : std_logic;
-   signal XLXN_474                                  : std_logic;
-   signal XLXN_475                                  : std_logic;
+   signal XLXN_476                                  : std_logic;
+   signal XLXN_477                                  : std_logic;
+   signal XLXN_478                                  : std_logic;
+   signal XLXN_479                                  : std_logic;
    signal XLXI_28_wishbone_slot_video_in_openSignal : std_logic_vector (63 
          downto 0);
+   signal XLXI_48_la4_openSignal                    : std_logic;
+   signal XLXI_48_la5_openSignal                    : std_logic;
+   signal XLXI_48_la6_openSignal                    : std_logic;
+   signal XLXI_48_la7_openSignal                    : std_logic;
    component Wing_GPIO
       port ( wt_miso : inout std_logic_vector (7 downto 0); 
              wt_mosi : inout std_logic_vector (7 downto 0));
@@ -302,6 +308,19 @@ architecture BEHAVIORAL of Papilio_Pro is
              miso    : out   std_logic);
    end component;
    
+   component BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag
+      port ( clk_32Mhz : in    std_logic; 
+             la0       : in    std_logic; 
+             la1       : in    std_logic; 
+             la2       : in    std_logic; 
+             la3       : in    std_logic; 
+             la4       : in    std_logic; 
+             la5       : in    std_logic; 
+             la6       : in    std_logic; 
+             la7       : in    std_logic);
+   end component;
+   
+   attribute brams of XLXI_48 : label is "12";
 begin
    XLXI_24 : Wing_GPIO
       port map (wt_miso(7 downto 0)=>XLXN_329(7 downto 0),
@@ -335,7 +354,7 @@ begin
                 wishbone_slot_12_out(33 downto 0)=>XLXN_435(33 downto 0),
                 wishbone_slot_13_out(33 downto 0)=>XLXN_433(33 downto 0),
                 wishbone_slot_14_out(33 downto 0)=>XLXN_431(33 downto 0),
-                clk_osc_32Mhz=>open,
+                clk_osc_32Mhz=>XLXN_476,
                 clk_1Mhz=>open,
                 clk_96Mhz=>open,
                 DRAM_ADDR(12 downto 0)=>DRAM_ADDR(12 downto 0),
@@ -463,10 +482,10 @@ begin
                 wishbone_out(33 downto 0)=>XLXN_470(33 downto 0));
    
    XLXI_45 : COMM_zpuino_wb_SPI
-      port map (miso=>XLXN_475,
+      port map (miso=>XLXN_478,
                 wishbone_in(61 downto 0)=>XLXN_471(61 downto 0),
-                mosi=>XLXN_474,
-                sck=>XLXN_473,
+                mosi=>XLXN_479,
+                sck=>XLXN_477,
                 wishbone_out(33 downto 0)=>XLXN_472(33 downto 0));
    
    XLXI_46 : Wing_GPIO
@@ -474,11 +493,22 @@ begin
                 wt_mosi(7 downto 0)=>XLXN_466(7 downto 0));
    
    XLXI_47 : Wing_Analog
-      port map (mosi=>XLXN_474,
-                sck=>XLXN_473,
-                miso=>XLXN_475,
+      port map (mosi=>XLXN_479,
+                sck=>XLXN_477,
+                miso=>XLXN_478,
                 wt_miso(7 downto 0)=>XLXN_467(7 downto 0),
                 wt_mosi(7 downto 0)=>XLXN_468(7 downto 0));
+   
+   XLXI_48 : BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag
+      port map (clk_32Mhz=>XLXN_476,
+                la0=>XLXN_477,
+                la1=>XLXN_478,
+                la2=>XLXN_479,
+                la3=>WING_CH4,
+                la4=>XLXI_48_la4_openSignal,
+                la5=>XLXI_48_la5_openSignal,
+                la6=>XLXI_48_la6_openSignal,
+                la7=>XLXI_48_la7_openSignal);
    
 end BEHAVIORAL;
 

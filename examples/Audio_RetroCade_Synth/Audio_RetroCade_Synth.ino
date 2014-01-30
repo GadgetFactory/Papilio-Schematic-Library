@@ -1,29 +1,69 @@
 /*
-Gadget Factory
-RetroCade Synthesizer
-This example will let you play the YM2149 and SID audio chip integrated into the ZPUino Soft Processor using a MIDI instrument such as a keyboard or guitar.
-To learn more about this example visit its home page at the Papilio RetroCade Wiki:
-http://retrocade.gadgetfactory.net
+ Gadget Factory
+ RetroCade Synth
+ To learn more about the Papilio Schematic Library please visit http://learn.gadgetfactory.net
+ 
+ To use this sketch do the following steps:
+ 1)
+ Load the bit file that defines the circuit required by this sketch by clicking on the bit file link below that corresponds to the type of Papilio board you have. 
+ You should see the Papilio Loader pop up and program the circuit for this example to your Papilio Board. 
+ IMPORTANT NOTE: Please be sure that you are programming the bit file to SPI Flash. ZPUino will not work if written to FPGA only.
+ 
+ 2)
+ Make sure you have selected the correct ZPUino board type and com port, the Papilio always uses channel B of the FT2232 so it is usually the second com port you see.
+ The board type should be ZPUino Vanilla or Hyperion depending on what the schematic shows, or look at the Board Type section below.
+ Be sure to select the board type for the type of Papilio you have.
+ 
+ 3)
+ Make sure you have the required hardware attached to your Papilio, look at the schematic to see what is required. Or look at the Hardware section below.
+ You can open a PDF showing the circuit defined in the bit file by selecting the appropriate link to view the scheamtic for the type of Papilio board you have.
 
-To learn more about the Papilio and Gadget Factory products visit:
-http://www.GadgetFactory.net
+ 4)
+ Run the sketch, it should communicate with the ZPUino included in the bit file you loaded earlier. 
+ 
+ If you want to modify the circuit then make sure you have Xilinx ISE Webpack installed and click on the appropriate link below to modify the schematic.
+ If you do not have Xilinx ISE Webpack installed visit this tutorial to learn how. http://gadgetfactory.net/learn/2013/10/23/install-xilinxs-free-ise-webpack/
+ 
+ If the links below do not work then then open the sketch directory from Sketch/Show Sketch Folder (Ctl-K) and manually access the files defined in the links below.
+ 
+ Papilio Pro
+   Click to program bit file: sketchdir://LX9/papilio_pro.bit
+   Click to view schematic:   sketchdir://schematic_papilio_pro.pdf
+   Click to modify schematic: sketchdir://PSL_Papilio_Pro_LX9.xise
 
-Hardware:
-* Connect a RetroCade MegaWing
+ Tutorials:
+   http://gadgetfactory.net/learn/2013/10/29/papilio-schematic-library-getting-started/
+  
+ Related library documentation:
 
-*******IMPORTANT********************
-Be sure to load the ZPUino "RetroCade" variant to the Papilio's SPI Flash before loading this sketch.
+ Hardware:
+   This example circuit is wired for an Audio Wing connected to CH, to use with any of the other hardware click the link to modify the schematic to adjust for your hardware.
+ 
+ Board Type:
+   ZPUino Vanilla Variant for your hardware type
+   
+ Special Application Notes:
+    Click on the link below to open the RetroCade Dashboard (Windows Only)
+      sketchdir://Dashboards/FlowStone/RetroCade_Synth_DashBoard.exe
 
-created 2012
-by Jack Gassett
-http://www.gadgetfactory.net
-
+    Click on the link below to load the latest production RetroCade bit file with all of the sample audio files
+      sketchdir://RetroCade-1.1-zpuino-1.0-PapilioPro-S6LX9-RetroCade-1.1.bit
+      
+    NOTE: If you want all of the production samples available when you load this sketch to the RetroCade first load the production bit file to your board and then hold down the left shift key before uploading. 
+    This will cause the program to be loaded directly to SDRAM and will not wipe out the samples in SPI Flash.
+    
+ created 2014
+ by Jack Gassett
+ http://www.gadgetfactory.net
+ 
+ This example code is in the public domain.
 License: GPL
 
 ChangeLog:
 1/29/2014      Version 1.2
         -Moved to Papilio Schematic Library and drew up a schematic of the RetroCade system.
         -Added Analog mode to the LCD.
+        -Made joystick interaction for smallFS more intuitive. Cannot do the same for SD Card access without a lot of rework...
 
 9/26/2013       Version 1.1
         -Added SID Analog Filters!!!!!!!!  Thanks to Alvie for writing the VHDL code.

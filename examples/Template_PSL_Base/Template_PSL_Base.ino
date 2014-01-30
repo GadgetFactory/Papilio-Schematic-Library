@@ -51,6 +51,8 @@
  
  Board Type:
    ZPUino Vanilla Variant for your hardware type
+   
+ Special Application Notes:
 
  created 2014
  by Jack Gassett

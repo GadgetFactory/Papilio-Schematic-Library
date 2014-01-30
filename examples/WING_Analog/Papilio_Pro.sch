@@ -107,6 +107,10 @@
         <signal name="XLXN_473" />
         <signal name="XLXN_474" />
         <signal name="XLXN_475" />
+        <signal name="XLXN_476" />
+        <signal name="XLXN_477" />
+        <signal name="XLXN_478" />
+        <signal name="XLXN_479" />
         <port polarity="BiDirectional" name="WING_AL0" />
         <port polarity="BiDirectional" name="WING_AL1" />
         <port polarity="BiDirectional" name="WING_AL2" />
@@ -357,6 +361,19 @@
             <line x2="0" y1="64" y2="64" x1="64" />
             <line x2="64" y1="32" y2="32" x1="0" />
         </blockdef>
+        <blockdef name="BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag">
+            <timestamp>2014-1-27T21:6:14</timestamp>
+            <rect width="668" x="64" y="-416" height="416" />
+            <line x2="0" y1="-384" y2="-384" x1="64" />
+            <line x2="0" y1="-256" y2="-256" x1="64" />
+            <line x2="0" y1="-224" y2="-224" x1="64" />
+            <line x2="0" y1="-192" y2="-192" x1="64" />
+            <line x2="0" y1="-160" y2="-160" x1="64" />
+            <line x2="0" y1="-128" y2="-128" x1="64" />
+            <line x2="0" y1="-96" y2="-96" x1="64" />
+            <line x2="0" y1="-64" y2="-64" x1="64" />
+            <line x2="0" y1="-32" y2="-32" x1="64" />
+        </blockdef>
         <block symbolname="ZPUino_Papilio_Pro_V1" name="XLXI_28">
             <blockpin signalname="XLXN_408(147:0)" name="gpio_bus_out(147:0)" />
             <blockpin signalname="XLXN_409(97:0)" name="gpio_bus_in(97:0)" />
@@ -366,7 +383,7 @@
             <blockpin signalname="SPI_SCK" name="SPI_SCK" />
             <blockpin name="clk_96Mhz" />
             <blockpin name="clk_1Mhz" />
-            <blockpin name="clk_osc_32Mhz" />
+            <blockpin signalname="XLXN_476" name="clk_osc_32Mhz" />
             <blockpin signalname="DRAM_DQ(15:0)" name="DRAM_DQ(15:0)" />
             <blockpin signalname="LED" name="LED" />
             <blockpin signalname="DRAM_CAS_N" name="DRAM_CAS_N" />
@@ -512,9 +529,9 @@
             <blockpin signalname="XLXN_335(7:0)" name="WingType_miso_AL(7:0)" />
         </block>
         <block symbolname="COMM_zpuino_wb_SPI" name="XLXI_45">
-            <blockpin signalname="XLXN_475" name="miso" />
-            <blockpin signalname="XLXN_473" name="sck" />
-            <blockpin signalname="XLXN_474" name="mosi" />
+            <blockpin signalname="XLXN_478" name="miso" />
+            <blockpin signalname="XLXN_477" name="sck" />
+            <blockpin signalname="XLXN_479" name="mosi" />
             <blockpin signalname="XLXN_471(61:0)" name="wishbone_in(61:0)" />
             <blockpin signalname="XLXN_472(33:0)" name="wishbone_out(33:0)" />
         </block>
@@ -525,13 +542,29 @@
         <block symbolname="Wing_Analog" name="XLXI_47">
             <blockpin signalname="XLXN_467(7:0)" name="wt_miso(7:0)" />
             <blockpin signalname="XLXN_468(7:0)" name="wt_mosi(7:0)" />
-            <blockpin signalname="XLXN_473" name="sck" />
-            <blockpin signalname="XLXN_474" name="mosi" />
-            <blockpin signalname="XLXN_475" name="miso" />
+            <blockpin signalname="XLXN_477" name="sck" />
+            <blockpin signalname="XLXN_479" name="mosi" />
+            <blockpin signalname="XLXN_478" name="miso" />
         </block>
         <block symbolname="Wishbone_Empty_Slot" name="XLXI_40">
             <blockpin signalname="XLXN_469(61:0)" name="wishbone_in(61:0)" />
             <blockpin signalname="XLXN_470(33:0)" name="wishbone_out(33:0)" />
+        </block>
+        <block symbolname="BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag" name="XLXI_48">
+            <attr value="12" name="brams">
+                <trait verilog="all:0 wsynth:1" />
+                <trait vhdl="all:0 wa:1 wd:1" />
+                <trait valuetype="Integer" />
+            </attr>
+            <blockpin signalname="XLXN_476" name="clk_32Mhz" />
+            <blockpin signalname="XLXN_477" name="la0" />
+            <blockpin signalname="XLXN_478" name="la1" />
+            <blockpin signalname="XLXN_479" name="la2" />
+            <blockpin signalname="WING_CH4" name="la3" />
+            <blockpin name="la4" />
+            <blockpin name="la5" />
+            <blockpin name="la6" />
+            <blockpin name="la7" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -927,23 +960,47 @@
         <branch name="XLXN_472(33:0)">
             <wire x2="752" y1="816" y2="2848" x1="752" />
         </branch>
-        <branch name="XLXN_473">
-            <wire x2="4176" y1="3024" y2="3024" x1="864" />
+        <instance x="624" y="3120" name="XLXI_45" orien="R0">
+        </instance>
+        <text style="fontsize:40;fontname:Arial" x="4120" y="3088">CS is WING_CH4 (WCH4)</text>
+        <instance x="2288" y="2448" name="XLXI_48" orien="R0">
+            <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="brams" x="352" y="-256" type="instance" />
+        </instance>
+        <branch name="XLXN_476">
+            <wire x2="5184" y1="1056" y2="1056" x1="2208" />
+            <wire x2="2208" y1="1056" y2="2064" x1="2208" />
+            <wire x2="2288" y1="2064" y2="2064" x1="2208" />
+            <wire x2="5184" y1="544" y2="544" x1="4704" />
+            <wire x2="5184" y1="544" y2="1056" x1="5184" />
+        </branch>
+        <branch name="XLXN_477">
+            <wire x2="1088" y1="3024" y2="3024" x1="864" />
+            <wire x2="4176" y1="3024" y2="3024" x1="1088" />
+            <wire x2="2288" y1="2192" y2="2192" x1="1088" />
+            <wire x2="1088" y1="2192" y2="3024" x1="1088" />
             <wire x2="4192" y1="2992" y2="2992" x1="4176" />
             <wire x2="4176" y1="2992" y2="3024" x1="4176" />
         </branch>
-        <branch name="XLXN_474">
-            <wire x2="4192" y1="2960" y2="2960" x1="864" />
-        </branch>
-        <instance x="624" y="3120" name="XLXI_45" orien="R0">
-        </instance>
-        <branch name="XLXN_475">
+        <branch name="XLXN_478">
             <wire x2="880" y1="2816" y2="2816" x1="560" />
             <wire x2="880" y1="2816" y2="2928" x1="880" />
-            <wire x2="4192" y1="2928" y2="2928" x1="880" />
+            <wire x2="1216" y1="2928" y2="2928" x1="880" />
+            <wire x2="4192" y1="2928" y2="2928" x1="1216" />
             <wire x2="560" y1="2816" y2="2928" x1="560" />
             <wire x2="624" y1="2928" y2="2928" x1="560" />
+            <wire x2="2288" y1="2224" y2="2224" x1="1216" />
+            <wire x2="1216" y1="2224" y2="2928" x1="1216" />
         </branch>
-        <text style="fontsize:40;fontname:Arial" x="4120" y="3088">CS is WING_CH4 (WCH4)</text>
+        <branch name="XLXN_479">
+            <wire x2="1296" y1="2960" y2="2960" x1="864" />
+            <wire x2="4192" y1="2960" y2="2960" x1="1296" />
+            <wire x2="2288" y1="2256" y2="2256" x1="1296" />
+            <wire x2="1296" y1="2256" y2="2960" x1="1296" />
+        </branch>
+        <branch name="WING_CH4">
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="2080" y="2288" type="branch" />
+            <wire x2="2080" y1="2288" y2="2288" x1="2016" />
+            <wire x2="2288" y1="2288" y2="2288" x1="2080" />
+        </branch>
     </sheet>
 </drawing>
