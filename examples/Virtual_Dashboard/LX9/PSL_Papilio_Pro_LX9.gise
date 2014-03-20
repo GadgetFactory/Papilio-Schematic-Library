@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="../PSL_Papilio_Pro_LX9.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="Papilio_Pro.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="Papilio_Pro.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="Papilio_Pro.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="Papilio_Pro.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="Papilio_Pro.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="Papilio_Pro.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="Papilio_Pro.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="Papilio_Pro.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="Papilio_Pro.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="Papilio_Pro.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Papilio_Pro.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="Papilio_Pro.ptwx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="Papilio_Pro.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="Papilio_Pro.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="Papilio_Pro.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="Papilio_Pro.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="Papilio_Pro.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="Papilio_Pro.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_VHDL" xil_pn:name="Papilio_Pro.vhf"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="Papilio_Pro.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="Papilio_Pro.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="Papilio_Pro_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="Papilio_Pro_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="Papilio_Pro_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="Papilio_Pro_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="Papilio_Pro_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="Papilio_Pro_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="Papilio_Pro_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="Papilio_Pro_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="Papilio_Pro_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="Papilio_Pro_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="Papilio_Pro_par.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="Papilio_Pro_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="Papilio_Pro_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="Papilio_Pro_usage.xml"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="Papilio_Pro_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="papilio_pro.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="papilio_pro.bit" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="papilio_pro.drc" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1395096616" xil_pn:in_ck="3796803435332323706" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="1308008871266152066" xil_pn:start_ts="1395096613">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Papilio_Pro.vhf"/>
+    </transform>
+    <transform xil_pn:end_ts="1395096616" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="1793496984414334168" xil_pn:start_ts="1395096616">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1395096617" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1395096616">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1395096617" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-3351209080782861820" xil_pn:start_ts="1395096617">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1395096617" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="250970745955965653" xil_pn:start_ts="1395096617">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1395096617" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-7650485777342803806" xil_pn:start_ts="1395096617">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1395099596" xil_pn:in_ck="-7940532908168285953" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="5900182979643023370" xil_pn:start_ts="1395099518">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="Papilio_Pro.lso"/>
+      <outfile xil_pn:name="Papilio_Pro.ngc"/>
+      <outfile xil_pn:name="Papilio_Pro.ngr"/>
+      <outfile xil_pn:name="Papilio_Pro.prj"/>
+      <outfile xil_pn:name="Papilio_Pro.stx"/>
+      <outfile xil_pn:name="Papilio_Pro.syr"/>
+      <outfile xil_pn:name="Papilio_Pro.xst"/>
+      <outfile xil_pn:name="Papilio_Pro_xst.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1395096695" xil_pn:in_ck="6668722401921334094" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-5860012888999441504" xil_pn:start_ts="1395096695">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1395099611" xil_pn:in_ck="-1791157774285151266" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-4153307758498369096" xil_pn:start_ts="1395099596">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Papilio_Pro.bld"/>
+      <outfile xil_pn:name="Papilio_Pro.ngd"/>
+      <outfile xil_pn:name="Papilio_Pro_ngdbuild.xrpt"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1395099712" xil_pn:in_ck="3749464320788701791" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1448924893915930207" xil_pn:start_ts="1395099611">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="Papilio_Pro.pcf"/>
+      <outfile xil_pn:name="Papilio_Pro_map.map"/>
+      <outfile xil_pn:name="Papilio_Pro_map.mrp"/>
+      <outfile xil_pn:name="Papilio_Pro_map.ncd"/>
+      <outfile xil_pn:name="Papilio_Pro_map.ngm"/>
+      <outfile xil_pn:name="Papilio_Pro_map.xrpt"/>
+      <outfile xil_pn:name="Papilio_Pro_summary.xml"/>
+      <outfile xil_pn:name="Papilio_Pro_usage.xml"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1395099775" xil_pn:in_ck="2954289874990705784" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-6780099238861732004" xil_pn:start_ts="1395099712">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Papilio_Pro.ncd"/>
+      <outfile xil_pn:name="Papilio_Pro.pad"/>
+      <outfile xil_pn:name="Papilio_Pro.par"/>
+      <outfile xil_pn:name="Papilio_Pro.ptwx"/>
+      <outfile xil_pn:name="Papilio_Pro.unroutes"/>
+      <outfile xil_pn:name="Papilio_Pro.xpi"/>
+      <outfile xil_pn:name="Papilio_Pro_pad.csv"/>
+      <outfile xil_pn:name="Papilio_Pro_pad.txt"/>
+      <outfile xil_pn:name="Papilio_Pro_par.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1395099807" xil_pn:in_ck="-839966634731061235" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1395099775">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Papilio_Pro.ut"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="papilio_pro.bgn"/>
+      <outfile xil_pn:name="papilio_pro.bit"/>
+      <outfile xil_pn:name="papilio_pro.drc"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1395099775" xil_pn:in_ck="-8189633354287388709" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1395099762">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Papilio_Pro.twr"/>
+      <outfile xil_pn:name="Papilio_Pro.twx"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+    </transform>
+  </transforms>
+
+</generated_project>
