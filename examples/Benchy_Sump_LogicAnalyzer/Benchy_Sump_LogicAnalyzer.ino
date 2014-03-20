@@ -41,7 +41,7 @@
  Related library documentation:
    
  Related Software:
-   Click here to open Jawi's Logic Analyzer client: sketchdir://ols-0.9.7/run.bat
+   Click here to open Jawi's Logic Analyzer client: tools://Logic_Analyzer.sh
    You must have Java installed and in the path.
    
  Hardware:
