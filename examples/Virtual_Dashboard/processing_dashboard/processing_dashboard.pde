@@ -1,8 +1,4 @@
-// Learning Processing
-// Daniel Shiffman
-// http://www.learningprocessing.com
 
-// Example 19-4: Client reading values as background color
 
 // Import the net libraries
 import processing.net.*;
@@ -18,9 +14,13 @@ int delim = 0xdd;
 byte[] byteBuffer = new byte[10];
 float[][] LIGHT = new float[8][2];
 int count;
+PImage bOn;
+PImage bOff;
+PImage bOnSmall;
+PImage bOffSmall;
 
 void setup() {
-  size(600, 400);
+  size(850, 600);
   colorMode(RGB, 255);
   background(255);
   fontA = loadFont("Ziggurat-HTF-Black-32.vlw");
@@ -40,6 +40,12 @@ void setup() {
   textSize(128);
   //textAlign(CENTER);
   fill(202, 35, 55);  
+  
+  //Load Buttons
+  bOff = loadImage("LED_Off1.png");
+  bOn = loadImage("LED_On_Green1.png");
+  bOffSmall = loadImage("LED_Off_small2.png");
+  bOnSmall = loadImage("LED_On_Green_small2.png");  
 }
 
 void draw() {
@@ -63,28 +69,35 @@ for (int x=7; x>=0; x--) {
   //println(byteBuffer[2] & 1);
   LIGHT[x][0] = byteBuffer[2] & 1;
   byteBuffer[2] = byte(byteBuffer[2] >> 1);
-  //x--;
+  if (LIGHT[x][0] == 1){
+    image(bOnSmall, x*30, 250);
+    image(bOn, x*100, 300);
+  }
+  else{
+    image(bOffSmall, x*30, 250);
+    image(bOff, x*100, 300);
+  }
 }   
   
-  for (int i = 0 ; i < 8 ; i++) {
-    for (int j = 0 ; j < 2 ; j++) {
-      if (LIGHT[i][j] % 4 == 1) {
-        fill(255, 0, 0);
-      } else if (LIGHT[i][j] % 4 == 2) {
-        fill(0, 255, 0);
-      } else if (LIGHT[i][j] % 4 == 3) {
-        fill(0, 0, 255);
-      } else if (LIGHT[i][j] % 4 == 0) {
-        fill(255);
-      }
-
-      ellipse((i * 20) + 10, (j * 20) + 10, 20, 20);
-    }
-  }  
+//  for (int i = 0 ; i < 8 ; i++) {
+//    for (int j = 0 ; j < 2 ; j++) {
+//      if (LIGHT[i][j] % 4 == 1) {
+//        fill(255, 0, 0);
+//      } else if (LIGHT[i][j] % 4 == 2) {
+//        fill(0, 255, 0);
+//      } else if (LIGHT[i][j] % 4 == 3) {
+//        fill(0, 0, 255);
+//      } else if (LIGHT[i][j] % 4 == 0) {
+//        fill(255);
+//      }
+//
+//      ellipse((i * 20) + 10, (j * 20) + 10, 20, 20);
+//    }
+//  }  
   
     fill(202, 35, 55);
     text(hex(data,2),0, 150);
     text(nf(data,3),300, 150);
   
-  delay(100);
+  delay(500);
 }

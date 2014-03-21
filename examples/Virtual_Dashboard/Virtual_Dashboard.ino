@@ -130,7 +130,7 @@ void loop() {
     counter == 0;
 //
 //  Serial.println("Hello");
-  delay(100);
+  delay(500);
 
   //bscanSerial.print("1");
 
