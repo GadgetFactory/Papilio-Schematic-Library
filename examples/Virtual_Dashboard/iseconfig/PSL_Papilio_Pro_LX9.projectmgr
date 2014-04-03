@@ -37,13 +37,13 @@
          <ClosedNode>/Utility C:|Dropbox|GadgetFactory|GadgetFactory_Engineering|Papilio-Schematic-Library|examples|experimental|Virtual_Dashboard|Libraries|ZPUino_1|Utility.sch</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Papilio_Pro (C:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/experimental/Virtual_Dashboard/Papilio_Pro.sch)</SelectedItem>
+         <SelectedItem>Papilio_Pro (C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Virtual_Dashboard/Papilio_Pro.sch)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >46</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000037c000000020000000000000000000000000200000064ffffffff0000008100000003000000020000037c0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Papilio_Pro (C:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/experimental/Virtual_Dashboard/Papilio_Pro.sch)</CurrentItem>
+      <CurrentItem>Papilio_Pro (C:/dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Virtual_Dashboard/Papilio_Pro.sch)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_SCHEMATIC" guiview="Process" >
       <ClosedNodes>
@@ -96,13 +96,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001d9000000010000000100000000000000000000000064ffffffff000000810000000000000001000001d90000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <SourceProcessView>000000ff0000000000000002000001390000011b01000000050100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
@@ -112,12 +112,12 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001d9000000010000000100000000000000000000000064ffffffff000000810000000000000001000001d90000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
 </Project>

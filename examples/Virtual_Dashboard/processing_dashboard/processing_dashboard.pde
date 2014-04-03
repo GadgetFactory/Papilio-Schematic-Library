@@ -18,9 +18,26 @@ PImage bOn;
 PImage bOff;
 PImage bOnSmall;
 PImage bOffSmall;
+PImage sOn;
+PImage sOff;
+
+PImage[] nixie = new PImage[12];
+
+//PImage nixie0;
+//PImage nixie1;
+//PImage nixie2;
+//PImage nixie3;
+//PImage nixie4;
+//PImage nixie5;
+//PImage nixie6;
+//PImage nixie7;
+//PImage nixie8;
+//PImage nixie9;
+//PImage nixie10;
+//PImage nixie11;
 
 void setup() {
-  size(850, 600);
+  size(900, 1000);
   colorMode(RGB, 255);
   background(255);
   fontA = loadFont("Ziggurat-HTF-Black-32.vlw");
@@ -45,7 +62,23 @@ void setup() {
   bOff = loadImage("LED_Off1.png");
   bOn = loadImage("LED_On_Green1.png");
   bOffSmall = loadImage("LED_Off_small2.png");
-  bOnSmall = loadImage("LED_On_Green_small2.png");  
+  bOnSmall = loadImage("LED_On_Green_small2.png"); 
+  sOff = loadImage("Switch_Off.png");
+  sOn = loadImage("Switch_On.png");  
+  
+  //Nixie images
+  nixie[0] = loadImage("nixie0.png");
+  nixie[1] = loadImage("nixie1.png");
+  nixie[2] = loadImage("nixie2.png");
+  nixie[3] = loadImage("nixie3.png");
+  nixie[4] = loadImage("nixie4.png");
+  nixie[5] = loadImage("nixie5.png");
+  nixie[6] = loadImage("nixie6.png");
+  nixie[7] = loadImage("nixie7.png");
+  nixie[8] = loadImage("nixie8.png");
+  nixie[9] = loadImage("nixie9.png");
+  nixie[10] = loadImage("nixie10.png");
+  nixie[11] = loadImage("nixie11.png");  
 }
 
 void draw() {
@@ -70,12 +103,14 @@ for (int x=7; x>=0; x--) {
   LIGHT[x][0] = byteBuffer[2] & 1;
   byteBuffer[2] = byte(byteBuffer[2] >> 1);
   if (LIGHT[x][0] == 1){
-    image(bOnSmall, x*30, 250);
-    image(bOn, x*100, 300);
+    image(bOnSmall, (x*100)+42, 160);
+    image(bOn, x*100, 200);
+    image(sOn, (x*100)+25, 350);
   }
   else{
-    image(bOffSmall, x*30, 250);
-    image(bOff, x*100, 300);
+    image(bOffSmall, (x*100)+42, 160);
+    image(bOff, x*100, 200);
+    image(sOff, (x*100)+25, 350);
   }
 }   
   
@@ -96,8 +131,15 @@ for (int x=7; x>=0; x--) {
 //  }  
   
     fill(202, 35, 55);
-    text(hex(data,2),0, 150);
-    text(nf(data,3),300, 150);
+    text(hex(data,2),475, 800);
+    text(nf(data,3),650, 800);
+    
+    String number = String.valueOf(nf(data,3));
+    for(int i = 0; i < number.length(); i++) {
+        int j = Character.digit(number.charAt(i), 10);
+        image(nixie[j], (i*150), 550);
+        //println("digit: " + j);
+    }    
   
   delay(500);
 }
