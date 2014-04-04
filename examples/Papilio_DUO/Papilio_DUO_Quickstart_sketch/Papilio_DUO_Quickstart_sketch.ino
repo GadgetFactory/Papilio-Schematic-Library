@@ -18,12 +18,12 @@
  */
 
 int ledPins[] = { 
-  0, 2, 4, 6, 8, 10, 12, 15, 17, 19, 21, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46  };       // an array of pin numbers to which LEDs are attached
-int ledCount = 24;           // the number of pins (i.e. the length of the array)
+  0, 2, 4, 6, 8, 10, 12, 15, 17, 19, 21, 22, 25, 26, 29, 30, 33, 34, 37, 38, 41, 42, 45, 46, 49, 50, 53  };       // an array of pin numbers to which LEDs are attached
+int ledCount = 27;           // the number of pins (i.e. the length of the array)
 
 int buttonPins[] = { 
-  1, 3, 5, 7, 9, 11, 13, 14, 16, 18, 20, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47 };       // an array of pin numbers to which Buttons are attached
-int buttonCount = 24;           // the number of pins (i.e. the length of the array)
+  1, 3, 5, 7, 9, 11, 13, 14, 16, 18, 20, 23, 24, 27, 28, 31, 32, 35, 36, 39, 40, 43, 44, 47, 48, 51, 52 };       // an array of pin numbers to which Buttons are attached
+int buttonCount = 27;           // the number of pins (i.e. the length of the array)
 
 
 

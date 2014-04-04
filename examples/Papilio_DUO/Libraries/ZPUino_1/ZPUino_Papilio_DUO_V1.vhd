@@ -67,8 +67,8 @@ entity ZPUino_Papilio_DUO_V1 is
     SPI_MOSI:   out std_logic;
     SPI_CS:     out std_logic;
 
-	 gpio_bus_in : in std_logic_vector(97 downto 0);
-	 gpio_bus_out : out std_logic_vector(147 downto 0);
+	 gpio_bus_in : in std_logic_vector(109 downto 0);
+	 gpio_bus_out : out std_logic_vector(165 downto 0);
 
     -- UART (FTDI) connection
     TXD:        out std_logic;
@@ -227,6 +227,7 @@ architecture behave of ZPUino_Papilio_DUO_V1 is
     sram_oe:    out std_logic
   );
   end component sram_ctrl8;  
+  
 
   signal sysrst:      std_logic;
   signal sysclk:      std_logic;
@@ -237,19 +238,21 @@ architecture behave of ZPUino_Papilio_DUO_V1 is
 --  signal gpio_o:      std_logic_vector(zpuino_gpio_count-1 downto 0);
 --  signal gpio_t:      std_logic_vector(zpuino_gpio_count-1 downto 0);
 --  signal gpio_i:      std_logic_vector(zpuino_gpio_count-1 downto 0);
-  signal gpio_o_reg:      std_logic_vector(48 downto 0);
+  signal gpio_o_reg:      std_logic_vector(54 downto 0);
 
-  constant spp_cap_in: std_logic_vector(48 downto 0) :=
-    "0" &                -- SPI CS 
-    "0000000000000000" &  -- Wing C
-    "0000000000000000" &  -- Wing B
-    "0000000000000000";   -- Wing A
+  constant spp_cap_in: std_logic_vector(54 downto 0) :=
+    "0" &                	-- SPI CS 
+	 "0000000000000000" &  	-- Wing D
+    "0000000000000000" &  	-- Wing C
+    "00000000" &  			-- Wing B
+    "00000000000000";   	-- Wing A
 
-  constant spp_cap_out: std_logic_vector(48 downto 0) :=
-    "0" &                -- SPI CS 
-    "0000000000000000" &  -- Wing C
-    "0000000000000000" &  -- Wing B
-    "0000000000000000";   -- Wing A
+  constant spp_cap_out: std_logic_vector(54 downto 0) :=
+    "0" &                	-- SPI CS 
+	 "0000000000000000" &  	-- Wing D
+    "0000000000000000" &  	-- Wing C
+    "00000000" &  			-- Wing B
+    "00000000000000";   	-- Wing A
 
 --  constant spp_cap_in: std_logic_vector(48 downto 0) :=
 --    "0" &                -- SPI CS 
@@ -449,8 +452,8 @@ architecture behave of ZPUino_Papilio_DUO_V1 is
 --  signal wishbone_slot_15_in_record  : wishbone_bus_in_type;
 --  signal wishbone_slot_15_out_record : wishbone_bus_out_type;  
 
-  signal gpio_bus_in_record : gpio_bus_in_type;
-  signal gpio_bus_out_record : gpio_bus_out_type;   
+  signal gpio_bus_in_record : gpio_bus_in_duo_type;
+  signal gpio_bus_out_record : gpio_bus_out_duo_type;   
   
   -- Papilio Note: Place your signal statements here. #Signal  
 
@@ -567,13 +570,13 @@ begin
   wishbone_slot_14_out_record.wb_ack_o <= wishbone_slot_14_out(1);
   wishbone_slot_14_out_record.wb_inta_o <= wishbone_slot_14_out(0); 
   
-  gpio_bus_in_record.gpio_spp_data <= gpio_bus_in(97 downto 49);
-  gpio_bus_in_record.gpio_i <= gpio_bus_in(48 downto 0);
+  gpio_bus_in_record.gpio_spp_data <= gpio_bus_in(109 downto 55);
+  gpio_bus_in_record.gpio_i <= gpio_bus_in(54 downto 0);
 
-  gpio_bus_out(147) <= gpio_bus_out_record.gpio_clk;
-  gpio_bus_out(146 downto 98) <= gpio_bus_out_record.gpio_o;
-  gpio_bus_out(97 downto 49) <= gpio_bus_out_record.gpio_t;
-  gpio_bus_out(48 downto 0) <= gpio_bus_out_record.gpio_spp_read;
+  gpio_bus_out(165) <= gpio_bus_out_record.gpio_clk;
+  gpio_bus_out(164 downto 110) <= gpio_bus_out_record.gpio_o;
+  gpio_bus_out(109 downto 55) <= gpio_bus_out_record.gpio_t;
+  gpio_bus_out(54 downto 0) <= gpio_bus_out_record.gpio_spp_read;
 
   gpio_bus_out_record.gpio_o <= gpio_o_reg;
   gpio_bus_out_record.gpio_clk <= sysclk;
@@ -985,7 +988,7 @@ begin
 
   gpio_inst: zpuino_gpio
   generic map (
-    gpio_count => 49
+    gpio_count => 55
   )
   port map (
     wb_clk_i      => wb_clk_i,

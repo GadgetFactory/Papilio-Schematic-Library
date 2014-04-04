@@ -46,10 +46,6 @@ NET WING_AH3         LOC="P132" | IOSTANDARD=LVTTL;                             
 NET WING_AH4         LOC="P133" | IOSTANDARD=LVTTL;                                # A12
 NET WING_AH5         LOC="P134" | IOSTANDARD=LVTTL;                                # A13
 
-#This is actually D0-1
-NET WING_AH6     LOC="P98"  | IOSTANDARD=LVTTL | SLEW = FAST | DRIVE = 8;                                # A14
-NET WING_AH7     LOC="P95" | IOSTANDARD=LVTTL | SLEW = FAST | DRIVE = 8;                                # A15
-
 NET WING_BL0          LOC="P115" | IOSTANDARD=LVTTL;                                # B0
 NET WING_BL1          LOC="P114" | IOSTANDARD=LVTTL;                                # B1
 NET WING_BL2          LOC="P112" | IOSTANDARD=LVTTL;                                # B2
@@ -57,17 +53,7 @@ NET WING_BL3          LOC="P111" | IOSTANDARD=LVTTL;                            
 NET WING_BL4          LOC="P105" | IOSTANDARD=LVTTL;                                # B4
 NET WING_BL5          LOC="P102" | IOSTANDARD=LVTTL;                                # B5
 NET WING_BL6          LOC="P101" | IOSTANDARD=LVTTL;                                # B6
-NET WING_BL7          LOC="P100" | IOSTANDARD=LVTTL;                                # B7
-
-#This is actually D2-9
-NET WING_BH0     LOC="P92"  | IOSTANDARD=LVTTL | SLEW = FAST | DRIVE = 8;                                # B8
-NET WING_BH1     LOC="P87"  | IOSTANDARD=LVTTL | SLEW = FAST | DRIVE = 8;                                # B9
-NET WING_BH2     LOC="P84"  | IOSTANDARD=LVTTL | SLEW = FAST | DRIVE = 8;                                # B10
-NET WING_BH3     LOC="P82"  | IOSTANDARD=LVTTL | SLEW = FAST | DRIVE = 8;                                # B11
-NET WING_BH4     LOC="P80"  | IOSTANDARD=LVTTL | SLEW = FAST | DRIVE = 8;                                # B12
-NET WING_BH5     LOC="P78"  | IOSTANDARD=LVTTL | SLEW = FAST | DRIVE = 8;                                # B13
-NET WING_BH6     LOC="P74"  | IOSTANDARD=LVTTL | SLEW = FAST | DRIVE = 8;                                # B14
-NET WING_BH7     LOC="P66"  | IOSTANDARD=LVTTL | SLEW = FAST | DRIVE = 8;                                # B15
+NET WING_BL7          LOC="P100" | IOSTANDARD=LVTTL;                                # B7                        
 
 NET WING_CL0          LOC="P99"  | IOSTANDARD=LVTTL;                                # C0
 NET WING_CL1          LOC="P97"  | IOSTANDARD=LVTTL;                                # C1
@@ -85,6 +71,23 @@ NET WING_CH4         LOC="P57"  | IOSTANDARD=LVTTL;                             
 NET WING_CH5         LOC="P55"  | IOSTANDARD=LVTTL;                                # C13
 NET WING_CH6         LOC="P50"  | IOSTANDARD=LVTTL;                                # C14
 NET WING_CH7         LOC="P47"  | IOSTANDARD=LVTTL;                                # C15
+
+NET WING_DL0     LOC="P98"  | IOSTANDARD=LVTTL ;                                
+NET WING_DL1     LOC="P95" | IOSTANDARD=LVTTL ;                                	
+NET WING_DL2     LOC="P92"  | IOSTANDARD=LVTTL ;                                
+NET WING_DL3     LOC="P87"  | IOSTANDARD=LVTTL ;                                
+NET WING_DL4     LOC="P84"  | IOSTANDARD=LVTTL ;                               
+NET WING_DL5     LOC="P82"  | IOSTANDARD=LVTTL ;                              
+NET WING_DL6     LOC="P80"  | IOSTANDARD=LVTTL ;                              
+NET WING_DL7     LOC="P78"  | IOSTANDARD=LVTTL ;                            
+NET WING_DH0     LOC="P74"  | IOSTANDARD=LVTTL ;                             
+NET WING_DH1     LOC="P66"  | IOSTANDARD=LVTTL ;                            
+NET WING_DH2     LOC="P61"  | IOSTANDARD=LVTTL ;                             
+NET WING_DH3     LOC="P58"  | IOSTANDARD=LVTTL ;                               
+NET WING_DH4     LOC="P56"  | IOSTANDARD=LVTTL ;                              
+NET WING_DH5     LOC="P51"  | IOSTANDARD=LVTTL ;                             
+NET WING_DH6     LOC="P48"  | IOSTANDARD=LVTTL ;                           
+NET WING_DH7     LOC="P39"  | IOSTANDARD=LVTTL ;    
 
 # SRAM
 
