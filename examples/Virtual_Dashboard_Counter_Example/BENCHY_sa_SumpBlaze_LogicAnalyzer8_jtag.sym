@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2014-4-30T21:0:31</timestamp>
+    <pin polarity="Input" x="0" y="-256" name="led0" />
+    <pin polarity="Input" x="0" y="-224" name="led1" />
+    <pin polarity="Input" x="0" y="-192" name="led2" />
+    <pin polarity="Input" x="0" y="-160" name="led3" />
+    <pin polarity="Input" x="0" y="-128" name="led4" />
+    <pin polarity="Input" x="0" y="-96" name="led5" />
+    <pin polarity="Input" x="0" y="-64" name="led6" />
+    <pin polarity="Input" x="0" y="-32" name="led7" />
+    <pin polarity="Output" x="400" y="-256" name="switch0" />
+    <pin polarity="Output" x="400" y="-224" name="switch1" />
+    <pin polarity="Output" x="400" y="-192" name="switch2" />
+    <pin polarity="Output" x="400" y="-160" name="switch3" />
+    <pin polarity="Output" x="400" y="-128" name="switch4" />
+    <pin polarity="Output" x="400" y="-96" name="switch5" />
+    <pin polarity="Output" x="400" y="-64" name="switch6" />
+    <pin polarity="Output" x="400" y="-32" name="switch7" />
+    <pin polarity="Input" x="0" y="-320" name="clk_32Mhz" />
+    <graph>
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-256" type="pin led0" />
+        <line x2="0" y1="-256" y2="-256" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-224" type="pin led1" />
+        <line x2="0" y1="-224" y2="-224" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-192" type="pin led2" />
+        <line x2="0" y1="-192" y2="-192" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-160" type="pin led3" />
+        <line x2="0" y1="-160" y2="-160" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-128" type="pin led4" />
+        <line x2="0" y1="-128" y2="-128" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-96" type="pin led5" />
+        <line x2="0" y1="-96" y2="-96" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-64" type="pin led6" />
+        <line x2="0" y1="-64" y2="-64" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin led7" />
+        <line x2="0" y1="-32" y2="-32" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="324" y="-256" type="pin switch0" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="324" y="-224" type="pin switch1" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="324" y="-192" type="pin switch2" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="324" y="-160" type="pin switch3" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="324" y="-128" type="pin switch4" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="324" y="-96" type="pin switch5" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="324" y="-64" type="pin switch6" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="324" y="-32" type="pin switch7" />
+        <rect width="272" x="64" y="-340" height="340" />
+        <line x2="336" y1="-256" y2="-256" x1="400" />
+        <line x2="336" y1="-224" y2="-224" x1="400" />
+        <line x2="336" y1="-192" y2="-192" x1="400" />
+        <line x2="336" y1="-160" y2="-160" x1="400" />
+        <line x2="336" y1="-128" y2="-128" x1="400" />
+        <line x2="336" y1="-96" y2="-96" x1="400" />
+        <line x2="336" y1="-64" y2="-64" x1="400" />
+        <line x2="336" y1="-32" y2="-32" x1="400" />
+        <text style="fontsize:44;fontname:Arial" x="-40" y="36">Papilio Virtual Instruments</text>
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-320" type="pin clk_32Mhz" />
+        <line x2="0" y1="-320" y2="-320" x1="64" />
+    </graph>
+</symbol>
