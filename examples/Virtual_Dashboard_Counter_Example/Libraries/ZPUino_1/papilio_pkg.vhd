@@ -38,6 +38,18 @@ package papilio_pkg is
     gpio_o:    std_logic_vector(48 downto 0);
     gpio_t:    std_logic_vector(48 downto 0);
     gpio_spp_read:  std_logic_vector(48 downto 0); 
+ end record;  
+
+ type gpio_bus_in_duo_type is record
+    gpio_i:   std_logic_vector(54 downto 0);
+    gpio_spp_data: std_logic_vector(54 downto 0);
+ end record; 
+ 
+ type gpio_bus_out_duo_type is record
+	 gpio_clk:  std_logic;
+    gpio_o:    std_logic_vector(54 downto 0);
+    gpio_t:    std_logic_vector(54 downto 0);
+    gpio_spp_read:  std_logic_vector(54 downto 0); 
  end record;    
 
 end papilio_pkg;

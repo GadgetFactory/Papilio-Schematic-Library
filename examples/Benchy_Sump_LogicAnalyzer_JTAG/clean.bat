@@ -62,4 +62,10 @@ if exist 500K (
 	for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles rebuild LX9 500K 250K"') do rmdir /q /s "%%F"
 	cd ..
 )
-
+if exist DUO_LX9 (
+	cd DUO_LX9
+	move Papilio_DUO_LX9.cmd_log Papilio_DUO_LX9.cmd
+	for /f %%F in ('dir /b /a-d ^| findstr /vile ".sch .xise .bit .bat .sym .vhd .pdf .ino .cmd_log .cmd .xst .prj .vhf .ut .html"') do del "%%F"
+	for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles rebuild LX9 500K 250K"') do rmdir /q /s "%%F"
+	cd ..
+)

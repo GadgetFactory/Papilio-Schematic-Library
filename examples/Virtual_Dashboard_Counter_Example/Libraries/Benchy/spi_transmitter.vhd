@@ -41,6 +41,7 @@ entity spi_transmitter is
 		tx : out std_logic := '0';
 		cs : in std_logic;
 		busy: out std_logic := '0';
+		reset : in std_logic;
 		dataReady : out std_logic := '0'
 	);
 end spi_transmitter;
@@ -54,6 +55,8 @@ architecture behavioral of spi_transmitter is
 	signal bytes, end_byte : integer range 0 to 4;
 	signal rsync_sclk, rsync_cs : std_logic_vector(1 downto 0) := (others => '0');
 	signal state: states;
+	signal send_i: std_logic := '1';
+	signal timeout : std_logic_vector(31 downto 0) := (others => '0');
 
 begin
 
@@ -73,15 +76,24 @@ begin
 					end if;
 					tx_buf <= x"aa" & data(7 downto 0) & data(15 downto 8) 
 							& data(23 downto 16) & data(31 downto 24);
-					end_byte <= 4;
+					end_byte <= tx_bytes;
 					bytes <= 0;
 					bits <= 0;
 				when START =>
 					-- tx starts at cs falling edge
-					if rsync_cs = "10" then
+					--if rsync_cs = "10" then
+--					timeout <= timeout +1;
+--					if timeout = x"ffffffffff" then
+--						timeout <= (others => '0');
+--						state <= WAIT_CS_HI;	
+--					elsif rsync_cs = "10" or cs = '0' then	
+					if reset = '1' then
+						state <= IDLE;
+					elsif rsync_cs = "10" or cs = '0' then
 						state <= WAIT_CS_LO;
 						tx <= tx_buf(39);
-					end if;
+--						timeout <= (others => '0');
+					end if;					
 				when WAIT_CS_LO =>
 					-- wait for cs before sending the next byte
 					if cs = '0' and rsync_sclk = "01" then
@@ -94,21 +106,33 @@ begin
 					end if;
 					tx <= tx_buf(39);
 				when SEND_BITS =>
-					-- transfer bits at falling edge of sclk
-					if rsync_sclk = "01" then
-						tx_buf <= tx_buf(38 downto 0) & '0';
-						bits <= bits + 1;
+					-- If we are waiting more then 200ns then something is off. We have a 100Mhz clock so 0x14 is 200ns.
+--					timeout <= timeout +1;
+--					if timeout = x"0b" then
+--						timeout <= (others => '0');
+--						state <= START;
+--						bits <= 0;
+--						bytes <= bytes - 1;
+--					-- transfer bits at rising edge of sclk
+--					elsif rsync_sclk = "01" then
+					if reset = '1' then
+						state <= IDLE;
+					elsif rsync_sclk = "01" then
+							tx_buf <= tx_buf(38 downto 0) & '0';
+							bits <= bits + 1;
+--							timeout <= (others => '0');
 					elsif bits = 7 then
 						state <= WAIT_CS_LO;
 						bits <= 0;
+--						timeout <= (others => '0');
 					end if;
 					tx <= tx_buf(39);
 				when WAIT_CS_HI =>
 					-- tx stops until cs rising edge
-					if rsync_cs = "01" then
+--					if rsync_cs = "01" or cs = '0' then
 						state <= IDLE;
 						busy <= '0';
-					end if;
+--					end if;
 			end case;
 
 		end if;

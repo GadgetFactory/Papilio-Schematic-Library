@@ -22,6 +22,7 @@
 "LogicStart_MegaWing_Pinout"
 "Papilio_Default_Pinout"
 "Papilio_Default_Wing_Pinout"
+"Papilio_DUO_Wing_Pinout"
 "Wing_Audio"
 "Wing_GPIO"
 "Wing_VGA8"
@@ -53,6 +54,7 @@
 "ZPUino_Papilio_One_V1"
 "ZPUino_Papilio_One_V1_hyperion"
 "ZPUino_Papilio_Pro_V1"
+"ZPUino_Papilio_DUO_V1"
 }
 ".Papilio Testing"
 {

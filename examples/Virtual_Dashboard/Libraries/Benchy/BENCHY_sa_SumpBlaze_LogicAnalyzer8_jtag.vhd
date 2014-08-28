@@ -179,16 +179,15 @@ architecture behavioral of BENCHY_sa_SumpBlaze_LogicAnalyzer8_jtag is
 	
 	
 begin
-	output(0) <= la0;
-	output(1) <= la1;
-	output(2) <= la2;
-	output(3) <= la3;
-	output(4) <= la4;
-	output(5) <= la5;
-	output(6) <= la6;
-	output(7) <= la7;
-	output(31 downto 8) <= x"bbccdd";
---	output <= (others => '0');	
+	--la_input <= (others => '0');
+	la_input(0) <= la0;
+	la_input(1) <= la1;
+	la_input(2) <= la2;
+	la_input(3) <= la3;
+	la_input(4) <= la4;
+	la_input(5) <= la5;
+	la_input(6) <= la6;
+	la_input(7) <= la7;
 
 
 --	adc_cs_n <= '1';		--Disables ADC
@@ -242,42 +241,42 @@ begin
 		tx_bytes => tx_bytes
 	);
 
---extClockIn <= '0';		--External clock disabled
---extTriggerIn <= '0';		--External trigger disabled
+extClockIn <= '0';		--External clock disabled
+extTriggerIn <= '0';		--External trigger disabled
 
---	Inst_core: core
---	port map(
---		clock => clock,
---		cmd => cmd,
---		execute => execute,
---		la_input => la_input,
---		la_inputClock => extClockIn,
---		output => output,
---		outputSend => send,
---		outputBusy => busy,
---		memoryIn => memoryIn,
---		memoryOut => memoryOut,
---		memoryRead => read,
---		memoryWrite => write,
---		extTriggerIn => extTriggerIn,
---		extTriggerOut => open,
---		extClockOut => open,
---		armLED => open,
---		triggerLED => open,
---		reset => reset,
---		tx_bytes => tx_bytes
---	);
---
---	Inst_sram: sram_bram
---	generic map (
---		brams => brams
---	)		
---	port map(
---		clock => clock,
---		output => memoryIn,
---		la_input => memoryOut,
---		read => read,
---		write => write
---	);
+	Inst_core: core
+	port map(
+		clock => clock,
+		cmd => cmd,
+		execute => execute,
+		la_input => la_input,
+		la_inputClock => extClockIn,
+		output => output,
+		outputSend => send,
+		outputBusy => busy,
+		memoryIn => memoryIn,
+		memoryOut => memoryOut,
+		memoryRead => read,
+		memoryWrite => write,
+		extTriggerIn => extTriggerIn,
+		extTriggerOut => open,
+		extClockOut => open,
+		armLED => open,
+		triggerLED => open,
+		reset => reset,
+		tx_bytes => tx_bytes
+	);
+
+	Inst_sram: sram_bram
+	generic map (
+		brams => brams
+	)		
+	port map(
+		clock => clock,
+		output => memoryIn,
+		la_input => memoryOut,
+		read => read,
+		write => write
+	);
 end behavioral;
 

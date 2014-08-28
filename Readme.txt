@@ -1,9 +1,12 @@
-Papilio Schematic Library - Schematic System on Chip (Source Code) - Current Version 1.6
+Papilio Schematic Library - Schematic System on Chip (Source Code) - Current Version 1.7
 
 Papilio SOC Home Page
 http://papilio.cc
 
 CHANGELOG
+8/28/2014 Version 1.7
+	-Added Papilio DUO to the library.
+
 1/30/2014 Version 1.6
 	-Moved libraries into sketch folder so sketches can be saved in any location
 	-JTAG Logic Analyzer Example

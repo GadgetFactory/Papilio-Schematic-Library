@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_DUO_LX9.vhf
--- /___/   /\     Timestamp : 08/28/2014 14:47:11
+-- /___/   /\     Timestamp : 08/28/2014 15:20:29
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -168,7 +168,7 @@ architecture BEHAVIORAL of Papilio_DUO_LX9 is
          downto 0);
    signal XLXN_449                                  : std_logic_vector (7 
          downto 0);
-   signal XLXN_450                                  : std_logic;
+   signal XLXN_456                                  : std_logic;
    signal XLXI_39_wishbone_slot_video_in_openSignal : std_logic_vector (63 
          downto 0);
    component Wing_GPIO
@@ -304,10 +304,10 @@ architecture BEHAVIORAL of Papilio_DUO_LX9 is
    attribute DRIVE of OBUF : component is "12";
    attribute BOX_TYPE of OBUF : component is "BLACK_BOX";
    
-   component PULLUP
+   component PULLDOWN
       port ( O : out   std_logic);
    end component;
-   attribute BOX_TYPE of PULLUP : component is "BLACK_BOX";
+   attribute BOX_TYPE of PULLDOWN : component is "BLACK_BOX";
    
 begin
    XLXI_22 : Wing_GPIO
@@ -488,11 +488,11 @@ begin
                 WING_DL7=>Arduino_39);
    
    XLXI_45 : OBUF
-      port map (I=>XLXN_450,
+      port map (I=>XLXN_456,
                 O=>ARD_RESET);
    
-   XLXI_46 : PULLUP
-      port map (O=>XLXN_450);
+   XLXI_47 : PULLDOWN
+      port map (O=>XLXN_456);
    
 end BEHAVIORAL;
 

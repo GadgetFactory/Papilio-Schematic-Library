@@ -35,11 +35,11 @@ begin
 	-- DCM: Digital Clock Manager Circuit for Virtex-II/II-Pro and Spartan-3/3E
 	-- Xilinx HDL Language Template version 8.1i
 	
---	  clkin2_inst: BUFG
---    port map (
---      I =>  clkin,
---      O =>  clkin1
---    );
+	  clkin2_inst: BUFG
+    port map (
+      I =>  clkin,
+      O =>  clkin1
+    );
 
 	DCM_baseClock : DCM
 	generic map(
@@ -61,7 +61,7 @@ begin
 		STARTUP_WAIT => TRUE --  Delay configuration DONE until DCM LOCK, TRUE/FALSE
 	)
 	port map(
-		CLKIN => clkin,   -- Clock input (from IBUFG, BUFG or DCM)
+		CLKIN => clkin1,   -- Clock input (from IBUFG, BUFG or DCM)
 		PSCLK => '0',   -- Dynamic phase adjust clock input
 		PSEN => '0',     -- Dynamic phase adjust enable input
 		PSINCDEC => '0', -- Dynamic phase adjust increment/decrement

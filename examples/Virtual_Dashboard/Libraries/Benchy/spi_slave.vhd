@@ -72,32 +72,12 @@ architecture behavioral of spi_slave is
 			tx : out std_logic;
 			cs : in std_logic;
 			busy : out std_logic;
-			--reset : in std_logic;
+			reset : in std_logic;
 			dataReady : out std_logic
 		);
 	end component;
 
-	signal transmit : std_logic;
-
 begin
-
-	-- process special uart commands that do not belong in core decoder
---	process(clock)
---	begin
---		if rising_edge(clock) then
---			id <= '0'; xon <= '0'; xoff <= '0'; wrFlags <= '0';
---			executePrev <= executeReg;
---			if executePrev = '0' and executeReg = '1' then
---				case opcode is
---					when x"02" => id <= '1';
---					when x"11" => xon <= '1';
---					when x"13" => xoff <= '1';
---					when x"82" => wrFlags <= '1';
---					when others =>
---				end case;
---			end if;
---		end if;
---	end process;
 
 	Inst_spi_receiver: spi_receiver
 	port map(
@@ -105,7 +85,7 @@ begin
 		clock => clock,
 		sclk => sclk,
 		cmd => cmd,
-		execute => transmit,
+		execute => execute,
 		reset => reset,
 		cs => cs
 	);
@@ -114,13 +94,13 @@ begin
 	port map(
 		data => data,
 		tx_bytes => tx_bytes,
-		send => transmit,
+		send => send,
 		clock => clock,
 		sclk => sclk,
 		tx => miso,
 		cs => cs,
 		busy => busy,
-		--reset => reset,
+		reset => reset,
 		dataReady => dataReady
 	);
 

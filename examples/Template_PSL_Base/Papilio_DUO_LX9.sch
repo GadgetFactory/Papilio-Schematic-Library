@@ -106,10 +106,8 @@
         <signal name="Arduino_27" />
         <signal name="Arduino_25" />
         <signal name="Arduino_23" />
-        <signal name="XLXN_451" />
-        <signal name="XLXN_452" />
         <signal name="ARD_RESET" />
-        <signal name="XLXN_450" />
+        <signal name="XLXN_456" />
         <port polarity="BiDirectional" name="Arduino_0" />
         <port polarity="BiDirectional" name="Arduino_1" />
         <port polarity="BiDirectional" name="Arduino_2" />
@@ -355,8 +353,12 @@
             <line x2="64" y1="-32" y2="-32" x1="0" />
             <line x2="128" y1="-32" y2="-32" x1="224" />
         </blockdef>
-        <blockdef name="pullup">
+        <blockdef name="pulldown">
             <timestamp>2000-1-1T10:10:10</timestamp>
+            <line x2="64" y1="-160" y2="-128" x1="64" />
+            <line x2="60" y1="0" y2="0" x1="68" />
+            <line x2="52" y1="-16" y2="-16" x1="76" />
+            <line x2="40" y1="-32" y2="-32" x1="88" />
             <line x2="64" y1="-108" y2="-128" x1="64" />
             <line x2="64" y1="-104" y2="-108" x1="80" />
             <line x2="80" y1="-88" y2="-104" x1="48" />
@@ -364,13 +366,6 @@
             <line x2="80" y1="-56" y2="-72" x1="48" />
             <line x2="48" y1="-48" y2="-56" x1="64" />
             <line x2="64" y1="-32" y2="-48" x1="64" />
-            <line x2="64" y1="-56" y2="-48" x1="48" />
-            <line x2="48" y1="-72" y2="-56" x1="80" />
-            <line x2="80" y1="-88" y2="-72" x1="48" />
-            <line x2="48" y1="-104" y2="-88" x1="80" />
-            <line x2="80" y1="-108" y2="-104" x1="64" />
-            <line x2="64" y1="0" y2="-32" x1="64" />
-            <line x2="32" y1="-128" y2="-128" x1="96" />
         </blockdef>
         <block symbolname="Wishbone_Empty_Slot" name="XLXI_37">
             <blockpin signalname="XLXN_430(61:0)" name="wishbone_in(61:0)" />
@@ -548,11 +543,11 @@
             <blockpin signalname="Arduino_7" name="WING_AL7" />
             <blockpin signalname="Arduino_6" name="WING_AL6" />
         </block>
-        <block symbolname="pullup" name="XLXI_46">
-            <blockpin signalname="XLXN_450" name="O" />
+        <block symbolname="pulldown" name="XLXI_47">
+            <blockpin signalname="XLXN_456" name="O" />
         </block>
         <block symbolname="obuf" name="XLXI_45">
-            <blockpin signalname="XLXN_450" name="I" />
+            <blockpin signalname="XLXN_456" name="I" />
             <blockpin signalname="ARD_RESET" name="O" />
         </block>
     </netlist>
@@ -999,17 +994,16 @@
         <iomarker fontsize="28" x="5200" y="3344" name="Arduino_23" orien="R0" />
         <instance x="4672" y="3504" name="XLXI_44" orien="R0">
         </instance>
-        <branch name="ARD_RESET">
-            <wire x2="576" y1="3376" y2="3376" x1="544" />
-        </branch>
-        <branch name="XLXN_450">
-            <wire x2="272" y1="3344" y2="3376" x1="272" />
-            <wire x2="320" y1="3376" y2="3376" x1="272" />
-        </branch>
-        <instance x="208" y="3344" name="XLXI_46" orien="R0" />
-        <instance x="320" y="3408" name="XLXI_45" orien="R0" />
         <text style="fontsize:28;fontname:Arial" x="48" y="3460">Add a Pullup if you want the ATmega32U4 chip to run when this circuit is loaded.</text>
         <text style="fontsize:28;fontname:Arial" x="24" y="3492">Add a Pulldown if you want to disable the ATmega32U4 chip when this circuit is loaded.</text>
-        <iomarker fontsize="28" x="576" y="3376" name="ARD_RESET" orien="R0" />
+        <branch name="ARD_RESET">
+            <wire x2="560" y1="3168" y2="3168" x1="528" />
+        </branch>
+        <instance x="304" y="3200" name="XLXI_45" orien="R0" />
+        <iomarker fontsize="28" x="560" y="3168" name="ARD_RESET" orien="R0" />
+        <branch name="XLXN_456">
+            <wire x2="304" y1="3168" y2="3200" x1="304" />
+        </branch>
+        <instance x="240" y="3360" name="XLXI_47" orien="R0" />
     </sheet>
 </drawing>

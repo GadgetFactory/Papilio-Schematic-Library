@@ -15,16 +15,69 @@
   <version xil_pn:ise_version="14.7" xil_pn:schema_version="2"/>
 
   <files>
-    <file xil_pn:name="Papilio_Pro.sch" xil_pn:type="FILE_SCHEMATIC">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="1"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
-    </file>
     <file xil_pn:name="Libraries/ZPUino_1/Utility.sch" xil_pn:type="FILE_SCHEMATIC">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="235"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/papilio_pro.ucf" xil_pn:type="FILE_UCF">
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/bootloader.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="163"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/clkgen.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="164"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/prom-generic-dp-32.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="165"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/sdram_hamster.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="166"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/sdram_wrap.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="167"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/stack.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="168"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/wb_bootloader.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="169"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/wishbonepkg.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="170"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/zpuinopkg.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="171"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="5"/>
+      <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/zpuino_config.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="172"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
+      <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/zpupkg.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="173"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
+      <library xil_pn:name="board"/>
+    </file>
+    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/zpu_config.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="174"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
+      <library xil_pn:name="board"/>
     </file>
     <file xil_pn:name="Libraries/ZPUino_1/Arcade_MegaWing_Pinout.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="223"/>
@@ -78,7 +131,7 @@
     </file>
     <file xil_pn:name="Libraries/ZPUino_1/papilio_pkg.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="233"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
       <library xil_pn:name="zpuino"/>
     </file>
     <file xil_pn:name="Libraries/ZPUino_1/Papilio_Wing_Pinout.vhd" xil_pn:type="FILE_VHDL">
@@ -138,7 +191,7 @@
     </file>
     <file xil_pn:name="Libraries/ZPUino_1/Wing_GPIO.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="245"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="6"/>
       <library xil_pn:name="zpuino"/>
     </file>
     <file xil_pn:name="Libraries/ZPUino_1/Wing_VGA8.vhd" xil_pn:type="FILE_VHDL">
@@ -638,7 +691,7 @@
     </file>
     <file xil_pn:name="Libraries/Wishbone_Peripherals/Wishbone_Empty_Slot.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="213"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="7"/>
       <library xil_pn:name="wishbone"/>
     </file>
     <file xil_pn:name="Libraries/Wishbone_Peripherals/zpuino_uart_mv_filter.vhd" xil_pn:type="FILE_VHDL">
@@ -656,65 +709,9 @@
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
       <library xil_pn:name="wishbone"/>
     </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/clkgen.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="166"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
-    </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/clkgen_hyperion.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="167"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
-    </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/prom-generic-dp-32.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="168"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
-    </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/prom-generic-dp-32_hyperion.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="169"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
-    </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/stack.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="170"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
-    </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/wishbonepkg.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="171"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
-    </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/zpuinopkg.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="172"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
-    </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/zpuino_config.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="173"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
-    </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/zpupkg.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="174"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
-    </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/zpupkg_hyperion.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="175"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
-    </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/zpu_config.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="176"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
-    </file>
-    <file xil_pn:name="Libraries/ZPUino_1/board_Papilio_One_500k/zpu_config_hyperion.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="177"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-      <library xil_pn:name="board"/>
+    <file xil_pn:name="Papilio_DUO_LX9.sch" xil_pn:type="FILE_SCHEMATIC">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="142"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="8"/>
     </file>
   </files>
 
@@ -836,9 +833,9 @@
     <property xil_pn:name="ISim UUT Instance Name" xil_pn:value="UUT" xil_pn:valueState="default"/>
     <property xil_pn:name="Ignore User Timing Constraints Map" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Ignore User Timing Constraints Par" xil_pn:value="false" xil_pn:valueState="default"/>
-    <property xil_pn:name="Implementation Top" xil_pn:value="Module|Papilio_Pro" xil_pn:valueState="non-default"/>
-    <property xil_pn:name="Implementation Top File" xil_pn:value="../Papilio_Pro.sch" xil_pn:valueState="non-default"/>
-    <property xil_pn:name="Implementation Top Instance Path" xil_pn:value="/Papilio_Pro" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Implementation Top" xil_pn:value="Module|Papilio_DUO_LX9" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Implementation Top File" xil_pn:value="../Papilio_DUO_LX9.sch" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Implementation Top Instance Path" xil_pn:value="/Papilio_DUO_LX9" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Include 'uselib Directive in Verilog File" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Include SIMPRIM Models in Verilog File" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Include UNISIM Models in Verilog File" xil_pn:value="false" xil_pn:valueState="default"/>
@@ -1010,7 +1007,7 @@
     <property xil_pn:name="Top-Level Source Type" xil_pn:value="Schematic" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Trim Unconnected Signals" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Tristate On Configuration Pulse Width" xil_pn:value="0" xil_pn:valueState="default"/>
-    <property xil_pn:name="Unused IOB Pins" xil_pn:value="Float" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Unused IOB Pins" xil_pn:value="Pull Down" xil_pn:valueState="default"/>
     <property xil_pn:name="Use 64-bit PlanAhead on 64-bit Systems" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Clock Enable" xil_pn:value="Auto" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Custom Project File Behavioral" xil_pn:value="false" xil_pn:valueState="default"/>
@@ -1064,9 +1061,7 @@
     <property xil_pn:name="PROP_intWorkingDirUsed" xil_pn:value="Yes" xil_pn:valueState="non-default"/>
   </properties>
 
-  <bindings>
-    <binding xil_pn:location="/Papilio_Pro" xil_pn:name="Libraries/ZPUino_1/board_Papilio_Pro/papilio_pro.ucf"/>
-  </bindings>
+  <bindings/>
 
   <libraries>
     <library xil_pn:name="benchy"/>

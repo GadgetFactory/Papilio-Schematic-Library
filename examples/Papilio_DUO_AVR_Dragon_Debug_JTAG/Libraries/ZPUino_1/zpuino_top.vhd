@@ -140,8 +140,7 @@ architecture behave of zpuino_top is
     s0_wb_we_o:  out std_logic;
     s0_wb_cyc_o: out std_logic;
     s0_wb_stb_o: out std_logic;
-    s0_wb_ack_i: in std_logic;
-	 s0_wb_stall_i: in std_logic
+    s0_wb_ack_i: in std_logic
   );
   end component;
 
@@ -514,8 +513,7 @@ begin
     s0_wb_we_o    => ram_wb_we_i,
     s0_wb_cyc_o   => ram_wb_cyc_i,
     s0_wb_stb_o   => ram_wb_stb_i,
-    s0_wb_ack_i   => ram_wb_ack_o,
-	 s0_wb_stall_i => '0'
+    s0_wb_ack_i   => ram_wb_ack_o
   );
 
 
