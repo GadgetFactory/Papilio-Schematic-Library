@@ -6,24 +6,24 @@
 -- /___/  \  /    Vendor: Xilinx 
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
---  /   /         Filename : Papilio_Pro.vhf
--- /___/   /\     Timestamp : 08/28/2014 10:28:24
+--  /   /         Filename : Papilio_DUO_LX9.vhf
+-- /___/   /\     Timestamp : 08/28/2014 16:14:16
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family spartan6 -flat -suppress -vhdl D:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Papilio_DUO_AVR_Dragon_Debug_JTAG/LX9/Papilio_Pro.vhf -w D:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Papilio_DUO_AVR_Dragon_Debug_JTAG/Papilio_Pro.sch
---Design Name: Papilio_Pro
+--Command: sch2hdl -intstyle ise -family spartan6 -flat -suppress -vhdl D:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Papilio_DUO_AVR_Dragon_Debug_JTAG/DUO_LX9/Papilio_DUO_LX9.vhf -w D:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Papilio_DUO_AVR_Dragon_Debug_JTAG/Papilio_DUO_LX9.sch
+--Design Name: Papilio_DUO_LX9
 --Device: spartan6
 --Purpose:
 --    This vhdl netlist is translated from an ECS schematic. It can be 
 --    synthesized and simulated, but it should not be modified. 
 --
------ CELL OBUF4_HXILINX_Papilio_Pro -----
+----- CELL OBUF4_HXILINX_Papilio_DUO_LX9 -----
   
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
-entity OBUF4_HXILINX_Papilio_Pro is
+entity OBUF4_HXILINX_Papilio_DUO_LX9 is
   
 port(
     O0  : out std_logic;
@@ -36,9 +36,9 @@ port(
     I2  : in std_logic;
     I3  : in std_logic
   );
-end OBUF4_HXILINX_Papilio_Pro;
+end OBUF4_HXILINX_Papilio_DUO_LX9;
 
-architecture OBUF4_HXILINX_Papilio_Pro_V of OBUF4_HXILINX_Papilio_Pro is
+architecture OBUF4_HXILINX_Papilio_DUO_LX9_V of OBUF4_HXILINX_Papilio_DUO_LX9 is
 begin
 
   O0 <= I0;
@@ -46,7 +46,7 @@ begin
   O2 <= I2;
   O3 <= I3;
 
-end OBUF4_HXILINX_Papilio_Pro_V;
+end OBUF4_HXILINX_Papilio_DUO_LX9_V;
 
 library ieee;
 use ieee.std_logic_1164.ALL;
@@ -54,7 +54,7 @@ use ieee.numeric_std.ALL;
 library UNISIM;
 use UNISIM.Vcomponents.ALL;
 
-entity Papilio_Pro is
+entity Papilio_DUO_LX9 is
    port ( ARD_JTAG_TDO      : in    std_logic; 
           DRAGON_JTAG_RESET : in    std_logic; 
           DRAGON_JTAG_TCK   : in    std_logic; 
@@ -68,9 +68,9 @@ entity Papilio_Pro is
           DRAGON_JTAG_GND2  : out   std_logic; 
           DRAGON_JTAG_TDO   : out   std_logic; 
           DRAGON_JTAG_VTG   : out   std_logic);
-end Papilio_Pro;
+end Papilio_DUO_LX9;
 
-architecture BEHAVIORAL of Papilio_Pro is
+architecture BEHAVIORAL of Papilio_DUO_LX9 is
    attribute BOX_TYPE   : string ;
    attribute HU_SET     : string ;
    attribute IOSTANDARD : string ;
@@ -87,7 +87,7 @@ architecture BEHAVIORAL of Papilio_Pro is
    end component;
    attribute BOX_TYPE of GND : component is "BLACK_BOX";
    
-   component OBUF4_HXILINX_Papilio_Pro
+   component OBUF4_HXILINX_Papilio_DUO_LX9
       port ( I0 : in    std_logic; 
              I1 : in    std_logic; 
              I2 : in    std_logic; 
@@ -124,7 +124,7 @@ begin
    XLXI_72 : GND
       port map (G=>DRAGON_JTAG_GND2);
    
-   XLXI_105 : OBUF4_HXILINX_Papilio_Pro
+   XLXI_105 : OBUF4_HXILINX_Papilio_DUO_LX9
       port map (I0=>DRAGON_JTAG_TDI,
                 I1=>DRAGON_JTAG_TMS,
                 I2=>DRAGON_JTAG_TCK,

@@ -1,11 +1,11 @@
 set -tmpdir "xst/projnav.tmp"
 set -xsthdpdir "xst"
 run
--ifn Papilio_Pro.prj
--ofn Papilio_Pro
+-ifn Papilio_DUO_LX9.prj
+-ofn Papilio_DUO_LX9
 -ofmt NGC
 -p xc6slx9-2-tqg144
--top Papilio_Pro
+-top Papilio_DUO_LX9
 -opt_mode Speed
 -opt_level 1
 -power NO

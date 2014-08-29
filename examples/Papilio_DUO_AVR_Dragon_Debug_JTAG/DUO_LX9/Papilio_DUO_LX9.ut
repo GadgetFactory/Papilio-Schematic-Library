@@ -9,7 +9,7 @@
 -g TdiPin:PullUp
 -g TdoPin:PullUp
 -g TmsPin:PullUp
--g UnusedPin:PullNone
+-g UnusedPin:PullDown
 -g UserID:0xFFFFFFFF
 -g ExtMasterCclk_en:No
 -g SPI_buswidth:1
