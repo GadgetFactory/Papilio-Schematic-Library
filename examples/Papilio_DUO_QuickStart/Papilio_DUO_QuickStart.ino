@@ -25,22 +25,12 @@
  If you do not have Xilinx ISE Webpack installed visit this tutorial to learn how. http://gadgetfactory.net/learn/2013/10/23/install-xilinxs-free-ise-webpack/
  
  If the links below do not work then then open the sketch directory from Sketch/Show Sketch Folder (Ctl-K) and manually access the files defined in the links below.
- 
- Papilio Pro
-   Click to program bit file: sketchdir://LX9/papilio_pro.bit
-   Click to view schematic:   sketchdir://schematic_papilio_pro.pdf
-   Click to modify schematic: sketchdir://PSL_Papilio_Pro_LX9.xise
-   
- Papilio One 500K
-   Click to program bit file: sketchdir://500K/papilio_one_500k.bit
-   Click to view schematic:   sketchdir://schematic_papilio_one_500k.pdf
-   Click to modify schematic: sketchdir://PSL_Papilio_One_500K.xise
-   
- Papilio One 250K
-   Click to program bit file: sketchdir://250K/papilio_one_250k.bit
-   Click to view schematic:   sketchdir://schematic_papilio_one_250k.pdf
-   Click to modify schematic: sketchdir://PSL_Papilio_One_250k.xise
-  
+
+ Papilio DUO
+   Click to program bit file: sketchdir://DUO_LX9/papilio_duo_lx9.bit
+   Click to view schematic:   sketchdir://schematic_papilio_DUO.pdf
+   Click to modify schematic: sketchdir://PSL_Papilio_DUO_LX9.xise
+
  Tutorials:
    http://gadgetfactory.net/learn/2013/10/29/papilio-schematic-library-getting-started/
   

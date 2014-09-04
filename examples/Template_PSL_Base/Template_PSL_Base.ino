@@ -26,6 +26,11 @@
  
  If the links below do not work then then open the sketch directory from Sketch/Show Sketch Folder (Ctl-K) and manually access the files defined in the links below.
  
+  Papilio DUO
+   Click to program bit file: sketchdir://DUO_LX9/papilio_duo_lx9.bit
+   Click to view schematic:   sketchdir://schematic_papilio_DUO.pdf
+   Click to modify schematic: sketchdir://PSL_Papilio_DUO_LX9.xise
+ 
  Papilio Pro
    Click to program bit file: sketchdir://LX9/papilio_pro.bit
    Click to view schematic:   sketchdir://schematic_papilio_pro.pdf
