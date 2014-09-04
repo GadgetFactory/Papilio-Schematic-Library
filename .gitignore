@@ -1,6 +1,7 @@
 *.rar
 felix-cache
 experimental
+Libraries
 
 ### Xilinx Stuff ####
 *.map
