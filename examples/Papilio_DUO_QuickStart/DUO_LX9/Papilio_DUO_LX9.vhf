@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_DUO_LX9.vhf
--- /___/   /\     Timestamp : 08/28/2014 16:31:38
+-- /___/   /\     Timestamp : 09/09/2014 14:40:24
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family spartan6 -flat -suppress -vhdl D:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Template_PSL_Base/DUO_LX9/Papilio_DUO_LX9.vhf -w D:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Template_PSL_Base/Papilio_DUO_LX9.sch
+--Command: sch2hdl -intstyle ise -family spartan6 -flat -suppress -vhdl D:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Papilio_DUO_QuickStart/DUO_LX9/Papilio_DUO_LX9.vhf -w D:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/examples/Papilio_DUO_QuickStart/Papilio_DUO_LX9.sch
 --Design Name: Papilio_DUO_LX9
 --Device: spartan6
 --Purpose:
@@ -168,7 +168,7 @@ architecture BEHAVIORAL of Papilio_DUO_LX9 is
          downto 0);
    signal XLXN_449                                  : std_logic_vector (7 
          downto 0);
-   signal XLXN_456                                  : std_logic;
+   signal XLXN_457                                  : std_logic;
    signal XLXI_39_wishbone_slot_video_in_openSignal : std_logic_vector (63 
          downto 0);
    component Wing_GPIO
@@ -304,10 +304,10 @@ architecture BEHAVIORAL of Papilio_DUO_LX9 is
    attribute DRIVE of OBUF : component is "12";
    attribute BOX_TYPE of OBUF : component is "BLACK_BOX";
    
-   component PULLDOWN
+   component PULLUP
       port ( O : out   std_logic);
    end component;
-   attribute BOX_TYPE of PULLDOWN : component is "BLACK_BOX";
+   attribute BOX_TYPE of PULLUP : component is "BLACK_BOX";
    
 begin
    XLXI_22 : Wing_GPIO
@@ -488,11 +488,11 @@ begin
                 WING_DL7=>Arduino_39);
    
    XLXI_45 : OBUF
-      port map (I=>XLXN_456,
+      port map (I=>XLXN_457,
                 O=>ARD_RESET);
    
-   XLXI_47 : PULLDOWN
-      port map (O=>XLXN_456);
+   XLXI_48 : PULLUP
+      port map (O=>XLXN_457);
    
 end BEHAVIORAL;
 
