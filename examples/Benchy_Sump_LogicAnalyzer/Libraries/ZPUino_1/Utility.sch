@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drawing version="7">
-    <attr value="spartan3e" name="DeviceFamilyName">
+    <attr value="spartan6" name="DeviceFamilyName">
         <trait delete="all:0" />
         <trait editname="all:0" />
         <trait edittrait="all:0" />
@@ -84,6 +84,14 @@
         <signal name="XLXN_328(7:0)" />
         <signal name="XLXN_325(7:0)" />
         <signal name="XLXN_326(7:0)" />
+        <signal name="XLXN_337" />
+        <signal name="XLXN_338" />
+        <signal name="XLXN_339" />
+        <signal name="sram_data(7:0)" />
+        <signal name="sram_ce" />
+        <signal name="sram_we" />
+        <signal name="sram_oe" />
+        <signal name="sram_addr(18:0)" />
         <port polarity="Output" name="LED" />
         <port polarity="Output" name="DRAM_DQM(1:0)" />
         <port polarity="Output" name="DRAM_BA(1:0)" />
@@ -150,6 +158,14 @@
         <port polarity="BiDirectional" name="WING_CH5" />
         <port polarity="BiDirectional" name="WING_CH6" />
         <port polarity="BiDirectional" name="WING_CH7" />
+        <port polarity="Input" name="XLXN_337" />
+        <port polarity="Input" name="XLXN_338" />
+        <port polarity="Input" name="XLXN_339" />
+        <port polarity="BiDirectional" name="sram_data(7:0)" />
+        <port polarity="Output" name="sram_ce" />
+        <port polarity="Output" name="sram_we" />
+        <port polarity="Output" name="sram_oe" />
+        <port polarity="Output" name="sram_addr(18:0)" />
         <blockdef name="Wing_GPIO">
             <timestamp>2013-11-27T0:38:36</timestamp>
             <rect width="160" x="0" y="-128" height="128" />
@@ -516,5 +532,39 @@
         </branch>
         <rect width="456" x="1400" y="800" height="1760" />
         <text style="fontsize:40;fontname:Arial" x="1496" y="2524">GPIO Wings</text>
+        <branch name="XLXN_337">
+            <wire x2="736" y1="1360" y2="1360" x1="704" />
+        </branch>
+        <branch name="XLXN_338">
+            <wire x2="736" y1="1296" y2="1296" x1="704" />
+        </branch>
+        <branch name="XLXN_339">
+            <wire x2="736" y1="1232" y2="1232" x1="704" />
+        </branch>
+        <branch name="sram_data(7:0)">
+            <wire x2="736" y1="1456" y2="1456" x1="704" />
+        </branch>
+        <branch name="sram_ce">
+            <wire x2="736" y1="1520" y2="1520" x1="704" />
+        </branch>
+        <branch name="sram_we">
+            <wire x2="736" y1="1552" y2="1552" x1="704" />
+        </branch>
+        <branch name="sram_oe">
+            <wire x2="736" y1="1584" y2="1584" x1="704" />
+        </branch>
+        <branch name="sram_addr(18:0)">
+            <wire x2="736" y1="1488" y2="1488" x1="704" />
+        </branch>
+        <iomarker fontsize="28" x="704" y="1360" name="XLXN_337" orien="R180" />
+        <iomarker fontsize="28" x="704" y="1296" name="XLXN_338" orien="R180" />
+        <iomarker fontsize="28" x="704" y="1232" name="XLXN_339" orien="R180" />
+        <iomarker fontsize="28" x="704" y="1456" name="sram_data(7:0)" orien="R180" />
+        <iomarker fontsize="28" x="704" y="1520" name="sram_ce" orien="R180" />
+        <iomarker fontsize="28" x="704" y="1552" name="sram_we" orien="R180" />
+        <iomarker fontsize="28" x="704" y="1584" name="sram_oe" orien="R180" />
+        <iomarker fontsize="28" x="704" y="1488" name="sram_addr(18:0)" orien="R180" />
+        <rect width="728" x="256" y="1168" height="536" />
+        <text style="fontsize:40;fontname:Arial" x="276" y="1644">Left Side Connections for Papilio DUO</text>
     </sheet>
 </drawing>
