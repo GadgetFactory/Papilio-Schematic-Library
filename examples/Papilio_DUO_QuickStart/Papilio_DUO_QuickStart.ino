@@ -81,16 +81,20 @@ void setup() {
     pinMode(buttonPins[thisPin], INPUT);      
   }  
   
-  pinMode(13, OUTPUT);
+  //Free up ISP pins
+  pinMode(10, INPUT);
+  pinMode(11, INPUT);
+  pinMode(12, INPUT);
+  pinMode(13, INPUT);
   
-  //Delay for 3 seconds to prevent detection as a serial mouse.
-  delay(3000);
+  //Delay for 5 seconds to prevent detection as a Micorsoft Serial BallPoint serial mouse.
+  delay(5000);
   
   //Setup Serial port and send out Title
   Serial.begin(9600); 
 
   // prints title with ending line break 
-  Serial.println("ASCII Table ~ Character Map"); 
+  Serial.println("Papilio DUO Quick Start V1.0 - ASCII Table ~ Character Map"); 
 }
 
 void loop(){
@@ -150,5 +154,5 @@ void loop(){
       digitalWrite(ledPins[thisPin], ledState); 
     }
   }
-  digitalWrite(13,ledState);  //For LED1
+  //digitalWrite(13,ledState);  //For LED1
 }
