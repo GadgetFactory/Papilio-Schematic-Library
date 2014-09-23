@@ -1,0 +1,3 @@
+MODULE Papilio_DUO_LX9
+	SUBMODULE Wishbone_Symbol_Example
+		INSTANCE XLXI_51
