@@ -17,7 +17,11 @@ architecture sim of Simulate_Your_CCL_Design is
 	COMPONENT Wishbone_Symbol_Example
 	PORT(
 		wishbone_in : IN std_logic_vector(61 downto 0);          
-		wishbone_out : OUT std_logic_vector(33 downto 0)
+		wishbone_out : OUT std_logic_vector(33 downto 0);
+		
+		--Put your custom external connections here
+		buttons : IN std_logic_vector(3 downto 0);          
+		leds : OUT std_logic_vector(3 downto 0)
 		);
 	END COMPONENT;
 
@@ -32,11 +36,16 @@ architecture sim of Simulate_Your_CCL_Design is
   signal wb_in:   std_logic_vector(61 downto 0);
   signal wb_out:   std_logic_vector(33 downto 0);
   
+  signal wb_dat_o_dly:   std_logic_vector(31 downto 0);
+  
+  --Define your Register addresses here
   constant REGISTER0_ADDR:   std_logic_vector(31 downto 0) := x"00000000";
   constant REGISTER1_ADDR:   std_logic_vector(31 downto 0) := x"00000001";
   constant REGISTER2_ADDR:   std_logic_vector(31 downto 0) := x"00000002";
-
-  signal wb_dat_o_dly:   std_logic_vector(31 downto 0);
+  
+  --Define your external connections here
+  signal buttons: 	std_logic_vector(3 downto 0) := "1010";
+  signal leds: 		std_logic_vector(3 downto 0);
 
 begin
 
@@ -54,7 +63,10 @@ begin
 
 	Inst_Wishbone_Symbol_Example: Wishbone_Symbol_Example PORT MAP(
 		wishbone_in => wb_in,
-		wishbone_out => wb_out
+		wishbone_out => wb_out,
+		--Define your external connections here
+		buttons => buttons,
+		leds => leds
 	);
 	
   wb_in(61) <= clk;
@@ -118,17 +130,30 @@ begin
 	
 	-- Test register R/W
 	-- Read and write to the Wishbone Bus
+	-- Write to the LEDs
 		wbwrite( REGISTER0_ADDR, x"aaaaaaaa");
 		wbwrite( REGISTER0_ADDR, x"00000000");
 		wbwrite( REGISTER0_ADDR, x"00000001");
 		wbwrite( REGISTER0_ADDR, x"00000002");
 		wbwrite( REGISTER0_ADDR, x"00000003");
 		wbwrite( REGISTER0_ADDR, x"00000004");
+		wait for 100 ns;
+	-- Read the buttons
+		buttons <= "1010";							--Set the buttons first
+		wbread( REGISTER1_ADDR, r );   
+		assert( r(8 downto 0) = "1010");			--Check to see if the result is what we expect.	
+		wait for 100ns; 
+		buttons <= "1111";							--Set the buttons first
+		wbread( REGISTER1_ADDR, r );   
+		assert( r(8 downto 0) = "1111");			--Check to see if the result is what we expect.	
+		wait for 100ns; 
+		buttons <= "0000";							--Set the buttons first
+		wbread( REGISTER1_ADDR, r );   
+		assert( r(8 downto 0) = "0000");			--Check to see if the result is what we expect.		
 		wait for 200 ns;
-		wbwrite( REGISTER1_ADDR, x"55555555");
+		wbwrite( REGISTER2_ADDR, x"55555555");
 		wait for 200 ns;
-		wbread( REGISTER2_ADDR, r );   
-		assert( r(8 downto 0) = x"aa");			--Check to see if the result is what we expect.
+
 
     wait for 200 ns;
     report "Finsihed" severity failure;
