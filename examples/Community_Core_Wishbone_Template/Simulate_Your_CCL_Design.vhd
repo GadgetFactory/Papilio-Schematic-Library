@@ -3,11 +3,11 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
-entity wishbone_testbench is
+entity Simulate_Your_CCL_Design is
 end entity;
 
 
-architecture sim of wishbone_testbench is
+architecture sim of Simulate_Your_CCL_Design is
 
   constant period: time := 10 ns;
 
@@ -119,6 +119,11 @@ begin
 	-- Test register R/W
 	-- Read and write to the Wishbone Bus
 		wbwrite( REGISTER0_ADDR, x"aaaaaaaa");
+		wbwrite( REGISTER0_ADDR, x"00000000");
+		wbwrite( REGISTER0_ADDR, x"00000001");
+		wbwrite( REGISTER0_ADDR, x"00000002");
+		wbwrite( REGISTER0_ADDR, x"00000003");
+		wbwrite( REGISTER0_ADDR, x"00000004");
 		wait for 200 ns;
 		wbwrite( REGISTER1_ADDR, x"55555555");
 		wait for 200 ns;

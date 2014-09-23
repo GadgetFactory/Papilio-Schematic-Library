@@ -18,6 +18,6 @@
         </block>
     </netlist>
     <sheet sheetnum="1" width="1760" height="1360">
-        <instance x="706" y="680" name="XLXI_48" orien="R0" />
+        <instance x="704" y="688" name="XLXI_48" orien="R0" />
     </sheet>
 </drawing>
