@@ -61,7 +61,7 @@ begin
     wait;
   end process;
 
-	Inst_Wishbone_Symbol_Example: Wishbone_Symbol_Example PORT MAP(
+	uut: Wishbone_Symbol_Example PORT MAP(
 		wishbone_in => wb_in,
 		wishbone_out => wb_out,
 		--Define your external connections here

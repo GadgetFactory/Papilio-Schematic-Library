@@ -10,7 +10,7 @@
         <rect width="112" x="52" y="-64" height="64" />
         <line x2="96" y1="-112" y2="-64" x1="96" />
         <line x2="112" y1="-112" y2="-64" x1="112" />
-        <text style="fontsize:32;fontname:Arial" x="-28" y="24">Wishbone Example</text>
+        <text style="fontsize:32;fontname:Arial" x="-28" y="24">Wishbone_Symbol_Example</text>
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="56" y="-48" type="pin buttons" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="164" y="-16" type="pin leds" />
         <line x2="52" y1="-48" y2="-48" x1="0" />

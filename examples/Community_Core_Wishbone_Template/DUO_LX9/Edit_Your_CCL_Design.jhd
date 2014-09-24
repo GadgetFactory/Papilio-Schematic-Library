@@ -1,3 +1,0 @@
-MODULE Edit_Your_CCL_Design
-	SUBMODULE Wishbone_Symbol_Example
-		INSTANCE XLXI_48
