@@ -24,6 +24,7 @@ close $out
 # move the new data to the proper filename
 #file link -hard $backup $filename
 #file rename -force $temp $filename 
+file rename -force $filename $backup
 file rename -force $temp [lindex $argv 0].sym
 
 #Generate the new VHDL file
@@ -51,6 +52,7 @@ close $out
 # move the new data to the proper filename
 #file link -hard $backup $filename
 #file rename -force $temp $filename 
+file rename -force $filename $backup
 file rename -force $temp [lindex $argv 0].vhd
 
 #Update the sch file
