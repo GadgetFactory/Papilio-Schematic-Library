@@ -1,5 +1,5 @@
-#set lib_path "d:/Dropbox/GadgetFactory/GadgetFactory_Engineering/ZAP--ZPUino-Arduino-Papilio--IDE/build/windows/work/examples/00.Papilio_Schematic_Library/Libraries"
-set lib_path "D:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/Libraries"
+set lib_path "d:/Dropbox/GadgetFactory/GadgetFactory_Engineering/ZAP--ZPUino-Arduino-Papilio--IDE/build/windows/work/examples/00.Papilio_Schematic_Library/Libraries"
+#set lib_path "D:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/Libraries"
 
 set xilinx_projects [glob -nocomplain -type f *.xise]
 
