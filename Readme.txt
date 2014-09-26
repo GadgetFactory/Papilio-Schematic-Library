@@ -4,6 +4,9 @@ Papilio SOC Home Page
 http://papilio.cc
 
 CHANGELOG
+9/26/2014 Version 1.8
+	-Went back to a shared library folder. Removed all individual library folders.
+
 8/28/2014 Version 1.7
 	-Added Papilio DUO to the library.
 
