@@ -1,21 +1,27 @@
 #set lib_path "d:/Dropbox/GadgetFactory/GadgetFactory_Engineering/ZAP--ZPUino-Arduino-Papilio--IDE/build/windows/work/examples/00.Papilio_Schematic_Library/Libraries"
 set lib_path "D:/Dropbox/GadgetFactory/GadgetFactory_Engineering/Papilio-Schematic-Library/Libraries"
 
-project open PSL_Papilio_Pro_LX9.xise
+set xilinx_projects [glob -nocomplain -type f *.xise]
 
-lib_vhdl delete benchy
-lib_vhdl delete board
-lib_vhdl delete wishbone
-lib_vhdl delete zpuino
+foreach i $xilinx_projects {
 
-lib_vhdl new benchy
-lib_vhdl new board
-lib_vhdl new wishbone
-lib_vhdl new zpuino
+	project open $i
 
-xfile add $lib_path/Benchy/*.vhd -lib_vhdl benchy
-xfile add $lib_path/ZPUino_1/board_Papilio_Pro/*.vhd -lib_vhdl board
-xfile add $lib_path/Wishbone_Peripherals/*.vhd -lib_vhdl wishbone
-xfile add $lib_path/ZPUino_1/*.vhd -lib_vhdl zpuino
+	lib_vhdl delete benchy
+	lib_vhdl delete board
+	lib_vhdl delete wishbone
+	lib_vhdl delete zpuino
 
-project close
+	lib_vhdl new benchy
+	lib_vhdl new board
+	lib_vhdl new wishbone
+	lib_vhdl new zpuino
+
+	xfile add $lib_path/Benchy/*.vhd -lib_vhdl benchy
+	xfile add $lib_path/ZPUino_1/board_Papilio_Pro/*.vhd -lib_vhdl board
+	xfile add $lib_path/Wishbone_Peripherals/*.vhd -lib_vhdl wishbone
+	xfile add $lib_path/ZPUino_1/*.vhd -lib_vhdl zpuino
+
+	project close
+
+}
