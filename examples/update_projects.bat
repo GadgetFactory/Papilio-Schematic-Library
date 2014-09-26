@@ -5,6 +5,7 @@ for /f %%F in ('dir /AD /b  ^| findstr /vile "Template_PSL_Base"') do if exist "
 for /f %%F in ('dir /AD /b  ^| findstr /vile "Template_PSL_Base"') do if exist "%%F"\*.xise copy Template_PSL_Base\clean.bat "%%F"\*
 for /f %%F in ('dir /AD /b  ^| findstr /vile "Template_PSL_Base"') do if exist "%%F"\*.xise copy Template_PSL_Base\build_all.bat "%%F"\*
 for /f %%F in ('dir /AD /b  ^| findstr /vile "Template_PSL_Base"') do if exist "%%F"\*.xise copy Template_PSL_Base\import_libraries.xtcl "%%F"\*
+for /f %%F in ('dir /AD /b  ^| findstr /vile "Template_PSL_Base"') do if exist "%%F"\*.xise copy Template_PSL_Base\import_user_libraries.xtcl "%%F"\*
 
 REM Update library files - Not needed anymore
 REM for /f %%F in ('dir /AD /b') do xcopy ..\Libraries "%%F"\Libraries\ /E /Y
