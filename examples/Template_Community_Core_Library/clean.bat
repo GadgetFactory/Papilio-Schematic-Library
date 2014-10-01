@@ -69,3 +69,9 @@ if exist DUO_LX9 (
 	for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles rebuild LX9 500K 250K"') do rmdir /q /s "%%F"
 	cd ..
 )
+if exist CCL_Designer (
+	cd CCL_Designer
+	for /f %%F in ('dir /b /a-d ^| findstr /vile ".sch .xise .bit .bat .sym .vhd .pdf .ino .cmd_log .cmd .xst .prj .vhf .ut .html .wcfg"') do del "%%F"
+	for /f %%F in ('dir /b  ^| findstr /vile "Sketch saved_bitfiles rebuild LX9 500K 250K"') do rmdir /q /s "%%F"
+	cd ..
+)
