@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Papilio_DUO_LX9.vhf
--- /___/   /\     Timestamp : 09/18/2014 00:25:04
+-- /___/   /\     Timestamp : 10/06/2014 15:17:59
 -- \   \  /  \ 
 --  \___\/\___\ 
 --

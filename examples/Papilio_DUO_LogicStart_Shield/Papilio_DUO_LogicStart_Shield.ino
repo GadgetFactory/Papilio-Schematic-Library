@@ -29,7 +29,7 @@
  Papilio Pro
    Click to program bit file: sketchdir://LX9/papilio_pro.bit
    Click to view schematic:   sketchdir://schematic_papilio_pro.pdf
-   Click to modify schematic: sketchdir://PSL_Papilio_Pro_LX9.xise
+   Click to modify schematic: sketchdir://PSL_Papilio_DUO_LX9.xise
    
  Papilio One 500K - NOTE: There is not enough code space for the mod file playback
    Click to program bit file: sketchdir://500K/papilio_one_500k.bit
@@ -58,34 +58,31 @@
 
 #define FREQ 17000          //Freq for all players 
 
-#define LS_JOY_RIGHT WB11
-#define LS_JOY_LEFT  WB12
-#define LS_JOY_DOWN  WB13
-#define LS_JOY_UP    WB14
-#define LS_JOY_SELECT WB15
+#define LS_JOY_RIGHT 10
+#define LS_JOY_LEFT  13
+#define LS_JOY_DOWN  12
+#define LS_JOY_UP    11
 
 #include "VGA.h"
 #include <SevenSegHW.h>
-#include "SPIADC.h"
-#include "SPI.h"
+//#include "SPIADC.h"
+//#include "SPI.h"
 
-#ifdef __ZPUINO_PAPILIO_PRO__
   #include <SD.h>
   #include "SmallFS.h"
   #include "modplayer.h"
   #include "ramFS.h"
   #include "cbuffer.h"
   MODPLAYER modplayer;
-#endif
 
 SEVENSEGHW sevenseg;
 
 int ledPins[] = { 
-  WC8, WC9, WC10, WC11, WC12, WC13, WC14, WC15  };       // an array of pin numbers to which LEDs are attached
+  48, 50, 52, 5, 6, 7, 8, 9  };       // an array of pin numbers to which LEDs are attached
 int ledCount = 8;           // the number of pins (i.e. the length of the array)
 
 int switchPins[] = { 
-  WC0, WC1, WC2, WC3, WC4, WC5, WC6, WC7 };       // an array of pin numbers to which Buttons are attached
+  0, 1, 2, 3, 4, 42, 44, 46 };       // an array of pin numbers to which Buttons are attached
 int switchCount = 8;           // the number of pins (i.e. the length of the array)
 
 int buttonState = 0;         // variable for reading the pushbutton status
@@ -102,7 +99,6 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   
-#ifdef __ZPUINO_PAPILIO_PRO__
    //Start SmallFS
   if (SmallFS.begin()<0) {
 	Serial.println("No SmalLFS found.");
@@ -116,7 +112,6 @@ void setup() {
 
   modplayer.loadFile("music.mod");
   modplayer.play(true);  
-#endif  
   
  //Setup timer for YM and mod players, this generates an interrupt at 1700hz
   TMR0CTL = 0;
@@ -151,8 +146,8 @@ void setup() {
   VGA.printtext(15,100, "Hello World BLACK"); 
   
   sevenseg.begin(11);
-  sevenseg.setBrightness(15);
-  sevenseg.setHexValue(0000);
+  sevenseg.setBrightness(8);
+  sevenseg.setHexValue(0x8888);
   
   // initialize the LED pins as an output:
   for (int thisPin = 0; thisPin < ledCount; thisPin++)  {
@@ -163,19 +158,14 @@ void setup() {
   for (int thisPin = 0; thisPin < ledCount; thisPin++)  {
     pinMode(switchPins[thisPin], INPUT);      
   }    
-  
-  //Start SPI ADC for analog input
-  analog.begin(CS(12),WISHBONESLOT(6),ADCBITS(SPIADC_12BIT));
-  
+    
 }
 
-#ifdef __ZPUINO_PAPILIO_PRO__
 void _zpu_interrupt()
 {
   //Interrupt runs at 17KHz
   modplayer.zpu_interrupt();
 }
-#endif 
 
 
 void chanUpdate()
@@ -192,10 +182,10 @@ void chanUpdate()
 
 void loop() {
   // put your main code here, to run repeatedly: 
-#ifdef __ZPUINO_PAPILIO_PRO__
+
   if (modplayer.getPlaying() == 1)
     modplayer.audiofill();
-#endif     
+   
     
   //Handle LED's and Switches
   for (int thisPin = 0; thisPin < switchCount; thisPin++)  {
@@ -217,37 +207,37 @@ void loop() {
   //Handle joystick and reading SPI ADC
   if ((extcnt & 0x17) == 0) {
 
-    if (!digitalRead(LS_JOY_SELECT)) {
-      sevenseg.setHexValue(0x8888);
-    } else {
-      if (timeout==0) {
-        if (mode==0) {
-          if ((cnt & 0x3F)==0)
-            sevenseg.setIntValue(analog.read(channel),1);
-          } else {
-            sevenseg.setIntValue(cnt,0);
-          }
-        }
-      }
+//    if (!digitalRead(LS_JOY_SELECT)) {
+//      sevenseg.setHexValue(0x8888);
+//    } else {
+//      if (timeout==0) {
+//        if (mode==0) {
+//          if ((cnt & 0x3F)==0)
+//            sevenseg.setIntValue(analog.read(channel),1);
+//          } else {
+//            sevenseg.setIntValue(cnt,0);
+//          }
+//        }
+//      }
 
     /* Check for mode change */
-    if (!digitalRead(LS_JOY_LEFT))
-      mode=0;
-    else if (!digitalRead(LS_JOY_RIGHT))
-      mode=1;
-
-    if (timeout==0) {
-      if (!digitalRead(LS_JOY_UP)) {
-        if (channel<7)
-          channel++;
-          /* Print something and add timeout */
-          chanUpdate();
-        } else if (!digitalRead(LS_JOY_DOWN)) {
-          if (channel!=0)
-            channel--;
-            chanUpdate();
-          }
-    }
+//    if (!digitalRead(LS_JOY_LEFT))
+//      mode=0;
+//    else if (!digitalRead(LS_JOY_RIGHT))
+//      mode=1;
+//
+//    if (timeout==0) {
+//      if (!digitalRead(LS_JOY_UP)) {
+//        if (channel<7)
+//          channel++;
+//          /* Print something and add timeout */
+//          //chanUpdate();
+//        } else if (!digitalRead(LS_JOY_DOWN)) {
+//          if (channel!=0)
+//            channel--;
+//            //chanUpdate();
+//          }
+//    }
         cnt++;
   }
       extcnt++;

@@ -7,18 +7,18 @@
     </attr>
     <netlist>
         <blockdef name="Wishbone_Symbol_Example">
-            <timestamp>2014-9-23T22:28:13</timestamp>
-            <rect width="112" x="52" y="-64" height="64" />
-            <line x2="96" y1="-112" y2="-64" x1="96" />
-            <line x2="112" y1="-112" y2="-64" x1="112" />
+            <timestamp>2014-10-1T6:28:8</timestamp>
+            <rect width="160" x="52" y="-64" height="64" />
             <line x2="52" y1="-48" y2="-48" x1="0" />
-            <line x2="208" y1="-16" y2="-16" x1="164" />
+            <line x2="256" y1="-16" y2="-16" x1="212" />
+            <line x2="128" y1="-112" y2="-64" x1="128" />
+            <line x2="144" y1="-112" y2="-64" x1="144" />
         </blockdef>
         <block symbolname="Wishbone_Symbol_Example" name="XLXI_48">
+            <blockpin name="buttons(3:0)" />
+            <blockpin name="leds(3:0)" />
             <blockpin name="wishbone_in(61:0)" />
             <blockpin name="wishbone_out(33:0)" />
-            <blockpin name="buttons" />
-            <blockpin name="leds" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="1760" height="1360">

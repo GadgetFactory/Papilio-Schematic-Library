@@ -264,7 +264,7 @@
             <line x2="64" y1="-32" y2="-48" x1="64" />
         </blockdef>
         <blockdef name="LogicStart_Shield_Pinout">
-            <timestamp>2014-9-18T5:6:26</timestamp>
+            <timestamp>2014-10-1T22:3:36</timestamp>
             <rect width="432" x="64" y="-1808" height="2104" />
             <rect width="188" x="308" y="-1452" height="272" />
             <rect width="188" x="308" y="-1168" height="280" />

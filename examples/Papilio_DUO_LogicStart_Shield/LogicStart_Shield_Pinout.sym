@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="LogicStart_Shield_Pinout">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2014-9-18T5:6:26</timestamp>
+    <timestamp>2014-10-1T22:3:36</timestamp>
     <pin polarity="Input" x="0" y="-1760" name="gpio_bus_out(165:0)" />
     <pin polarity="Output" x="0" y="-1776" name="gpio_bus_in(109:0)" />
     <pin polarity="BiDirectional" x="560" y="-1712" name="WING_AL0" />
@@ -180,12 +180,6 @@
         <text style="fontsize:24;fontname:Arial" x="324" y="-784">GPIO0</text>
         <text style="fontsize:24;fontname:Arial" x="324" y="-816">SEG7_SEG_D</text>
         <text style="fontsize:24;fontname:Arial" x="324" y="-848">SEG7_SEG_P</text>
-        <text style="fontsize:24;fontname:Arial" x="312" y="240">VGA_HSYNC</text>
-        <text style="fontsize:24;fontname:Arial" x="312" y="208">VGA_VSYNC</text>
-        <text style="fontsize:24;fontname:Arial" x="312" y="176">VGA_BLUE0</text>
-        <text style="fontsize:24;fontname:Arial" x="312" y="80">VGA_BLUE1</text>
-        <text style="fontsize:24;fontname:Arial" x="312" y="48">VGA_BLUE2</text>
-        <text style="fontsize:24;fontname:Arial" x="312" y="16">VGA_BLUE3</text>
         <text style="fontsize:24;fontname:Arial" x="432" y="-1644">SW2</text>
         <text style="fontsize:24;fontname:Arial" x="432" y="-1680">SW1</text>
         <text style="fontsize:24;fontname:Arial" x="432" y="-1612">SW3</text>
@@ -201,35 +195,41 @@
         <text style="fontsize:24;fontname:Arial" x="424" y="-1388">LED7</text>
         <text style="fontsize:24;fontname:Arial" x="356" y="-1360">DIR_RIGHT</text>
         <rect width="188" x="308" y="-588" height="276" />
-        <text style="fontsize:24;fontname:Arial" x="324" y="-1136">SEG7_SEG_B</text>
-        <text style="fontsize:24;fontname:Arial" x="324" y="-1100">SEG7_SEG_G</text>
-        <text style="fontsize:24;fontname:Arial" x="324" y="-1072">SEG7_SEG_C</text>
-        <text style="fontsize:24;fontname:Arial" x="324" y="-1040">SEG7_SEG_F</text>
-        <text style="fontsize:22;fontname:Arial" x="328" y="-1008">SEG7_SEG_A</text>
-        <text style="fontsize:22;fontname:Arial" x="328" y="-976">SEG7_SEG_E</text>
-        <text style="fontsize:22;fontname:Arial" x="316" y="-944">AUDIO1_RIGHT</text>
-        <text style="fontsize:22;fontname:Arial" x="332" y="-912">AUDIO1_LEFT</text>
         <text style="fontsize:24;fontname:Arial" x="356" y="-336">LED2</text>
         <text style="fontsize:24;fontname:Arial" x="356" y="-368">LED1</text>
         <text style="fontsize:24;fontname:Arial" x="356" y="-400">LED0</text>
         <text style="fontsize:24;fontname:Arial" x="356" y="-432">SW7</text>
         <text style="fontsize:24;fontname:Arial" x="356" y="-464">SW6</text>
         <text style="fontsize:24;fontname:Arial" x="356" y="-496">SW5</text>
-        <text style="fontsize:24;fontname:Arial" x="356" y="-528">SEG7_AN2</text>
+        <text style="fontsize:24;fontname:Arial" x="356" y="-528">SEG7_AN0</text>
         <text style="fontsize:24;fontname:Arial" x="356" y="-560">SEG7_AN1</text>
         <rect width="188" x="308" y="-300" height="276" />
-        <text style="fontsize:24;fontname:Arial" x="320" y="-240">VGA_RED1</text>
-        <text style="fontsize:24;fontname:Arial" x="320" y="-272">VGA_RED0</text>
-        <text style="fontsize:24;fontname:Arial" x="320" y="-208">VGA_RED2</text>
-        <text style="fontsize:24;fontname:Arial" x="320" y="-176">VGA_RED3</text>
-        <text style="fontsize:24;fontname:Arial" x="320" y="-144">VGA_GREEN3</text>
-        <text style="fontsize:24;fontname:Arial" x="320" y="-112">VGA_GREEN2</text>
-        <text style="fontsize:24;fontname:Arial" x="320" y="-80">VGA_GREEN1</text>
-        <text style="fontsize:24;fontname:Arial" x="320" y="-48">VGA_GREEN0</text>
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="280" y="-1784" type="pin gpio_bus_in(109:0)" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-192" type="pin Audio_Right" />
         <line x2="0" y1="-192" y2="-192" x1="64" />
         <rect width="148" x="64" y="-280" height="112" />
         <text style="fontsize:32;fontname:Arial" x="72" y="-304">Audio</text>
+        <text style="fontsize:22;fontname:Arial" x="332" y="-1132">AUDIO1_LEFT</text>
+        <text style="fontsize:22;fontname:Arial" x="316" y="-1100">AUDIO1_RIGHT</text>
+        <text style="fontsize:22;fontname:Arial" x="336" y="-1068">SEG7_SEG_E</text>
+        <text style="fontsize:22;fontname:Arial" x="340" y="-1036">SEG7_SEG_A</text>
+        <text style="fontsize:24;fontname:Arial" x="328" y="-1004">SEG7_SEG_F</text>
+        <text style="fontsize:24;fontname:Arial" x="328" y="-972">SEG7_SEG_C</text>
+        <text style="fontsize:24;fontname:Arial" x="328" y="-940">SEG7_SEG_G</text>
+        <text style="fontsize:24;fontname:Arial" x="328" y="-908">SEG7_SEG_B</text>
+        <text style="fontsize:24;fontname:Arial" x="316" y="-268">VGA_HSYNC</text>
+        <text style="fontsize:24;fontname:Arial" x="316" y="-236">VGA_VSYNC</text>
+        <text style="fontsize:24;fontname:Arial" x="320" y="-204">VGA_BLUE0</text>
+        <text style="fontsize:24;fontname:Arial" x="316" y="-112">VGA_BLUE1</text>
+        <text style="fontsize:24;fontname:Arial" x="316" y="-76">VGA_BLUE2</text>
+        <text style="fontsize:24;fontname:Arial" x="320" y="-44">VGA_BLUE3</text>
+        <text style="fontsize:24;fontname:Arial" x="316" y="20">VGA_GREEN0</text>
+        <text style="fontsize:24;fontname:Arial" x="320" y="52">VGA_GREEN1</text>
+        <text style="fontsize:24;fontname:Arial" x="320" y="84">VGA_GREEN2</text>
+        <text style="fontsize:24;fontname:Arial" x="320" y="116">VGA_GREEN3</text>
+        <text style="fontsize:24;fontname:Arial" x="320" y="148">VGA_RED3</text>
+        <text style="fontsize:24;fontname:Arial" x="324" y="180">VGA_RED2</text>
+        <text style="fontsize:24;fontname:Arial" x="328" y="212">VGA_RED1</text>
+        <text style="fontsize:24;fontname:Arial" x="324" y="244">VGA_RED0</text>
     </graph>
 </symbol>
